@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Task Master</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Task Master</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <!--
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                -->
+
+
+                <li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">Login</button>
+
+                    <div class="dropdown-menu" style="padding: 10px; background: #ddd">
+                        <form action="" role="form">
+                            <div class="form-group">
+                                <label for="user">User</label>
+                                <input type="text" class="form-control" id="user" placeholder="User" />
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password" />
+                            </div>
+                            <button type="submit" class="btn btn-default">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Search bar-->
+    <div class="container">
+        <div class="row">
+            <div id="custom-search-input">
+                <select title="search in">
+                    <option>Food</option>
+                    <option>Car</option>
+                    <option>Lawn</option>
+                </select>
+
+                <div class="input-group col-md-12">
+
+                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+</body>
+</html>
