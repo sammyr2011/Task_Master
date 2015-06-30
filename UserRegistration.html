@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-<style>
+    <style>
         /* Sticky footer styles
         -------------------------------------------------- */
 
@@ -108,11 +108,11 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="CreateTask.html">Create Task</a></li>
+                    <li ><a href="#">Create Task</a></li>
                     <li><a href="#">View Tasks</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="UserRegistration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     <!--
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     -->
@@ -186,101 +186,157 @@
                     <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
 
                         <!-- Form Name -->
-                        <legend>Task Creation</legend>
+                        <legend>User Registration</legend>
 
                         <br>
 
-                        <!-- Text input-->
-                            <div class="control-group">
-                                <label class="control-label" for="textinput">Text Input</label>
-                                <div class="controls">
-                                    <input id="textinput" name="textinput" type="text" placeholder="title" class="input-xlarge form-control">
-
-                                </div>
-                            </div>
-
-
-
-                            <!-- Textarea -->
-                            <div class="control-group">
-                                <label class="control-label" for="description">Task Description</label>
-                                <div class="controls">
-                                    <textarea id="description" name="description" placeholder="Describe task..." class="form-control"></textarea>
-                                </div>
-                            </div>
-
-
-                            <!-- Select Multiple -->
-                            <div class="control-group">
-                                <label class="control-label" for="selectcategory">Select Task Category</label>
-                                <div class="controls">
-                                    <select id="selectcategory" name="selectcategory" class="input-xlarge form-control" multiple="multiple">
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <!-- input amount willing to pay-->
-                            <br>
-                            <p><b>Initial Task Pay</b></p>
-                            <div class="input-group">
-                                <span class="input-group-addon">$</span>
-                                <input type="text" class="form-control" placeholder="US Dollar">
-                                <span class="input-group-addon">.00</span>
-                            </div>
-
+                     <!--Split first name and last name-->
+                        <div class="col-md-6 col-sm-6">
 
                             <!-- Text input-->
-<!--                            <div class="control-group">
-                                <label class="control-label" for="tags">Related Keywords</label>
+                            <div class="control-group">
+                                <label class="control-label" for="Fname">First Name</label>
                                 <div class="controls">
-                                    <input id="tags" name="tags" type="text" placeholder="keywords" class="input-xlarge form-control" required="">
-
-                                    <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="popover" data-placement="left" title data-content="Input words separated by spaces that relate to the task">
-                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                                    </button>
+                                    <input id="Fname" name="textinput" type="text" placeholder="First Name" class="input-xlarge form-control">
                                 </div>
-                            </div>-->
-                        
-
-                        <br>
-
-
-
-                        <div id="custom-search-input">
-                            <label class="control-label">Related Keywords</label>
-                            <div class="input-group col-md-12 col-sm-12">
-
-                                <input type="text" class="  search-query form-control" placeholder="keywords" />
-                                <span class="input-group-btn">
-                                    <button class="btn" type="button">
-                                        <span class=" glyphicon glyphicon-question-sign"></span>
-                                    </button>
-                                </span>
                             </div>
+
                         </div>
 
-                        <br>
+                        <div class="col-md-6 col-sm-6">
 
-                        <!--  Think about changing type to date rather than using text and the JQuery datepicker-->
-                         <!-- Select End Date-->
-                        <p><b>End Bidding Date:</b> <input type="text" id="datepicker" placeholder="Click Here" class="form-control"></p>
+                            <!-- Text input-->
+                            <div class="control-group">
+                                <label class="control-label" for="Lname">Last Name</label>
+                                <div class="controls">
+                                    <input id="Lname" name="textinput" type="text" placeholder="Last Name" class="input-xlarge form-control">
 
-                        <!-- When to have the job done by-->
-                        <p><b>Task Completion Date:</b> <input type="text" id="datepicker2" placeholder="Click Here" class="form-control"></p>
+                                </div>
+                            </div>
 
-                         <!-- File Button -->
+                        </div>
+
                         <div class="control-group">
-                            <label class="control-label" for="imageinput">Select Images</label>
+                            <label class="control-label" for="StreetAddress">Street Address</label>
                             <div class="controls">
-                                <input id="imageinput" name="imageinput" class="input-file" type="file" multiple="true">
+                                <input id="StreetAddress" name="textinput" type="text" placeholder="Address" class="input-xlarge form-control">
+
                             </div>
                         </div>
 
-                        <br><br>
+                        <div class="col-md-6 col-sm-6">
+                            <!-- City -->
+                            <div class="control-group">
+                                <label class="control-label" for="City">City: </label>
+                                <div class="controls">
+                                    <input id="City" name="textinput" type="text" placeholder="City" class="input-xlarge form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3">
+                            <!-- State -->
+                            <div class="control-group">
+                                <label class="control-label" for="state">State: <span>*</span></label><br/>
+                                <select name="state" class="form-control" id="state">
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="DC">DC</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UT</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WY">WY</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-3">
+                            <div class="control-group">
+                                <label class="control-label" for="Zip">Zip Code: </label>
+                                <div class="controls">
+                                    <input id="Zip" name="ZipCode" type="text" placeholder="Zip Code" class="input-xlarge form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="UserEmail">Email: </label>
+                                <div class="controls">
+                                    <input id="UserEmail" name="Email" type="email" placeholder="Email" class="input-xlarge form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="passwordreg">Password: </label>
+                                <div class="controls">
+                                    <input id="passwordreg" name="Email" type="password" placeholder="Password" class="input-xlarge form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="passwordRegVerify">Confirm Password: </label>
+                                <div class="controls">
+                                    <input id="passwordRegVerify" name="Email" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
+
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="col-md-6 col-sm-6 text-right">
                             <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Submit</button>
@@ -295,19 +351,8 @@
                     <!-- Help side div-->
                     <div class="col-md-4 col-sm-4">
                         <p>Welcome to the Task Creation page.  Congratulations you have taken
-                        the first step to having your task completed by a Task Master.</p><br>
+                            the first step to having your task completed by a Task Master.</p><br>
 
-                        <p>The <b>Text Input</b> field is used to title the task so others can acurrately choose
-                        an applicable task.</p>
-                        <p>The <b>Task Description</b> is a short anecdote of the task that you would like one our Task Masters to complete.</p>
-                        <p>For the <b>Select Task Category</b> field choose the category that most closely relates to the task.</p>
-                        <p>The <b>Initial Task Pay</b> field is used to set the amount you are willing to pay for someone
-                        to do the task at hand.</p>
-                        <p>The <b>Related Keywords</b> field asks that you input words that relate to the task. For example,
-                        if the task were "Bake a cake", keywords that would apply would be "food, baking, bake, cake, sweets,..."</p>
-                        <p>The <b>End Bidding Date</b> field allows you to select the date to end the bidding.</p>
-                        <p>The <b>Task Completion Date</b> field allows you to select the date you would like to have the task completed by.</p>
-                        <p>The <b>Select Images</b> button allows you to input any revalent images if any.</p>
 
                     </div>
 
@@ -321,20 +366,10 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-        <div id="push"></div>
-    </div>
-
     <div id="push"></div>
+</div>
+
+<div id="push"></div>
 </div>
 
 <div id="footer">
