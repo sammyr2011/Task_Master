@@ -107,8 +107,8 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li ><a href="CreateTask.html">Create Task</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li ><a href="CreateTask.php">Create Task</a></li>
                     <li><a href="#">View Tasks</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -324,11 +324,11 @@
 
 
 
-                        <div class="col-md-6 col-sm-6 text-right">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                             <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Submit</button>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 text-left">
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                             <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Cancel</button>
                         </div>
 
