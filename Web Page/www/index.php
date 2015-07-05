@@ -195,10 +195,10 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 col-sm-6 text-right">
+        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
             <button type="button" class="btn btn-primary btn-lg raised" onclick="CreateTask.html">Create Task</button>
         </div>
-        <div class="col-md-6 col-sm-6 text-left">
+        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
             <button type="button" class="btn btn-primary btn-lg raised">Find Task</button>
         </div>
     </div>
