@@ -100,67 +100,7 @@
 <div id="wrap">
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Task Master</a>
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li ><a href="CreateTask.php">Create Task</a></li>
-                    <li><a href="#">View Tasks</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="UserRegistration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <!--
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    -->
-
-                    <li>
-                        <?php include "loginMod.php"; ?>  
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-
-        <!-- Search bar-->
-        <div class="container">
-            <div class="row">
-
-                <!--
-                <div class="col-md-1">
-                    <select title="search in">
-                        <option>Food</option>
-                        <option>Car</option>
-                        <option>Lawn</option>
-                    </select>
-                </div>
-                -->
-                <div id="custom-search-input">
-
-                    <div class="input-group col-md-12">
-
-                        <div class="input-group-btn input-group-btn-static">
-                            <button type="button" class="btn btn-default" data-toggle="dropdown">
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu" role="menu" id="drop">
-                                <li><a href="#">Select Category</a></li>
-                            </ul>
-                        </div>
-
-                        <input type="text" class="  search-query form-control" placeholder="Search" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <?php include "NavMod.php"; ?>
 
     </nav>
 
