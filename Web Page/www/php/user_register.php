@@ -22,7 +22,7 @@ class user
 	public function __construct($info)
 	{
 		//user login
-		if (isset($info['Uname'])) $this->username = $info['Uname'];
+		if (isset($info['Username'])) $this->username = $info['Username'];
 			
 		if (isset($info['passwordreg'])) $this->password = $info['passwordreg'];
 		

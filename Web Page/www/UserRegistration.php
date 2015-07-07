@@ -3,7 +3,7 @@
 $errortext = '';
 
 //Registration form was submitted
-if (!isset($_POST['submit']))
+if (isset($_POST['submit']))
 {
 	include_once 'php/user_register.php';
 	$newuser = new user($_POST);
@@ -124,7 +124,7 @@ if (!isset($_POST['submit']))
 
     <!-- Begin page content -->
     <div class="container" style="border:black 9px">
-        <form class="form-horizontal" >
+        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <fieldset>
                 <div class="row">
                     <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
@@ -135,9 +135,9 @@ if (!isset($_POST['submit']))
                         <br>
                         
                        <div class="control-group col-md-12 col-sm-12">
-                            <label class="control-label" for="Uname">Username</label>
+                            <label class="control-label" for="Username">Username</label>
                             <div class="controls">
-                                <input id="Uname" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
+                                <input id="Username" name="Username" type="text" placeholder="Username" class="input-xlarge form-control">
                             </div>
                         </div>
                         
@@ -146,7 +146,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="passwordreg">Password: </label>
                                 <div class="controls">
-                                    <input id="passwordreg" name="Email" type="password" placeholder="Password" class="input-xlarge form-control">
+                                    <input id="passwordreg" name="passwordreg" type="password" placeholder="Password" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="passwordRegVerify">Confirm Password: </label>
                                 <div class="controls">
-                                    <input id="passwordRegVerify" name="Email" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
+                                    <input id="passwordRegVerify" name="passwordRegVerify" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="Fname">First Name</label>
                                 <div class="controls">
-                                    <input id="Fname" name="textinput" type="text" placeholder="First Name" class="input-xlarge form-control">
+                                    <input id="Fname" name="Fname" type="text" placeholder="First Name" class="input-xlarge form-control">
                                 </div>
                             </div>
 
@@ -181,7 +181,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="Lname">Last Name</label>
                                 <div class="controls">
-                                    <input id="Lname" name="textinput" type="text" placeholder="Last Name" class="input-xlarge form-control">
+                                    <input id="Lname" name="Lname" type="text" placeholder="Last Name" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -191,7 +191,7 @@ if (!isset($_POST['submit']))
                         <div class="control-group col-md-12 col-sm-12">
                             <label class="control-label" for="StreetAddress">Street Address</label>
                             <div class="controls">
-                                <input id="StreetAddress" name="textinput" type="text" placeholder="Address" class="input-xlarge form-control">
+                                <input id="StreetAddress" name="StreetAddress" type="text" placeholder="Address" class="input-xlarge form-control">
 
                             </div>
                         </div>
@@ -201,7 +201,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="City">City: </label>
                                 <div class="controls">
-                                    <input id="City" name="textinput" type="text" placeholder="City" class="input-xlarge form-control">
+                                    <input id="City" name="City" type="text" placeholder="City" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -272,7 +272,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="Zip">Zip Code: </label>
                                 <div class="controls">
-                                    <input id="Zip" name="ZipCode" type="text" placeholder="Zip Code" class="input-xlarge form-control">
+                                    <input id="Zip" name="Zip" type="text" placeholder="Zip Code" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -282,7 +282,7 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="UserEmail">Email: </label>
                                 <div class="controls">
-                                    <input id="UserEmail" name="Email" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px">
+                                    <input id="UserEmail" name="UserEmail" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                                 </div>
                             </div>
@@ -293,7 +293,7 @@ if (!isset($_POST['submit']))
 
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                            <input type="submit" value="submit" class="btn btn-primary btn-lg raised" onclick="#">Submit</input>
+                            <input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">
