@@ -22,29 +22,29 @@ class user
 	public function __construct($info)
 	{
 		//user login
-		if (isset($info['Username'])) $this->username = $info['Username'];
+		if (isset($info['username'])) $this->username = $info['username'];
 			
-		if (isset($info['passwordreg'])) $this->password = $info['passwordreg'];
+		if (isset($info['password'])) $this->password = $info['password'];
 		
-		if (isset($info['passwordRegVerify'])) $this->passwordverify = $info['passwordRegVerify'];
+		if (isset($info['passwordverify'])) $this->passwordverify = $info['passwordverify'];
 			
 		//user info
-		if (isset($info['Fname'])) $this->firstname = $info['Fname'];
+		if (isset($info['firstname'])) $this->firstname = $info['firstname'];
 			
-		if (isset($info['Lname'])) $this->lastname = $info['Lname'];
+		if (isset($info['lastname'])) $this->lastname = $info['lastname'];
 			
-		if (isset($info['UserEmail'])) $this->email = $info['UserEmail'];
+		if (isset($info['email'])) $this->email = $info['email'];
 		
 		//address
-		if (isset($info['StreetAddress'])) $this->address = $info['StreetAddress'];
+		if (isset($info['address'])) $this->address = $info['address'];
 			
-		if (isset($info['City'])) $this->city = $info['City'];
+		if (isset($info['city'])) $this->city = $info['city'];
 			
 		if (isset($info['state'])) $this->state = $info['state'];
 			
-		if (isset($info['Zip'])) $this->zipcode = $info['Zip'];
+		if (isset($info['zipcode'])) $this->zipcode = $info['zipcode'];
 			
-		//if (isset($info['Country'])) $this->country = $info['Country'];
+		//if (isset($info['country'])) $this->country = $info['country'];
 		$this->country = "USA";
 	}
 	
