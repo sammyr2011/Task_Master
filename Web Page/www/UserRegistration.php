@@ -133,6 +133,34 @@ if (!isset($_POST['submit']))
                         <legend>User Registration</legend>
 
                         <br>
+                        
+                       <div class="control-group col-md-12 col-sm-12">
+                            <label class="control-label" for="Username">Username</label>
+                            <div class="controls">
+                                <input id="Username" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
+                            </div>
+                        </div>
+                        
+                        <!-- Password and confirmation-->
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="passwordreg">Password: </label>
+                                <div class="controls">
+                                    <input id="passwordreg" name="Email" type="password" placeholder="Password" class="input-xlarge form-control">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="passwordRegVerify">Confirm Password: </label>
+                                <div class="controls">
+                                    <input id="passwordRegVerify" name="Email" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
+
+                                </div>
+                            </div>
+                        </div>
 
 						<div class="col-md-12 col-sm-12">
                             <div class="control-group">
@@ -263,31 +291,13 @@ if (!isset($_POST['submit']))
                             <div class="control-group">
                                 <label class="control-label" for="UserEmail">Email: </label>
                                 <div class="controls">
-                                    <input id="UserEmail" name="Email" type="email" placeholder="Email" class="input-xlarge form-control">
+                                    <input id="UserEmail" name="Email" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-sm-12">
-                            <div class="control-group">
-                                <label class="control-label" for="passwordreg">Password: </label>
-                                <div class="controls">
-                                    <input id="passwordreg" name="Email" type="password" placeholder="Password" class="input-xlarge form-control">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-sm-12">
-                            <div class="control-group">
-                                <label class="control-label" for="passwordRegVerify">Confirm Password: </label>
-                                <div class="controls">
-                                    <input id="passwordRegVerify" name="Email" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
-
-                                </div>
-                            </div>
-                        </div>
+                        
 
 
 
