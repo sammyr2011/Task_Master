@@ -135,9 +135,9 @@ if (!isset($_POST['submit']))
                         <br>
                         
                        <div class="control-group col-md-12 col-sm-12">
-                            <label class="control-label" for="Username">Username</label>
+                            <label class="control-label" for="Uname">Username</label>
                             <div class="controls">
-                                <input id="Username" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
+                                <input id="Uname" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
                             </div>
                         </div>
                         
@@ -158,15 +158,6 @@ if (!isset($_POST['submit']))
                                 <div class="controls">
                                     <input id="passwordRegVerify" name="Email" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
 
-                                </div>
-                            </div>
-                        </div>
-
-						<div class="col-md-12 col-sm-12">
-                            <div class="control-group">
-                                <label class="control-label" for="Uname">Username: </label>
-                                <div class="controls">
-                                    <input id="Uname" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
                                 </div>
                             </div>
                         </div>
