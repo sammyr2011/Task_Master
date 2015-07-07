@@ -7,17 +7,20 @@ function db_connect()
     $sqlname = "root";
     $sqlpass = "datapass";
     $hostname = "localhost"; 
+	$dbname = "TaskMaster";
 
-    $dbhandle = mysqli_connect($hostname, $sqlname, $sqlpass);
+    $dbhandle = new mysqli($hostname, $sqlname, $sqlpass, $dbname);
     
-    mysqli_select_db("TaskMaster", $dbhandle);
+	if ($dbhandle->connect_error)
+		die('DB Connection Error (' . $dbhandle->connect.errno . ') '. $dbhandle->connect_error);
     
     return $dbhandle;
 }
 
+//Close the database connection at this handle
 function db_close($dbhandle)
 {
-    mysqli_close($dbhandle);
+    $dbhandle->close();
 }
 
 ?>

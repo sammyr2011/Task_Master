@@ -26,7 +26,7 @@ class user
 			
 		if (isset($info['passwordreg'])) $this->password = $info['passwordreg'];
 		
-		if (isset($info['passwordRegVerify'])) $this->password = $info['passwordRegVerify'];
+		if (isset($info['passwordRegVerify'])) $this->passwordverify = $info['passwordRegVerify'];
 			
 		//user info
 		if (isset($info['Fname'])) $this->firstname = $info['Fname'];
@@ -57,11 +57,13 @@ class user
 			return $valid_result;
 		
 		//insert user login info
+		$dbhandle = db_connect();
+		
 		$hashpass = password_hash($this->password, PASSWORD_BCRYPT);
 		$sqlquery = "INSERT INTO Users(UserName, HashPassword) VALUES ('{$this->username}', '{$hashpass}')";
-		$result = mysqli_query($sqlquery);
+		$result = $dbhandle->query($sqlquery);
 		
-		$this->userid = mysqli_insert_id($dbhandle);
+		$this->userid = $dbhandle->insert_id;
 		
 		//insert user account info
 		$sqlquery = "INSERT INTO UserAccounts(
@@ -86,7 +88,7 @@ class user
 			'{$this->zipcode}',
 			'{$this->country}')";
 			
-		$result = mysqli_query($sqlquery);
+		$result = $dbhandle->query($sqlquery);
 		
 		//close connection and return 0
 		db_close($dbhandle);
@@ -96,30 +98,30 @@ class user
 	//Validates all info fields to make sure they are of proper format and all filled out
 	public function validate()
 	{
-		if (!isset($this->username)) return 1;
+		if (empty($this->username)) return 1;
 		
-		if (!isset($this->password)) return 3;
+		if (empty($this->password)) return 3;
 		
 		//make sure confirm password matches
 		if ($this->password != $this->passwordverify) return 4;
 		
-		if (!isset($this->firstname)
-			|| !isset($this->lastname)
-			|| !isset($this->email)
-			|| !isset($this->address)
-			|| !isset($this->city)
-			|| !isset($this->state)
-			|| !isset($this->zipcode)
-			|| !isset($this->country))
+		if (empty($this->firstname)
+			|| empty($this->lastname)
+			|| empty($this->email)
+			|| empty($this->address)
+			|| empty($this->city)
+			|| empty($this->state)
+			|| empty($this->zipcode)
+			|| empty($this->country))
 			return 5;
 		
 		//Check if the username is already taken
 		$dbhandle = db_connect();
 		
 		$sqlquery = "SELECT UserName FROM Users where UserName='{$this->username}'";
-		$result = mysqli_query($sqlquery);
+		$result = $dbhandle->query($sqlquery);
 		
-		if(mysqli_num_rows($result) != 0)
+		if($result->num_rows != 0)
 		{
 			db_close($dbhandle);
 			return 2;

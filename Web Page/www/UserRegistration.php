@@ -13,7 +13,7 @@ if (isset($_POST['submit']))
 	if ($result == 0)
 		echo 'Registration success!!';
 	else
-		echo 'There was some kind of error!! Error is $result';
+		echo "There was some kind of error!! Error is {$result}";
 }
 
 ?>
