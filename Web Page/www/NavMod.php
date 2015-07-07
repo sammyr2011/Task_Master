@@ -6,8 +6,8 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li ><a href="CreateTask.php">Create Task</a></li>
-                    <li><a href="#">View Tasks</a></li>
+                    <li ><a href="CreateTask.php">Ceate Task</a></li>
+                    <li><a href="ViewTasks.php">View Tasks</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="UserRegistration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
