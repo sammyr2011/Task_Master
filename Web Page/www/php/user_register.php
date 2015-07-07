@@ -19,7 +19,7 @@ class user
 	var $country;
 	
 	//Takes fields from POST and stores them in user object
-	public function __construct($info = $array() )
+	public function __construct($info)
 	{
 		//user login
 		if (isset($info['Uname'])) $this->username = $info['Uname'];
@@ -52,7 +52,7 @@ class user
 	public function register()
 	{
 		//validate that all fields are filled and proper
-		$valid_result = this->validate();
+		$valid_result = $this->validate();
 		if ($valid_result != 0)
 			return $valid_result;
 		
