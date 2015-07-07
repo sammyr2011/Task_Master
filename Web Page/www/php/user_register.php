@@ -98,22 +98,23 @@ class user
 	//Validates all info fields to make sure they are of proper format and all filled out
 	public function validate()
 	{
-		if (empty($this->username)) return 1;
+		//validate username and password
+		if (empty($this->username)) return -1;
 		
-		if (empty($this->password)) return 3;
+		if (empty($this->password)) return -3;
 		
-		//make sure confirm password matches
-		if ($this->password != $this->passwordverify) return 4;
+		//make sure the two password fields match
+		if ($this->password != $this->passwordverify) return -4;
 		
-		if (empty($this->firstname)
-			|| empty($this->lastname)
-			|| empty($this->email)
-			|| empty($this->address)
-			|| empty($this->city)
-			|| empty($this->state)
-			|| empty($this->zipcode)
-			|| empty($this->country))
-			return 5;
+		//verify user account info is provided
+		if (empty($this->firstname)) return -5;
+		if (empty($this->lastname)) return -6;
+		if (empty($this->email)) return -7;
+		if (empty($this->address)) return -8;
+		if (empty($this->city)) return -9;
+		if (empty($this->state)) return -10;
+		if (empty($this->zipcode)) return -11;
+		if (empty($this->country)) return -12;
 		
 		//Check if the username is already taken
 		$dbhandle = db_connect();
@@ -124,7 +125,7 @@ class user
 		if($result->num_rows != 0)
 		{
 			db_close($dbhandle);
-			return 2;
+			return -2;
 		}
 		
 		//If we made it here, all is valid

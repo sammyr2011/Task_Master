@@ -10,11 +10,51 @@ if (isset($_POST['submit']))
 	
 	$result = $newuser->register();
 	
-	if ($result == 0)
-		echo 'Registration success!!';
-	else
-		echo "There was some kind of error!! Error is {$result}";
+	switch($result)
+	{
+		case 0:
+			$errortext = 'Registration successful!';
+			break;
+		case -1:
+			$errortext = 'Invalid username';
+			break;
+		case -2:
+			$errortext = 'Username already taken';
+			break;
+		case -3:
+			$errortext = 'Invalid password';
+			break;
+		case -4:
+			$errortext = 'Password fields do not match';
+			break;
+		case -5:
+			$errortext = 'Invalid First Name';
+			break;
+		case -6:
+			$errortext = 'Invalid Last Name';
+			break;
+		case -7:
+			$errortext = 'Invalid Email';
+			break;
+		case -8:
+			$errortext = 'Invalid Address';
+			break;
+		case -9:
+			$errortext = 'Invalid City';
+			break;
+		case -10:
+			$errortext = 'Invalid State';
+			break;
+		case -11:
+			$errortext = 'Invalid Zipcode';
+			break;
+		case -12:
+			$errortext = 'Invalid Country';
+			break;
+	}
 }
+
+echo $errortext;
 
 ?>
 
@@ -39,7 +79,7 @@ if (isset($_POST['submit']))
 
 
     <meta charset="utf-8">
-    <title>Task Creation</title>
+    <title>User Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
