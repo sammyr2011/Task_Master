@@ -8,50 +8,10 @@ if (isset($_POST['submit']))
 	include_once 'php/user_register.php';
 	$newuser = new user($_POST);
 	
-	$result = $newuser->register();
+	$error = $newuser->register();
 	
-	switch($result)
-	{
-		case 0:
-			$errortext = 'Registration successful!';
-			break;
-		case -1:
-			$errortext = 'Invalid username';
-			break;
-		case -2:
-			$errortext = 'Username already taken';
-			break;
-		case -3:
-			$errortext = 'Invalid password';
-			break;
-		case -4:
-			$errortext = 'Password fields do not match';
-			break;
-		case -5:
-			$errortext = 'Invalid First Name';
-			break;
-		case -6:
-			$errortext = 'Invalid Last Name';
-			break;
-		case -7:
-			$errortext = 'Invalid Email';
-			break;
-		case -8:
-			$errortext = 'Invalid Address';
-			break;
-		case -9:
-			$errortext = 'Invalid City';
-			break;
-		case -10:
-			$errortext = 'Invalid State';
-			break;
-		case -11:
-			$errortext = 'Invalid Zipcode';
-			break;
-		case -12:
-			$errortext = 'Invalid Country';
-			break;
-	}
+	if ($error == NULL)
+		echo "Registration successful!";
 }
 
 echo $errortext;
@@ -175,7 +135,9 @@ echo $errortext;
                         <br>
                         
                        <div class="control-group col-md-12 col-sm-12">
-                            <label class="control-label" for="Username">Username</label>
+                            <label class="control-label" for="Username">Username: </label>
+							<?php if (isset ($error['username'])) echo '<font color = "red">Invalid Username</font>'; ?>
+							<?php if (isset ($error['usertaken'])) echo '<font color = "red">Username Already Taken</font>'; ?>
                             <div class="controls">
                                 <input id="Username" name="Username" type="text" placeholder="Username" class="input-xlarge form-control">
                             </div>
@@ -185,6 +147,7 @@ echo $errortext;
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
                                 <label class="control-label" for="passwordreg">Password: </label>
+								<?php if (isset ($error['password'])) echo '<font color = "red">Invalid Password</font>'; ?>
                                 <div class="controls">
                                     <input id="passwordreg" name="passwordreg" type="password" placeholder="Password" class="input-xlarge form-control">
 
@@ -195,6 +158,7 @@ echo $errortext;
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
                                 <label class="control-label" for="passwordRegVerify">Confirm Password: </label>
+								<?php if (isset ($error['passwordmatch'])) echo "<font color = 'red'>Passwords don't match</font>"; ?>
                                 <div class="controls">
                                     <input id="passwordRegVerify" name="passwordRegVerify" type="password" placeholder="Password" class="input-xlarge form-control" style="margin-bottom: 30px">
 
@@ -207,7 +171,8 @@ echo $errortext;
 
                             <!-- Text input-->
                             <div class="control-group">
-                                <label class="control-label" for="Fname">First Name</label>
+                                <label class="control-label" for="Fname">First Name:</label>
+								<?php if (isset ($error['firstname'])) echo '<font color = "red">Invalid First Name</font>'; ?>
                                 <div class="controls">
                                     <input id="Fname" name="Fname" type="text" placeholder="First Name" class="input-xlarge form-control">
                                 </div>
@@ -219,7 +184,8 @@ echo $errortext;
 
                             <!-- Text input-->
                             <div class="control-group">
-                                <label class="control-label" for="Lname">Last Name</label>
+                                <label class="control-label" for="Lname">Last Name:</label>
+								<?php if (isset ($error['lastname'])) echo '<font color = "red">Invalid Last Name</font>'; ?>
                                 <div class="controls">
                                     <input id="Lname" name="Lname" type="text" placeholder="Last Name" class="input-xlarge form-control">
 
@@ -229,7 +195,8 @@ echo $errortext;
                         </div>
 
                         <div class="control-group col-md-12 col-sm-12">
-                            <label class="control-label" for="StreetAddress">Street Address</label>
+                            <label class="control-label" for="StreetAddress">Street Address:</label>
+							<?php if (isset ($error['address'])) echo '<font color = "red">Invalid Address</font>'; ?>
                             <div class="controls">
                                 <input id="StreetAddress" name="StreetAddress" type="text" placeholder="Address" class="input-xlarge form-control">
 
@@ -239,7 +206,8 @@ echo $errortext;
                         <div class="col-md-6 col-sm-6">
                             <!-- City -->
                             <div class="control-group">
-                                <label class="control-label" for="City">City: </label>
+                                <label class="control-label" for="City">City:</label>
+								<?php if (isset ($error['city'])) echo '<font color = "red">Invalid City</font>'; ?>
                                 <div class="controls">
                                     <input id="City" name="City" type="text" placeholder="City" class="input-xlarge form-control">
 
@@ -250,7 +218,7 @@ echo $errortext;
                         <div class="col-md-3 col-sm-3">
                             <!-- State -->
                             <div class="control-group">
-                                <label class="control-label" for="state">State: <span>*</span></label><br/>
+                                <label class="control-label" for="state">State:</label><br/>
                                 <select name="state" class="form-control" id="state">
                                     <option value="AL">AL</option>
                                     <option value="AK">AK</option>
@@ -310,7 +278,8 @@ echo $errortext;
 
                         <div class="col-md-3 col-sm-3">
                             <div class="control-group">
-                                <label class="control-label" for="Zip">Zip Code: </label>
+                                <label class="control-label" for="Zip">Zip Code:</label>
+								<?php if (isset ($error['zipcode'])) echo '<font color = "red">Invalid Zip</font>'; ?>
                                 <div class="controls">
                                     <input id="Zip" name="Zip" type="text" placeholder="Zip Code" class="input-xlarge form-control">
 
@@ -320,17 +289,14 @@ echo $errortext;
 
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
-                                <label class="control-label" for="UserEmail">Email: </label>
+                                <label class="control-label" for="UserEmail">Email:</label>
+								<?php if (isset ($error['email'])) echo '<font color = "red">Invalid Email</font>'; ?>
                                 <div class="controls">
                                     <input id="UserEmail" name="UserEmail" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                                 </div>
                             </div>
                         </div>
-
-                        
-
-
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                             <input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">

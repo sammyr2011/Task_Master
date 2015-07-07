@@ -52,9 +52,9 @@ class user
 	public function register()
 	{
 		//validate that all fields are filled and proper
-		$valid_result = $this->validate();
-		if ($valid_result != 0)
-			return $valid_result;
+		$valid_errors = $this->validate();
+		if ($valid_errors != NULL)
+			return $valid_errors;
 		
 		//insert user login info
 		$dbhandle = db_connect();
@@ -92,29 +92,31 @@ class user
 		
 		//close connection and return 0
 		db_close($dbhandle);
-		return 0;
+		return NULL;
 	}
 	
 	//Validates all info fields to make sure they are of proper format and all filled out
 	public function validate()
 	{
-		//validate username and password
-		if (empty($this->username)) return -1;
+		$errors = array();
 		
-		if (empty($this->password)) return -3;
+		//validate username and password
+		if (empty($this->username)) $errors['username'] = true;
+		
+		if (empty($this->password)) $errors['password'] = true;
 		
 		//make sure the two password fields match
-		if ($this->password != $this->passwordverify) return -4;
+		if ($this->password != $this->passwordverify) $errors['passwordmatch'] = true;
 		
 		//verify user account info is provided
-		if (empty($this->firstname)) return -5;
-		if (empty($this->lastname)) return -6;
-		if (empty($this->email)) return -7;
-		if (empty($this->address)) return -8;
-		if (empty($this->city)) return -9;
-		if (empty($this->state)) return -10;
-		if (empty($this->zipcode)) return -11;
-		if (empty($this->country)) return -12;
+		if (empty($this->firstname)) $errors['firstname'] = true;
+		if (empty($this->lastname)) $errors['lastname'] = true;
+		if (empty($this->email)) $errors['email'] = true;
+		if (empty($this->address)) $errors['address'] = true;
+		if (empty($this->city)) $errors['city'] = true;
+		if (empty($this->state)) $errors['state'] = true;
+		if (empty($this->zipcode)) $errors['zipcode'] = true;
+		if (empty($this->country)) $errors['country'] = true;
 		
 		//Check if the username is already taken
 		$dbhandle = db_connect();
@@ -122,15 +124,15 @@ class user
 		$sqlquery = "SELECT UserName FROM Users where UserName='{$this->username}'";
 		$result = $dbhandle->query($sqlquery);
 		
-		if($result->num_rows != 0)
-		{
-			db_close($dbhandle);
-			return -2;
-		}
+		if($result->num_rows != 0) $errors['usertaken'] = true;
 		
 		//If we made it here, all is valid
 		db_close($dbhandle);
-		return 0;
+		
+		if (count($errors) > 0)
+			return $errors;
+		else
+			return NULL;
 	}
 }
 
