@@ -1,3 +1,23 @@
+<?php
+
+$errortext = '';
+
+//Registration form was submitted
+if (!isset($_POST['submit']))
+{
+	include_once 'php/user_register.php';
+	$newuser = new user($_POST);
+	
+	$result = $newuser->register();
+	
+	if ($result == 0)
+		echo 'Registration success!!';
+	else
+		echo 'There was some kind of error!!';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,8 +122,6 @@
     <!-- Fixed navbar -->
     <?php include "NavMod.php"; ?>
 
-    </nav>
-
     <!-- Begin page content -->
     <div class="container" style="border:black 9px">
         <form class="form-horizontal" >
@@ -116,6 +134,15 @@
 
                         <br>
 
+						<div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="Uname">Username: </label>
+                                <div class="controls">
+                                    <input id="Uname" name="textinput" type="text" placeholder="Username" class="input-xlarge form-control">
+                                </div>
+                            </div>
+                        </div>
+						
                      <!--Split first name and last name-->
                         <div class="col-md-6 col-sm-6">
 
@@ -265,7 +292,7 @@
 
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                            <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Submit</button>
+                            <input type="submit" value="submit" class="btn btn-primary btn-lg raised" onclick="#">Submit</input>
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">

@@ -1,0 +1,7 @@
+//REGISTRATION
+
+1 invalid username
+2 user already exists
+3 invalid password
+4 password does not match
+5 all fields must be filled
