@@ -139,9 +139,12 @@
                                 <label class="control-label" for="selectcategory">Select Task Category</label>
                                 <div class="controls">
                                     <select id="selectcategory" name="selectcategory" class="input-xlarge form-control" multiple="multiple">
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
+                                        <option>Automotive</option>
+                                        <option>Food</option>
+                                        <option>Lawn Care</option>
+                                        <option>Academics</option>
+                                        <option>House Work</option>
+                                        <option>Other/ Misc.</option>
                                     </select>
                                 </div>
                             </div>
