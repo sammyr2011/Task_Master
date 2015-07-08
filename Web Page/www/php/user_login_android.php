@@ -4,5 +4,5 @@
   $user = $_POST['username'];
   $pass = $_POST['password'];
   
-  echo json_encode(login($user,$pass));
+  echo json_encode(user_login($user,$pass));
 ?>
