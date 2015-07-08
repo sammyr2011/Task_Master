@@ -4,5 +4,11 @@
   $user = $_POST['username'];
   $pass = $_POST['password'];
   
-  echo json_encode(user_login($user,$pass));
+  $response = user_login($user,$pass);
+  if($response == NULL)
+  {
+    $response = $_SESSION;
+  }
+  
+  echo json_encode($response));
 ?>
