@@ -7,6 +7,12 @@ if (session_status() == PHP_SESSION_NONE)
 
 ?>
 
+<style>
+.dropdown-menu {
+  min-width:320px;
+}
+</style>
+
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -25,7 +31,7 @@ if (session_status() == PHP_SESSION_NONE)
 					<li>
                         <div class="dropdown">
 							<button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">Login</button>
-
+							
 							<div class="dropdown-menu" style="padding: 10px; background: #ddd">
 								<form action="Login.php" method="post" role="form">
 									<div class="form-group">
@@ -47,8 +53,8 @@ if (session_status() == PHP_SESSION_NONE)
 					}
 					else
 					{ ?>
-					<li><a href="AccountSettings.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']; ?></a></li>
-					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn">Log Out</button></li>
+					<li><a href="AccountSettings.php"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['username']; ?></a></li>
+					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn"> Log Out</button></li>
 					<?php
 					}
 					?>
