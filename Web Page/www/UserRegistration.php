@@ -21,7 +21,7 @@ if (isset($_POST['submit']))
 	if ($error == NULL) //success, redirect to index and show message
 	{
 		session_start();
-		$_SESSION['registered'] = "Registered";
+		$_SESSION['msg_registered'] = "Registered";
 		header("Location: index.php");
 	}
 	else //did not, restore submitted values

@@ -86,18 +86,7 @@
     <!-- Begin page content -->
     <div class="container">
 	
-	<!-- Show registration success message -->
-	<!-- TODO: Replace with generic popup system for all pages -->
-	<?php if (isset($_SESSION['registered']))
-	{ 
-		unset($_SESSION['registered']); ?>
-		<div class="alert alert-success">  
-			<a class="close" data-dismiss="alert">×</a>  
-			<strong>Success!</strong> You have successfully registered! You may now log in.
-		</div> 
-		<?php
-	} ?>
-	
+	<?php include "php/alerts.php"; ?>
         <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->

@@ -1,4 +1,13 @@
-  <nav class="navbar navbar-inverse">
+<?php 
+
+if (session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+
+?>
+
+<nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="index.php">Task Master</a>
@@ -6,38 +15,43 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li ><a href="CreateTask.php">Ceate Task</a></li>
+                    <li><a href="CreateTask.php">Create Task</a></li>
                     <li><a href="ViewTasks.php">View Tasks</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+					<?php if (!isset($_SESSION['username']))
+					{ ?>
                     <li><a href="UserRegistration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <!--
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    -->
-
-                    <li>
+					<li>
                         <div class="dropdown">
 							<button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">Login</button>
 
 							<div class="dropdown-menu" style="padding: 10px; background: #ddd">
-								<form action="" role="form">
+								<form action="Login.php" method="post" role="form">
 									<div class="form-group">
 										<label for="user">User</label>
-										<input type="text" class="form-control" id="user" placeholder="User" />
+										<input type="text" class="form-control" id="user" placeholder="User" name="username">
 										<label for="password">Password</label>
-										<input type="password" class="form-control" id="password" placeholder="Password" />
+										<input type="password" class="form-control" id="password" placeholder="Password" name="password">
 									</div>
 									<div class="checkbox">
-
 										<label>
-											<input type="checkbox" id="RememberMe"> Remember Me
+											<input type="checkbox" id="RememberMe" name="remember"> Remember Me
 										</label>
 									</div>
-									<button type="submit" class="btn btn-default">Sign in</button>
+									<input type="submit" name="loginsubmit" class="btn btn-default" value="Sign in">
 								</form>
 							</div>
 						</div>
-                    </li>
+                    </li><?php
+					}
+					else
+					{ ?>
+					<li><a href="AccountSettings.php"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username']; ?></a></li>
+					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn">Log Out</button></li>
+					<?php
+					}
+					?>
 
                 </ul>
             </div>
