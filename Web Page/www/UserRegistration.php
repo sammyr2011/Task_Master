@@ -1,6 +1,13 @@
 <?php
 
-$errortext = '';
+//remember submitted values in case of error
+$_username = '';
+$_firstname = '';
+$_lastname = '';
+$_address = '';
+$_city = '';
+$_zipcode = '';
+$_email = '';
 
 //Registration form was submitted
 if (isset($_POST['submit']))
@@ -10,36 +17,24 @@ if (isset($_POST['submit']))
 	
 	$error = $newuser->register();
 	
-	if ($error == NULL)
-		echo "Registration successful!";
-	
-	if ($error == NULL)
-		echo "Registration successful!";
+	//did registration succeed?
+	if ($error == NULL) //success, redirect to index and show message
+	{
+		session_start();
+		$_SESSION['registered'] = "Registered";
+		header("Location: index.php");
+	}
+	else //did not, restore submitted values
+	{
+		if (isset($_POST['username'])) $_username = $_POST['username'];
+		if (isset($_POST['firstname'])) $_firstname = $_POST['firstname'];
+		if (isset($_POST['lastname'])) $_lastname = $_POST['lastname'];
+		if (isset($_POST['address'])) $_address = $_POST['address'];
+		if (isset($_POST['city'])) $_city = $_POST['city'];
+		if (isset($_POST['zipcode'])) $_zipcode = $_POST['zipcode'];
+		if (isset($_POST['email'])) $_email = $_POST['email'];
+	}
 }
-
-//remember submitted values in case of error
-$_username = '';
-if (isset($_POST['username'])) $_username = $_POST['username'];
-
-$_firstname = '';
-if (isset($_POST['firstname'])) $_firstname = $_POST['firstname'];
-
-$_lastname = '';
-if (isset($_POST['lastname'])) $_lastname = $_POST['lastname'];
-
-$_address = '';
-if (isset($_POST['address'])) $_address = $_POST['address'];
-
-$_city = '';
-if (isset($_POST['city'])) $_city = $_POST['city'];
-
-$_zipcode = '';
-if (isset($_POST['zipcode'])) $_zipcode = $_POST['zipcode'];
-
-$_email = '';
-if (isset($_POST['email'])) $_email = $_POST['email'];
-
-echo $errortext;
 
 ?>
 
