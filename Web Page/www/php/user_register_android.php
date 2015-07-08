@@ -5,6 +5,14 @@
   
   if($error == NULL)
   {
-  
+    session_start();
+    $_SESSION['msg_registered'] = "Registered";
+    $response = $_SESSION;
   }
+  else
+  {
+    $response = $error;
+  }
+  
+  echo json_encode($response);
 ?>
