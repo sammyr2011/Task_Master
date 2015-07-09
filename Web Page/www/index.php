@@ -57,6 +57,8 @@
                 padding-right: 20px;
             }
         }*/
+		
+		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -137,8 +139,10 @@
 		</div>
 	
     </div>
-	
+	<div id="push"></div>
 </div>
+
+<div id="push"></div>
 
 <div id="footer">
     <div class="container">
