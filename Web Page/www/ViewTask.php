@@ -122,19 +122,19 @@
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item active">
-                        <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:100px;margin: 0 auto">
+                        <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:200px;margin: 0 auto">
                         <div class="carousel-caption">
                         </div>
                     </div>
 
                     <div class="item">
-                        <img src="images/baking.jpg" alt="baking" style="width:auto;height:100px;margin: 0 auto">
+                        <img src="images/baking.jpg" alt="baking" style="width:auto;height:200px;margin: 0 auto">
                         <div class="carousel-caption">
                         </div>
                     </div>
 
                     <div class="item">
-                        <img src="images/oil.jpg" alt="CarWork" style="width:auto;height:100px;margin: 0 auto">
+                        <img src="images/oil.jpg" alt="CarWork" style="width:auto;height:200px;margin: 0 auto">
                         <div class="carousel-caption">
                         </div>
                     </div>
