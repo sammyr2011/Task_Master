@@ -87,7 +87,6 @@
     <div class="container">
 	
 	<?php include "php/alerts.php"; ?>
-        <br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -130,8 +129,6 @@
             </a>
         </div>
 
-
-        <div id="push"></div>
     </div>
 
     <div class="row">
