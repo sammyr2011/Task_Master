@@ -119,7 +119,7 @@
             </div>
         </div>
         <div class="col-md-8 col-sm-8 col-xs-8">
-            <div class="row" style="border:solid black 2px">
+            <div class="row" style="border:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <img src="images/oil.jpg" height="100px">
                 </div>
