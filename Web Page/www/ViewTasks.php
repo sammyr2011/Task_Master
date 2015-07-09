@@ -105,8 +105,7 @@
     
     <!-- Begin page content -->
     <div class="container">
-        <div class="nav-side-menu col-md-4 col-sm-4">
-        </div>
+        
     </div>
 
 
