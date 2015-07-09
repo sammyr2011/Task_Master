@@ -56,15 +56,6 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }*/
-       .carousel {
-          max-height: 700px;
-          overflow: hidden;
-
-          .item img {
-            width: 100%;
-            height: auto;
-        }
-}
         }
 
     </style>
@@ -110,19 +101,19 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="item active">
-                    <img src="images/mowinggrass.jpg" alt="tutoring" width="460" height="345">
+                    <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:460px">
                     <div class="carousel-caption">
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="images/baking.jpg" alt="baking" width="460" height="345">
+                    <img src="images/baking.jpg" alt="baking" style="width:auto;height:460px">
                     <div class="carousel-caption">
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="images/oil.jpg" alt="CarWork" width="460" height="345">
+                    <img src="images/oil.jpg" alt="CarWork" style="width:auto;height:460px">
                     <div class="carousel-caption">
                     </div>
                 </div>
