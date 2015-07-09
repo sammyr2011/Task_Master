@@ -126,17 +126,18 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
+		<div id="push"></div>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+				<a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised">Create Task</button></a>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+				<a href="ViewTasks.php"><button type="button" class="btn btn-primary btn-lg raised">Find Task</button></a>
+			</div>
+		</div>
+	
     </div>
-	<div id="push"></div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-            <a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised">Create Task</button></a>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-            <a href="ViewTasks.php"><button type="button" class="btn btn-primary btn-lg raised">Find Task</button></a>
-        </div>
-    </div>
+	
 </div>
 
 <div id="footer">
