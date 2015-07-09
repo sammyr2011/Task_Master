@@ -184,8 +184,8 @@ else
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
                     <h1><?php echo $task->title; ?></h1>
-					<?php echo $task->description; ?>
-					<br>
+					
+					<p><?php echo $task->description; ?></p>
 					
                     <p>Current bid: <b>US $45.00</b></p>
                 
