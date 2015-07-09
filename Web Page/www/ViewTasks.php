@@ -110,11 +110,11 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li><p><b>Categories:</b></p></li>
                     <li><a href="ViewTask.php?Categoryid=1">Academics</a></li>
-                    <li><a href="ViewTask.php?Categoryid=1">Automotive</a></li>
-                    <li><a href="ViewTask.php?Categoryid=1">Food</a></li>
-                    <li><a href="ViewTask.php?Categoryid=1">Lawn</a></li>
-                    <li><a href="ViewTask.php?Categoryid=1">House Work</a></li>
-                    <li><a href="ViewTask.php?Categoryid=1">Other/Misc.</a></li>
+                    <li><a href="ViewTask.php?Categoryid=2">Automotive</a></li>
+                    <li><a href="ViewTask.php?Categoryid=3">Food</a></li>
+                    <li><a href="ViewTask.php?Categoryid=4">Lawn</a></li>
+                    <li><a href="ViewTask.php?Categoryid=5">House Work</a></li>
+                    <li><a href="ViewTask.php?Categoryid=6">Other/Misc.</a></li>
                 </ul>
             </div>
         </div>
