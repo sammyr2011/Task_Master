@@ -108,7 +108,7 @@
         <div class="col-md-4">
             <div class="well bs-sidebar affix" id="sidebar">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><p><b>Categories:</b></p></li>
+                    <li><p style="text-align:center"><b>Categories:</b></p></li>
                     <li><a href="ViewTask.php?Categoryid=1">Academics</a></li>
                     <li><a href="ViewTask.php?Categoryid=2">Automotive</a></li>
                     <li><a href="ViewTask.php?Categoryid=3">Food</a></li>
@@ -116,6 +116,13 @@
                     <li><a href="ViewTask.php?Categoryid=5">House Work</a></li>
                     <li><a href="ViewTask.php?Categoryid=6">Other/Misc.</a></li>
                 </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <img src="images/oil.jpg" height="100px">
+                </div>
             </div>
         </div>
     </div>
