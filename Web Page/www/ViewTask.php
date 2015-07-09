@@ -174,7 +174,7 @@
                     
             </div>
             
-            <div class="col-md-3 col-sm-3 col-xs-3" style="border:solid black 3px">
+            <div class="col-md-3 col-sm-3 col-xs-3" style="border:solid black 3px;text-center">
                 <h3>Username</h3>
                 <img src="images/UserStock.png" height="100px">
                 <p>star rating (5)</p>
