@@ -9,9 +9,9 @@ function listByCategory($incatid)
 	
 	$dbhandle = $db_connect();
 	
-	if ($incatid == 0)
-		$query = "SELECT TaskID FROM Tasks";
-	else
+	$query = "SELECT TaskID FROM Tasks";
+	
+	if ($incatid != 0)
 		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid}";
 		
 	$result = $dbhandle->query($query);
