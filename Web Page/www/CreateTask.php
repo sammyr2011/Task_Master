@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
 {
 	include_once 'php/task_class.php';
 	$newtask = new task();
-	$task->createFromPost($_POST);
+	$newtask->createFromPost($_POST);
 	
 	$error = $newtask->register();
 	
@@ -168,8 +168,8 @@ if (isset($_POST['submit']))
                         <!-- Text input-->
                             <div class="control-group">
                                 <label class="control-label" for="title">Title</label>
+								<?php if (isset ($error['title'])) echo '<font color = "red">Invalid title</font>'; ?>
                                 <div class="controls">
-									<?php if (isset ($error['title'])) echo '<font color = "red">Invalid title</font>'; ?>
                                     <input id="title" name="title" type="text" placeholder="title" class="input-xlarge form-control" value="<?php echo $_title; ?>">
                                 </div>
                             </div>
@@ -179,8 +179,8 @@ if (isset($_POST['submit']))
                             <!-- Textarea -->
                             <div class="control-group">
                                 <label class="control-label" for="description">Task Description</label>
+								<?php if (isset ($error['description'])) echo '<font color = "red">Invalid description</font>'; ?>
                                 <div class="controls">
-									<?php if (isset ($error['description'])) echo '<font color = "red">Invalid description</font>'; ?>
                                     <textarea id="description" name="description" placeholder="Short description" class="form-control"><?php echo $_description; ?></textarea>
                                 </div>
                             </div>
@@ -188,16 +188,16 @@ if (isset($_POST['submit']))
 							<!-- Textarea -->
                             <div class="control-group">
                                 <label class="control-label" for="content">Task Information</label>
+								<?php if (isset ($error['content'])) echo '<font color = "red">Invalid instructions</font>'; ?>
                                 <div class="controls">
-									<?php if (isset ($error['content'])) echo '<font color = "red">Invalid instructions</font>'; ?>
                                     <textarea id="content" name="content" placeholder="Detailed information and instructions about task" class="form-control"><?php echo $_content; ?></textarea>
                                 </div>
                             </div>
 							
 							<div class="control-group">
                                 <label class="control-label" for="location">Location</label>
+								<?php if (isset ($error['location'])) echo '<font color = "red">Invalid location</font>'; ?>
                                 <div class="controls">
-									<?php if (isset ($error['location'])) echo '<font color = "red">Invalid location</font>'; ?>
                                     <input id="location" name="location" type="text" placeholder="Location" class="input-xlarge form-control" value="<?php echo $_location; ?>">
                                 </div>
                             </div>
@@ -248,8 +248,8 @@ if (isset($_POST['submit']))
 
                         <div id="custom-search-input">
                             <label class="control-label">Related Keywords</label>
+							<?php if (isset ($error['tags'])) echo '<font color = "red">Invalid tags</font>'; ?>
                             <div class="input-group col-md-12 col-sm-12">
-								<?php if (isset ($error['tags'])) echo '<font color = "red">Invalid tags</font>'; ?>
                                 <input type="text" name="tags" class="search-query form-control" placeholder="Enter hashtags" value="<?php echo $_tags; ?>"/>
                                 <span class="input-group-btn">
                                     <button class="btn" type="button">

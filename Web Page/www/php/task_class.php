@@ -130,7 +130,7 @@ class task
 		if (empty($this->userid)) 
 		{
 			$errors['userid'] = true;
-			return $errors;
+			//return $errors;
 		}
 		
 		//verify all info is provided
@@ -142,8 +142,6 @@ class task
 		if (empty($this->tags)) $errors['tags'] = true;
 		
 		//If we made it here, all is valid
-		db_close($dbhandle);
-		
 		if (count($errors) > 0)
 			return $errors;
 		else
