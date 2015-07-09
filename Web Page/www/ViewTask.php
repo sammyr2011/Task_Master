@@ -133,6 +133,7 @@ else
     
     <!-- Begin page content -->
     <div class="container">
+	<?php include "php/alerts.php"; ?>;
         <div class="row">
             
             <!-- Task images -->
