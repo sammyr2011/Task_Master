@@ -212,7 +212,7 @@ else
         </div>
         <br>
         
-        <div class="row" style="border-style: dashed; border-top: black;"></div>
+        <div class="row" style="border-style: solid; border-top: black;"></div>
         <br>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
