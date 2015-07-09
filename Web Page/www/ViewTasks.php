@@ -126,6 +126,7 @@
                 <div class="col-md-8 col-xs-8 col-sm-8">
                     <p><b>Task Title</b></p>
                     <p>Tasks Description</p>
+                    <p>Current bid: <b>US $45.00</b></p>
                 </div>
             </div>
         </div>
