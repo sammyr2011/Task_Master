@@ -108,7 +108,7 @@
         <div class="row">
             
             <!-- Task images -->
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-3">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -154,7 +154,7 @@
             </div>
             
             <!-- Task title and description and bid -->
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-6 col-xs-6">
                     <h1>Task Title</h1>
                     <p>What do you want a task master to do?</p>
                     <br>
@@ -166,7 +166,7 @@
                 
             </div>
             
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3 col-xs-3">
                 <h3>Username</h3>
                 <img src="images/UserStock.png" height="100px">
                 <p>star rating (5)</p>
