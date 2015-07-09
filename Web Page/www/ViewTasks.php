@@ -105,7 +105,18 @@
     
     <!-- Begin page content -->
     <div class="container">
-        
+        <div class="col-md-4">
+            <div class="well bs-sidebar affix" id="sidebar">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="ViewTask.php?Categoryid=1">Academics</a></li>
+                    <li><a href="ViewTask.php?Categoryid=1">Automotive</a></li>
+                    <li><a href="ViewTask.php?Categoryid=1">Food</a></li>
+                    <li><a href="ViewTask.php?Categoryid=1">Lawn</a></li>
+                    <li><a href="ViewTask.php?Categoryid=1">House Work</a></li>
+                    <li><a href="ViewTask.php?Categoryid=1">Other/Misc.</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 
