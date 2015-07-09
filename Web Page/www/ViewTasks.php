@@ -8,11 +8,11 @@ $catid = 0;
 if (isset($_GET['Categoryid']))
 	$catid = $_GET['Categoryid'];
 	
-echo 'test';
-	
 $tasks = array();
 
 $tasks = listByCategory($catid);
+
+echo 'test';
 
 ?>
 
