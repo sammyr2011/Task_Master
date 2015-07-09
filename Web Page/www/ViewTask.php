@@ -156,7 +156,6 @@
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
                     <h1>Task Title</h1>
-                    <p>What do you want a task master to do?</p>
                     <br>
                 
                     <p>Current bid: <b>US $45.00</b></p>
@@ -175,7 +174,7 @@
                     
             </div>
             
-            <div class="col-md-3 col-sm-3 col-xs-3">
+            <div class="col-md-3 col-sm-3 col-xs-3" style="border:solid black 3px">
                 <h3>Username</h3>
                 <img src="images/UserStock.png" height="100px">
                 <p>star rating (5)</p>
