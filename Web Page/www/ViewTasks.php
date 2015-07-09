@@ -108,6 +108,7 @@
         <div class="col-md-4">
             <div class="well bs-sidebar affix" id="sidebar">
                 <ul class="nav nav-pills nav-stacked">
+                    <li><h2>Categories:</h2></li>
                     <li><a href="ViewTask.php?Categoryid=1">Academics</a></li>
                     <li><a href="ViewTask.php?Categoryid=1">Automotive</a></li>
                     <li><a href="ViewTask.php?Categoryid=1">Food</a></li>
