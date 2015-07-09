@@ -5,9 +5,9 @@ require_once 'db_connect.php';
 
 function listByCategory($incatid)
 {
-	echo 'test1';
-	$tasksarray = array();
 	
+	$tasksarray = array();
+	echo 'test1';
 	$dbhandle = $db_connect();
 	echo 'test2';
 	$query = "SELECT TaskID FROM Tasks";
