@@ -85,7 +85,7 @@
 
     <!-- Begin page content -->
     <div class="container">
-	
+
 	<?php include "php/alerts.php"; ?>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -97,7 +97,6 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-
                 <div class="item active">
                     <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:460px;margin: 0 auto">
                     <div class="carousel-caption">
@@ -115,7 +114,6 @@
                     <div class="carousel-caption">
                     </div>
                 </div>
-
             </div>
 
             <!-- Left and right controls -->
@@ -130,7 +128,7 @@
         </div>
 
     </div>
-
+	<div id="push"></div>
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
             <a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised">Create Task</button></a>
@@ -139,10 +137,6 @@
             <a href="ViewTasks.php"><button type="button" class="btn btn-primary btn-lg raised">Find Task</button></a>
         </div>
     </div>
-
-
-
-    <div id="push"></div>
 </div>
 
 <div id="footer">
