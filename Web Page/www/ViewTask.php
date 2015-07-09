@@ -159,11 +159,20 @@
                     <p>What do you want a task master to do?</p>
                     <br>
                 
-                    <label class="control-label" for="Bid">Current Bid: </label>
-                    <div class="controls">
-                        <input id="Bid" name="Bid" type="text" placeholder="Username" class="input-xlarge form-control" value="$10.00" readonly>
+                    <p>Current bid: <b>US $45.00</b></p>
+                
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <label class="control-label" for="Bid">Set Bid: </label>
+                        <div class="controls">
+                            <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control">
+                        </div>
+        
                     </div>
                 
+                    <div class="col-md-3 col-sm-3 col-xs-3">   
+                        <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
+                    </div>
+                    
             </div>
             
             <div class="col-md-3 col-sm-3 col-xs-3">
