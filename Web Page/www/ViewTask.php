@@ -138,7 +138,7 @@ else
   <script>
     $(function() {
       $('a').fullsizable({
-        detach_id: 'container'
+        detach_id: 'TasksImages'
       });
 
       $(document).on('fullsizable:opened', function(){
