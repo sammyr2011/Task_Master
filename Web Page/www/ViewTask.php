@@ -132,9 +132,9 @@ else
   </style>
   <link rel="stylesheet" href="/css/jquery-fullsizable.css" />
   <link rel="stylesheet" href="/css/jquery-fullsizable-theme.css" />
-  <script src="../js/jquery-1.7.2.js"></script>
+  <script src="/js/jquery-1.7.2.js"></script>
   <script src="https://cdn.rawgit.com/mattbryson/TouchSwipe-Jquery-Plugin/1.6.6/jquery.touchSwipe.min.js"></script>
-  <script src="../js/jquery-fullsizable.js"></script>
+  <script src="/js/jquery-fullsizable.js"></script>
   <script>
     $(function() {
       $('a').fullsizable({
