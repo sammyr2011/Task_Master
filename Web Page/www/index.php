@@ -56,6 +56,10 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }*/
+        .carousel-inner{
+          width:100%;
+          max-height: 200px !important;
+        }
         }
 
     </style>
