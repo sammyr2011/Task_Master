@@ -2,10 +2,10 @@
 
 require_once 'php/task_list.php';
 
+$catid = 0;
+
 if (isset($_GET['Categoryid']))
 	$catid = $_GET['Categoryid'];
-else
-	$catid = NULL;
 	
 $tasks = array();
 
