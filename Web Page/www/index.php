@@ -49,14 +49,14 @@
         }
 
         /* Lastly, apply responsive CSS fixes as necessary */
-       @media (max-width: 767px) {
+       /*@media (max-width: 767px) {
             #footer {
                 margin-left: -20px;
                 margin-right: -20px;
                 padding-left: 20px;
                 padding-right: 20px;
             }
-        }
+        }*/
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
