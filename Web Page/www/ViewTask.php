@@ -144,7 +144,6 @@ else
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -185,9 +184,9 @@ else
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
                     <h1><?php echo $task->title; ?></h1>
-                    <br>
 					<?php echo $task->description; ?>
-                
+					<br>
+					
                     <p>Current bid: <b>US $45.00</b></p>
                 
                     <div class="col-md-3 col-sm-3 col-xs-3">
