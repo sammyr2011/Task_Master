@@ -204,7 +204,7 @@ else
                     
             </div>
             
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid black 3px;">
+            <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
                 <h3>Username</h3>
                 <img src="images/UserStock.png" height="100px">
                 <p>star rating (5)</p>
@@ -212,7 +212,7 @@ else
         </div>
         <br>
         
-        <div class="row" style="border-style: solid; border-top: thick double #ff0000;"></div>
+        <div class="row" style="border-style: dashed; border-top: black;"></div>
         <br>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
