@@ -9,14 +9,14 @@ if (session_status() == PHP_SESSION_NONE)
 
 class task
 {
-	$taskid;
-	$userid;
-	$title;
-	$description;
-	$content;
-	$location;
-	$category;
-	$tags;
+	var $taskid;
+	var $userid;
+	var $title;
+	var $description;
+	var $content;
+	var $location;
+	var $category;
+	var $tags;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
