@@ -101,7 +101,7 @@
             <div class="carousel-inner" role="listbox">
 
                 <div class="item active">
-                    <img src="images/tutoring.jpeg" alt="tutoring" width="460" height="345">
+                    <img src="images/mowinggrass.jpg" alt="tutoring" width="460" height="345">
                     <div class="carousel-caption">
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="images/carwork.jpg" alt="CarWork" width="460" height="345">
+                    <img src="images/oil.jpg" alt="CarWork" width="460" height="345">
                     <div class="carousel-caption">
                     </div>
                 </div>
