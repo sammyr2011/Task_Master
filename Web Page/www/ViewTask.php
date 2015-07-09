@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE)
 
 $intaskid;
 
-if (isset($_POST['intaskid'])) $intaskid = $_POST['intaskid'];
+if (isset($_GET['id'])) $intaskid = $_GET['id'];
 
 $error = array();
 
@@ -21,7 +21,7 @@ if ($error == NULL)
 }
 else
 {
-		$_SESSION['msg_badtaskid'] = "Bad task id";
+	$_SESSION['msg_badtaskid'] = "Bad task id";
 }
 
 ?>
