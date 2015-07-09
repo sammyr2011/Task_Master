@@ -17,7 +17,6 @@ function listByCategory($incatid)
 	$result = $dbhandle->query($query);
 	while ($row = $result->fetch_array())
 	{
-		echo 'test';
 		$newtask = new task();
 		$newtask->getFromDB($row['TaskID']);
 		array_push($tasks, $newtask);
