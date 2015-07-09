@@ -49,13 +49,13 @@
         }
 
         /* Lastly, apply responsive CSS fixes as necessary */
-       /* @media (max-width: 767px) {
+       @media (max-width: 767px) {
             #footer {
-                margin-left: 0px;
-                margin-right: 0px;
-                padding-left: 0px;
-                padding-right: 0px;
-            }*/
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
         }
 
     </style>
