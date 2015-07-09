@@ -83,11 +83,11 @@
 
     <script>
         $(function() {
-            $( "#datepicker" ).datetimepicker({minDate: 0});
+            $( "#datepicker" ).datepicker({minDate: 0});
         });
 
         $(function() {
-            $( "#datepicker2" ).datetimepicker({minDate: 0});
+            $( "#datepicker2" ).datepicker({minDate: 0});
         });
     </script>
 
