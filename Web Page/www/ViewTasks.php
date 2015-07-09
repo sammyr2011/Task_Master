@@ -1,6 +1,7 @@
 <?php
 
 require_once 'php/task_list.php';
+require_once 'php/task_class.php';
 
 $catid = 0;
 
