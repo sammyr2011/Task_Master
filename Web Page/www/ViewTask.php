@@ -119,6 +119,46 @@ else
             $( "#datepicker2" ).datepicker();
         });
     </script>
+    
+    
+    
+    
+    
+    
+     <style type="text/css" media="screen">
+    #TasksImages {
+      min-height: 1000px;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/jquery-fullsizable.css" />
+  <link rel="stylesheet" href="/css/jquery-fullsizable-theme.css" />
+  <script src="../js/jquery-1.7.2.js"></script>
+  <script src="https://cdn.rawgit.com/mattbryson/TouchSwipe-Jquery-Plugin/1.6.6/jquery.touchSwipe.min.js"></script>
+  <script src="../js/jquery-fullsizable.js"></script>
+  <script>
+    $(function() {
+      $('a').fullsizable({
+        detach_id: 'container'
+      });
+
+      $(document).on('fullsizable:opened', function(){
+        $("#jquery-fullsizable").swipe({
+          swipeLeft: function(){
+            $(document).trigger('fullsizable:next')
+          },
+          swipeRight: function(){
+            $(document).trigger('fullsizable:prev')
+          },
+          swipeUp: function(){
+            $(document).trigger('fullsizable:close')
+          }
+        });
+      });
+    });
+  </script>
+    
+    
+    
 
 </head>
 
@@ -147,7 +187,7 @@ else
                 </ol>
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner" role="listbox" id="TasksImages">
 
                     <div class="item active">
                         <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:200px;margin: 0 auto">
