@@ -12,8 +12,6 @@ $tasks = array();
 
 $tasks = listByCategory($catid);
 
-echo 'test';
-
 ?>
 
 <!DOCTYPE html>
@@ -136,14 +134,14 @@ echo 'test';
                 </ul>
             </div>
         </div>
-		
+		<div class="col-md-8 col-sm-8 col-xs-8">
 		<?php
 		
 		foreach ($tasks as $task)
 		{
 		
 		?>
-        <div class="col-md-8 col-sm-8 col-xs-8">
+        
             <div class="row" style="border:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <img src="images/oil.jpg" height="100px">
@@ -154,11 +152,12 @@ echo 'test';
                     <p>Current bid: <b>US $45.00</b></p>
                 </div>
             </div>
-        </div>
+        
 		
 		<?php
 		}
 		?>
+		</div>
     </div>
 
 
