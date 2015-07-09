@@ -119,9 +119,13 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="row">
+            <div class="row" style="border:solid black 2px">
                 <div class="col-md-4 col-sm-4">
                     <img src="images/oil.jpg" height="100px">
+                </div>
+                <div class="col-md-8 col-xs-8 col-sm-8">
+                    <p><b>Task Title</b></p>
+                    <p>Tasks Description</p>
                 </div>
             </div>
         </div>
