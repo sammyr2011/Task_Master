@@ -5,6 +5,8 @@ if (session_status() == PHP_SESSION_NONE)
 	session_start();
 }
 
+//successes
+
 if (isset($_SESSION['msg_registered']))
 { 
 	unset($_SESSION['msg_registered']); ?>
@@ -43,6 +45,18 @@ if (isset($_SESSION['msg_bidplaced']))
 		<strong>Bid Success!</strong> Your bid was placed.
 	</div> 
 	<?php
-} 
+}
+
+//warnings
+
+if (isset($_SESSION['msg_needlogin']))
+{ 
+	unset($_SESSION['msg_needlogin']); ?>
+	<div class="alert alert-danger">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Error!</strong> You must log in first!
+	</div> 
+	<?php
+}
 
 ?>

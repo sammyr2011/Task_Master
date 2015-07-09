@@ -1,3 +1,53 @@
+<?php
+
+//remember submitted values in case of error
+$_title = '';
+$_description = '';
+$_content = '';
+$_location = '';
+//$_category = '';
+$_tags = '';
+
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
+//Task form was submitted
+if (isset($_POST['submit']))
+{
+	include_once 'php/task_class.php';
+	$newtask = new task();
+	$task->createFromPost($_POST);
+	
+	$error = $newtask->register();
+	
+	//did task submission succeed?
+	if ($error == NULL) //success, redirect to new task and show message
+	{
+		$_SESSION['msg_taskmade'] = "Task Created";
+		header("Location: ViewTask.php?id={$newtask->taskid}");
+	}
+	else //did not, restore submitted values
+	{
+		if (isset($error['userid'])) $_SESSION['msg_needlogin'] = "Need login";
+		
+		if (isset($_POST['title'])) $_title = $_POST['title'];
+		
+		if (isset($_POST['description'])) $_description = $_POST['description'];
+		
+		if (isset($_POST['content'])) $_content = $_POST['content'];
+		
+		if (isset($_POST['location'])) $_location = $_POST['location'];
+		
+		//if (isset($_POST['category'])) $_category = $_POST['category'];
+		
+		if (isset($_POST['tags'])) $_tags = $_POST['tags'];
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +154,8 @@
 
     <!-- Begin page content -->
     <div class="container" style="border:black 9px">
-        <form class="form-horizontal" >
+	<?php include "php/alerts.php"; ?>
+		<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <fieldset>
                 <div class="row">
                     <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
@@ -116,10 +167,10 @@
 
                         <!-- Text input-->
                             <div class="control-group">
-                                <label class="control-label" for="textinput">Text Input</label>
+                                <label class="control-label" for="title">Title</label>
                                 <div class="controls">
-                                    <input id="textinput" name="textinput" type="text" placeholder="title" class="input-xlarge form-control">
-
+									<?php if (isset ($error['title'])) echo '<font color = "red">Invalid title</font>'; ?>
+                                    <input id="title" name="title" type="text" placeholder="title" class="input-xlarge form-control" value="<?php echo $_title; ?>">
                                 </div>
                             </div>
 
@@ -129,16 +180,34 @@
                             <div class="control-group">
                                 <label class="control-label" for="description">Task Description</label>
                                 <div class="controls">
-                                    <textarea id="description" name="description" placeholder="Describe task..." class="form-control"></textarea>
+									<?php if (isset ($error['description'])) echo '<font color = "red">Invalid description</font>'; ?>
+                                    <textarea id="description" name="description" placeholder="Short description" class="form-control"><?php echo $_description; ?></textarea>
+                                </div>
+                            </div>
+							
+							<!-- Textarea -->
+                            <div class="control-group">
+                                <label class="control-label" for="content">Task Information</label>
+                                <div class="controls">
+									<?php if (isset ($error['content'])) echo '<font color = "red">Invalid instructions</font>'; ?>
+                                    <textarea id="content" name="content" placeholder="Detailed information and instructions about task" class="form-control"><?php echo $_content; ?></textarea>
+                                </div>
+                            </div>
+							
+							<div class="control-group">
+                                <label class="control-label" for="location">Location</label>
+                                <div class="controls">
+									<?php if (isset ($error['location'])) echo '<font color = "red">Invalid location</font>'; ?>
+                                    <input id="location" name="location" type="text" placeholder="Location" class="input-xlarge form-control" value="<?php echo $_location; ?>">
                                 </div>
                             </div>
 
 
                             <!-- Select Multiple -->
                             <div class="control-group">
-                                <label class="control-label" for="selectcategory">Select Task Category</label>
+                                <label class="control-label" for="category">Select Task Category</label>
                                 <div class="controls">
-                                    <select id="selectcategory" name="selectcategory" class="input-xlarge form-control" multiple="multiple">
+                                    <select id="category" name="category" class="input-xlarge form-control" multiple="multiple">
                                         <option>Automotive</option>
                                         <option>Food</option>
                                         <option>Lawn Care</option>
@@ -155,7 +224,7 @@
                             <p><b>Initial Task Pay</b></p>
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input type="text" class="form-control" placeholder="US Dollar">
+									<input type="text" class="form-control" placeholder="US Dollar" name="price">
                                 <span class="input-group-addon">.00</span>
                             </div>
 
@@ -180,8 +249,8 @@
                         <div id="custom-search-input">
                             <label class="control-label">Related Keywords</label>
                             <div class="input-group col-md-12 col-sm-12">
-
-                                <input type="text" class="  search-query form-control" placeholder="keywords" />
+								<?php if (isset ($error['tags'])) echo '<font color = "red">Invalid tags</font>'; ?>
+                                <input type="text" name="tags" class="search-query form-control" placeholder="Enter hashtags" value="<?php echo $_tags; ?>"/>
                                 <span class="input-group-btn">
                                     <button class="btn" type="button">
                                         <span class=" glyphicon glyphicon-question-sign"></span>
@@ -194,10 +263,10 @@
 
                         <!--  Think about changing type to date rather than using text and the JQuery datepicker-->
                          <!-- Select End Date-->
-                        <p><b>End Bidding Date:</b> <input type="text" id="datepicker" placeholder="Click Here" class="form-control"></p>
+                        <p><b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control"></p>
 
                         <!-- When to have the job done by-->
-                        <p><b>Task Completion Date:</b> <input type="text" id="datepicker2" placeholder="Click Here" class="form-control"></p>
+                        <p><b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control"></p>
 
                          <!-- File Button -->
                         <div class="control-group">
@@ -210,7 +279,7 @@
                         <br><br>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                            <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Submit</button>
+							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">
