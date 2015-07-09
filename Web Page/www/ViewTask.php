@@ -1,3 +1,31 @@
+<?php
+
+require_once 'php/task_class.php';
+
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
+$intaskid;
+
+if (isset($_POST['intaskid'])) $intaskid = $_POST['intaskid'];
+
+$error = array();
+
+$task = new task();
+$error = $task->getFromDB($intaskid);
+
+if ($error == NULL)
+{
+}
+else
+{
+		$_SESSION['msg_badtaskid'] = "Bad task id";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,8 +183,9 @@
             
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
-                    <h1>Task Title</h1>
+                    <h1><?php echo $task->title; ?></h1>
                     <br>
+					<?php echo $task->description; ?>
                 
                     <p>Current bid: <b>US $45.00</b></p>
                 

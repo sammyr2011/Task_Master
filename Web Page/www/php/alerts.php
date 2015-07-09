@@ -59,4 +59,14 @@ if (isset($_SESSION['msg_needlogin']))
 	<?php
 }
 
+if (isset($_SESSION['msg_badtaskid']))
+{ 
+	unset($_SESSION['mmsg_badtaskid']); ?>
+	<div class="alert alert-danger">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bad Task ID!</strong> This is a site error!
+	</div> 
+	<?php
+}
+
 ?>
