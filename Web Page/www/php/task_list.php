@@ -5,26 +5,29 @@ require_once 'db_connect.php';
 
 function listByCategory($incatid)
 {
-	$tasks = array();
+	echo 'test1';
+	$tasksarray = array();
 	
 	$dbhandle = $db_connect();
-	
+	echo 'test2';
 	$query = "SELECT TaskID FROM Tasks";
 	
 	if ($incatid != 0)
 		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid}";
-		
+	
+	echo 'test3';
 	$result = $dbhandle->query($query);
+	echo 'test4';
 	while ($row = $result->fetch_array())
 	{
 		$newtask = new task();
 		$newtask->getFromDB($row['TaskID']);
-		array_push($tasks, $newtask);
+		array_push($tasksarray, $newtask);
 	}
 	
 	$dbhandle->close();
 	
-	return $tasks;
+	return $tasksarray;
 }
 
 ?>
