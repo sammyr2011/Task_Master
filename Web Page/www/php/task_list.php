@@ -10,9 +10,9 @@ function listByCategory($incatid)
 	$dbhandle = $db_connect();
 	
 	if ($incatid = NULL)
-		$query = "SELECT * FROM Tasks";
+		$query = "SELECT TaskID FROM Tasks";
 	else
-		$query = "SELECT * FROM Tasks WHERE Category={$incatid}";
+		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid}";
 		
 	$result = $dbhandle->query($query);
 	while ($row = $result->fetch_array())
@@ -21,7 +21,9 @@ function listByCategory($incatid)
 		$newtask->getFromDB($row['TaskID']);
 		array_push($tasks, $newtask);
 	}
-		
+	
+	$dbhandle->close();
+	
 	return $tasks;
 }
 

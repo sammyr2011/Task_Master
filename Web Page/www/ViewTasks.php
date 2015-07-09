@@ -1,3 +1,18 @@
+<?php
+
+require_once 'php/task_list.php';
+
+if (isset($_GET['Categoryid']))
+	$catid = $_GET['Categoryid'];
+else
+	$catid = NULL;
+	
+$tasks = array();
+
+$tasks = listByCategory($catid);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,27 +124,38 @@
             <div class="well bs-sidebar affix" id="sidebar">
                 <ul class="nav nav-pills nav-stacked">
                     <li><p style="text-align:center"><b>Categories:</b></p></li>
-                    <li><a href="ViewTask.php?Categoryid=1">Academics</a></li>
-                    <li><a href="ViewTask.php?Categoryid=2">Automotive</a></li>
-                    <li><a href="ViewTask.php?Categoryid=3">Food</a></li>
-                    <li><a href="ViewTask.php?Categoryid=4">Lawn</a></li>
-                    <li><a href="ViewTask.php?Categoryid=5">House Work</a></li>
-                    <li><a href="ViewTask.php?Categoryid=6">Other/Misc.</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=1">Academics</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=2">Automotive</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=3">Food</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=4">Lawn</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=5">House Work</a></li>
+                    <li><a href="ViewTasks.php?Categoryid=6">Other/Misc.</a></li>
                 </ul>
             </div>
         </div>
+		
+		<?php
+		
+		foreach ($tasks as $task)
+		{
+		
+		?>
         <div class="col-md-8 col-sm-8 col-xs-8">
             <div class="row" style="border:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <img src="images/oil.jpg" height="100px">
                 </div>
                 <div class="col-md-8 col-xs-8 col-sm-8">
-                    <p><b>Task Title</b></p>
-                    <p>Tasks Description</p>
+                    <p><b><?php echo $task->title; ?></b></p>
+                    <p><?php echo $task->description; ?></p>
                     <p>Current bid: <b>US $45.00</b></p>
                 </div>
             </div>
         </div>
+		
+		<?php
+		}
+		?>
     </div>
 
 
