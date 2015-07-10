@@ -32,9 +32,6 @@ $tasks = listByCategory($catid);
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
-
-
     <meta charset="utf-8">
     <title>Task Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,7 +140,7 @@ $tasks = listByCategory($catid);
 		?>
         
             <a href="ViewTask.php?id=<?php echo $task->taskid; ?>">
-			<div class="row" style="border:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
+			<div class="row" style="border-bottom:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <img src="images/oil.jpg" height="100px">
                 </div>
