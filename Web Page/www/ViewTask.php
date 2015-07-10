@@ -229,7 +229,7 @@ else
 					
                     <p>Current bid: <b>US $45.00</b></p>
                 
-                    <div class="col-md-3 col-sm-3 col-xs-3">
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="background-color: #E2E2E2;">
                         <label class="control-label" for="Bid">Set Bid: </label>
                         <div class="controls">
                             <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control">
@@ -237,7 +237,7 @@ else
         
                     </div>
                 
-                    <div class="col-md-3 col-sm-3 col-xs-3">   
+                    <div class="col-md-3 col-sm-3 col-xs-3" style="background-color: #E2E2E2;">
                         <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
                     </div>
                     
