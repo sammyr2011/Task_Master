@@ -119,7 +119,7 @@ $tasks = listByCategory($catid);
     <!-- Begin page content -->
     <div class="container">
         <div class="col-md-4 col-sm-4 col-xs-4">
-            <div class="well bs-sidebar affix" id="sidebar" style="height:80%">
+            <div class="well bs-sidebar" id="sidebar" style="height:80%">
                 <ul class="nav nav-pills nav-stacked">
                     <li><p style="text-align:center"><b>Categories:</b></p></li>
                     <li><a href="ViewTasks.php?Categoryid=1">Academics</a></li>
