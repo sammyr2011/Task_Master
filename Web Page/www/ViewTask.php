@@ -225,7 +225,7 @@ else
             <div class="col-md-6 col-sm-6 col-xs-6">
                     <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
 					
-					<p><?php echo $task->description; ?></p>
+					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					
                     <p>Current bid: <b>US $45.00</b></p>
                 
