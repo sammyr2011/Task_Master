@@ -133,7 +133,7 @@ $tasks = listByCategory($catid);
         </div>
 		<div class="col-md-8 col-sm-8 col-xs-8">
 		<?php
-		
+
 		foreach ($tasks as $task)
 		{
 		

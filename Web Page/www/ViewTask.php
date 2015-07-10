@@ -223,7 +223,7 @@ else
             
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
-                    <h1><?php echo $task->title; ?></h1>
+                    <h3><?php echo $task->title; ?></h3>
 					
 					<p><?php echo $task->description; ?></p>
 					
