@@ -229,19 +229,19 @@ else
 					
                     <p>Current bid: <b>US $45.00</b></p>
 
-                    <div style="background-color: #E2E2E2;">
-                        <div class="col-md-3 col-sm-3 col-xs-3" >
-                            <label class="control-label" for="Bid">Set Bid: </label>
-                            <div class="controls">
-                                <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control">
-                            </div>
-
+                    <!-- style="background-color: #E2E2E2;" -->
+                    <div class="col-md-3 col-sm-3 col-xs-3" >
+                        <label class="control-label" for="Bid">Set Bid: </label>
+                        <div class="controls">
+                            <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control">
                         </div>
 
-                        <div class="col-md-3 col-sm-3 col-xs-3">
-                            <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
-                        </div>
-                     </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
+                    </div>
+
             </div>
             
             <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
@@ -257,6 +257,10 @@ else
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <p>Cerebella ii du attingere alligatus ac suspicari id eminenter. Ac in remotis exsolvi dicamne proxime ad an. Quam ei inge ea isti data soni ex duce. Tollentur co an im tantumque videlicet. Naturae viderer propria co an se is. Repugnemus ei an ob distinguit propositio id facultatem percipimus. Dubitare cur lor experiar extensum. Jam pudeat vim ita movere maxima igitur nihili. Originis cognitio temporis vi naturali ne. Memores revolvo hos ponitur haberem rei est vox movendi ejusdem. Omne duo cum ipse fert tria rum vera. Seu nemoque frigida nostrae quasdam nec. Ad du haud et quas foco visu dare meas me. Ea externa relabor de duratio. Illo addo ente si in quis ne hinc hanc</p>
+                <br>
+                <p>Bids:</p>
+                <p>Maybe have users that have bid on a task along with their ratings and bid.</p>
+
             </div>
         </div>
     </div>
