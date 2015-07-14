@@ -213,7 +213,7 @@ if (isset($_POST['submit']))
 										
 										$categories = getCategories();
 										
-										for each($categories as $category)
+										foreach($categories as $category)
 											echo "<option value='{$category->id}'>{$category->title}</option>";
 										?>
                                     </select>
