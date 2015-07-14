@@ -91,10 +91,10 @@
             </div>
             
              <div class="col-md-8 col-sm-8 col-xs-8">
-                <a href="#" style="padding:5px 50px" >Update Password</a>
-                <a href="#" style="padding:5px 50px" >Update Address</a>
-                <a href="#" style="padding:5px 50px" >Update Email</a>
-                <a href="#" style="padding:5px" >Change Avatar</a>
+                <a href="#" style="padding:0px 25px" >Update Password</a>
+                <a href="#" style="padding:0px 25px" >Update Address</a>
+                <a href="#" style="padding:0px 25px" >Update Email</a>
+                <a href="#" style="padding:0px 25px" >Change Avatar</a>
             </div>
         </div>
         <br>
