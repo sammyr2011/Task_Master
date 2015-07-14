@@ -259,8 +259,6 @@ else
 
         </script>
 
-
-
         <br>
         
         <div class="row" style="border-style: solid; border-top: black;"></div>
