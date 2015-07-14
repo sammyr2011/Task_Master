@@ -44,8 +44,10 @@ else
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
-
+    <link rel="stylesheet" href="/lib/jquery.raty.css">
+    <script src="/vendor/jquery.js"></script>
+    <script src="/lib/jquery.raty.js"></script>
+    <script src="javascripts/labs.js" type="text/javascript"></script>
 
     <meta charset="utf-8">
     <title>Task Creation</title>
