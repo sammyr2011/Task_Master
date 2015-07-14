@@ -1,12 +1,13 @@
 <!-- JSON encodes current list of categories -->
 <?php
+	echo "test";
 	require_once 'db_connect.php';
 	$dbhandle = db_connect();
 	$query = "SELECT * FROM Categories";
 	$result $dbhandle->query($query);
   	$categories = array();
   	
-  	echo "test";
+  
   
 	while ($row = $result->fetch_array())
 	{
