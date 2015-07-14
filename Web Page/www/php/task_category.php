@@ -30,7 +30,7 @@ function getCategories()
 		array_push($categories, $category);
 	}
 	
-	db_close($)
+	db_close($dbhandle);
 	
 	return $categories;
 }
