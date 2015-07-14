@@ -13,7 +13,7 @@ $dbhandle = db_connect();
 $sqlquery = "DELETE FROM ActiveUsers WHERE UserID = {$_SESSION["userid"]}";
 $result = $dbhandle->query($sqlquery);
 
-dbclose($dbhandle);
+db_close($dbhandle);
 
 
 // Closing the session.
