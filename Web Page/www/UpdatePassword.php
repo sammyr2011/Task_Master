@@ -88,7 +88,7 @@
         <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <fieldset>
                 <div class="row">
-
+                    <div class="col-md-8 col-sm-8">
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
                                 <label class="control-label" for="PaswordConfirm">Confirm Current Password:</label>
@@ -112,7 +112,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="NewPassConfirm">New Password Confirmation:</label>
                                 <div class="controls">
-                                    <input id="NewPassConfirm" name="NewPassConfirm" type="password" placeholder="New Password Confirmation" class="input-xlarge form-control">
+                                    <input id="NewPassConfirm" name="NewPassConfirm" type="password" placeholder="New Password Confirmation" class="input-xlarge form-control" style="padding-bottom:30px">
                                 </div>
                             </div>
                         </div>
@@ -127,6 +127,7 @@
                         </div>
 
                     </div>
+                </div>
 
                     <!-- Help side div-->
                     <div class="col-md-4 col-sm-4">
