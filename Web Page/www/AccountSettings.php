@@ -85,7 +85,7 @@
     <!-- Begin page content -->
     <div class="container">
         <!-- User Info -->
-        <div class="row" style="border:#111 solid 3px; padding:14px 18px">
+        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>General Info</h2>    
             </div>
@@ -99,7 +99,7 @@
         </div>
         <br>
          <!-- Tasks -->
-        <div class="row" style="border:#111 solid 3px; padding:14px 18px">
+        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Tasks</h2>
             </div>
