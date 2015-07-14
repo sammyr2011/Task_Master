@@ -112,7 +112,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="NewPassConfirm">New Password Confirmation:</label>
                                 <div class="controls">
-                                    <input id="NewPassConfirm" name="NewPassConfirm" type="password" placeholder="New Password Confirmation" class="input-xlarge form-control" style="padding-bottom:30px">
+                                    <input id="NewPassConfirm" name="NewPassConfirm" type="password" placeholder="New Password Confirmation" class="input-xlarge form-control" style="margin-bottom: 30px">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                         </div>
 
                     </div>
-                </div>
+                
 
                     <!-- Help side div-->
                     <div class="col-md-4 col-sm-4">
@@ -136,7 +136,7 @@
 
                     </div>
 
-
+                </div>
                 </div>
 
             </fieldset>
