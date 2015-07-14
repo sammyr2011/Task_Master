@@ -1,4 +1,4 @@
-<!-- JSON encodes current list of categories -->
+
 <?php
 	require_once 'db_connect.php';
 	$dbhandle = db_connect();
