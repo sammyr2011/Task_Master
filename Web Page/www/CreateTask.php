@@ -211,8 +211,7 @@ if (isset($_POST['submit']))
                                         <?php
 										require_once 'php/task_category.php';
 										
-										$categories = array();
-										$categories = getCategories();
+										$categories[] = getCategories();
 										
 										foreach($categories as $category)
 											echo "<option value='{$category->id}'>{$category->title}</option>";

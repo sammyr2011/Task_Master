@@ -9,7 +9,7 @@ class category
 	
 	function __construct($row)
 	{
-		echo "TEST";
+		echo 'inid = {$row['id']}';
 		$id = $row['id'];
 		$title = $row['title'];
 	}
