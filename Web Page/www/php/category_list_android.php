@@ -5,6 +5,8 @@
 	$query = "SELECT * FROM Categories";
 	$result $dbhandle->query($query);
   	$categories = array();
+  	
+  	echo "test";
   
 	while ($row = $result->fetch_array())
 	{
