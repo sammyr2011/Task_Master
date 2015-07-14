@@ -33,8 +33,7 @@ class task
 		if (isset($info['location'])) $this->location = $info['location'];
 		
 		//metadata
-		//if (isset($info['category'])) $this->category = $info['category'];
-		$this->category = 1;
+		if (isset($info['category'])) $this->category = $info['category'];
 		
 		if (isset($info['tags'])) $this->tags = $info['tags'];
 	}
