@@ -293,7 +293,7 @@ if (isset($_POST['submit']))
                         <p>Welcome to the Task Creation page.  Congratulations you have taken
                         the first step to having your task completed by a Task Master.</p><br>
 
-                        <p>The <b>Text Input</b> field is used to title the task so others can acurrately choose
+                        <p>The <b>Title</b> field is used to title the task so others can acurrately choose
                         an applicable task.</p>
                         <p>The <b>Task Description</b> is a short anecdote of the task that you would like one our Task Masters to complete.</p>
                         <p>For the <b>Select Task Category</b> field choose the category that most closely relates to the task.</p>
