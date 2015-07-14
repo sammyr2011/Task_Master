@@ -248,9 +248,7 @@ else
 
         <!-- Rating System Scripts -->
         <script>
-            $(document).ready(function() {
                 $('#ratyRating').raty();
-
         </script>
 
         <br>
