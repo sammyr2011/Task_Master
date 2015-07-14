@@ -13,5 +13,7 @@
 	
 	$dbhandle->close();
 	
+	echo $categories;
+	
 	echo json_encode($categories);
 ?>
