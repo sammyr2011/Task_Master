@@ -84,42 +84,64 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <!-- User Info -->
-        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h2>General Info</h2>    
-            </div>
-            
-             <div class="col-md-8 col-sm-8 col-xs-8">
-                <a href="UpdatePassword.php" style="padding:0px 25px" >Update Password</a>
-                <a href="#" style="padding:0px 25px" >Update Address</a>
-                <a href="#" style="padding:0px 25px" >Update Email</a>
-                <a href="#" style="padding:0px 25px" >Change Avatar</a>
-            </div>
-        </div>
-        <br>
-         <!-- Tasks -->
-        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h2>Tasks</h2>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h3>Completed Tasks</h3>
-                <p>Task Title</p>
-                <p>Stars that are read only or empty depending whether
-                it has been rated before or not.</p>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h3>Tasks in progress</h3>
-                <!-- Will take you to task page -->
-                <p>Task</p>
-                <p><a href="#">Message Tasks Master</a></p>
-                
-            </div>
-            
-        </div>
+        <h2>Password Assitance Tool</h2>
+        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <fieldset>
+                <div class="row">
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="PaswordConfirm">Confirm Current Password:</label>
+                                <div class="controls">
+                                    <input id="PasswordConfirm" name="PassConfirm" type="password" placeholder="Current Password" class="input-xlarge form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="NewPass">New Password:</label>
+                                <div class="controls">
+                                    <input id="NewPass" name="NewPass" type="password" placeholder="New Password" class="input-xlarge form-control">
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="col-md-12 col-sm-12">
+                            <div class="control-group">
+                                <label class="control-label" for="NewPassConfirm">New Password Confirmation:</label>
+                                <div class="controls">
+                                    <input id="NewPassConfirm" name="NewPassConfirm" type="password" placeholder="New Password Confirmation" class="input-xlarge form-control">
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                            <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Cancel</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Help side div-->
+                    <div class="col-md-4 col-sm-4">
+                        <p>Welcome to the Password Reset page.</p><br>
+                        <p></p>
+
+                    </div>
 
 
+                </div>
+
+            </fieldset>
+        </form>
+
+        
         <div id="push"></div>
     </div>
 
