@@ -7,7 +7,7 @@ class category
 	var $id;
 	var $title;
 	
-	function __construct($row)
+	function __construct($row = array())
 	{
 		$id = $row['id'];
 		$title = $row['title'];
@@ -26,8 +26,8 @@ function getCategories()
 	
 	while ($row = $result->fetch_array())
 	{
-		$category = new category($row);
-		array_push($categories, $category);
+		$newcategory = new category($row);
+		array_push($categories, $newcategory);
 	}
 	
 	db_close($dbhandle);
