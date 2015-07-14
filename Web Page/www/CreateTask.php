@@ -208,12 +208,14 @@ if (isset($_POST['submit']))
                                 <label class="control-label" for="category">Select Task Category</label>
                                 <div class="controls">
                                     <select id="category" name="category" class="input-xlarge form-control" multiple="multiple">
-                                        <option>Automotive</option>
-                                        <option>Food</option>
-                                        <option>Lawn Care</option>
-                                        <option>Academics</option>
-                                        <option>House Work</option>
-                                        <option>Other/ Misc.</option>
+                                        <?php
+										require_once 'php/task_category.php';
+										
+										$categories = getCategories();
+										
+										for each($categories as $category)
+											echo "<option value='{$category->id}'>{$category->title}</option>";
+										?>
                                     </select>
                                 </div>
                             </div>
