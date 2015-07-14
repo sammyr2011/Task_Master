@@ -51,6 +51,10 @@ function user_login($inuser, $inpass)
 	$_SESSION["userid"] = $userid;
 	$_SESSION["username"] = $inuser;
 	
+	// Adding user to ActiveUser table in DB.
+	$sqlquery = "INSERT INTO ActiveUsers(UserID) VALUES ('{$userid}')";
+	$result = $dbhandle->query($sqlquery);
+	
 	db_close($dbhandle);
 
 	//return 0 indicates success
