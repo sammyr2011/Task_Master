@@ -7,8 +7,9 @@ class category
 	var $id;
 	var $title;
 	
-	function __construct($row = array())
+	function __construct($row)
 	{
+		echo "TEST";
 		$id = $row['id'];
 		$title = $row['title'];
 	}
