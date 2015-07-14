@@ -30,6 +30,8 @@ function getCategories()
 		array_push($categories, $category);
 	}
 	
+	db_close($)
+	
 	return $categories;
 }
 
