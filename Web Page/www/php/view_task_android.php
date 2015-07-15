@@ -9,7 +9,7 @@ if(isset($_POST['TaskID']))
 }
 else
 {
-  $intaskid = 0;
+  $intaskid = 12;
  //echo "post not set\n";
 }
 
