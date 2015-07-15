@@ -5,12 +5,12 @@ require_once 'task_class.php';
 if(isset($_POST['TaskID']))
 {
   $intaskid = $_POST['TaskID'];
-  echo "post set\n";
+  //echo "post set\n";
 }
 else
 {
   $intaskid = 0;
-  echo "post not set\n";
+ //echo "post not set\n";
 }
 
 $task = new task();
@@ -30,6 +30,11 @@ if($error != NULL)
   $taskout['Tags'] = $task->tags;
 
   echo json_encode($taskout);
+}
+else
+{
+  $error['error'] = true;
+  echo $error;
 }
 
 ?>
