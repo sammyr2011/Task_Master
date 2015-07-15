@@ -2,7 +2,14 @@
 
 require_once 'task_class.php';
 
-$intaskid = $_POST['TaskID'];
+if(isset($_POST['TaskID']))
+{
+  $intaskid = $_POST['TaskID'];
+}
+else
+{
+  $intaskid = 0;
+}
 
 $task = new task();
 
