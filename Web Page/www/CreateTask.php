@@ -5,7 +5,7 @@ $_title = '';
 $_description = '';
 $_content = '';
 $_location = '';
-//$_category = '';
+$_category = '';
 $_tags = '';
 
 if (session_status() == PHP_SESSION_NONE) 
@@ -40,7 +40,7 @@ if (isset($_POST['submit']))
 		
 		if (isset($_POST['location'])) $_location = $_POST['location'];
 		
-		//if (isset($_POST['category'])) $_category = $_POST['category'];
+		if (isset($_POST['category'])) $_category = $_POST['category'];
 		
 		if (isset($_POST['tags'])) $_tags = $_POST['tags'];
 	}
@@ -211,10 +211,11 @@ if (isset($_POST['submit']))
                                         <?php
 										require_once 'php/task_category.php';
 										
-										$categories[] = getCategories();
+										$categories = array();
+										$categories = getCategories();
 										
 										foreach($categories as $category)
-											echo "<option value='{$category->id}'>{$category->title}</option>";
+											echo "<option value='{$category->id}'>{$category->title}</option>\n";
 										?>
                                     </select>
                                 </div>

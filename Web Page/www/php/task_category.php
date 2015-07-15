@@ -9,9 +9,8 @@ class category
 	
 	function __construct($row)
 	{
-		echo "inid = {$row['id']}";
-		$id = $row['id'];
-		$title = $row['title'];
+		$this->id = $row['id'];
+		$this->title = $row['title'];
 	}
 }
 
