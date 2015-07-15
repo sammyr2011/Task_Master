@@ -17,7 +17,7 @@ $task = new task();
 
 $error = $task->getFromDB($intaskid);
 
-if($error != NULL)
+if($error == NULL)
 {
   //Convert task to usable array
   $taskout = array();
