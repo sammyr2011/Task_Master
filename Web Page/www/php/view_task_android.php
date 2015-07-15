@@ -13,6 +13,9 @@ else
  //echo "post not set\n";
 }
 
+//DEBUG
+$intaskid = 6;
+
 $task = new task();
 
 $error = $task->getFromDB($intaskid);
