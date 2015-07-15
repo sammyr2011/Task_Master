@@ -18,7 +18,7 @@ $error = $task->getFromDB($intaskid);
 if($error != NULL)
 {
   //Convert task to usable array
-  $taskout = new array();
+  $taskout = array();
   $taskout['TaskID'] = $task->taskid;
   $taskout['Lister'] = $task->userid;
   $taskout['Title'] = $task->title;
