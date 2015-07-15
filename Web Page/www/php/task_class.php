@@ -46,7 +46,7 @@ class task
 		//Fill out fields from database
 		$dbhandle = db_connect();
 		
-		$sqlquery = "SELECT * FROM Tasks WHERE TaskID = $intaskid LIMIT 1";
+		$sqlquery = "SELECT * FROM Tasks WHERE TaskID = {$intaskid} LIMIT 1";
 		$result = $dbhandle->query($sqlquery);
 		$row = $result->fetch_array();
 		
