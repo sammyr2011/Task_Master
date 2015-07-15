@@ -14,7 +14,7 @@ else
 }
 
 //DEBUG
-$intaskid = 11;
+$intaskid = "11";
 
 $task = new task();
 
