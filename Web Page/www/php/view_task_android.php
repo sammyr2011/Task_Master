@@ -17,7 +17,17 @@ $error = $task->getFromDB($intaskid);
 
 if($error != NULL)
 {
-  echo $task;
+  //Convert task to usable array
+  $taskout = new array();
+  $taskout['TaskID'] = $task->taskid;
+  $taskout['Lister'] = $task->userid;
+  $taskout['Title'] = $task->title;
+  $taskout['Description'] = $task->description;
+  $taskout['Location'] = $task->location;
+  $taskout['Category'] = $task->category;
+  $taskout['Tags'] = $task->tags;
+
+  echo json_encode($taskout);
 }
 
 ?>
