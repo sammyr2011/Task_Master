@@ -37,7 +37,7 @@ if($error != NULL)
 else
 {
   $error['error'] = true;
-  echo $error;
+  echo json_encode($error);
 }
 
 ?>
