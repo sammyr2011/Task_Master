@@ -116,46 +116,6 @@ else
         });
     </script>
 
-
-
-
-
-
-
-
-    <style type="text/css" media="screen">
-        #container {
-            min-height: 1000px;
-        }
-    </style>
-    <link rel="stylesheet" href="css/jquery-fullsizable.css" />
-    <link rel="stylesheet" href="css/jquery-fullsizable-theme.css" />
-    <script src="js/jquery-1.7.2.js"></script>
-    <script src="https://cdn.rawgit.com/mattbryson/TouchSwipe-Jquery-Plugin/1.6.6/jquery.touchSwipe.min.js"></script>
-    <script src="js/jquery-fullsizable.js"></script>
-    <script>
-        $(function() {
-            $('a').fullsizable({
-                detach_id: 'container'
-            });
-
-            $(document).on('fullsizable:opened', function(){
-                $("#jquery-fullsizable").swipe({
-                    swipeLeft: function(){
-                        $(document).trigger('fullsizable:next')
-                    },
-                    swipeRight: function(){
-                        $(document).trigger('fullsizable:prev')
-                    },
-                    swipeUp: function(){
-                        $(document).trigger('fullsizable:close')
-                    }
-                });
-            });
-        });
-    </script>
-    
-
 </head>
 
 <body>
@@ -174,7 +134,7 @@ else
             
             <!-- Task images -->
             <div class="col-md-3 col-sm-3 col-xs-3">
-                <div id="myCarousel TasksImages" class="carousel slide" data-ride="carousel">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
