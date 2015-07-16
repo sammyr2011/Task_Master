@@ -17,7 +17,6 @@ if (session_status() == PHP_SESSION_NONE)
 if (isset($_POST['submit']))
 {
 	include_once 'php/task_class.php';
-	include_once 'php/upload_taskimg.php';
 	
 	$_POST['numimg'] = count($_FILES['imageinput']);
 	
@@ -25,7 +24,9 @@ if (isset($_POST['submit']))
 	$newtask->createFromPost($_POST);
 	
 	$error = $newtask->register();
-	$imgerror = $newtask->uploadImg($_FILES['imageinput']);
+	
+	if ($error == NULL)
+		$imgerror = $newtask->uploadImg($_FILES['imageinput']);
 	
 	//did task submission succeed?
 	if ($error == NULL && $imgerror == NULL) //success, redirect to new task and show message
@@ -281,7 +282,7 @@ if (isset($_POST['submit']))
                             <label class="control-label" for="imageinput">Select Images</label>
 							<?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
-                                <input id="imageinput" name="imageinput" class="input-file" type="file" multiple="true" accept="image/gif, image/jpeg">
+                                <input id="imageinput" name="imageinput[]" class="input-file" type="file" multiple="true" accept="image/gif, image/jpeg">
                             </div>
                         </div>
 
