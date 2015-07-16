@@ -22,6 +22,7 @@ if (isset($_POST['loginsubmit']))
 		{
 			session_start();
 		}
+        
 		$_SESSION['msg_loggedin'] = "Logged In";
 		header("Location: index.php");
 	}
