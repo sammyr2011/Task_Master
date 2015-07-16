@@ -94,7 +94,7 @@
                  <div class="col-md-6 col-sm-6">
                     <a href="UpdatePassword.php" >Update Password</a>
                      <br>
-                     <a href="#" >Update Address</a>
+                     <a href="UpdateAddress.php" >Update Address</a>
                  </div>
                 
                  <div class="col-md-6 col-sm-6">
