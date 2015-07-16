@@ -28,7 +28,7 @@ if (isset($_POST['submit']))
 	$imgerror = $newtask->uploadImg($_FILES['imageinput']);
 	
 	//did task submission succeed?
-	if ($error == NULL) //success, redirect to new task and show message
+	if ($error == NULL && $imgerror == NULL) //success, redirect to new task and show message
 	{
 		$_SESSION['msg_taskmade'] = "Task Created";
 		header("Location: ViewTask.php?id={$newtask->taskid}");
@@ -279,6 +279,7 @@ if (isset($_POST['submit']))
                          <!-- File Button -->
                         <div class="control-group">
                             <label class="control-label" for="imageinput">Select Images</label>
+							<?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
                                 <input id="imageinput" name="imageinput" class="input-file" type="file" multiple="true" accept="image/gif, image/jpeg">
                             </div>
