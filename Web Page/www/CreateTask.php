@@ -32,7 +32,7 @@ if (isset($_POST['submit']))
 	if ($error == NULL && $imgerror == NULL) //success, redirect to new task and show message
 	{
 		$_SESSION['msg_taskmade'] = "Task Created";
-		header("Location: ViewTask.php?id={$newtask->taskid}");
+		//header("Location: ViewTask.php?id={$newtask->taskid}");
 	}
 	else //did not, restore submitted values
 	{
