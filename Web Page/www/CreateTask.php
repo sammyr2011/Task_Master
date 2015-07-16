@@ -17,10 +17,15 @@ if (session_status() == PHP_SESSION_NONE)
 if (isset($_POST['submit']))
 {
 	include_once 'php/task_class.php';
+	include_once 'php/upload_taskimg.php';
+	
+	$_POST['numimg'] = count($_FILES['imageinput']);
+	
 	$newtask = new task();
 	$newtask->createFromPost($_POST);
 	
 	$error = $newtask->register();
+	$imgerror = $newtask->uploadImg($_FILES['imageinput']);
 	
 	//did task submission succeed?
 	if ($error == NULL) //success, redirect to new task and show message

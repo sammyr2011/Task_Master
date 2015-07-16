@@ -13,6 +13,7 @@ $errors = $task->register();
 if($errors==NULL)
 {
   $errors['submitted']=true;
+  $errors['taskid'] = $task->taskid;
 }
 
 //Echo errors as JSON object

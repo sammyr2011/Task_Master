@@ -17,6 +17,7 @@ class task
 	var $location;
 	var $category;
 	var $tags;
+	var $numimg;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
@@ -36,6 +37,8 @@ class task
 		if (isset($info['category'])) $this->category = $info['category'];
 		
 		if (isset($info['tags'])) $this->tags = $info['tags'];
+		
+		if (isset($info['numimg'])) $this->numimg = $info['numimg'];
 	}
 	
 	//Gets info of a task stored in the database
@@ -98,7 +101,8 @@ class task
 			Location,
 			Category,
 			Tags,
-			Lister
+			Lister,
+			NumImages
 		) 
 		
 		VALUES
@@ -108,7 +112,8 @@ class task
 			'$this->location',
 			'$this->category',
 			'$this->tags',
-			'$this->userid'
+			'$this->userid',
+			'$this->numimg'
 		)";
 			
 		$result = $dbhandle->query($sqlquery);
@@ -139,6 +144,33 @@ class task
 		if (empty($this->location)) $errors['location'] = true;
 		if (empty($this->category)) $errors['category'] = true;
 		if (empty($this->tags)) $errors['tags'] = true;
+		
+		//If we made it here, all is valid
+		if (count($errors) > 0)
+			return $errors;
+		else
+			return NULL;
+	}
+	
+	public function uploadImg($images)
+	{
+		$errors = array();
+		
+		$allowedext = array("jpg", "jpeg", "png");
+		
+		$imgindex = 0;
+		
+		foreach($images['tmp_name'] as $key->$file_temp)
+		{
+			$file_ext = pathinfo($images['name'][$key], PATHINFO_EXTENSION);
+			
+			if (in_array($file_ext, $allowedext))
+			{
+				move_uploaded_file($file_temp,"images/task/".$this->taskid."/".$imgindex.".".$file_ext);
+			}
+			
+			$imgindex++;
+		}
 		
 		//If we made it here, all is valid
 		if (count($errors) > 0)
