@@ -91,10 +91,16 @@
             </div>
             
              <div class="col-md-8 col-sm-8 col-xs-8">
-                <a href="UpdatePassword.php" >Update Password</a>
-                <a href="#" >Update Address</a>
-                <a href="#">Update Email</a> 
-                <a href="#" >Change Avatar</a>
+                 <div class="col-md-6 col-sm-6">
+                    <a href="UpdatePassword.php" >Update Password</a>
+                     <a href="#" >Update Address</a>
+                 </div>
+                
+                 <div class="col-md-6 col-sm-6">
+                     <a href="#">Update Email</a> 
+                     <a href="#" >Change Avatar</a>
+                 </div>
+               
             </div>
         </div>
         <br>
