@@ -93,11 +93,13 @@
              <div class="col-md-8 col-sm-8 col-xs-8">
                  <div class="col-md-6 col-sm-6">
                     <a href="UpdatePassword.php" >Update Password</a>
+                     <br>
                      <a href="#" >Update Address</a>
                  </div>
                 
                  <div class="col-md-6 col-sm-6">
-                     <a href="#">Update Email</a> 
+                     <a href="#">Update Email</a>
+                     <br>
                      <a href="#" >Change Avatar</a>
                  </div>
                
