@@ -93,7 +93,7 @@
                             <label class="control-label" for="address">Street Address:</label>
 							<?php if (isset ($error['address'])) echo '<font color = "red">Invalid Address</font>'; ?>
                             <div class="controls">
-                                <input id="address" name="address" type="text" placeholder="Address" class="input-xlarge form-control" value="<?php echo $_address; ?>">
+                                <input id="address" name="address" type="text" placeholder="Address" class="input-xlarge form-control">
 
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                 <label class="control-label" for="city">City:</label>
 								<?php if (isset ($error['city'])) echo '<font color = "red">Invalid City</font>'; ?>
                                 <div class="controls">
-                                    <input id="city" name="city" type="text" placeholder="City" class="input-xlarge form-control" value="<?php echo $_city; ?>">
+                                    <input id="city" name="city" type="text" placeholder="City" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -174,9 +174,8 @@
                         <div class="col-md-3 col-sm-3">
                             <div class="control-group">
                                 <label class="control-label" for="zipcode">Zip Code:</label>
-								<?php if (isset ($error['zipcode'])) echo '<font color = "red">Invalid Zip</font>'; ?>
                                 <div class="controls">
-                                    <input id="zipcode" name="zipcode" type="text" placeholder="Zip Code" class="input-xlarge form-control" value="<?php echo $_zipcode; ?>">
+                                    <input id="zipcode" name="zipcode" type="text" placeholder="Zip Code" class="input-xlarge form-control">
 
                                 </div>
                             </div>
