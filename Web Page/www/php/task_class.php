@@ -162,17 +162,13 @@ class task
 		
 		$numimg = count($images['tmp_name']);
 		
-		echo "Uploading {$numimg} images";
-		
 		foreach($images['tmp_name'] as $key=>$file_temp)
 		{
 			$file_ext = pathinfo($images['name'][$key], PATHINFO_EXTENSION);
 			
 			if (in_array($file_ext, $allowedext))
 			{
-				$folderpath = "images/task/".$this->taskid."/";
-				
-				echo "Uploading to {$folderpath}";
+				$folderpath = "taskcontent/".$this->taskid."/";
 				
 				if (!is_dir($folderpath)) 
 					mkdir($folderpath,0777,true);
