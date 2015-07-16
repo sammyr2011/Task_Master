@@ -167,7 +167,7 @@ class task
 			if (in_array($file_ext, $allowedext))
 			{
 				if (!move_uploaded_file($file_temp,"/images/task/".$this->taskid."/".$imgindex.".".$file_ext))
-					errors['imgupload'] = true;
+					$errors['imgupload'] = true;
 			}
 			
 			$imgindex++;
