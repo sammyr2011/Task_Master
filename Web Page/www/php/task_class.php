@@ -160,7 +160,7 @@ class task
 		
 		$imgindex = 0;
 		
-		foreach($images['tmp_name'] as $key->$file_temp)
+		foreach($images['tmp_name'] as $key=>$file_temp)
 		{
 			$file_ext = pathinfo($images['name'][$key], PATHINFO_EXTENSION);
 			
