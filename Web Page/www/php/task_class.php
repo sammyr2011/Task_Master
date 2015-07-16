@@ -166,7 +166,12 @@ class task
 			
 			if (in_array($file_ext, $allowedext))
 			{
-				if (!move_uploaded_file($file_temp,"/images/task/".$this->taskid."/".$imgindex.".".$file_ext))
+				$folderpath = "/images/task/".$this->taskid."/";
+				
+				if (!is_dir($folderpath)) 
+					mkdir($folderpath);
+				
+				if (!move_uploaded_file($file_temp,$folderpath.$imgindex.".".$file_ext))
 					$errors['imgupload'] = true;
 			}
 			
