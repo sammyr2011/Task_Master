@@ -160,6 +160,10 @@ class task
 		
 		$imgindex = 0;
 		
+		$numimg = count($images['tmp_name']);
+		
+		echo "Uploading {$numimg} images";
+		
 		foreach($images['tmp_name'] as $key=>$file_temp)
 		{
 			$file_ext = pathinfo($images['name'][$key], PATHINFO_EXTENSION);
@@ -167,6 +171,8 @@ class task
 			if (in_array($file_ext, $allowedext))
 			{
 				$folderpath = "/images/task/".$this->taskid."/";
+				
+				echo "Uploading to {$folderpath}";
 				
 				if (!is_dir($folderpath)) 
 					mkdir($folderpath);
