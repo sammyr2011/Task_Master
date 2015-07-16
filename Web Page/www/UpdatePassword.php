@@ -123,7 +123,9 @@
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-                            <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Cancel</button>
+                            <a href="AccountSettings.php"><button type="button" class="btn btn-primary btn-lg raised">Cancel</button></a>
+                        </div>
+
                         </div>
 
                     </div>
