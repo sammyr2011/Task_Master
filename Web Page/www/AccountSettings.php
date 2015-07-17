@@ -111,20 +111,38 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Tasks</h2>
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h3>Completed Tasks</h3>
-                <p>Task Title</p>
-                <p>Stars that are read only or empty depending whether
-                it has been rated before or not.</p>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h3>Tasks in progress</h3>
-                <!-- Will take you to task page -->
-                <p>Task</p>
-                <p><a href="#">Message Tasks Master</a></p>
+            
+            <div class="col-md-8 col-sm-8 col-xs-8">
+            
+                <div class="row">
+                    
+                    <!-- 
+                        php script listing all tasks goes here 
+                            - check if task has been rated 
+                                -if so input a readonly star array with the comment associated with it
+                                -if not add a raty star array with a text area for comment 
+                            
+                    -->
+                    
+                    <h3>Completed Tasks</h3>
+                    
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                    
+                        <p>Task Title</p>
+                        <div
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3>Tasks in progress</h3>
+                    <!-- Will take you to task page -->
+                    <p>Task</p>
+                    <p><a href="#">Message Tasks Master</a></p>
+
+                </div>
                 
             </div>
-            
         </div>
 
 

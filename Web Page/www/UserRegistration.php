@@ -55,9 +55,6 @@ if (isset($_POST['submit']))
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-
-
-
     <meta charset="utf-8">
     <title>User Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -299,7 +296,6 @@ if (isset($_POST['submit']))
                         <div class="col-md-3 col-sm-3">
                             <div class="control-group">
                                 <label class="control-label" for="zipcode">Zip Code:</label>
-								<?php if (isset ($error['zipcode'])) echo '<font color = "red">Invalid Zip</font>'; ?>
                                 <div class="controls">
                                     <input id="zipcode" name="zipcode" type="text" placeholder="Zip Code" class="input-xlarge form-control" value="<?php echo $_zipcode; ?>">
 
@@ -310,7 +306,6 @@ if (isset($_POST['submit']))
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
                                 <label class="control-label" for="email">Email:</label>
-								<?php if (isset ($error['email'])) echo '<font color = "red">Invalid Email</font>'; ?>
                                 <div class="controls">
                                     <input id="email" name="email" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px" value="<?php echo $_email; ?>">
 
