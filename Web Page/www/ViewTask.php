@@ -209,8 +209,8 @@ else
         </div>
 
         <!-- Rating System Scripts -->
-        <script4
-                $('#ratyRating').raty({ readOnly: true, score: 3});
+        <script>
+                $('#ratyRating').raty();
         </script>
 
         <br>
