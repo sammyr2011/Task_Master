@@ -210,7 +210,7 @@ else
 
         <!-- Rating System Scripts -->
         <script4
-                $('#ratyRating').raty({ readOnly: true, score: 4});
+                $('#ratyRating').raty({ readOnly: true, score: 3});
         </script>
 
         <br>
