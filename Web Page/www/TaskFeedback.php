@@ -189,7 +189,7 @@ else
             </div>
             
             <!-- Give feedback on task -->
-            <div class="col-md-4 col-sm-4 col-xs-4">
+            <div class="col-md-4 col-sm-4 col-xs-4" style="border:lightgrey solid 3px; padding:14px 18px">
                 <h1>Rate User on Task</h1>
                 <p>Now that the task has been completed please rate how your task master did on the job.</p>
                 
