@@ -208,7 +208,14 @@ else
 
         <!-- Rating System Scripts -->
         <script>
-                $('#ratyRating').raty();
+                $('#ratyRating').raty({
+                    click: function(score) {
+                        //save value in star rating
+                        <?php $scorephp = ?> score;
+                    }
+                }
+                
+                );
         </script>
 
         <br>
