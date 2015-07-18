@@ -129,20 +129,15 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <!--Increment raing number in loop-->
                         <p>Task Title</p>
-                        <div id="rating1" data-score="3"></div>
+                        <<div data-score="1"></div>
                         <blockquote>Comment left with rating</blockquote>
                         
                         <script>          
-                        $('.rating1').raty({
-                            readOnly : true,
-                            half  : true,
-                            score: function() {
-                                return $(this).attr('data-score');
-                            
+                       $('div').raty({
+                          score: function() {
+                            return $(this).attr('data-score');
                         }
-                            
-                            space : false
-                        });  
+                        });
                       </script>  
                     </div>
                 </div>
