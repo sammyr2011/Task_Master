@@ -84,69 +84,8 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <!-- User Info -->
-        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h2>General Info</h2>    
-            </div>
-            
-             <div class="col-md-8 col-sm-8 col-xs-8">
-                 <div class="col-md-6 col-sm-6">
-                    <a href="UpdatePassword.php" >Update Password</a>
-                     <br>
-                     <a href="UpdateAddress.php" >Update Address</a>
-                 </div>
-                
-                 <div class="col-md-6 col-sm-6">
-                     <a href="#">Update Email</a>
-                     <br>
-                     <a href="#" >Change Avatar</a>
-                 </div>
-               
-            </div>
-        </div>
-        <br>
-         <!-- Tasks -->
-        <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <h2>Tasks</h2>
-            </div>
-            
-            <div class="col-md-8 col-sm-8 col-xs-8">
-            
-                <div class="row">
-                    
-                    <!-- 
-                        php script listing all tasks goes here 
-                            - check if task has been rated 
-                                -if so input a readonly star array with the comment associated with it
-                                -if not add a raty star array with a text area for comment 
-                            
-                    -->
-                    
-                    <h3>Completed Tasks</h3>
-                    
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                    
-                        <p>Task Title</p>
-                        <div></div>
-                        
-                    </div>
-                </div>
-
-                <div class="row">
-                    <h3>Tasks in progress</h3>
-                    <!-- Will take you to task page -->
-                    <p>Task</p>
-                    
-                    <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
-                    <p><a href="MessageCenter.php">Message Center</a></p>
-
-                </div>
-                
-            </div>
-        </div>
-
+    
+        <h1>Message Center Comming Soon!</h1>
 
         <div id="push"></div>
     </div>

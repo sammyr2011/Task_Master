@@ -193,7 +193,7 @@ else
                         </div>
 
                     </div>
-
+                    
                     <div class="col-md-3 col-sm-3 col-xs-3">
                         <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
                     </div>
