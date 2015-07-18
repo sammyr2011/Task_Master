@@ -129,16 +129,10 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <!--Increment raing number in loop-->
                         <p>Task Title</p>
-                        <<div data-score="1"></div>
+                        <div id="score-callback" data-score="1"></div>
                         <blockquote>Comment left with rating</blockquote>
                         
-                        <script>          
-                       $('div').raty({
-                          score: function() {
-                            return $(this).attr('data-score');
-                        }
-                        });
-                      </script>  
+                        
                     </div>
                 </div>
 
@@ -166,5 +160,13 @@
 </div>
 
 
+    
+<script>          
+$('#score-callback').raty({
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>  
 </body>
 </html>
