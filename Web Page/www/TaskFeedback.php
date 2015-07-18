@@ -187,8 +187,7 @@ else
 
                 </div>
             </div>
-            
-            <!-- Give feedback on task -->
+               <!-- Give feedback on task -->
             <div class="col-md-4 col-sm-4 col-xs-4" style="border:lightgrey solid 3px; padding:14px 18px">
                 <h1>Rate User on Task</h1>
                 <p>Now that the task has been completed please rate how your task master did on the job.</p>
@@ -217,13 +216,14 @@ else
                 
                 );
         </script>
+         
 
         <br>
         
         <div class="row" style="border-style: solid; border-top: black;"></div>
         <br>
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-8 col-sm-8 col-xs-8">
                 <p>Cerebella ii du attingere alligatus ac suspicari id eminenter. Ac in remotis exsolvi dicamne proxime ad an. Quam ei inge ea isti data soni ex duce. Tollentur co an im tantumque videlicet. Naturae viderer propria co an se is. Repugnemus ei an ob distinguit propositio id facultatem percipimus. Dubitare cur lor experiar extensum. Jam pudeat vim ita movere maxima igitur nihili. Originis cognitio temporis vi naturali ne. Memores revolvo hos ponitur haberem rei est vox movendi ejusdem. Omne duo cum ipse fert tria rum vera. Seu nemoque frigida nostrae quasdam nec. Ad du haud et quas foco visu dare meas me. Ea externa relabor de duratio. Illo addo ente si in quis ne hinc hanc</p>
                 <br>
                 <p>Bids:</p>
