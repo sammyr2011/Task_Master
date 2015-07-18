@@ -138,9 +138,6 @@
                     <h3>Tasks in progress</h3>
                     <!-- Will take you to task page -->
                     <p>Task</p>
-                    
-                    <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
-                    <p><a href="MessageCenter.php">Message Center</a></p>
 
                 </div>
                 

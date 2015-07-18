@@ -85,7 +85,7 @@
     <!-- Begin page content -->
     <div class="container">
     
-        <h1>Message Center Comming Soon!</h1>
+        <h1>Message Center Coming Soon!</h1>
 
         <div id="push"></div>
     </div>
