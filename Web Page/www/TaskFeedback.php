@@ -186,7 +186,7 @@ else
                         <p>Final bid: <b>US $45.00</b></p>
 
                 </div>
-            <div class="col-md-8 col-sm-8 col-xs-8" style="border-style: solid; border-top: black;">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="border-style: solid; border-top: black;">
                 <p>Cerebella ii du attingere alligatus ac 
                     suspicari id eminenter. Ac in remotis 
                     exsolvi dicamne proxime ad an. Quam 
