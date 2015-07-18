@@ -210,7 +210,7 @@ else
                 $('#ratyRating').raty({
                     click: function(score) {
                         //save value in star rating
-                        <?php $scorephp = ?> score;
+                        <?php $scorephp ?> = score;
                     }
                 }
                 
