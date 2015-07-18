@@ -129,7 +129,10 @@
                     <div class="col-md-4 col-sm-4 col-xs-4">
                     
                         <p>Task Title</p>
-                        <div></div>
+                        <div class="stars_small">
+                            <input type="hidden" name="score" value="3" readonly="readonly">
+                        </div>
+                        <blockquote>Comment left with rating</blockquote>
                         
                     </div>
                 </div>
