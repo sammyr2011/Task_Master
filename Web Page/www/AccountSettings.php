@@ -127,19 +127,17 @@
                     <h3>Completed Tasks</h3>
                     
                     <div class="col-md-4 col-sm-4 col-xs-4">
-                    
+                        <!--Increment raing number in loop-->
                         <p>Task Title</p>
-                        <div class="stars_small">
-                            <input type="hidden" name="score" value="3" readonly="readonly">
-                        </div>
+                        <div id="rating1" data-score="3"></div>
                         <blockquote>Comment left with rating</blockquote>
                         
                         <script>          
-                        $('.stars_small').raty({
+                        $('.rating1').raty({
                             readOnly : true,
                             half  : true,
                             score: function() {
-                                return $(this).attr('value');
+                                return $(this).attr('data-score');
                             
                         }
                             
