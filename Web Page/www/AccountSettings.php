@@ -139,7 +139,7 @@
                             readOnly : true,
                             half  : true,
                             score: function() {
-                                return $(this).attr('data-rating');
+                                return $(this).attr('value');
                             
                         }
                             
