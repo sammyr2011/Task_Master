@@ -82,15 +82,17 @@ else
             background-color: #222;
         }
 
+        /* should fix image sizing issue */
+        
         /* Lastly, apply responsive CSS fixes as necessary */
-        @media (max-width: 767px) {
+       /* @media (max-width: 767px) {
             #footer {
                 margin-left: -20px;
                 margin-right: -20px;
                 padding-left: 20px;
                 padding-right: 20px;
             }
-        }
+        }*/
 
         @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
