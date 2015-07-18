@@ -187,12 +187,20 @@ else
 
                 </div>
             <div class="col-md-8 col-sm-8 col-xs-8" style="border-style: solid; border-top: black;">
-                <p>Cerebella ii du attingere alligatus ac suspicari id eminenter. Ac in remotis exsolvi dicamne proxime ad an. Quam 
-                    ei inge ea isti data soni ex duce. Tollentur co an im tantumque videlicet. Naturae viderer propria co an se is. 
-                    Repugnemus ei an ob distinguit propositio id facultatem percipimus. Dubitare cur lor experiar extensum. Jam pudeat 
-                    vim ita movere maxima igitur nihili. Originis cognitio temporis vi naturali ne. Memores revolvo hos ponitur haberem 
-                    rei est vox movendi ejusdem. Omne duo cum ipse fert tria rum vera. Seu nemoque frigida nostrae quasdam nec. Ad du 
-                    haud et quas foco visu dare meas me. Ea externa relabor de duratio. Illo addo ente si in quis ne hinc hanc</p>
+                <p>Cerebella ii du attingere alligatus ac 
+                    suspicari id eminenter. Ac in remotis 
+                    exsolvi dicamne proxime ad an. Quam 
+                    ei inge ea isti data soni ex duce. Tollentur
+                    co an im tantumque videlicet. Naturae viderer 
+                    propria co an se is. Repugnemus ei an ob 
+                    distinguit propositio id facultatem percipimus. 
+                    Dubitare cur lor experiar extensum. Jam pudeat 
+                    vim ita movere maxima igitur nihili. Originis cognitio
+                    temporis vi naturali ne. Memores revolvo hos poniturhaberem 
+                    rei est vox movendi ejusdem. Omne duo cum ipse fert tria
+                    rum vera. Seu nemoque frigida nostrae quasdam nec. Ad du 
+                    haud et quas foco visu dare meas me. Ea externa relabor de
+                    duratio. Illo addo ente si in quis ne hinc hanc</p>
                 <br>
                 <p>Bids:</p>
                 <p>Maybe have users that have bid on a task along with their ratings and bid.</p>
