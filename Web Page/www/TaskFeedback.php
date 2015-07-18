@@ -135,7 +135,7 @@ else
         <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-8">
                 <!-- Task images -->
-                <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="col-md-5 col-sm-5 col-xs-5">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -148,7 +148,7 @@ else
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <img src="images/mowinggrass.jpg" alt="tutoring">
+                            <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:200px;margin: 0 auto">
                             <div class="carousel-caption">
                             </div>
                         </div>
@@ -180,7 +180,7 @@ else
                 </div>
 
                 <!-- Task title and description and bid -->
-                <div class="col-md-9 col-sm-9 col-xs-9">
+                <div class="col-md-7 col-sm-7 col-xs-7">
                         <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
 
                         <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
