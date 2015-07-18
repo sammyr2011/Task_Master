@@ -136,7 +136,7 @@ else
             <div class="col-md-8 col-sm-8 col-xs-8">
                 <!-- Task images -->
                 <div class="col-md-3 col-sm-3 col-xs-3">
-                    <div id="myCarousel TasksImages" class="carousel slide" data-ride="carousel">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -148,7 +148,7 @@ else
                     <div class="carousel-inner" role="listbox">
 
                         <div class="item active">
-                            <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:200px;margin: 0 auto" class="img-responsive">
+                            <img src="images/mowinggrass.jpg" alt="tutoring">
                             <div class="carousel-caption">
                             </div>
                         </div>
