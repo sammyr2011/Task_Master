@@ -134,6 +134,18 @@
                         </div>
                         <blockquote>Comment left with rating</blockquote>
                         
+                        <script>          
+                        $('.stars_small').raty({
+                            readOnly : true,
+                            half  : true,
+                            score: function() {
+                                return $(this).attr('data-rating');
+                            
+                        }
+                            
+                            space : false
+                        });  
+                      </script>  
                     </div>
                 </div>
 
