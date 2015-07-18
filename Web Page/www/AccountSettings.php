@@ -19,6 +19,11 @@
     <!-- CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+        
+    <link rel="stylesheet" href="/lib/jquery.raty.css">
+    <script src="vendor/jquery.js"></script>
+    <script src="lib/jquery.raty.js"></script>
+    <script src="javascripts/labs.js" type="text/javascript"></script>
 
         /* Sticky footer styles
         -------------------------------------------------- */
