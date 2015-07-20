@@ -16,6 +16,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- Resources for box design -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/user_css.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+
     <!-- CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -65,12 +70,6 @@
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
 </head>
 
 <body>
@@ -83,9 +82,79 @@
     <?php include "NavMod.php"; ?>
 
     <!-- Begin page content -->
-    <div class="container-fluid">
+    <div class="container">
 
-        <h1>Message Center Coming Soon!</h1>
+        <div class="row-fluid grid-set">
+            <div class="span6">
+                <div class="box">
+                    <div class="header">
+                        <h4>
+                            Your Own Box
+                        </h4>
+                    </div>
+                    <div class="content pad margin-reset">
+                        <h5 align="center" style="color:#555"></h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span6">
+                <div class="box">
+                    <div class="header">
+                        <h4>Chat/Messages Sample</h4>
+                    </div>
+                    <div class="content">
+                        
+                        <table class="table table-condensed margin-reset">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="images/UserStock.png">
+                                    </td>
+                                    <td>
+                                        <span class="userNames">Bob</span>
+                                        <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <img src="images/UserStock.png">
+                                    </td>
+                                    <td>
+                                        <span class="userNames">Sally</span>
+                                        <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <img src="images/UserStock.png">
+                                    </td>
+                                    <td>
+                                        <span class="userNames">Jill</span>
+                                        <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
 
         <div id="push"></div>
     </div>
