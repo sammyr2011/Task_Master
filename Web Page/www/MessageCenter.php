@@ -83,15 +83,15 @@
     <?php include "NavMod.php"; ?>
 
     <!-- Begin page content -->
-    <div class="container">
-    
+    <div class="container-fluid">
+
         <h1>Message Center Coming Soon!</h1>
 
         <div id="push"></div>
     </div>
 
     <div id="push"></div>
-</div>
+    </div>
 
 <div id="footer">
     <div class="container">
