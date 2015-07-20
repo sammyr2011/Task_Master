@@ -48,6 +48,13 @@ else
     <script src="vendor/jquery.js"></script>
     <script src="lib/jquery.raty.js"></script>
     <script src="javascripts/labs.js" type="text/javascript"></script>
+    
+    
+    <!-- FlipClock jquery plug in resources -->
+    <link rel="stylesheet" href="compiled/flipclock.css">
+
+    <script src="compiled/flipclock.js"></script>
+    
 
     <meta charset="utf-8">
     <title>Task Creation</title>
@@ -184,6 +191,31 @@ else
 					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					
                     <p>Current bid: <b>US $45.00</b></p>
+                    <div class="clock" style="margin:2em;"></div>
+                    <div class="message"></div>
+
+                    <script type="text/javascript">
+                        var clock;
+
+                        $(document).ready(function() {
+                            var clock;
+
+                            clock = $('.clock').FlipClock({
+                                clockFace: 'DailyCounter',
+                                autoStart: false,
+                                callbacks: {
+                                    stop: function() {
+                                        $('.message').html('The clock has stopped!')
+                                    }
+                                }
+                            });
+				    
+                            clock.setTime(100000);
+                            clock.setCountdown(true);
+                            clock.start();
+
+                        });
+                    </script>
 
                     <!-- style="background-color: #E2E2E2;" -->
                     <div class="col-md-3 col-sm-3 col-xs-3" >
