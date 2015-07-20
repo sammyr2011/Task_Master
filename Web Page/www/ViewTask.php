@@ -184,30 +184,41 @@ else
 					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					
                     <p>Current bid: <b>US $45.00</b></p>
-                    <div class="clock" style="margin:2em;"></div>
-                    <div class="message"></div>
+                    <span id="countdown"></span>
 
-                    <script type="text/javascript">
-                        var clock;
+                    <script>
+                        // set the date we're counting down to
+                        var target_date = new Date("Aug 15, 2019").getTime();
 
-                        $(document).ready(function() {
-                            var clock;
+                        // variables for time units
+                        var days, hours, minutes, seconds;
 
-                            clock = $('.clock').FlipClock({
-                                clockFace: 'DailyCounter',
-                                autoStart: false,
-                                callbacks: {
-                                    stop: function() {
-                                        $('.message').html('The clock has stopped!')
-                                    }
-                                }
-                            });
-				    
-                            clock.setTime(100000);
-                            clock.setCountdown(true);
-                            clock.start();
+                        // get tag element
+                        var countdown = document.getElementById("countdown");
 
-                        });
+                        // update the tag with id "countdown" every 1 second
+                        setInterval(function () {
+
+                            // find the amount of "seconds" between now and target
+                            var current_date = new Date().getTime();
+                            var seconds_left = (target_date - current_date) / 1000;
+
+                            // do some time calculations
+                            days = parseInt(seconds_left / 86400);
+                            seconds_left = seconds_left % 86400;
+
+                            hours = parseInt(seconds_left / 3600);
+                            seconds_left = seconds_left % 3600;
+
+                            minutes = parseInt(seconds_left / 60);
+                            seconds = parseInt(seconds_left % 60);
+
+                            // format countdown string + set tag value
+                            countdown.innerHTML = days + "d, " + hours + "h, "
+                                + minutes + "m, " + seconds + "s";
+
+                        }, 1000);
+
                     </script>
 
                     <!-- style="background-color: #E2E2E2;" -->
