@@ -175,7 +175,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="zipcode">Zip Code:</label>
                                 <div class="controls">
-                                    <input id="zipcode" name="zipcode" type="text" placeholder="Zip Code" class="input-xlarge form-control">
+                                    <input id="zipcode" name="zipcode" type="text" placeholder="Zip Code" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                                 </div>
                             </div>
