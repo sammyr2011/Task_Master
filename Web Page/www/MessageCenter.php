@@ -60,6 +60,11 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }
+        a {
+            width:auto;
+            height:150px;
+            margin: 0 auto;
+        }
         }
 
     </style>
@@ -104,7 +109,7 @@
                         <h4>Chat/Messages Sample</h4>
                     </div>
                     <div class="content">
-                        
+
                         <table class="table table-condensed margin-reset">
                             <tbody>
                                 <tr>
