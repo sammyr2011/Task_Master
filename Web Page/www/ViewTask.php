@@ -232,11 +232,12 @@ else
                         <div class="controls">
                             <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
-                            <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
+                            <a href="#"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 30px">Make Offer</button></a>
                         </div>
 
                     </div>
-                    </div>
+
+                </div>
 
             </div>
             
