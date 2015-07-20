@@ -93,7 +93,9 @@
                         </h4>
                     </div>
                     <div class="content pad margin-reset">
-                        <h5 align="center" style="color:#555"></h5>
+                        <h5 align="center" style="color:#555">
+                            Your own content
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -101,7 +103,7 @@
             <div class="span6">
                 <div class="box">
                     <div class="header">
-                        <h4>Chat/Messages Sample</h4>
+                        <h4>Reccommended Users</h4>
                     </div>
                     <div class="content">
 
