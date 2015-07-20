@@ -48,13 +48,6 @@ else
     <script src="vendor/jquery.js"></script>
     <script src="lib/jquery.raty.js"></script>
     <script src="javascripts/labs.js" type="text/javascript"></script>
-    
-    
-    <!-- FlipClock jquery plug in resources -->
-    <link rel="stylesheet" href="compiled/flipclock.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="compiled/flipclock.js"></script>
-    
 
     <meta charset="utf-8">
     <title>Task Creation</title>
