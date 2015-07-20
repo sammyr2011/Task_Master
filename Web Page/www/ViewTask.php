@@ -184,6 +184,8 @@ else
 					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					
                     <p>Current bid: <b>US $45.00</b></p>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <p>Time left to Bid:</p>
                     <span id="countdown"></span>
 
                     <script>
@@ -220,6 +222,8 @@ else
                         }, 1000);
 
                     </script>
+
+                    </div>
 
                     <!-- style="background-color: #E2E2E2;" -->
                     <div class="col-md-3 col-sm-3 col-xs-3" >
