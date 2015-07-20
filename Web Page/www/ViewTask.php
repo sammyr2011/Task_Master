@@ -183,7 +183,7 @@ else
 					
 					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					<br>
-                    <p>Current bid: <b>US $45.00</b></p><br>
+                    <p>Current bid: <b>US $45.00</b></p>
                     <span id="countdown" style="color:red"></span>
 
                     <script>
@@ -221,6 +221,7 @@ else
 
                     </script>
                     <br>
+                <br>
 
                     <!-- style="background-color: #E2E2E2;" -->
                     <div class="col-md-3 col-sm-3 col-xs-3" >
