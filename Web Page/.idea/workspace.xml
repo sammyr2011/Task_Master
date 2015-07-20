@@ -26,11 +26,12 @@
         <entry file="file://$PROJECT_DIR$/www/ViewTask.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.667063">
-              <caret line="230" column="123" selection-start-line="230" selection-start-column="123" selection-end-line="230" selection-end-column="123" />
+              <caret line="230" column="147" selection-start-line="230" selection-start-column="147" selection-end-line="230" selection-end-column="147" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,9 +40,11 @@
       <file leaf-file-name="UserRegistration.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/UserRegistration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153">
-              <caret line="172" column="30" selection-start-line="163" selection-start-column="23" selection-end-line="172" selection-end-column="30" />
-              <folding />
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="309" column="161" selection-start-line="309" selection-start-column="134" selection-end-line="309" selection-end-column="161" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#9;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,14 +196,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/UserRegistration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153">
-          <caret line="172" column="30" selection-start-line="163" selection-start-column="23" selection-end-line="172" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/NavMod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="35.0">
@@ -209,14 +204,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/UserRegistration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="309" column="161" selection-start-line="309" selection-start-column="134" selection-end-line="309" selection-end-column="161" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#9;n#div#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/ViewTask.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.667063">
-          <caret line="230" column="123" selection-start-line="230" selection-start-column="123" selection-end-line="230" selection-end-column="123" />
+          <caret line="230" column="147" selection-start-line="230" selection-start-column="147" selection-end-line="230" selection-end-column="147" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

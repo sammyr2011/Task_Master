@@ -228,7 +228,7 @@ else
                     <div class="col-md-6 col-sm-6 col-xs-6" >
                         <label class="control-label" for="Bid">Set Bid: </label>
                         <div class="controls">
-                            <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control"><br>
+                            <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
                             <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
                         </div>
