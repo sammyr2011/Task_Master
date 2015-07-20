@@ -179,7 +179,15 @@
 
                                 </div>
                             </div>
-                        </div> 
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                            <button type="button" class="btn btn-primary btn-lg raised" onclick="#">Cancel</button>
+                        </div>
                     </div>
 
                    
@@ -187,7 +195,7 @@
 
                     <!-- Help side div-->
                     <div class="col-md-4 col-sm-4">
-                        <p>Welcome to the Password Reset page.</p><br>
+                        <p>Welcome to the Address Update page.</p><br>
                         <p></p>
 
                     </div>
