@@ -221,17 +221,18 @@ else
 
                     </script>
 
+
+
+
                     <!-- style="background-color: #E2E2E2;" -->
-                    <div class="col-md-3 col-sm-3 col-xs-3" >
+                    <div class="col-md-6 col-sm-6 col-xs-6" >
                         <label class="control-label" for="Bid">Set Bid: </label>
                         <div class="controls">
                             <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control">
+
+                            <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
                         </div>
 
-                    </div>
-                    
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <a href="#"><button type="button" class="btn btn-primary btn-lg raised">Make Offer</button></a>
                     </div>
 
             </div>
