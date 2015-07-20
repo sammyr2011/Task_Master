@@ -179,65 +179,64 @@ else
             
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
-                <div class="jumbotron">
-                    <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
-					
-					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
-					<br>
+                <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
 
-                    <p>Current bid: <b>US $45.00</b></p>
-                    <p>Time Left: <span id="countdown" style="color:red"></span></p>
+                <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
+                <br>
 
-                    <script>
-                        // set the date we're counting down to
-                        var target_date = new Date("Aug 15, 2019").getTime();
+                <p>Current bid: <b>US $45.00</b></p>
+                <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
-                        // variables for time units
-                        var days, hours, minutes, seconds;
+                <script>
+                    // set the date we're counting down to
+                    var target_date = new Date("Aug 15, 2019").getTime();
 
-                        // get tag element
-                        var countdown = document.getElementById("countdown");
+                    // variables for time units
+                    var days, hours, minutes, seconds;
 
-                        // update the tag with id "countdown" every 1 second
-                        setInterval(function () {
+                    // get tag element
+                    var countdown = document.getElementById("countdown");
 
-                            // find the amount of "seconds" between now and target
-                            var current_date = new Date().getTime();
-                            var seconds_left = (target_date - current_date) / 1000;
+                    // update the tag with id "countdown" every 1 second
+                    setInterval(function () {
 
-                            // do some time calculations
-                            days = parseInt(seconds_left / 86400);
-                            seconds_left = seconds_left % 86400;
+                        // find the amount of "seconds" between now and target
+                        var current_date = new Date().getTime();
+                        var seconds_left = (target_date - current_date) / 1000;
 
-                            hours = parseInt(seconds_left / 3600);
-                            seconds_left = seconds_left % 3600;
+                        // do some time calculations
+                        days = parseInt(seconds_left / 86400);
+                        seconds_left = seconds_left % 86400;
 
-                            minutes = parseInt(seconds_left / 60);
-                            seconds = parseInt(seconds_left % 60);
+                        hours = parseInt(seconds_left / 3600);
+                        seconds_left = seconds_left % 3600;
 
-                            // format countdown string + set tag value
-                            countdown.innerHTML = days + "d, " + hours + "h, "
-                                + minutes + "m, " + seconds + "s";
+                        minutes = parseInt(seconds_left / 60);
+                        seconds = parseInt(seconds_left % 60);
 
-                        }, 1000);
+                        // format countdown string + set tag value
+                        countdown.innerHTML = days + "d, " + hours + "h, "
+                            + minutes + "m, " + seconds + "s";
 
-                    </script>
+                    }, 1000);
 
+                </script>
 
 
 
-                    <!-- style="background-color: #E2E2E2;" -->
-                    <div class="col-md-6 col-sm-6 col-xs-6" >
-                        <label class="control-label" for="Bid">Set Bid: </label>
-                        <div class="controls">
-                            <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
-                            <a href="#"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 30px">Make Offer</button></a>
-                        </div>
+                <!-- style="background-color: #E2E2E2;" -->
+                <div class="col-md-6 col-sm-6 col-xs-6" >
+                    <label class="control-label" for="Bid">Set Bid: </label>
+                    <div class="controls">
+                        <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
+                        <a href="#"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 30px">Make Offer</button></a>
                     </div>
 
                 </div>
+
+
 
             </div>
             
