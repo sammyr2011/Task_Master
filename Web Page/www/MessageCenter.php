@@ -60,11 +60,6 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }
-        a {
-            width:auto;
-            height:150px;
-            margin: 0 auto;
-        }
         }
 
     </style>
@@ -114,7 +109,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img src="images/UserStock.png">
+                                        <img src="images/UserStock.png" style="height:75px;width:auto">
                                     </td>
                                     <td>
                                         <span class="userNames">Bob</span>
@@ -128,7 +123,7 @@
 
                                 <tr>
                                     <td>
-                                        <img src="images/UserStock.png">
+                                        <img src="images/UserStock.png" style="height:75px;width:auto">
                                     </td>
                                     <td>
                                         <span class="userNames">Sally</span>
@@ -141,7 +136,7 @@
 
                                 <tr>
                                     <td>
-                                        <img src="images/UserStock.png">
+                                        <img src="images/UserStock.png" style="height:75px;width:auto">
                                     </td>
                                     <td>
                                         <span class="userNames">Jill</span>
