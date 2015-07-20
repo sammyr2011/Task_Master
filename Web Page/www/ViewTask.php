@@ -179,11 +179,12 @@ else
             
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="jumbotron">
                     <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
 					
 					<p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
 					<br>
-                <div class="jumbotron">
+
                     <p>Current bid: <b>US $45.00</b></p>
                     <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
