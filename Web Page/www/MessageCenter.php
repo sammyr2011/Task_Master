@@ -94,7 +94,7 @@
                         </h4>
                     </div>
                     <div class="content pad margin-reset">
-                       <table class table table-condensed margin-reset">
+                      <!-- <table class table table-condensed margin-reset">
                             <tbody>
                                 <tr>
                                     <td>
@@ -106,7 +106,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                     </div>
                 </div>
             </div>
