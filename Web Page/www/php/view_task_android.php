@@ -1,6 +1,7 @@
 <?php
 
 require_once 'task_class.php';
+require_once 'user_class.php';
 
 if(isset($_POST['TaskID']))
 {
@@ -28,6 +29,18 @@ if($error == NULL)
   $taskout['Location'] = $task->location;
   $taskout['Category'] = $task->category;
   $taskout['Tags'] = $task->tags;
+  
+  //Get user info
+  
+  $lister = new user();
+  if($lister->getFromDB($task->userid) == null)
+  {
+    $taskout['ListerUsername']=$lister->username;
+  }
+  else
+  {
+    $taskout['ErrorUserNotFound']=true;
+  }
 
   echo json_encode($taskout);
 }
