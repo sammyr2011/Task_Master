@@ -37,35 +37,35 @@
 
         html,
         body {
-            height: 100%;
+            height: 100% !important;
             /* The html and body elements cannot have any padding or margin. */
         }
 
         /* Wrapper for page content to push down footer */
         #wrap {
-            min-height: 100%;
+            min-height: 100% !important;
             height: auto !important;
-            height: 100%;
+            height: 100% !important;
             /* Negative indent footer by it's height */
-            margin: 0 auto -60px;
+            margin: 0 auto -60px !important;
         }
 
         /* Set the fixed height of the footer here */
         #push,
         #footer {
-            height: 60px;
+            height: 60px !important;
         }
         #footer {
-            background-color: #222;
+            background-color: #222 !important;
         }
 
         /* Lastly, apply responsive CSS fixes as necessary */
         @media (max-width: 767px) {
             #footer {
-                margin-left: -20px;
-                margin-right: -20px;
-                padding-left: 20px;
-                padding-right: 20px;
+                margin-left: -20px !important;
+                margin-right: -20px !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
             }
         }
 
