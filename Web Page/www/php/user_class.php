@@ -28,7 +28,7 @@ class user
 		//Fill out fields from database
 		$dbhandle = db_connect();
 		
-		$sqlquery = "SELECT Username FROM Users WHERE UserName='{$inuser}'";
+		$sqlquery = "SELECT Username FROM Users WHERE UserID='{$inuserid}'";
 		$result = $dbhandle->query($sqlquery);
 		$row = $result->fetch_array();
 		
@@ -44,7 +44,7 @@ class user
 		$this->username = $row['Username'];
 		
 		//now we need to get info from the other user info db
-		$sqlquery = "SELECT Username FROM Users WHERE UserName='{$inuser}'";
+		$sqlquery = "SELECT * FROM UserAccounts WHERE UserID='{$inuserid}'";
 		$result = $dbhandle->query($sqlquery);
 		$row = $result->fetch_array();
 		

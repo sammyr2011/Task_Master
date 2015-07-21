@@ -18,6 +18,9 @@ $error = $task->getFromDB($intaskid);
 
 if ($error == NULL)
 {
+	require_once 'php/user_class.php';
+	$user = new user();
+	$user->getFromDB($task->userid);
 }
 else
 {
@@ -241,8 +244,8 @@ else
             </div>
             
             <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
-                <h3>Username</h3>
-                <img src="images/UserStock.png" height="100px">
+                <h3><?php echo $user->username; ?></h3>
+                <img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
                 <div id="ratyRating"></div>
                 <p>star rating (5)</p>
             </div>
