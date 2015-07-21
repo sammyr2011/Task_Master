@@ -1,3 +1,31 @@
+<?php
+
+require_once 'php/task_class.php';
+
+if (session_status() == PHP_SESSION_NONE)
+{
+    session_start();
+}
+
+$intaskid;
+
+if (isset($_GET['id'])) $intaskid = $_GET['id'];
+
+$error = array();
+
+$task = new task();
+$error = $task->getFromDB($intaskid);
+
+if ($error == NULL)
+{
+}
+else
+{
+    $_SESSION['msg_badtaskid'] = "Bad task id";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +34,27 @@
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--font source-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="lib/jquery.raty.css">
+    <script src="vendor/jquery.js"></script>
+    <script src="lib/jquery.raty.js"></script>
+    <script src="javascripts/labs.js" type="text/javascript"></script>
 
     <meta charset="utf-8">
-    <title>Task Master</title>
+    <title>Task Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Resources for box design -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/user_css.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css">
-
-    <!-- CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-
+    <style>
         /* Sticky footer styles
         -------------------------------------------------- */
 
@@ -62,6 +92,11 @@
             }
         }
 
+        @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+
+        .date-form { margin: 10px; }
+        label.control-label span { cursor: pointer; }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -69,6 +104,17 @@
     <!--[if lt IE 9]>
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
+
+
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+
+        $(function() {
+            $( "#datepicker2" ).datepicker();
+        });
+    </script>
 
 </head>
 
@@ -84,17 +130,18 @@
     <!-- Begin page content -->
     <div class="container">
 
-
+     
     </div>
 
-
-        <div id="push"></div>
-</div>
 
     <div id="push"></div>
-    </div>
+</div>
+
+<div id="push"></div>
+</div>
 
 <div id="footer">
+    <br>
     <div class="container">
         <p class="muted credit" style="color: white">COP 4331 Project 2</p>
     </div>
