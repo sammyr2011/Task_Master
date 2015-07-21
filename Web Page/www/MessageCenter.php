@@ -84,93 +84,12 @@
     <!-- Begin page content -->
     <div class="container">
 
-        <div class="row-fluid grid-set">
-            <div class="span6">
-                <div class="box">
-                    <div class="header">
-                        <h4>
-                            <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(2)
-                        </h4>
-                    </div>
-                    <div class="content pad margin-reset">
-                      <!-- <table class table table-condensed margin-reset">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                       <!-- <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
-                                        <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>-->
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>-->
-                    </div>
-                </div>
-            </div>
 
-            <div class="span6">
-                <div class="box">
-                    <div class="header">
-                        <h4>Reccommended Users</h4>
-                    </div>
-                    <div class="content">
-
-                        <table class="table table-condensed margin-reset">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Bob</span>
-                                        <br>
-                                        <span class="status">
-                                            Associated Task
-                                        </span>
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Sally</span>
-                                        <br>
-                                        <span class="status">
-                                            Associated Task
-                                        </span>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Jill</span>
-                                        <br>
-                                        <span class="status">
-                                            Associated Task
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    </div>
 
 
         <div id="push"></div>
-    </div>
+</div>
 
     <div id="push"></div>
     </div>
