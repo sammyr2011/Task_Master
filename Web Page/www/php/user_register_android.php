@@ -1,6 +1,7 @@
 <?php
-  require_once 'user_register.php';
-  $user = new user($_POST);
+  require_once 'user_class.php';
+  $user = new user();
+  $user->createFromPost($_POST);
   $error= $user->register();
   
   if($error == NULL)

@@ -18,8 +18,52 @@ class user
 	var $zipcode;
 	var $country;
 	
+	//
+	//CONSTRUCTORS
+	//
+	public function getFromDB($inuserid)
+	{
+		$errors = array();
+		
+		//Fill out fields from database
+		$dbhandle = db_connect();
+		
+		$sqlquery = "SELECT Username FROM Users WHERE UserName='{$inuser}'";
+		$result = $dbhandle->query($sqlquery);
+		$row = $result->fetch_array();
+		
+		//return an error if this user was not found
+		if($result->num_rows == 0)
+		{
+			$errors['userid'] = true;
+			db_close($dbhandle);
+			return $errors;
+		}
+		
+		$this->userid = $inuserid;
+		$this->username = $row['Username'];
+		
+		//now we need to get info from the other user info db
+		$sqlquery = "SELECT Username FROM Users WHERE UserName='{$inuser}'";
+		$result = $dbhandle->query($sqlquery);
+		$row = $result->fetch_array();
+		
+		$this->firstname = $row['FirstName'];
+		$this->lastname = $row['LastName'];
+		$this->email = $row['Email'];
+		
+		$this->address = $row['Address'];
+		$this->city = $row['City'];
+		$this->state = $row['State'];
+		$this->zipcode = $row['ZipCode'];
+		$this->country = $row['Country'];
+		
+		//close connection and return 0
+		return NULL;
+	}
+	
 	//Takes fields from POST and stores them in user object
-	public function __construct($info)
+	public function createFromPost($info)
 	{
 		//user login
 		if (isset($info['username'])) $this->username = $info['username'];
@@ -133,6 +177,110 @@ class user
 			return $errors;
 		else
 			return NULL;
+	}
+	
+	//Login function. If matches, fills out user instance with info
+	function login($inuser, $inpass)
+	{
+		$dbhandle = db_connect();
+		
+		$errors = array();
+		
+		//query user
+		$sqlquery = "SELECT UserID, HashPassword FROM Users WHERE UserName='{$inuser}'";
+		$result = $dbhandle->query($sqlquery);
+		
+		//fail if user does not exist
+		if($result->num_rows == 0)
+		{
+			$dbhandle->close();
+			$errors['username'] = true;
+			return $errors;
+		}
+		
+		//query password
+		$row = $result->fetch_array();
+		$hashpass = $row['HashPassword'];
+		
+		//check if using old unhashed pass
+		if (password_needs_rehash($inpass, PASSWORD_BCRYPT))
+		{
+			if ($inpass == $hashpass) //rehash it if so
+			{
+				$hashpass = password_hash($inpass, PASSWORD_BCRYPT);
+				$query = "UPDATE Users SET HashPassword='{$hashpass}' WHERE UserName='{$inuser}'";
+				$result = $dbhandle->query($query);
+			}
+		}
+		
+		//fail if password does not match
+		if (!password_verify($inpass, $hashpass))
+		{
+			$dbhandle->close();
+			$errors['password'] = true;
+			return $errors;
+		}
+
+		//Grab the UserID for the redirect link
+		$userid = $row['UserID'];
+
+		//create login session
+		session_start();
+		$_SESSION["userid"] = $userid;
+		$_SESSION["username"] = $inuser;
+		
+		// Adding user to ActiveUser table in DB.
+		$sqlquery = "INSERT INTO ActiveUsers(UserID) VALUES ('{$userid}')";
+		$result = $dbhandle->query($sqlquery);
+		
+		db_close($dbhandle);
+
+		//fill out user object instance with info
+		$this->getFromDB($userid);
+		
+		//return 0 indicates success
+		return NULL;
+	}
+	
+	//
+	//SETTERS
+	//
+	public function uploadAvatar($file)
+	{
+		$errors = array();
+		
+		$allowedext = array("jpg");
+		
+		$file_temp = $file['tmp_name'];
+		$file_ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+			
+		if (in_array($file_ext, $allowedext))
+		{
+			$folderpath = "/images/avatars/";
+			
+			if (!is_dir($folderpath)) 
+				mkdir($folderpath,0777,true);
+			
+			if (!move_uploaded_file($file_temp,$folderpath.$this->userid.$file_ext))
+				$errors['imgupload'] = true;
+		}
+		
+		//If we made it here, all is valid
+		if (count($errors) > 0)
+			return $errors;
+		else
+			return NULL;
+	}
+	
+	//
+	//GETTERS
+	//
+	public function getAvatarURL()
+	{
+		if (file_exists("/images/avatars/".$this->userid.".jpg"))
+			return "/images/avatars/".$this->userid.".jpg";
+		else
+			return "/images/UserStock.png";
 	}
 }
 

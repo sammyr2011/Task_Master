@@ -11,9 +11,9 @@ if (isset($_POST['loginsubmit']))
 	if (isset($_POST['username'])) $_username = $_POST['username'];
 	if (isset($_POST['password'])) $_password = $_POST['password'];
 	
-	include_once 'php/user_login.php';
-	
-	$error = user_login($_username, $_password);
+	include_once 'php/user_class.php';
+	$user = new user();
+	$error = $user->login($_username, $_password);
 	
 	//did login succeed?
 	if ($error == NULL) //success, redirect to index and show message

@@ -1,10 +1,11 @@
 <?php
-  require_once 'user_login.php';
+  require_once 'user_class.php';
   
   $user = $_POST['username'];
   $pass = $_POST['password'];
   
-  $response = user_login($user,$pass);
+  $newuser = new user();
+  $response = $newuser->login($user,$pass);
   if($response == NULL)
   {
     $response = $_SESSION;

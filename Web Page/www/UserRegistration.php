@@ -12,8 +12,9 @@ $_email = '';
 //Registration form was submitted
 if (isset($_POST['submit']))
 {
-	include_once 'php/user_register.php';
-	$newuser = new user($_POST);
+	include_once 'php/user_class.php';
+	$newuser = new user();
+	$newuser->createFromPost($_POST);
 	
 	$error = $newuser->register();
 	
