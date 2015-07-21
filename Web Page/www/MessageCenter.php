@@ -1,31 +1,3 @@
-<?php
-
-require_once 'php/task_class.php';
-
-if (session_status() == PHP_SESSION_NONE)
-{
-    session_start();
-}
-
-$intaskid;
-
-if (isset($_GET['id'])) $intaskid = $_GET['id'];
-
-$error = array();
-
-$task = new task();
-$error = $task->getFromDB($intaskid);
-
-if ($error == NULL)
-{
-}
-else
-{
-    $_SESSION['msg_badtaskid'] = "Bad task id";
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,17 +77,6 @@ else
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-
-    <script>
-        $(function() {
-            $( "#datepicker" ).datepicker();
-        });
-
-        $(function() {
-            $( "#datepicker2" ).datepicker();
-        });
-    </script>
-
 </head>
 
 <body>
@@ -130,7 +91,7 @@ else
     <!-- Begin page content -->
     <div class="container">
 
-     
+
     </div>
 
 
