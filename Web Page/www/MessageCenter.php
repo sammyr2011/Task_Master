@@ -101,8 +101,8 @@
                                         <img src="images/UserStock.png" style="height:75px;width:auto">
                                     </td>
                                     <td>
-                                        <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
-                                        <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
+                                       <!-- <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
+                                        <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>-->
                                     </td>
                                 </tr>
                             </tbody>
