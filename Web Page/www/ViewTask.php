@@ -31,6 +31,11 @@ if (isset($_POST['submit']))
 {
 	$biderror = array();
 	$biderror = $task->addBid($_SESSION['userid'], $_POST['Bid']);
+	
+	if (count($biderror) == 0)
+	{
+		$_SESSION['msg_bidplaced'] = "Bid Placed";
+	}
 }
 
 ?>
@@ -193,7 +198,7 @@ if (isset($_POST['submit']))
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
                 <br>
 
-                <p>Current bid: <b><?php echo $task->getCurrentBid(); ?></b></p>
+                <p>Current bid: $<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
                 <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
                 <script>
