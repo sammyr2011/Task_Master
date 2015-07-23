@@ -102,7 +102,7 @@
 
                 -->
                 <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 14px 26px 26px;">
-                    <!-- Stores user avatar -->
+                   <!-- <!-- Stores user avatar -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <img src="images/UserStock.png" style="height:75px;width:auto;padding: padding: 14px 26px 26px;">
                     </div>
@@ -114,7 +114,38 @@
                     <!-- Date and time recieved -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <p>7/23/2015 3:30 PM</p>
-                    </div>
+                    </div>-->
+
+
+                    <table class table table-condensed margin-reset">
+                    <tbody>
+                    <tr>
+                        <th>
+                            User
+                        </th>
+                        <th>
+                            Task Association
+                        </th>
+                        <th>
+                            Date Received
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">SamIam</h1>
+                            <img src="images/UserStock.png" style="height:75px;width:auto">
+
+                        </td>
+                        <td>
+
+                            <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Steal a Car</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+
+
                 </div>
             </div>
         </div>
