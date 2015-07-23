@@ -90,7 +90,7 @@
         <div class="col-md-4 col-sm-4 col-xs-4" style="border: solid 3px lightgrey">
             <legend>Inbox</legend>
 
-            <div class="col-md-12 col-sm-12 col-xs-12" data-spy="scroll" style="height:100%;">
+            <div class="col-md-12 col-sm-12 col-xs-12" data-spy="scroll" style="height:100%;width:auto">
 
 
 
