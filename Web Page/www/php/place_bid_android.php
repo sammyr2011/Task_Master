@@ -9,7 +9,7 @@ if(isset($_POST['taskid']))
 }
 else
 {
-  $error['invalidtaskid']=true
+  $error['invalidtaskid']=true;
   echo json_encode($error);
   return;
 }
