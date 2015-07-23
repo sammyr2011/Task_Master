@@ -296,7 +296,7 @@ if (isset($_POST['submit']))
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-                            <button type="button" class="btn btn-primary btn-lg raised" onclick="http://travis-webserver.dyndns.org:81/index.php">Cancel</button>
+                            <a href="http://travis-webserver.dyndns.org:81/index.php"><button type="button" class="btn btn-primary btn-lg raised" onclick="#">Cancel</button></a>
                         </div>
 
                     </div>
