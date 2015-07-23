@@ -101,10 +101,10 @@
                     Will hold the message box data
 
                 -->
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 14px 26px 26px;">
                     <!-- Stores user avatar -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
-                        <img src="images/UserStock.png" style="height:75px;width:auto">
+                        <img src="images/UserStock.png" style="height:75px;width:auto;padding: padding: 14px 26px 26px;">
                     </div>
                     <!-- Holds Username of sender and Task associated -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
