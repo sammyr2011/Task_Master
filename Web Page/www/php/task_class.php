@@ -267,7 +267,7 @@ class task
 			$currentbid = $row['BidAmount'];
 		}
 		
-		return $currentbid
+		return $currentbid;
 	}
 }
 
