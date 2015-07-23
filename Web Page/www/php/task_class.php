@@ -19,6 +19,7 @@ class task
 	var $tags;
 	var $numimg;
 	var $price;
+	var $currentbid;
 	var $active;
 	
 	//Takes fields from POST and stores them in user object
@@ -88,6 +89,8 @@ class task
 		if (isset($row['InitialBid'])) $this->price = $row['InitialBid'];
 		
 		if (isset($row['Active'])) $this->active= $row['Active'];
+		
+		$this->currentbid = $this->getCurrentBid();
 		
 		//close connection and return 0
 		return NULL;
