@@ -3,14 +3,23 @@
 require_once 'php/task_list.php';
 require_once 'php/task_class.php';
 
-$catid = 0;
-
-if (isset($_GET['Categoryid']))
-	$catid = $_GET['Categoryid'];
-	
 $tasks = array();
 
-$tasks = listByCategory($catid);
+if (isset($_GET['Categoryid']))
+{
+	$catid = $_GET['Categoryid'];
+	$tasks = listByCategory($catid);
+}
+else if (isset($_GET['userid']))
+{
+	$userid = $_GET['userid'];
+	$tasks = listByUser($userid);
+}
+else if (isset($_GET['tags']))
+{
+	$tags = $_GET['tags'];
+	$tasks = listByTags($tags);
+}
 
 ?>
 

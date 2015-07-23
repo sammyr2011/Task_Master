@@ -158,7 +158,7 @@ else
 					<?php for ($i=0; $i < $task->numimg; $i++)
 					{ ?>
                     <div class="item<?php if($i == 0) echo ' active'; ?>">
-                        <img src="taskcontent/<?php echo $task->taskid; ?>/<?php echo $i; ?>.jpg" alt="Image <?php echo $i; ?>" style="width:auto;height:200px;margin: 0 auto">
+                        <img src="taskcontent/<?php echo $task->taskid; ?>/<?php echo $i; ?>.jpg" alt="Image <?php echo $i; ?>" style="width:auto;height:200px auto;margin: 0 auto">
                         <div class="carousel-caption">
                         </div>
                     </div>
