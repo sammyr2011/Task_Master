@@ -18,6 +18,7 @@ class task
 	var $category;
 	var $tags;
 	var $numimg;
+	var $price;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
@@ -81,6 +82,8 @@ class task
 		
 		if (isset($row['NumImages'])) $this->numimg = $row['NumImages'];
 		
+		if (isset($row['InitialBid'])) $this->price = $row['InitialBid'];
+		
 		//close connection and return 0
 		return NULL;
 	}
@@ -104,8 +107,9 @@ class task
 			Category,
 			Tags,
 			Lister,
-			NumImages
-			Information
+			NumImages,
+			Information,
+			InitialBid
 		) 
 		
 		VALUES
@@ -116,8 +120,9 @@ class task
 			'$this->category',
 			'$this->tags',
 			'$this->userid',
-			'$this->numimg'
-			'$this->content'
+			'$this->numimg',
+			'$this->content',
+			'$this->price'
 		)";
 			
 		$result = $dbhandle->query($sqlquery);
