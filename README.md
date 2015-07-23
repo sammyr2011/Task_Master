@@ -1,7 +1,10 @@
 # Task_Master
 Project 2
 
-Web Desgin - Samuel Roman
+Web Design - Samuel Roman
+
 Backend - Travis
+
 Android Developer - Andrew
+
 Database - Colby
