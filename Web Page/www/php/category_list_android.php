@@ -1,7 +1,6 @@
 
 <?php
 	require_once 'db_connect.php';
-	require_once 'task_class.php';
 	$dbhandle = db_connect();
 	$query = "SELECT * FROM Categories";
 	$result = $dbhandle->query($query);
@@ -11,9 +10,6 @@
   
 	while ($row = $result->fetch_array())
 	{
-		$task = new task();
-		$task->getFromDB($row["TaskID"]);
-		$row["currentbid"]=$task->getCurrentBid();
 		array_push($categories, $row);
 	}
 	
