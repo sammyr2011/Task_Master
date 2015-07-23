@@ -1,6 +1,7 @@
 
 <?php
 	require_once 'db_connect.php';
+	require_once 'task_class.php';
 	$dbhandle = db_connect();
 	$query = "SELECT * FROM Categories";
 	$result = $dbhandle->query($query);
