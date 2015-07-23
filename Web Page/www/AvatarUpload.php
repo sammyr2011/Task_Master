@@ -109,6 +109,9 @@
                         </div>
 
                     </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <p>Upload a new avatar image for your account.  We accept *.gif, *.jpeg, and *.png image files.</p>
+                    </div>
                 </div>
             </fieldset>
         </form>
