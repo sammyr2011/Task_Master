@@ -10,6 +10,9 @@
   
 	while ($row = $result->fetch_array())
 	{
+		$task = new task();
+		$task->getFromDB($row["TaskID"]);
+		$row["currentbid"]=$task->getCurrentBid();
 		array_push($categories, $row);
 	}
 	
