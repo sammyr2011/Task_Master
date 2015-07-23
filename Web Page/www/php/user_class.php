@@ -284,13 +284,12 @@ class user
 	//Returns the stock avatar image if it does not exist.
 	public function getAvatarURL()
 	{
-		$taskmastermain = "http://travis-webserver.dyndns.org:81/";
-		$url = $taskmastermain."images/avatars/".$this->userid.".jpg";
+		$url = "images/avatars/".$this->userid.".jpg";
 		//if (file_exists($url))
 		if (stream_resolve_include_path($url))
 			return $url;
 		else
-			return $taskmastermain."images/UserStock.png";
+			return "images/UserStock.png";
 	}
 	
 	//Get Lister rating. Returns an array containing:
