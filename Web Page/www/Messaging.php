@@ -105,17 +105,6 @@
 
                     <table class table table-condensed margin-reset">
                     <tbody>
-                    <tr>
-                        <th>
-                            User
-                        </th>
-                        <th>
-                            Task Association
-                        </th>
-                        <th>
-                            Date Received
-                        </th>
-                    </tr>
 
                     <tr>
                         <td>
