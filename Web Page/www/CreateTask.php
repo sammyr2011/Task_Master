@@ -19,9 +19,9 @@ if (isset($_POST['submit']))
 	include_once 'php/task_class.php';
 	
 	$_POST['numimg'] = 0;
-	foreach ($_FILES['imageinput'] as $value)
+	foreach ($_FILES['imageinput']['error'] as $value)
 	{
-		if (strlen($value['name']))
+		if ($value == UPLOAD_ERR_OK)
 			$_POST['numimg']++;
 	}
 	
