@@ -251,7 +251,7 @@ class task
 		
 		$query = "SELECT BidAmount FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
 		
-		$result = $dbhande->query();
+		$result = $dbhandle->query();
 		
 		//no bids, use initial bid amount
 		if ($result->num_rows == 0)
