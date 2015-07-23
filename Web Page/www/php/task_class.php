@@ -34,7 +34,7 @@ class task
 		
 		if (isset($info['location'])) $this->location = $info['location'];
 		
-		if (isset($infor['price'])) $this->price = $infor['price'];
+		if (isset($info['price'])) $this->price = $info['price'];
 		
 		//metadata
 		if (isset($info['category'])) $this->category = $info['category'];
