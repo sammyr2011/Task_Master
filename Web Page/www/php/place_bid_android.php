@@ -2,10 +2,10 @@
 
 require_once 'task_class.php';
 
-if(isset(_POST['taskid']))
+if(isset($_POST['taskid']))
 {
   $task = new task();
-  $task->getFromDB(_POST['taskid']);
+  $task->getFromDB($_POST['taskid']);
 }
 else
 {
@@ -13,7 +13,7 @@ else
   return;
 }
 
-if(isset(_POST['bidderid']) && isset(_POST['bidamt'])) 
+if(isset($_POST['bidderid']) && isset($_POST['bidamt'])) 
 {
   $error = $task->addBid(_POST['bidderid'],_POST['bidamt']);
   
