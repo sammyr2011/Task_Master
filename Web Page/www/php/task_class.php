@@ -71,7 +71,7 @@ class task
 		
 		if (isset($row['Description'])) $this->description = $row['Description'];
 		
-		if (isset($row['Information'])) $this->content = $row['Content'];
+		if (isset($row['Information'])) $this->content = $row['Information'];
 		
 		if (isset($row['Location'])) $this->location = $row['Location'];
 		
