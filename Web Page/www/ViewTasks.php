@@ -162,8 +162,8 @@ else
                 </div>
                 <div class="col-md-8 col-xs-8 col-sm-8">
                     <p><b><?php echo $task->title; ?></b></p>
-                    <p><?php echo $task->getCurrentBid(); ?></p>
-                    <p>Current bid: <b>US $45.00</b></p>
+                    <p><?php echo $task->description; ?></p>
+                    <p>Current bid: US $<?php echo $task->getCurrentBid();?>.00</p>
                 </div>
 			</div>
             </a>
