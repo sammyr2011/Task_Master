@@ -111,7 +111,8 @@ class task
 			Lister,
 			NumImages,
 			Information,
-			InitialBid
+			InitialBid,
+			Active
 		) 
 		
 		VALUES
@@ -124,7 +125,8 @@ class task
 			'$this->userid',
 			'$this->numimg',
 			'$this->content',
-			'$this->price'
+			'$this->price',
+			1
 		)";
 			
 		$result = $dbhandle->query($sqlquery);

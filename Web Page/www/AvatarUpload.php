@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+
+if (isset($_POST['submit']) && isset($_SESSION['userid']))
+{
+	require_once 'php/user_class.php';
+	
+	$user = new user();
+	$user->getFromDB($_SESSION['userid']);
+	
+	$user->uploadAvatar($_POST['imageinput']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +112,7 @@
                             <label class="control-label" for="imageinput">Select Image</label>
                             <?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
-                                <input id="imageinput" name="imageinput[]" class="input-file" type="file" accept="image/gif, image/jpeg, image/png">
+                                <input id="imageinput" name="imageinput" class="input-file" type="file" accept="image/gif, image/jpeg, image/png">
                             </div>
                         </div>
 
