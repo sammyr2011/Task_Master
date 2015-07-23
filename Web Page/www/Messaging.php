@@ -104,11 +104,12 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <!-- Stores user avatar -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
-
+                        <img src="images/UserStock.png" style="height:75px;width:auto">
                     </div>
                     <!-- Holds Username of sender and Task associated -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
-
+                        <p>SamIam</p>
+                        <p>Steal a Car</p>
                     </div>
                     <!-- Date and time recieved -->
                     <div class="col-md-4 col-sm-4 col-xs-4">
