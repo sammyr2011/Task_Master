@@ -71,7 +71,7 @@ class task
 		
 		if (isset($row['Description'])) $this->description = $row['Description'];
 		
-		//if (isset($row['Content'])) $this->content = $row['Content'];
+		if (isset($row['Information'])) $this->content = $row['Content'];
 		
 		if (isset($row['Location'])) $this->location = $row['Location'];
 		
@@ -105,6 +105,7 @@ class task
 			Tags,
 			Lister,
 			NumImages
+			Information
 		) 
 		
 		VALUES
@@ -116,6 +117,7 @@ class task
 			'$this->tags',
 			'$this->userid',
 			'$this->numimg'
+			'$this->content'
 		)";
 			
 		$result = $dbhandle->query($sqlquery);
