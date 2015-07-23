@@ -185,8 +185,6 @@ if (isset($_POST['submit']))
                                 </div>
                             </div>
 
-
-
                             <!-- Textarea -->
                             <div class="control-group">
                                 <label class="control-label" for="description">Task Description</label>
@@ -311,6 +309,7 @@ if (isset($_POST['submit']))
                         <p>The <b>Title</b> field is used to title the task so others can acurrately choose
                         an applicable task.</p>
                         <p>The <b>Task Description</b> is a short anecdote of the task that you would like one our Task Masters to complete.</p>
+                        <p>The <b>Task Information</b> filed is a detailed explanation of the task.</p>
                         <p>For the <b>Select Task Category</b> field choose the category that most closely relates to the task.</p>
                         <p>The <b>Initial Task Pay</b> field is used to set the amount you are willing to pay for someone
                         to do the task at hand.</p>
