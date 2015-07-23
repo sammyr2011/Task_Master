@@ -285,7 +285,8 @@ class user
 	public function getAvatarURL()
 	{
 		$url = "images/avatars/".$this->userid.".jpg";
-		if (file_exists($url))
+		//if (file_exists($url))
+		if (stream_resolve_include_path($url))
 			return $url;
 		else
 			return "images/UserStock.png";
