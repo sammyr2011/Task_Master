@@ -18,7 +18,7 @@ class user
 	var $zipcode;
 	var $country;
 	
-	var $avatarurl
+	var $avatarurl;
 	
 	//
 	//CONSTRUCTORS
