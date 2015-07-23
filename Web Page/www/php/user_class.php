@@ -18,6 +18,8 @@ class user
 	var $zipcode;
 	var $country;
 	
+	var $avatarurl
+	
 	//
 	//CONSTRUCTORS
 	//
@@ -57,6 +59,8 @@ class user
 		$this->state = $row['State'];
 		$this->zipcode = $row['ZipCode'];
 		$this->country = $row['Country'];
+		
+		$this->avatarurl = $this->getAvatarURL();
 		
 		//close connection and return 0
 		return NULL;
