@@ -27,7 +27,7 @@ if(isset($_POST['bidderid']) && isset($_POST['bidamt']))
 }
 else
 {
-  $error['invalidbidderidorbidamt']=true
+  $error['invalidbidderidorbidamt']=true;
   echo json_encode($error);
 }
 
