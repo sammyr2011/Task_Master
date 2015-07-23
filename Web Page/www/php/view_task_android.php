@@ -31,11 +31,12 @@ if($error == NULL)
   $taskout['Tags'] = $task->tags;
   
   //Get user info
-  
   $lister = new user();
   if($lister->getFromDB($task->userid) == null)
   {
     $taskout['ListerUsername']=$lister->username;
+    $taskout['ListerAvatarURL']=$lister->getAvatarURL();
+    $taskout['ListerRating']=$lister->getListerRating();
   }
   else
   {
