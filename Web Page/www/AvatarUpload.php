@@ -100,7 +100,7 @@
                             <label class="control-label" for="imageinput">Select Images</label>
                             <?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
-                                <input id="imageinput" name="imageinput[]" class="input-file" type="file" multiple="true" accept="image/gif, image/jpeg, image/png">
+                                <input id="imageinput" name="imageinput[]" class="input-file" type="file" accept="image/gif, image/jpeg, image/png">
                             </div>
                         </div>
 
