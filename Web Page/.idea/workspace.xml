@@ -112,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.7491082">
-              <caret line="311" column="99" selection-start-line="311" selection-start-column="99" selection-end-line="311" selection-end-column="99" />
+              <caret line="311" column="66" selection-start-line="311" selection-start-column="66" selection-end-line="311" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -426,7 +426,7 @@
     <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7491082">
-          <caret line="311" column="99" selection-start-line="311" selection-start-column="99" selection-end-line="311" selection-end-column="99" />
+          <caret line="311" column="66" selection-start-line="311" selection-start-column="66" selection-end-line="311" selection-end-column="66" />
           <folding />
         </state>
       </provider>
