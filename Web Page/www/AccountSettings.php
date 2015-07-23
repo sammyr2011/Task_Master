@@ -107,7 +107,7 @@
                  <div class="col-md-6 col-sm-6">
                      <a href="#">Update Email</a>
                      <br>
-                     <a href="#" >Change Avatar</a>
+                     <a href="AvatarUpload.php" >Change Avatar</a>
                  </div>
                
             </div>
