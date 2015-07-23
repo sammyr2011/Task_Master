@@ -9,7 +9,8 @@ if(isset($_POST['taskid']))
 }
 else
 {
-  echo json_encode($error['invalidtaskid']=true);
+  $error['invalidtaskid']=true
+  echo json_encode($error);
   return;
 }
 
@@ -26,7 +27,8 @@ if(isset($_POST['bidderid']) && isset($_POST['bidamt']))
 }
 else
 {
-  echo json_encode($error['invalidbidderidorbidamt']=true);
+  $error['invalidbidderidorbidamt']=true
+  echo json_encode($error);
 }
 
 ?>
