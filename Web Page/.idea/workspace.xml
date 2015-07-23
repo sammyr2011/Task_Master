@@ -78,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountSettings.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccountSettings.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/AccountSettings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-30.73077">
-              <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.667063">
+              <caret line="106" column="55" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -108,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateTask.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateTask.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7491082">
+            <state vertical-scroll-proportion="-24.23077">
               <caret line="311" column="66" selection-start-line="311" selection-start-column="66" selection-end-line="311" selection-end-column="66" />
               <folding />
             </state>
@@ -129,9 +129,9 @@
         <option value="$PROJECT_DIR$/www/MessageCenter.php" />
         <option value="$PROJECT_DIR$/Messaging.php" />
         <option value="$PROJECT_DIR$/www/Messaging.php" />
-        <option value="$PROJECT_DIR$/www/AccountSettings.php" />
         <option value="$PROJECT_DIR$/www/AvatarUpload.php" />
         <option value="$PROJECT_DIR$/www/CreateTask.php" />
+        <option value="$PROJECT_DIR$/www/AccountSettings.php" />
       </list>
     </option>
   </component>
@@ -387,14 +387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/AccountSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.73077">
-          <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/AvatarUpload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.076923">
@@ -425,8 +417,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7491082">
+        <state vertical-scroll-proportion="-24.23077">
           <caret line="311" column="66" selection-start-line="311" selection-start-column="66" selection-end-line="311" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/AccountSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.667063">
+          <caret line="106" column="55" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
           <folding />
         </state>
       </provider>
