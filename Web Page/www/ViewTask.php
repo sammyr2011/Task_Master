@@ -135,36 +135,34 @@ else
 	<?php include "php/alerts.php"; ?>
         <div class="row">
             
+			<?php if ($task->numimg != 0)
+			{ ?> 
+			
             <!-- Task images -->
             <div class="col-md-3 col-sm-3 col-xs-3">
+				
                 <div id="myCarousel TasksImages" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
+					<?php for ($i=0; $i < $task->numimg; $i++)
+					{ ?>
+                    <li data-target="#myCarousel" data-slide-to="<?php echo $i; ?>" <?php if($i == 0) echo 'class="active"'; ?>></li>
+					<?php } ?>
                 </ol>
+				
+				
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
 
-                    <div class="item active">
-                        <img src="images/mowinggrass.jpg" alt="tutoring" style="width:auto;height:200px;margin: 0 auto">
+					<?php for ($i=0; $i < $task->numimg; $i++)
+					{ ?>
+                    <div class="item<?php if($i == 0) echo ' active'; ?>">
+                        <img src="taskcontent/<?php echo $task->taskid; ?>/<?php echo $i; ?>.jpg" alt="Image <?php echo $i; ?>" style="width:auto;height:200px;margin: 0 auto">
                         <div class="carousel-caption">
                         </div>
                     </div>
-
-                    <div class="item">
-                        <img src="images/baking.jpg" alt="baking" style="width:auto;height:200px;margin: 0 auto">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <img src="images/oil.jpg" alt="CarWork" style="width:auto;height:200px;margin: 0 auto">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
+					<?php } ?>
 
                 </div>
 
@@ -179,6 +177,8 @@ else
                 </a>
                 </div>
             </div>
+			
+			<?php } ?>
             
             <!-- Task title and description and bid -->
             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -246,14 +246,17 @@ else
             <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
                 <h3><?php echo $user->username; ?></h3>
                 <img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
+				
+				<?php $rating = $user->getListerRating(); ?>
                 <div id="ratyRating"></div>
-                <p>star rating (5)</p>
+				<?php echo $rating['weight']." ratings"; ?>
             </div>
         </div>
 
         <!-- Rating System Scripts -->
         <script>
-                $('#ratyRating').raty({ readOnly: true, score: 4 });
+				
+                $('#ratyRating').raty({ readOnly: true, score: <?php echo $rating['rating']; ?> });
         </script>
 
         <br>

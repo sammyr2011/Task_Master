@@ -79,6 +79,8 @@ class task
 		
 		if (isset($row['Tags'])) $this->tags = $row['Tags'];
 		
+		if (isset($row['NumImages'])) $this->numimg = $row['NumImages'];
+		
 		//close connection and return 0
 		return NULL;
 	}

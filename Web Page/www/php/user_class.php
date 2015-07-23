@@ -275,12 +275,70 @@ class user
 	//
 	//GETTERS
 	//
+	
+	//Returns user avatar URL. For displaying the proper avatar.
+	//Returns the stock avatar image if it does not exist.
 	public function getAvatarURL()
 	{
-		if (file_exists("/images/avatars/".$this->userid.".jpg"))
-			return "/images/avatars/".$this->userid.".jpg";
+		$url = "images/avatars/".$this->userid.".jpg";
+		if (file_exists($url))
+			return $url;
 		else
-			return "/images/UserStock.png";
+			return "images/UserStock.png";
+	}
+	
+	//Get Lister rating. Returns an array containing:
+	//'rating' = stars out of 5. Can be fractional.
+	//'weight' = how many ratings
+	public function getListerRating()
+	{
+		$rating = array();
+		
+		$dbhandle = db_connect();
+		
+		//query user
+		$sqlquery = "SELECT Rating FROM Ratings WHERE ListerID='{$this->userid}'";
+		$result = $dbhandle->query($sqlquery);
+		
+		$rating['weight'] = $result->num_rows;
+		$rating['rating'] = 0;
+		
+		while ($row = $result->fetch_array())
+			$rating['rating'] += $row['Rating'];
+		
+		if ($rating['weight'] != 0)
+			$rating['rating'] /= $rating['weight'];
+		
+		$dbhandle->close();
+		
+		return $rating;
+	}
+	
+	//Get Doer rating. Returns an array containing:
+	//'rating' = stars out of 5. Can be fractional.
+	//'weight' = how many ratings
+	public function getDoerRating()
+	{
+		$rating = array();
+		
+		$dbhandle = db_connect();
+		
+		//query user
+		$sqlquery = "SELECT Rating FROM DoerRatings WHERE DoerID='{$this->userid}'";
+		$result = $dbhandle->query($sqlquery);
+		
+		$rating['weight'] = $result->num_rows;
+		$rating['rating'] = 0;
+		
+		while ($row = $result->fetch_array())
+			$rating['rating'] += $row['Rating'];
+		
+		if ($rating['weight'] != 0)
+			$rating['rating'] /= $rating['weight'];
+		
+		$dbhandle->close();
+		
+		return $rating;
 	}
 }
 

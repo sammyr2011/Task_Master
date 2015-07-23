@@ -18,7 +18,12 @@ if (isset($_POST['submit']))
 {
 	include_once 'php/task_class.php';
 	
-	$_POST['numimg'] = count($_FILES['imageinput']['tmp_name']);
+	$_POST['numimg'] = 0;
+	foreach ($_FILES as $value)
+	{
+		if (strlen($value['name']))
+			$_POST['numimg']++;
+	}
 	
 	$newtask = new task();
 	$newtask->createFromPost($_POST);
