@@ -172,7 +172,7 @@ class task
 	{
 		$errors = array();
 		
-		$allowedext = array("jpg", "jpeg", "png");
+		$allowedext = array("jpg", "jpeg");
 		
 		$imgindex = 0;
 		

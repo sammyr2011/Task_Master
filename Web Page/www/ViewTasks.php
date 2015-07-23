@@ -20,6 +20,10 @@ else if (isset($_GET['tags']))
 	$tags = $_GET['tags'];
 	$tasks = listByTags($tags);
 }
+else
+{
+	$tasks = listByCategory(0);
+}
 
 ?>
 
