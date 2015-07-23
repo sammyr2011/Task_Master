@@ -97,7 +97,7 @@
 
                         <!-- File Button -->
                         <div class="control-group">
-                            <label class="control-label" for="imageinput">Select Images</label>
+                            <label class="control-label" for="imageinput">Select Image</label>
                             <?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
                                 <input id="imageinput" name="imageinput[]" class="input-file" type="file" accept="image/gif, image/jpeg, image/png">
