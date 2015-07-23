@@ -187,7 +187,7 @@ else
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
                 <br>
 
-                <p>Current bid: <b>US $45.00</b></p>
+                <p>Current bid: <b><?php echo $task->getCurrentBid()</b></p>
                 <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
                 <script>
