@@ -29,6 +29,7 @@ if($error == NULL)
   $taskout['Location'] = $task->location;
   $taskout['Category'] = $task->category;
   $taskout['Tags'] = $task->tags;
+  $taskout['NumImages']=$task->numimg;
   
   //Get user info
   $lister = new user();
