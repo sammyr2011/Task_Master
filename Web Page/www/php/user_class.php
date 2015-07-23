@@ -280,6 +280,7 @@ class user
 	//Returns the stock avatar image if it does not exist.
 	public function getAvatarURL()
 	{
+		echo "User ID is ".$this->userid;
 		$url = "images/avatars/".$this->userid.".jpg";
 		if (file_exists($url))
 			return $url;
