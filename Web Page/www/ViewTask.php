@@ -27,6 +27,12 @@ else
 	$_SESSION['msg_badtaskid'] = "Bad task id";
 }
 
+if (isset($_POST['submit']))
+{
+	$biderror = array();
+	$biderror = $task->addBid($_SESSION['userid'], $_POST['Bid']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -229,15 +235,16 @@ else
 
 
                 <!-- style="background-color: #E2E2E2;" -->
-                <div class="col-md-6 col-sm-6 col-xs-6" >
-                    <label class="control-label" for="Bid">Set Bid: </label>
-                    <div class="controls">
-                        <input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
+				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+					<div class="col-md-6 col-sm-6 col-xs-6" >
+						<label class="control-label" for="Bid">Set Bid: </label>
+						<div class="controls">
+							<input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
-                        <a href="#"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 30px">Make Offer</button></a>
-                    </div>
-
-                </div>
+							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Make Offer" style="margin-bottom: 30px">
+						</div>
+					</div>
+				</form>
 
 
 
