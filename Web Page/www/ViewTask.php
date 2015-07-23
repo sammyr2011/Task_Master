@@ -235,7 +235,7 @@ if (isset($_POST['submit']))
 
 
                 <!-- style="background-color: #E2E2E2;" -->
-				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">
 					<div class="col-md-6 col-sm-6 col-xs-6" >
 						<label class="control-label" for="Bid">Set Bid: </label>
 						<div class="controls">
