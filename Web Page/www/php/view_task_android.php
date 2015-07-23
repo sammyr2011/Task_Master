@@ -43,6 +43,7 @@ if($error == NULL)
   else
   {
     $taskout['ErrorUserNotFound']=true;
+    $taskout['error']=true;
   }
 
   echo json_encode($taskout);
