@@ -30,6 +30,7 @@ if($error == NULL)
   $taskout['Category'] = $task->category;
   $taskout['Tags'] = $task->tags;
   $taskout['NumImages']=$task->numimg;
+  $taskout['CurrentBid']=$task->getCurrentBid();
   
   //Get user info
   $lister = new user();
