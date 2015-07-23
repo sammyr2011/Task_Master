@@ -15,7 +15,7 @@ else
 
 if(isset($_POST['bidderid']) && isset($_POST['bidamt'])) 
 {
-  $error = $task->addBid(_POST['bidderid'],_POST['bidamt']);
+  $error = $task->addBid($_POST['bidderid'],$_POST['bidamt']);
   
   echo json_encode($error);
 }
