@@ -19,6 +19,7 @@ class task
 	var $tags;
 	var $numimg;
 	var $price;
+	var $active;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
@@ -85,6 +86,8 @@ class task
 		if (isset($row['NumImages'])) $this->numimg = $row['NumImages'];
 		
 		if (isset($row['InitialBid'])) $this->price = $row['InitialBid'];
+		
+		if (isset($row['Active'])) $this->active= $row['Active'];
 		
 		//close connection and return 0
 		return NULL;
@@ -198,6 +201,73 @@ class task
 			return $errors;
 		else
 			return NULL;
+	}
+	
+	public function addBid($bidderid, $bidamount)
+	{
+		$error = array();
+		
+		$currentbid = $this->getCurrentBid();
+		
+		//task bidding has ended
+		if ($this->active == 0)
+		{
+			$error['active'] = true;
+			return $error;
+		}
+			
+		//must bid lower than current bid
+		if ($bidamount >= $currentbid)
+		{
+			$error['bidamount'] = true;
+			return $error;
+		}
+		
+		$dbhandle = db_connect();
+		
+		$query = "INSERT INTO BidHistory
+		(
+			TaskID,
+			BidderID,
+			BidAmount
+		)
+		VALUES
+		(
+			{$this->taskid},
+			{$bidderid},
+			{$bidamount}
+		)";
+		
+		$result = $dbhandle->query($query);
+		
+		$dbhandle->close();
+	}
+	
+	public function getCurrentBid()
+	{
+		$currentbid = 0;
+		
+		$dbhandle = db_connect();
+		
+		$query = "SELECT BidAmount FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
+		
+		$result = $dbhande->query();
+		
+		//no bids, use initial bid amount
+		if ($result->num_rows == 0)
+		{
+			$query = "SELECT InitialBid FROM Tasks WHERE TaskID = {$this->taskid}";
+			$result = $dbhandle->query();
+			$row = $result->fetch_array();
+			$currentbid = $row['InitialBid'];
+		}
+		else
+		{
+			$row = $result->fetch_array();
+			$currentbid = $row['BidAmount'];
+		}
+		
+		return $currentbid
 	}
 }
 
