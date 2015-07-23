@@ -104,23 +104,29 @@
                 <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 14px 26px 26px;">
 
                     <table class table table-condensed margin-reset">
-                    <tbody>
+                        <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Task</th>
+                            <th>Date Recieved</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">SamIam</h1>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
 
-                    <tr>
-                        <td>
-                            <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">SamIam</h1>
-                            <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
 
-                        </td>
-                        <td>
-
-                            <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Steal a Car</p>
-                        </td>
-                        <td>
-                            <p>7/23/2015 3:30 PM</p>
-                        </td>
-                    </tr>
-                    </tbody>
+                                    <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Steal a Car</p>
+                                </td>
+                                <td>
+                                    <p>7/23/2015 3:30 PM</p>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
 
 
