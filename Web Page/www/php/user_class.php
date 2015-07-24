@@ -260,7 +260,8 @@ class user
 			
 		if (in_array($file_ext, $allowedext))
 		{
-			$folderpath = "/images/avatars/";
+			//$folderpath = "/images/avatars/";
+			$folderpath = "/var/www/html/images/avatars/";
 			
 			if (!is_dir($folderpath)) 
 				mkdir($folderpath,0777,true);
