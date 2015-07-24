@@ -13,7 +13,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   fwrite($imagefile, base64_decode($image));
   fclose($imagefile);
   
-  $result = $user->uploadAvatar($imagefile);
+  $result = $user->DEBUGuploadAvatar($imagefile);
   
   if($result==null)
   {
