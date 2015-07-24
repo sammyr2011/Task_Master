@@ -298,9 +298,9 @@ class user
 		$url = "images/avatars/".$this->userid.".jpg";
 		//if (file_exists($url))
 		if (stream_resolve_include_path($url))
-			return $this->userid;
+			return $url;
 		else
-			return "images/UserStock.png";
+			return $this->userid;
 	}
 	
 	//Get Lister rating. Returns an array containing:
