@@ -284,7 +284,7 @@ class user
 	//Returns the stock avatar image if it does not exist.
 	public function getAvatarURL()
 	{
-		$fullpath = "/var/www/html/"
+		$fullpath = "/var/www/html/";
 		$url = "images/avatars/".$this->userid.".jpg";
 		//if (file_exists($url))
 		if (stream_resolve_include_path($fullpath.$url))
