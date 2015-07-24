@@ -308,6 +308,7 @@ class user
 			$error['wrotetopath']=$folderpath.$this->userid.$file_ext;
 			$error['fileext']=$file_ext;
 			$error['filename']=$file['name'];
+			$error['filetmp']=$file['tmp_name'];
 			return $error;
 		}
 	}
