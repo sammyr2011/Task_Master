@@ -37,8 +37,8 @@ if($error == NULL)
   if($lister->getFromDB($task->userid) == null)
   {
     $taskout['ListerUsername']=$lister->username;
-    //$taskout['ListerAvatarURL']=$lister->getAvatarURL();
-    $taskout['ListerAvatarURL']=$lister->DEBUGgetAvatarURL();
+    $taskout['ListerAvatarURL']=$lister->getAvatarURL();
+    //$taskout['ListerAvatarURL']=$lister->DEBUGgetAvatarURL();
     $rating = $lister->getListerRating();
     $taskout['ListerRating']=$rating['rating'];
     $taskout['ListerRatingWeight']=$rating['weight'];
