@@ -14,6 +14,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   header('Content-Type: bitmap; charset=utf-8');
   $imagefile = fopen($avatarfilename,'wb');
   fwrite($imagefile, base64_decode($image));
+  fclose($imagefile);
   if(exif_imagetype != IMAGETYPE_JPEG)
   {
     $result['errorFileNotJPG']=true;
@@ -21,7 +22,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   }
   else
   {
-     fclose($imagefile);
+     
   }
  
   
