@@ -14,6 +14,6 @@ else
 {
   $error['error']=true;
   $error['UserID or Img not set']=true;
-  echo json_encode()
+  echo json_encode();
 }
 ?>
