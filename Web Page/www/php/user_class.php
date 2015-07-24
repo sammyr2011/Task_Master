@@ -277,7 +277,7 @@ class user
 			return NULL;
 	}
 	
-		public function DEBUGuploadAvatar($file)
+	public function DEBUGuploadAvatar($file)
 	{
 		$errors = array();
 		
@@ -285,6 +285,8 @@ class user
 		
 		$file_temp = $file['tmp_name'];
 		$file_ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+			
+		$folderpath="";	
 			
 		if (in_array($file_ext, $allowedext))
 		{
