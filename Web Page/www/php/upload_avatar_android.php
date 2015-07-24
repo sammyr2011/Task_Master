@@ -20,7 +20,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
     $result['success']=true;
   }
   
-  $fclose($imagefile);
+  fclose($imagefile);
   
   echo json_encode($result);
 }
