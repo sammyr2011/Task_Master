@@ -8,7 +8,12 @@ if(isset($_POST['UserID']) && isset($_POST['Img']))
   $user = new user();
   $user->getFromDB($userid);
   
-  $result = base64_decode($user->uploadAvatar($image));
+  header('Content-Type: bitmap; charset=utf-8');
+  $imagefile = fopen('upload_avatar_android_tmp.jpg','wb');
+  fwrite($imagefile, base64_decode($image));
+  fclose($imagefile;
+  
+  $result = $user->uploadAvatar($imagefile);
   
   if($result==null)
   {
