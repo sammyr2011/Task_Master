@@ -17,6 +17,9 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   fclose($imagefile);
   $allowedext=array("jpg");
   //if(exif_imagetype != IMAGETYPE_JPEG)
+  
+  $result=null;
+  
   if(!in_array(pathinfo($avatarfilename,PATHINFO_EXTENSION),$allowedext))
   {
     $result['errorFileNotJPG']=true;
@@ -34,8 +37,6 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   {
     $result['success']=true;
   }
-  
-  fclose($imagefile);
   
   echo json_encode($result);
 }
