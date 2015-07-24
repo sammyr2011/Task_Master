@@ -295,7 +295,7 @@ class user
 	//DEBUG VERSION FOR ANDROID
 	public function DEBUGgetAvatarURL()
 	{
-		$url = "images/avatars/".$this->userid.".jpg";
+		$url = "../images/avatars/".$this->userid.".jpg";
 		//if (file_exists($url))
 		if (stream_resolve_include_path($url))
 			return $url;
