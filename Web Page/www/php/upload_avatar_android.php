@@ -11,7 +11,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   header('Content-Type: bitmap; charset=utf-8');
   $imagefile = fopen('upload_avatar_android_tmp.jpg','wb');
   fwrite($imagefile, base64_decode($image));
-  fclose($imagefile);
+  //fclose($imagefile);
   
   $result = $user->DEBUGuploadAvatar($imagefile);
   
@@ -19,6 +19,8 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   {
     $result['success']=true;
   }
+  
+  $fclose($imagefile);
   
   echo json_encode($result);
 }
