@@ -277,6 +277,34 @@ class user
 			return NULL;
 	}
 	
+		public function DEBUGuploadAvatar($file)
+	{
+		$errors = array();
+		
+		$allowedext = array("jpg");
+		
+		$file_temp = $file['tmp_name'];
+		$file_ext = pathinfo($file['name'], PATHINFO_EXTENSION);
+			
+		if (in_array($file_ext, $allowedext))
+		{
+			//$folderpath = "/images/avatars/";
+			$folderpath = "/var/www/html/images/avatars/";
+			
+			if (!is_dir($folderpath)) 
+				mkdir($folderpath,0777,true);
+			
+			if (!move_uploaded_file($file_temp,$folderpath.$this->userid.$file_ext))
+				$errors['imgupload'] = true;
+		}
+		
+		//If we made it here, all is valid
+		if (count($errors) > 0)
+			return $errors;
+		else
+			return $error['wrotetopath']=$folderpath.$this->userid.$file_ext;
+	}
+	
 	//
 	//GETTERS
 	//
