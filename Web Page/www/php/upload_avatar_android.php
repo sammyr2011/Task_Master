@@ -1,4 +1,4 @@
-<?
+<?php
 require_once 'user_class.php';
 if(isset($_POST['UserID']) && isset($_POST['Img']))
 {
