@@ -8,7 +8,14 @@ if(isset($_POST['UserID']) && isset($_POST['Img']))
   $user = new user();
   $user->getFromDB($userid);
   
-  echo json_encode(base64_decode($user->uploadAvatar($image)));
+  $result = base64_decode($user->uploadAvatar($image));
+  
+  if($result==null)
+  {
+    $result['success']=true;
+  }
+  
+  echo json_encode($result);
 }
 else
 {
