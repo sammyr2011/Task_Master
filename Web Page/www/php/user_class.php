@@ -284,23 +284,13 @@ class user
 	//Returns the stock avatar image if it does not exist.
 	public function getAvatarURL()
 	{
+		$fullpath = "/var/www/html/"
 		$url = "images/avatars/".$this->userid.".jpg";
 		//if (file_exists($url))
-		if (stream_resolve_include_path($url))
+		if (stream_resolve_include_path($fullpath.$url))
 			return $url;
 		else
 			return "images/UserStock.png";
-	}
-	
-	//DEBUG VERSION FOR ANDROID
-	public function DEBUGgetAvatarURL()
-	{
-		$url = "../images/avatars/".$this->userid.".jpg";
-		//if (file_exists($url))
-		if (stream_resolve_include_path($url))
-			return $url;
-		else
-			return $this->userid;
 	}
 	
 	//Get Lister rating. Returns an array containing:
