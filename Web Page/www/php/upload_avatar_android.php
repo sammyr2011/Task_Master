@@ -16,7 +16,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   fwrite($imagefile, base64_decode($image));
   fclose($imagefile);
   //if(exif_imagetype != IMAGETYPE_JPEG)
-  if(!in_array(pathinfo($avatarfilename,'.jpg')))
+  if(!in_array(pathinfo($avatarfilename,PATHINFO_EXTENSION),'.jpg'))
   {
     $result['errorFileNotJPG']=true;
     unlink($avatarfilename);
