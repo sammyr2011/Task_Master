@@ -1,9 +1,9 @@
 <?php
 require_once 'user_class.php';
-if(isset($_POST['UserID']) && isset($_POST['Img']))
+if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
 {
   $userid = $_POST['UserID'];
-  $image = $_POST['Img'];
+  $image = $_REQUEST['Img'];
   
   $user = new user();
   $user->getFromDB($userid);
