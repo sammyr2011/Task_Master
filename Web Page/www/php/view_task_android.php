@@ -38,7 +38,7 @@ if($error == NULL)
   {
     $taskout['ListerUsername']=$lister->username;
     //$taskout['ListerAvatarURL']=$lister->getAvatarURL();
-    $taskout['ListerAvatarURL']=$lister->avatarurl;
+    $taskout['ListerAvatarURL']=$lister->DEBUGgetAvatarURL();
     $rating = $lister->getListerRating();
     $taskout['ListerRating']=$rating['rating'];
     $taskout['ListerRatingWeight']=$rating['weight'];
