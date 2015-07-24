@@ -304,7 +304,10 @@ class user
 		if (count($errors) > 0)
 			return $errors;
 		else
-			return $error['wrotetopath']=$folderpath.$this->userid.$file_ext;
+		{
+			$error['wrotetopath']=$folderpath.$this->userid.$file_ext;
+			return $error;
+		}
 	}
 	
 	//
