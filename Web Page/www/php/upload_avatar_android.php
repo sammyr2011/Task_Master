@@ -8,12 +8,24 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   $user = new user();
   $user->getFromDB($userid);
   
-  header('Content-Type: bitmap; charset=utf-8');
-  $imagefile = fopen('upload_avatar_android_tmp.jpg','wb');
-  fwrite($imagefile, base64_decode($image));
-  //fclose($imagefile);
+  $avatarfilepath = '/var/www/html/images/avatars/';
+  $avatarfilename = $avatarfilepath.$user->userid.'.jpg';
   
-  $result = $user->DEBUGuploadAvatar($imagefile);
+  header('Content-Type: bitmap; charset=utf-8');
+  $imagefile = fopen($avatarfilename,'wb');
+  fwrite($imagefile, base64_decode($image));
+  if(exif_imagetype != IMAGETYPE_JPEG)
+  {
+    $result['errorFileNotJPG']=true;
+    unlink($imagefile);
+  }
+  else
+  {
+     fclose($imagefile);
+  }
+ 
+  
+  //$result = $user->DEBUGuploadAvatar($imagefile);
   
   if($result==null)
   {
