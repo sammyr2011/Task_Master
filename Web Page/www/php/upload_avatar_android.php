@@ -11,7 +11,7 @@ if(isset($_POST['UserID']) && isset($_POST['Img']))
   header('Content-Type: bitmap; charset=utf-8');
   $imagefile = fopen('upload_avatar_android_tmp.jpg','wb');
   fwrite($imagefile, base64_decode($image));
-  fclose($imagefile;
+  fclose($imagefile);
   
   $result = $user->uploadAvatar($imagefile);
   
