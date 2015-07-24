@@ -18,7 +18,7 @@ if(isset($_POST['UserID']) && isset($_REQUEST['Img']))
   if(exif_imagetype != IMAGETYPE_JPEG)
   {
     $result['errorFileNotJPG']=true;
-    unlink($imagefile);
+    unlink($avatarfilename);
   }
   else
   {
