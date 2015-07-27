@@ -262,23 +262,39 @@ if (isset($_POST['submit']))
 
                         <br>
 
-                        <!--  Think about changing type to date rather than using text and the JQuery datepicker-->
-                         <!-- Select End Date-->
-                        <p><b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control"></p>
+                        <!-- date and time on one line -->
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
 
+                                <!-- Select End Date-->
+                                <b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control">
 
-                        <!-- Time to end bidding -->
-                        <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" data-mode="12h"></div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <!-- Time to end bidding -->
+                                <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" data-mode="12h"></div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+
+                                <<!-- When to have the job done by-->
+                                <b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control">
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+
+                                <!-- Time to task should be completed -->
+                                <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" data-mode="12h"></div>
+
+                            </div>
+                        </div>
 
                         <script>
                             $().bfhtimepicker("toggle");
                         </script>
-
-                        <!-- When to have the job done by-->
-                        <p><b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control"></p>
-
-                        <!-- Time to task should be completed -->
-                        <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" data-mode="12h"></div>
 
                          <!-- File Button -->
                         <div class="control-group">
