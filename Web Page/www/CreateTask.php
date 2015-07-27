@@ -263,19 +263,18 @@ if (isset($_POST['submit']))
                         <br>
 
 
-                        <!-- Select End Date-->
-                        <div class="span8">
-                            <b>End Bidding Date and Time:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group">
-                        </div>
+                        <!-- Switched order of time and date b/c of a bug by date picker.  Specifically if you attempt to select a date
+                               and the time picker is below where you are trying to click it wont select it and will open the time picker dialog.-->
 
-                        <div class="span4">
-                            <!-- Time to end bidding -->
-                            <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
-                        </div>
+                        <!-- Time to end bidding -->
+                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
+
+                        <!-- Select End Date-->
+                        <b>End Bidding Date and Time:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group">
 
 
                         <!-- Time to task should be completed -->
-                        <b>Task Completion Date and Time:</b>   <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
+                        <b>Task Completion Date and Time:</b> <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
 
                         <!-- When to have the job done by-->
                         <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 5px">
