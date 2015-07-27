@@ -198,12 +198,12 @@ if (isset($_POST['submit']))
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
                 <br>
 
-                <p>Current bid: $<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
+                <p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
                 <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
                 <script>
                     // set the date we're counting down to
-                    var target_date = new Date("Aug 15, 2019").getTime();
+                    var target_date = new Date("Jul 26, 2015").getTime();
 
                     // variables for time units
                     var days, hours, minutes, seconds;
@@ -212,7 +212,7 @@ if (isset($_POST['submit']))
                     var countdown = document.getElementById("countdown");
 
                     // update the tag with id "countdown" every 1 second
-                    setInterval(function () {
+                    var timerID = setInterval(function () {
 
                         // find the amount of "seconds" between now and target
                         var current_date = new Date().getTime();
@@ -231,6 +231,13 @@ if (isset($_POST['submit']))
                         // format countdown string + set tag value
                         countdown.innerHTML = days + "d, " + hours + "h, "
                             + minutes + "m, " + seconds + "s";
+
+                        //should terminate when countdown is done
+                        if(seconds==0 && minutes==0 && days==0 && hours==0)
+                        {
+                            document.getElementById("bidtime").innerHTML="Final Bid: ";
+                            return;
+                        }
 
                     }, 1000);
 

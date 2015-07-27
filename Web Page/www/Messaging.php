@@ -100,6 +100,8 @@
 
                     Will hold the message box data
 
+                    Use the formatting used in MessageCenter
+
                 -->
                 <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 14px 26px 26px;">
 
