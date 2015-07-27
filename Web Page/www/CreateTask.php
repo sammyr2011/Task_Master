@@ -268,7 +268,7 @@ if (isset($_POST['submit']))
 
 
                         <!-- Time to end bidding -->
-                        <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" datamode="12h"></div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker form-control" data-mode="12h"></div>
 
                         <script>
                             $().bfhtimepicker("toggle");
