@@ -235,7 +235,12 @@ if (isset($_POST['submit']))
                         //should terminate when countdown is done
                         if(seconds<=0 && minutes<=0 && days<=0 && hours<=0)
                         {
+                            seconds=0;
+                            minutes=0;
+                            days=0;
+                            hours=0;
                             document.getElementById("bidtime").innerHTML="Final Bid: ";
+                            clearInterval(timerID);
                             return;
                         }
 
