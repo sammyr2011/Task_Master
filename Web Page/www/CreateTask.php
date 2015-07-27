@@ -269,7 +269,7 @@ if (isset($_POST['submit']))
 
                         <div class="well">
                             <div id="datetimepicker2" class="input-append">
-                                <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"></input>
+                                <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text">
                                 <span class="add-on">
                                   <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                                   </i>
