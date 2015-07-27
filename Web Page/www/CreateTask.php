@@ -81,7 +81,7 @@ if (isset($_POST['submit']))
     <link rel="stylesheet" href="dist/css/bootstrap-formhelpers.min.css">
 
     <!-- Resources for datetime picker -->
-    <scipt src="C:\Users\Samuel Roman\Documents\GitHub\Task_Master\Web Page\www\js\bootstrap-datetimepicker.min.css"></scipt>
+   <script src="js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"
 
     <meta charset="utf-8">
@@ -277,7 +277,9 @@ if (isset($_POST['submit']))
                             </div>
                         </div><script type='text/javascript'>
                             $(function() {
-                                $('#datetimepicker1').datetimepicker();
+                                $('#datetimepicker1').datetimepicker({
+                                    language: 'pt-BR'
+                                });
                             });
                         </script>
 
