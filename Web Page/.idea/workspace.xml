@@ -25,8 +25,8 @@
       <file leaf-file-name="CreateTask.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4351962">
-              <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.5066829">
+              <caret line="272" column="160" selection-start-line="272" selection-start-column="160" selection-end-line="272" selection-end-column="160" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -65,10 +65,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -216,7 +215,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="960" y="0" width="960" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38565022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -480,8 +479,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/CreateTask.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4351962">
-          <caret line="269" column="93" selection-start-line="269" selection-start-column="93" selection-end-line="269" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.5066829">
+          <caret line="272" column="160" selection-start-line="272" selection-start-column="160" selection-end-line="272" selection-end-column="160" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
