@@ -273,11 +273,13 @@ if (isset($_POST['submit']))
                             <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
                         </div>
 
-                        <!-- When to have the job done by-->
-                        <b>Task Completion Date and Time:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 5px">
 
                         <!-- Time to task should be completed -->
-                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
+                        <b>Task Completion Date and Time:</b>   <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
+
+                        <!-- When to have the job done by-->
+                        <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 5px">
+
 
 
 
