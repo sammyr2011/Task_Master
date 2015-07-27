@@ -187,7 +187,7 @@ class task
 			
 			if (in_array($file_ext, $allowedext))
 			{
-				$folderpath = "taskcontent/".$this->taskid."/";
+				$folderpath = "/var/www/html/taskcontent/".$this->taskid."/";
 				
 				if (!is_dir($folderpath)) 
 					mkdir($folderpath,0777,true);
