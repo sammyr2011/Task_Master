@@ -264,13 +264,13 @@ if (isset($_POST['submit']))
 
 
                         <!-- Select End Date-->
-                        <b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group">
+                        <b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group" style="margin-bottom: 5px">
 
                         <!-- Time to end bidding -->
-                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
+                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
 
                         <!-- When to have the job done by-->
-                        <b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control input-group">
+                        <b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 5px">
 
                         <!-- Time to task should be completed -->
                         <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
