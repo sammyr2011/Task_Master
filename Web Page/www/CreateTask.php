@@ -71,19 +71,21 @@ if (isset($_POST['submit']))
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
-
+    <!-- Resource for TimePicker Plugin -->
+    <script src="dist/js/bootstrap-formhelpers.min.js"></script>
+    <link rel="stylesheet" href="dist/css/bootstrap-formhelpers.min.css">
 
     <meta charset="utf-8">
     <title>Task Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    
 <style>
         /* Sticky footer styles
         -------------------------------------------------- */
@@ -239,19 +241,6 @@ if (isset($_POST['submit']))
 									<input type="text" class="form-control" placeholder="US Dollar" name="price">
                                 <span class="input-group-addon">.00</span>
                             </div>
-
-
-                            <!-- Text input-->
-<!--                            <div class="control-group">
-                                <label class="control-label" for="tags">Related Keywords</label>
-                                <div class="controls">
-                                    <input id="tags" name="tags" type="text" placeholder="keywords" class="input-xlarge form-control" required="">
-
-                                    <button type="button" class="btn btn-default" aria-label="Left Align" data-toggle="popover" data-placement="left" title data-content="Input words separated by spaces that relate to the task">
-                                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                            </div>-->
                         
 
                         <br>
@@ -276,6 +265,14 @@ if (isset($_POST['submit']))
                         <!--  Think about changing type to date rather than using text and the JQuery datepicker-->
                          <!-- Select End Date-->
                         <p><b>End Bidding Date:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control"></p>
+
+
+                        <!-- Time to end bidding -->
+                        <div class="col-md-12 col-sm-12 col-xs-12 bfh-timepicker" datamode="12h"></div>
+
+                        <script>
+                            $().bfhtimepicker("toggle");
+                        </script>
 
                         <!-- When to have the job done by-->
                         <p><b>Task Completion Date:</b> <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control"></p>
