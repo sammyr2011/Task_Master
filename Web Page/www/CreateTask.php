@@ -267,18 +267,20 @@ if (isset($_POST['submit']))
                         <br>
 
 
-                       <!--  Test having one input for date and time-->
-                        <div class='well'>
-                            <div class='input-append date' id='datetimepicker1'>
-                                <input data-format='dd/MM/yyyy hh:mm:ss' type='text' />
-                                <span class='add-on'>
-                                  <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+                        <div class="well">
+                            <div id="datetimepicker2" class="input-append">
+                                <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"></input>
+                                <span class="add-on">
+                                  <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                  </i>
                                 </span>
                             </div>
-                        </div><script type='text/javascript'>
+                        </div>
+                        <script type="text/javascript">
                             $(function() {
-                                $('#datetimepicker1').datetimepicker({
-                                    language: 'pt-BR'
+                                $('#datetimepicker2').datetimepicker({
+                                    language: 'en',
+                                    pick12HourFormat: true
                                 });
                             });
                         </script>
