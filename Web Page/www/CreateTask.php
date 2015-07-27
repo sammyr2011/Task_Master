@@ -80,6 +80,10 @@ if (isset($_POST['submit']))
     <script src="dist/js/bootstrap-formhelpers.min.js"></script>
     <link rel="stylesheet" href="dist/css/bootstrap-formhelpers.min.css">
 
+    <!-- Resources for datetime picker -->
+    <scipt src="C:\Users\Samuel Roman\Documents\GitHub\Task_Master\Web Page\www\js\bootstrap-datetimepicker.min.css"></scipt>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"
+
     <meta charset="utf-8">
     <title>Task Creation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,28 +267,23 @@ if (isset($_POST['submit']))
                         <br>
 
 
-                        <!-- Switched order of time and date b/c of a bug by date picker.  Specifically if you attempt to select a date
-                               and the time picker is below where you are trying to click it wont select it and will open the time picker dialog.-->
-
-                        <!-- Time to end bidding -->
-                        <b>End Bidding Date and Time:</b><div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 2px"></div>
-
-                        <!-- Select End Date-->
-                        <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group" style="margin-bottom: 20px">
-
-
-                        <!-- Time to task should be completed -->
-                        <b>Task Completion Date and Time:</b> <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 2px"></div>
-
-                        <!-- When to have the job done by-->
-                        <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 20px">
-
-
-
-
-                        <script>
-                            $().bfhtimepicker("toggle");
+                       <!--  Test having one input for date and time-->
+                        <div class='well'>
+                            <div class='input-append date' id='datetimepicker1'>
+                                <input data-format='dd/MM/yyyy hh:mm:ss' type='text' />
+                                <span class='add-on'>
+                                  <i data-date-icon='icon-calendar' data-time-icon='icon-time'></i>
+                                </span>
+                            </div>
+                        </div><script type='text/javascript'>
+                            $(function() {
+                                $('#datetimepicker1').datetimepicker();
+                            });
                         </script>
+
+
+
+
 
                          <!-- File Button -->
                         <div class="control-group">
