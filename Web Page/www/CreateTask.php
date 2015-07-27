@@ -267,17 +267,17 @@ if (isset($_POST['submit']))
                                and the time picker is below where you are trying to click it wont select it and will open the time picker dialog.-->
 
                         <!-- Time to end bidding -->
-                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
+                        <b>End Bidding Date and Time:</b><div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 2px"></div>
 
                         <!-- Select End Date-->
-                        <b>End Bidding Date and Time:</b> <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group">
+                        <input type="text" name="biddate" id="datepicker" placeholder="Click Here" class="form-control input-group" style="margin-bottom: 20px">
 
 
                         <!-- Time to task should be completed -->
-                        <b>Task Completion Date and Time:</b> <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time"></div>
+                        <b>Task Completion Date and Time:</b> <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 2px"></div>
 
                         <!-- When to have the job done by-->
-                        <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 5px">
+                        <input type="text" name="jobdate" id="datepicker2" placeholder="Click Here" class="form-control" style="margin-bottom: 20px">
 
 
 
