@@ -92,7 +92,7 @@
 
     <!-- Begin page content -->
     <div class="container-fluid">
-        <div class="row-fluid grid-set">
+        <div class="row-fluid grid-set" style="margin-bottom: 30px">
             <div class="col-md-4 col-sm-4 col-xs-4" >
                 <div class="box" style="height:750px">
                     <div class="header">
