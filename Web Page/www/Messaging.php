@@ -101,7 +101,7 @@
                             Inbox(2)
                         </h4>
                     </div>
-                    <div class="content pad" style="overflow-y: scroll;height:100%">
+                    <div class="content" style="overflow-y: scroll;height:100%;padding-top: 2px">
                         <table class table table-condensed margin-reset">
                         <tbody>
                         <tr>
