@@ -93,8 +93,8 @@
     <!-- Begin page content -->
     <div class="container-fluid">
         <div class="row-fluid grid-set">
-            <div class="col-md-4 col-sm-4 col-xs-4" style="height:100%">
-                <div class="box">
+            <div class="col-md-4 col-sm-4 col-xs-4" >
+                <div class="box" style="height:100%">
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
@@ -119,8 +119,29 @@
                 </div>
 
             </div>
-            <div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;border-style:solid;border-color:red;">
-
+            <div class="col-md-8 col-sm-8 col-xs-8" >
+                <div class="box" style="border-style:solid;border-color:red;height:100%">
+                    <div class="header">
+                        <h4>
+                            <!-- The number in parenthesis is the number of new unread messages -->
+                            Inbox(2)
+                        </h4>
+                    </div>
+                    <div class="content pad">
+                        <table class table table-condensed margin-reset">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <img src="images/UserStock.png" style="height:75px;width:auto">
+                            </td>
+                            <td>
+                                <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
+                                <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
             </div>
 
         </div>
