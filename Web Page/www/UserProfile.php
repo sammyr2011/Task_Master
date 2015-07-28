@@ -106,7 +106,7 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Username</h2>
                 <h4>Avgerage Lister Rating</h4>
-                <div id="AVGL" data-score="1"></div
+                <div id="AVGL" data-score="1"></div>
                 <script>
                     $('#AVGL').raty({
                         readOnly: true,
@@ -116,7 +116,7 @@
                     });
                 </script>
                 <h4>Average Doer Rating</h4>
-                <div id="AVGD" data-score="1"></div
+                <div id="AVGD" data-score="1"></div>
                 <script>
                     $('#AVGD').raty({
                         readOnly: true,
