@@ -98,7 +98,7 @@
         <div class="row">
             <!-- Avatar -->
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <img src="images/UserStock.png" style="height:300px;width:auto">
+                <img src="images/UserStock.png" style="height:150px;width:auto">
             </div>
             <!-- Username and avg ratings -->
             <div class="col-md-4 col-sm-4 col-xs-4">
@@ -156,6 +156,13 @@
     </div>
 </div>
 
-
+<script>
+    $('#score-callback').raty({
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+    });
+</script>
 </body>
 </html>
