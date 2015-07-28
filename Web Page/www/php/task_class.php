@@ -220,7 +220,7 @@ class task
 		$currentbid = $this->getCurrentBid();
 		
 		//task bidding has ended
-		if ($this->active == 0)
+		if ($this->isPastBidTime() == true)
 		{
 			$error['active'] = true;
 			return $error;
@@ -277,7 +277,35 @@ class task
 			$currentbid = $row['BidAmount'];
 		}
 		
+		$dbhandle->close();
+		
 		return $currentbid;
+	}
+	
+	//Unsets Active flag in db
+	public function unsetActive()
+	{
+		$this->active = 0;
+		
+		$dbhandle = db_connect();
+		
+		$query = "UPDATE Tasks SET Active=0 WHERE TaskID = {$this->taskid}";
+		$result = $dbhandle->query($query);
+		
+		$dbhandle->close();
+	}
+	
+	//Check if the current time is past the bid end time
+	//If so, unsets Active flag
+	public function isPastBidTime()
+	{
+		if ($this->enddatetime <= time())
+		{
+			unsetActive();
+			return true;
+		}
+		
+		return false;
 	}
 }
 

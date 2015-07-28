@@ -69,4 +69,14 @@ if (isset($_SESSION['msg_badtaskid']))
 	<?php
 }
 
+if (isset($_SESSION['msg_bidover']))
+{ 
+	unset($_SESSION['msg_bidover']); ?>
+	<div class="alert alert-danger">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bidding Over!</strong> Sorry, the bidding time has ended.
+	</div> 
+	<?php
+}
+
 ?>
