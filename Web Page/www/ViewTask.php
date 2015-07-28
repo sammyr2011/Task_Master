@@ -44,6 +44,10 @@ if (isset($_POST['submit']))
 	{
 		$_SESSION['msg_bidover'] = "Bidding Ended";
 	}
+	if (isset($biderror['bidamount']))
+	{
+		$_SESSION['msg_bidless'] = "Must Bid Less Than Current";
+	}
 }
 
 ?>
