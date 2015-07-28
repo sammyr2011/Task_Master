@@ -80,7 +80,7 @@ if (session_status() == PHP_SESSION_NONE)
                 -->
                 <div id="custom-search-input">
 
-                    <div class="input-group col-md-12">
+                    <div class="input-group col-md-12 col-sm-12 col-xs-12">
 
                         <div class="input-group-btn input-group-btn-static">
                             <button type="button" class="btn btn-default" data-toggle="dropdown">
