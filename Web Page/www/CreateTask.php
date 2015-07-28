@@ -272,12 +272,7 @@ if (isset($_POST['submit']))
 
                         <!-- Time to end bidding -->
                         <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
-
-                        <!-- When to have the job done by-->
-                        <b>Task Completion Date and Time:</b><div class="bfh-datepicker" data-min="today" data-close="false" data-format="y-m-d" style="margin-bottom: 2px"></div>
-
-                        <!-- Time to task should be completed -->
-                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
+                        
 
                         <script>
                             $().bfhtimepicker("toggle");
