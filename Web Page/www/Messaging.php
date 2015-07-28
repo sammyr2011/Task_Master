@@ -11,6 +11,11 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <!-- Resources for box design -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/user_css.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+
     <meta charset="utf-8">
     <title>Task Master</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,57 +92,39 @@
 
     <!-- Begin page content -->
     <div class="container-fluid">
-        <div class="col-md-4 col-sm-4 col-xs-4" style="border: solid 3px lightgrey">
-            <legend>Inbox</legend>
-
-            <div class="col-md-12 col-sm-12 col-xs-12" data-spy="scroll" style="height:100%;width:auto">
-
-
-
-                <!--
-                    When a new message is sent to user create new div in the format
-                    found below.
-
-                    Will hold the message box data
-
-                    Use the formatting used in MessageCenter
-
-                -->
-                <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 14px 26px 26px;">
-
-                    <table class table table-condensed margin-reset">
-                        <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>Task</th>
-                            <th>Date Recieved</th>
-                        </tr>
-                        </thead>
+        <div class="row-fluid grid-set">
+            <div class="span4">
+                <div class="box">
+                    <div class="header">
+                        <h4>
+                            <!-- The number in parenthesis is the number of new unread messages -->
+                            Inbox(2)
+                        </h4>
+                    </div>
+                    <div class="content pad">
+                        <table class table table-condensed margin-reset">
                         <tbody>
-                            <tr>
-                                <td>
-                                    <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">SamIam</h1>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-
-                                </td>
-                                <td>
-
-                                    <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Steal a Car</p>
-                                </td>
-                                <td>
-                                    <p>7/23/2015 3:30 PM</p>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <img src="images/UserStock.png" style="height:75px;width:auto">
+                            </td>
+                            <td>
+                                <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
+                                <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
+                            </td>
+                        </tr>
                         </tbody>
-                    </table>
-
-
+                        </table>
+                    </div>
                 </div>
+                <div class="span8">
+                    
+                </div>
+
             </div>
         </div>
-        <div class="col-md-8 col-sm-8 col-xs-8">
+    </div>
 
-        </div>
     </div>
     <div id="push"></div>
 </div>
