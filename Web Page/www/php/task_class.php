@@ -301,7 +301,7 @@ class task
 	{
 		if ($this->enddatetime <= time())
 		{
-			unsetActive();
+			$this->unsetActive();
 			return true;
 		}
 		
