@@ -117,11 +117,12 @@
                         </table>
                     </div>
                 </div>
-                <div class="span8" style="height:100%;border: thick red">
-                    
-                </div>
 
             </div>
+            <div class="span8" style="height:100%;border: thick red">
+
+            </div>
+
         </div>
     </div>
 
