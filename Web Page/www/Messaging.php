@@ -93,7 +93,7 @@
     <!-- Begin page content -->
     <div class="container-fluid">
         <div class="row-fluid grid-set">
-            <div class="span4" style="height:100%">
+            <div class="col-md-4 col-sm-4 col-xs-4" style="height:100%">
                 <div class="box">
                     <div class="header">
                         <h4>
@@ -119,7 +119,7 @@
                 </div>
 
             </div>
-            <div class="span8" style="height:100%;border-style:solid;border-color:red;width:100%">
+            <div class="col-md-8 col-sm-8 col-xs-8" style="height:100%;border-style:solid;border-color:red;">
 
             </div>
 
