@@ -100,7 +100,7 @@
         <div class="row" style="margin-bottom: 30px">
             <!-- Avatar -->
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <img src="images/UserStock.png" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
+                <img src="images/UserStock.png" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;" class="img-responsive">
             </div>
             <!-- Username and avg ratings -->
             <div class="col-md-4 col-sm-4 col-xs-4">
