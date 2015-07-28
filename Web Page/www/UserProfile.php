@@ -97,10 +97,10 @@
     <div class="container">
 
         <!-- Will hold user general information -->
-        <div class="row">
+        <div class="row" style="margin-bottom: 30px">
             <!-- Avatar -->
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <img src="images/UserStock.png" style="height:150px;width:auto">
+                <img src="images/UserStock.png" style="height:150px;width:auto" class="center-block">
             </div>
             <!-- Username and avg ratings -->
             <div class="col-md-4 col-sm-4 col-xs-4">
