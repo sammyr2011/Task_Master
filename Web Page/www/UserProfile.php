@@ -128,7 +128,7 @@
             </div>
             <!-- Message me button -->
             <div class="col-md-4 col-sm-4 col-xs-4" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
-                <input type="submit" name="messageuser" class="btn btn-primary btn-lg raised" value="Message Me">
+                <input type="submit" name="messageuser" class="btn btn-primary btn-lg raised" value="Message Me" style="vertical-align: middle">
             </div>
         </div>
 
