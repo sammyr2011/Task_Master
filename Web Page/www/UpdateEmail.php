@@ -94,7 +94,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="email">Email:</label>
                                 <div class="controls">
-                                    <input id="email" name="email" type="email" placeholder="Email" class="input-xlarge form-control" style="margin-bottom: 30px">
+                                    <input id="email" name="email" type="email" placeholder="Email" class="input-xlarge form-control">
 
                                 </div>
                             </div>
@@ -119,8 +119,8 @@
                     </div>
 
                     <!-- Help side div-->
-                    <div class="col-md-4 col-sm-4">
-                        <p>Welcome to the Password Reset page.</p><br>
+                    <div class="col-md-4 col-sm-4" col-xs-4>
+                        <p>Welcome to the email update page.</p><br>
                         <p></p>
 
                     </div>
