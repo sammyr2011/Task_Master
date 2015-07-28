@@ -172,7 +172,7 @@ if (isset($_POST['submit']))
 		<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <fieldset>
                 <div class="row">
-                    <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
+                    <div class="col-md-8 col-sm-8 col-xs-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
 
                         <!-- Form Name -->
                         <legend>Task Creation</legend>
@@ -263,27 +263,17 @@ if (isset($_POST['submit']))
 
                         <br>
 
-
-
-
-
                         <!-- Date to end bidding -->
                         <b>End Bidding Date and Time:</b> <div class="bfh-datepicker" data-min="today" data-close="false" data-format="y-m-d" style="margin-bottom: 2px"></div>
 
                         <!-- Time to end bidding -->
                         <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
-                        
+
 
                         <script>
                             $().bfhtimepicker("toggle");
                             $().bfhdatepicker("toggle");
                         </script>
-
-
-
-
-
-
 
                          <!-- File Button -->
                         <div class="control-group">
@@ -307,7 +297,7 @@ if (isset($_POST['submit']))
                     </div>
 
                     <!-- Help side div-->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
                         <p>Welcome to the Task Creation page.  Congratulations you have taken
                         the first step to having your task completed by a Task Master.</p><br>
 
