@@ -93,7 +93,7 @@
     <!-- Begin page content -->
     <div class="container-fluid">
         <div class="row-fluid grid-set">
-            <div class="span4">
+            <div class="span4" style="height:100%">
                 <div class="box">
                     <div class="header">
                         <h4>
@@ -117,7 +117,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="span8">
+                <div class="span8" style="height:100%">
                     
                 </div>
 
