@@ -94,14 +94,14 @@
     <div class="container-fluid">
         <div class="row-fluid grid-set" style="margin-bottom: 30px">
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <div class="box" style="height:750px;overflow-y: scroll">
+                <div class="box" style="height:750px;">
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
                             Inbox(2)
                         </h4>
                     </div>
-                    <div class="content pad">
+                    <div class="content pad" style="overflow-y: scroll">
                         <table class table table-condensed margin-reset">
                         <tbody>
                         <tr>
