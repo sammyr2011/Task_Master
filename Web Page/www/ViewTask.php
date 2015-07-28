@@ -208,7 +208,9 @@ if (isset($_POST['submit']))
 				
 				<p><span id="endtime">Bid End Time: </span><?php echo $dateStr; ?> </p>
 
-                <script>
+				
+				<p>Time Left: <span id="countdown" style="color:red"></span></p>
+				<script>
                     // set the date we're counting down to
                     var target_date = new Date(<?php echo $task->enddatetime; ?>*1000).getTime();
 
@@ -254,9 +256,8 @@ if (isset($_POST['submit']))
                     }, 1000);
 
                 </script>
-
+				
 				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
-                <p>Time Left: <span id="countdown" style="color:red"></span></p>
 
                 <!-- style="background-color: #E2E2E2;" -->
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">
