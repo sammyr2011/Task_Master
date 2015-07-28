@@ -34,7 +34,10 @@ else
 if (isset($_POST['submit']))
 {
 	$biderror = array();
-	$biderror = $task->addBid($_SESSION['userid'], $_POST['Bid']);
+	if (isset($_SESSION['userid']))
+		$biderror = $task->addBid($_SESSION['userid'], $_POST['Bid']);
+	else
+		$biderror['login'] = "Log in to bid";
 	
 	if (count($biderror) == 0)
 	{
@@ -47,6 +50,10 @@ if (isset($_POST['submit']))
 	if (isset($biderror['bidamount']))
 	{
 		$_SESSION['msg_bidless'] = "Must Bid Less Than Current";
+	}
+	if (isset($biderror['login']))
+	{
+		$_SESSION['msg_login'] = "Log in to bid";
 	}
 }
 
