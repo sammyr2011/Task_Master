@@ -105,7 +105,7 @@
                         </h4>
                     </div>
                     <!-- removed pad from class -->
-                    <div class="content">
+                    <div class="content pad">
                         <table class table table-condensed margin-reset">
                               <tbody>
                                   <tr>
