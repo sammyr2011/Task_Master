@@ -119,7 +119,7 @@
                 </div>
 
             </div>
-            <div class="span8" style="height:100%;border: thick red">
+            <div class="span8" style="height:100%;border-style:solid;border-color:red;width:100%">
 
             </div>
 
