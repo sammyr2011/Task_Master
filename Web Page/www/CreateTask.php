@@ -25,6 +25,12 @@ if (isset($_POST['submit']))
 			$_POST['numimg']++;
 	}
 	
+	//form date string
+	$enddatetime = $_POST['enddate']." ".$_POST['endtime'];
+	
+	//convert it to Unix timestamp
+	$_POST['enddatetime'] = strtotime($enddatetime);
+	
 	$newtask = new task();
 	$newtask->createFromPost($_POST);
 	

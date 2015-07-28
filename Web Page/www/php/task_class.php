@@ -21,6 +21,7 @@ class task
 	var $price;
 	var $currentbid;
 	var $active;
+	var $enddatetime;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
@@ -44,6 +45,8 @@ class task
 		if (isset($info['tags'])) $this->tags = $info['tags'];
 		
 		if (isset($info['numimg'])) $this->numimg = $info['numimg'];
+		
+		if (isset($info['enddatetime'])) $this->enddatetime = $info['enddatetime'];
 	}
 	
 	//Gets info of a task stored in the database
@@ -92,6 +95,8 @@ class task
 		
 		$this->currentbid = $this->getCurrentBid();
 		
+		if (isset($row['EndDateTime'])) $this->enddatetime= $row['EndDateTime'];
+		
 		//close connection and return 0
 		return NULL;
 	}
@@ -114,6 +119,7 @@ class task
 			Location,
 			Category,
 			Tags,
+			EndDateTime,
 			Lister,
 			NumImages,
 			Information,
@@ -128,6 +134,7 @@ class task
 			'$this->location',
 			'$this->category',
 			'$this->tags',
+			'$this->enddatetime',
 			'$this->userid',
 			'$this->numimg',
 			'$this->content',

@@ -203,7 +203,7 @@ if (isset($_POST['submit']))
 
                 <script>
                     // set the date we're counting down to
-                    var target_date = new Date("Jul 29, 2015").getTime();
+                    var target_date = new Date({$task->enddatetime}*1000).getTime();
 
                     // variables for time units
                     var days, hours, minutes, seconds;
