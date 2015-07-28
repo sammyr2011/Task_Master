@@ -80,6 +80,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+
 </head>
 
 <body>
@@ -104,7 +106,7 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Username</h2>
                 <h4>Avgerage Lister Rating</h4>
-                <div id="score-callback" data-score="4"></div>
+                <div id="star_xxx" data-number="4" rel=""></div>
                 <h4>Average Doer Rating</h4>
                 <div id="score-callback" data-score="4.5"></div>
             </div>
@@ -122,8 +124,21 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <!--Increment raing number in loop-->
                 <p>Task Title</p>
-                <div id="score-callback" data-score="3"></div>
+                <!--
+                     change the id of the div and the value in the JS script at the same time to have
+                     variable number of ratings on a page.
+                 -->
+                <div id="score-callback1" data-score="1"></div>
                 <blockquote>Comment left with rating</blockquote>
+
+                <script>
+                    $('#score-callback1').raty({
+                        readOnly: true,
+                        score: function() {
+                            return $(this).attr('data-score');
+                        }
+                    });
+                </script>
             </div>
 
 
@@ -137,7 +152,23 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <!--Increment raing number in loop-->
                 <p>Task Title</p>
-                <div id="score-callback" data-score="3"></div>
+
+                <!--
+                     change the id of the div and the value in the JS script at the same time to have
+                     variable number of ratings on a page.
+                 -->
+                <div id="doer-callback1" data-score="1"></div>
+                <blockquote>Comment left with rating</blockquote>
+
+                <script>
+                    $('#doer-callback1').raty({
+                        readOnly: true,
+                        score: function() {
+                            return $(this).attr('data-score');
+                        }
+                    });
+                </script>
+
                 <blockquote>Comment left with rating</blockquote>
             </div>
 
@@ -156,13 +187,6 @@
     </div>
 </div>
 
-<script>
-    $('#score-callback').raty({
-        readOnly: true,
-        score: function() {
-            return $(this).attr('data-score');
-        }
-    });
-</script>
+
 </body>
 </html>
