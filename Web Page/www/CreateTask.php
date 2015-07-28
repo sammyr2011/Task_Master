@@ -264,10 +264,10 @@ if (isset($_POST['submit']))
                         <br>
 
                         <!-- Date to end bidding -->
-                        <b>End Bidding Date and Time:</b> <div class="bfh-datepicker" data-min="today" data-close="false" data-format="m/d/y" style="margin-bottom: 2px"></div>
+                        <b>End Bidding Date and Time:</b> <input type="text" name="enddate" class="bfh-datepicker" data-min="today" data-close="false" data-format="m/d/y" style="margin-bottom: 2px">
 
                         <!-- Time to end bidding -->
-                        <div class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px"></div>
+                        <input type="text" name="endtime" class="bfh-timepicker" data-mode="12h" placeholder="Select Time" style="margin-bottom: 20px">
 
 
                         <script>
