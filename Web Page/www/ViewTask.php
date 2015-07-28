@@ -24,7 +24,7 @@ if ($error == NULL)
 	
 	$date = new DateTime();
 	$date->setTimestamp($task->enddatetime);
-	$dateStr = $date->format('U = m/d/Y H:i');
+	$dateStr = $date->format('m/d/Y g:i A');
 }
 else
 {
