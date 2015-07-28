@@ -217,7 +217,7 @@ if (isset($_POST['submit']))
                         // find the amount of "seconds" between now and target
                         var current_date = new Date().getTime();
                         //var seconds_left = (target_date - current_date) / 1000;
-                        var seconds_left = 50;
+                        var seconds_left = current_date;
 
 
                         // do some time calculations
