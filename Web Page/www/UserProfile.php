@@ -100,13 +100,13 @@
         <div class="row" style="margin-bottom: 30px">
             <!-- Avatar -->
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <img src="images/UserStock.png" style="height:150px;width:auto" class="center-block">
+                <img src="images/UserStock.png" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
             </div>
             <!-- Username and avg ratings -->
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Username</h2>
                 <h4>Avgerage Lister Rating</h4>
-                <div id="AVGL" data-score="1"></div>
+                <div id="AVGL" data-score="4.5"></div>
                 <script>
                     $('#AVGL').raty({
                         readOnly: true,
@@ -116,7 +116,7 @@
                     });
                 </script>
                 <h4>Average Doer Rating</h4>
-                <div id="AVGD" data-score="1"></div>
+                <div id="AVGD" data-score="5"></div>
                 <script>
                     $('#AVGD').raty({
                         readOnly: true,
@@ -128,7 +128,7 @@
             </div>
             <!-- Message me button -->
             <div class="col-md-4 col-sm-4 col-xs-4">
-                <input type="submit" name="messageuser" class="btn btn-primary btn-lg raised" value="Submit">
+                <input type="submit" name="messageuser" class="btn btn-primary btn-lg raised" value="Message Me">
             </div>
         </div>
 
