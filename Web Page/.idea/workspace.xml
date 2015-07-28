@@ -61,8 +61,8 @@
       <file leaf-file-name="ViewTask.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/ViewTask.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4131227">
-              <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.20656136">
+              <caret line="218" column="79" selection-start-line="218" selection-start-column="79" selection-end-line="218" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -211,7 +211,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1032" extended-state="1" />
+    <frame x="960" y="0" width="960" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42825112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -499,8 +499,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/ViewTask.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4131227">
-          <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.20656136">
+          <caret line="218" column="79" selection-start-line="218" selection-start-column="79" selection-end-line="218" selection-end-column="79" />
           <folding />
         </state>
       </provider>
