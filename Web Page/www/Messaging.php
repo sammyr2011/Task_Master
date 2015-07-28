@@ -37,11 +37,11 @@
 
         /* Wrapper for page content to push down footer */
         #wrap {
-            min-height: 100%;
+            min-height: 100% !important;
             height: auto !important;
-            height: 100%;
+            height: 100% !important;
             /* Negative indent footer by it's height */
-            margin: 0 auto -60px;
+            margin: -90px auto 90px !important;
         }
 
         /* Set the fixed height of the footer here */
