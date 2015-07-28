@@ -53,7 +53,7 @@ if (isset($_POST['submit']))
 	}
 	if (isset($biderror['login']))
 	{
-		$_SESSION['msg_login'] = "Log in to bid";
+		$_SESSION['msg_needlogin'] = "Log in to bid";
 	}
 }
 
