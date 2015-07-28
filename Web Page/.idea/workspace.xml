@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4507b41-6d25-4c40-99cb-fc0c09ef5494" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/Messaging.php" afterPath="$PROJECT_DIR$/www/Messaging.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
     </list>
     <ignored path="Web Page.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="Messaging.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/Messaging.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.029726516">
-              <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.51486325">
+              <caret line="119" column="71" selection-start-line="119" selection-start-column="71" selection-end-line="119" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -528,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/Messaging.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029726516">
-          <caret line="95" column="49" selection-start-line="95" selection-start-column="49" selection-end-line="95" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.51486325">
+          <caret line="119" column="71" selection-start-line="119" selection-start-column="71" selection-end-line="119" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
