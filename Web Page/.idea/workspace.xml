@@ -38,11 +38,11 @@
         <entry file="file://$PROJECT_DIR$/www/UserProfile.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.8121284">
-              <caret line="130" column="222" selection-start-line="130" selection-start-column="222" selection-end-line="130" selection-end-column="222" />
+              <caret line="130" column="112" selection-start-line="130" selection-start-column="112" selection-end-line="130" selection-end-column="112" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -541,11 +541,11 @@
     <entry file="file://$PROJECT_DIR$/www/UserProfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8121284">
-          <caret line="130" column="222" selection-start-line="130" selection-start-column="222" selection-end-line="130" selection-end-column="222" />
+          <caret line="130" column="112" selection-start-line="130" selection-start-column="112" selection-end-line="130" selection-end-column="112" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
