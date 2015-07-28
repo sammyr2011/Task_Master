@@ -21,6 +21,10 @@ if ($error == NULL)
 	require_once 'php/user_class.php';
 	$user = new user();
 	$user->getFromDB($task->userid);
+	
+	$date = new DateTime();
+	$date->setTimestamp($task->enddatetime);
+	$dateStr = $date->format('U = m/d/Y H:i');
 }
 else
 {
@@ -197,6 +201,8 @@ if (isset($_POST['submit']))
 
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
                 <br>
+				
+				<p><span id="endtime">Bid End Time: </span><?php echo $dateStr; ?> </p>
 
                 <p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
                 <p>Time Left: <span id="countdown" style="color:red"></span></p>
