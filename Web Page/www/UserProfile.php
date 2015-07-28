@@ -106,9 +106,25 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <h2>Username</h2>
                 <h4>Avgerage Lister Rating</h4>
-                <div id="star_xxx" data-number="4" rel=""></div>
+                <div id="AVGL" data-score="1"></div
+                <script>
+                    $('#AVGL').raty({
+                        readOnly: true,
+                        score: function() {
+                            return $(this).attr('data-score');
+                        }
+                    });
+                </script>
                 <h4>Average Doer Rating</h4>
-                <div id="score-callback" data-score="4.5"></div>
+                <div id="AVGD" data-score="1"></div
+                <script>
+                    $('#AVGD').raty({
+                        readOnly: true,
+                        score: function() {
+                            return $(this).attr('data-score');
+                        }
+                    });
+                </script>
             </div>
             <!-- Message me button -->
             <div class="col-md-4 col-sm-4 col-xs-4">
