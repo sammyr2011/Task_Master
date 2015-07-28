@@ -84,11 +84,12 @@
 
     <!-- Begin page content -->
     <div class="container">
-        <h2>Password Assitance Tool</h2>
+
         <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <fieldset>
                 <div class="row">
                     <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
+                        <legend>Password Assitance Tool</legend>
                         <div class="col-md-12 col-sm-12">
                             <div class="control-group">
                                 <label class="control-label" for="PaswordConfirm">Confirm Current Password:</label>
