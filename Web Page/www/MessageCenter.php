@@ -104,7 +104,8 @@
                             Inbox(2)
                         </h4>
                     </div>
-                    <div class="content pad">
+                    <!-- removed pad from class -->
+                    <div class="content">
                         <table class table table-condensed margin-reset">
                               <tbody>
                                   <tr>
