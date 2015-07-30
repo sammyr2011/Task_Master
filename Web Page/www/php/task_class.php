@@ -307,6 +307,29 @@ class task
 		
 		return false;
 	}
+	
+	//Checks if task with specified ID exists
+	//return true - exists
+	//return false - does not exist
+	public function checkExistence($intaskid)
+	{
+		$retval; 
+		
+		$dbhandle = db_connect();
+		
+		$query = "SELECT TaskID FROM Taskss WHERE TaskID='{$intaskid}'";
+		
+		$result = $dbhandle->query($query);
+		
+		if ($result->num_rows == 0)
+			$retval = false;
+		else
+			$retval = true;
+			
+		$dbhandle->close();
+		
+		return $retval;
+	}
 }
 
 ?>
