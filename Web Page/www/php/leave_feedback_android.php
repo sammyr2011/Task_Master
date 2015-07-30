@@ -1,5 +1,5 @@
 <?php
-require_once 'user_class.php';
+require_once 'review_class.php';
 
 $review = new review();
 $error = $review->initialize($_POST);
