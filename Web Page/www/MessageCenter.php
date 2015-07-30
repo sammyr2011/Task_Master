@@ -82,12 +82,6 @@
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-    <!-- Jquery code to make rows clickable -->
-    <script>
-        $('tr[data-href]').onclick("click", function() {
-            document.location =$(this).data('href"');
-        });
-    </script>
 
 
 </head>
@@ -117,7 +111,7 @@
                         <table class table table-condensed margin-reset">
                               <tbody>
 
-                                      <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                                      <tr class='clickable-row' data-href="Messaging.php?UserID1=&&UserID2=">
                                           <td>
                                               <img src="images/UserStock.png" style="height:75px;width:auto">
                                           </td>
@@ -130,7 +124,14 @@
                               </tbody>
                         </table>
                     </div>
-
+                    <!-- Should make the rows of the table clickable and should redirect to the messaging page-->
+                <script>
+                    jQuery(document).ready(function($) {
+                        $(".clickable-row").click(function() {
+                            window.document.location = $this.data("href");
+                        });
+                    });
+                </script>
 
                 </div>
             </div>

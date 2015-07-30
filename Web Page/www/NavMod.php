@@ -68,16 +68,6 @@ if (session_status() == PHP_SESSION_NONE)
         <!-- Search bar-->
         <div class="container">
             <div class="row">
-
-                <!--
-                <div class="col-md-1">
-                    <select title="search in">
-                        <option>Food</option>
-                        <option>Car</option>
-                        <option>Lawn</option>
-                    </select>
-                </div>
-                -->
                 <div id="custom-search-input">
 
                     <div class="input-group col-md-12 col-sm-12 col-xs-12">
