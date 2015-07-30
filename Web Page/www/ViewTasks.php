@@ -1,6 +1,6 @@
 <?php
 
-require_once 'php/task_list.php';
+require_once 'php/lister.php';
 require_once 'php/task_class.php';
 
 $tasks = array();
@@ -8,21 +8,21 @@ $tasks = array();
 if (isset($_GET['Categoryid']))
 {
 	$catid = $_GET['Categoryid'];
-	$tasks = listByCategory($catid);
+	$tasks = listTasksByCategory($catid);
 }
 else if (isset($_GET['userid']))
 {
 	$userid = $_GET['userid'];
-	$tasks = listByUser($userid);
+	$tasks = listTasksByUser($userid);
 }
 else if (isset($_GET['tags']))
 {
 	$tags = $_GET['tags'];
-	$tasks = listByTags($tags);
+	$tasks = listTasksByTags($tags);
 }
 else
 {
-	$tasks = listByCategory(0);
+	$tasks = listTasksByCategory(0);
 }
 
 ?>
