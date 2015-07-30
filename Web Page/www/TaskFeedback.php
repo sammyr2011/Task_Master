@@ -20,18 +20,13 @@ $task = new task();
 $error = $task->getFromDB($intaskid);
 if ($error == NULL)
 {
-	$listerOrDoer;
-	$bidwinner = $task->getWinnerID();
-	if ($_SESSION['userid'] == $bidwinner)
-		$_POST['listerOrDoer'] = 0;
-	else if ($_SESSION['userid'] == $task->userid)
-		$_POST['listerOrDoer'] = 1;
 }
 else
 	die;
 	
 if (isset($_POST['submit']))
 {
+	$_POST['taskid'] = $intaskid;
 	$review = new review();
 	$error = $review->getFromPOST($_POST);
 	
