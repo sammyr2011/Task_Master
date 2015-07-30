@@ -47,6 +47,16 @@ if (isset($_SESSION['msg_bidplaced']))
 	<?php
 }
 
+if (isset($_SESSION['msg_reviewed']))
+{ 
+	unset($_SESSION['msg_reviewed']); ?>
+	<div class="alert alert-success">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Review placed!</strong> Your review has been recorded.
+	</div> 
+	<?php
+}
+
 //warnings
 
 if (isset($_SESSION['msg_needlogin']))

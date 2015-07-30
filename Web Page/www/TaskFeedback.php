@@ -1,6 +1,7 @@
 <?php
 
 require_once 'php/task_class.php';
+require_once 'php/review_class.php';
 
 if (session_status() == PHP_SESSION_NONE) 
 {
@@ -20,10 +21,30 @@ $error = $task->getFromDB($intaskid);
 
 if ($error == NULL)
 {
+	$listerOrDoer;
+	$bidwinner = $task->getWinner();
+	if ($_SESSION['userid'] == $bidwinner)
+		$_POST['listerOrDoer'] = 0;
+	else if ($_SESSION['userid'] == $task->userid)
+		$_POST['listerOrDoer'] = 1;
 }
 else
+	die;
+	
+if (isset($_POST['submit']))
 {
-	$_SESSION['msg_badtaskid'] = "Bad task id";
+	$review = new review();
+	$error = $review->getFromPOST($_POST);
+	
+	if (count($error) == 0)
+	{
+		$_SESSION['msg_reviewed'] = "Review placed";
+		header("Location: /viewTask.php?id=".$intaskid);
+	}
+	else
+	{
+	}
+	
 }
 
 ?>
@@ -221,14 +242,22 @@ else
                 <h1>Rate User on Task</h1>
                 <p>Now that the task has been completed please rate how your task master did on the job.</p>
                 
-                <div id="ratyRating"></div>
-                <!-- Textarea -->
-                <div class="control-group">
-                    <label class="control-label" for="comment">Comments:</label>
-                    <div class="controls">
-                        <textarea id="comment" name="comment" placeholder="Your thoughts" class="form-control"></textarea>
-                    </div>
-                </div>
+				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+					<?php if (isset($error['rating'])) echo "Invalid rating"; ?>
+					<div id="rating" name="rating"></div>
+					<!-- Textarea -->
+					<div class="control-group">
+						<label class="control-label" for="comment">Comments:</label>
+						<div class="controls">
+							<?php if (isset($error['comment'])) echo "Invalid comment"; ?>
+							<textarea id="comment" name="comment" placeholder="Your thoughts" class="form-control"></textarea>
+						</div>
+						
+						<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
+                        </div>
+					</div>
+				</form>
             </div>
             
             
@@ -236,7 +265,7 @@ else
 
         <!-- Rating System Scripts -->
         <script>
-                $('#ratyRating').raty({
+                $('#rating).raty({
                     click: function(score) {
                         //save value in star rating
                       //  <?php $scorephp ?> = score;
