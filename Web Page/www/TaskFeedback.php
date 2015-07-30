@@ -242,7 +242,7 @@ if (isset($_POST['submit']))
                 <h1>Rate User on Task</h1>
                 <p>Now that the task has been completed please rate how your task master did on the job.</p>
                 
-				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="post" enctype="multipart/form-data">
 					<?php if (isset($error['rating'])) echo "Invalid rating"; ?>
 					<div id="rating" name="rating"></div>
 					<!-- Textarea -->
