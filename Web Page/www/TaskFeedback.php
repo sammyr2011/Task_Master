@@ -244,7 +244,7 @@ if (isset($_POST['submit']))
                 
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="post" enctype="multipart/form-data">
 					<?php if (isset($error['rating'])) echo "Invalid rating"; ?>
-					<div id="rating" name="rating"></div>
+					<div id="rating"></div>
 					<!-- Textarea -->
 					<div class="control-group">
 						<label class="control-label" for="comment">Comments:</label>
@@ -265,14 +265,10 @@ if (isset($_POST['submit']))
 
         <!-- Rating System Scripts -->
         <script>
-                $('#rating).raty({
-                    click: function(score) {
-                        //save value in star rating
-                      //  <?php $scorephp ?> = score;
-                    }
-                }
-                
-                );
+               $('#rating').raty();
+			   score: function () {
+					return $(this).attr('data-score');
+				}
         </script>
          
         <br>
