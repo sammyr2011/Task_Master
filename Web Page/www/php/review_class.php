@@ -114,7 +114,7 @@ class review
 			$error['comment'] = true;
 		
 		//check if rating is a number between 0 and 5 inclusive
-		if (isset($info['rating']) && is_numeric($info['rating']) && $info['rating']) >= 0 && $info['rating']) <= 5)
+		if (isset($info['rating']) && is_numeric($info['rating']) && $info['rating'] >= 0 && $info['rating'] <= 5)
 			$this->rating = $info['rating'];
 		else
 			$error['rating'] = true;
