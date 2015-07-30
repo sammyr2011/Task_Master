@@ -109,7 +109,7 @@
 
                     <div class="content">
 
-                        <table class="table table-condensed margin-reset">
+                        <table class="table table-condensed margin-reset" style="overflow-y: scroll">
                             <tbody>
 
                             <!-- link stores user id of both users that will be messaging -->
