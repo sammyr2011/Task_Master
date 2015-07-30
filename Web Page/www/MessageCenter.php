@@ -106,8 +106,8 @@
                             Inbox(2)
                         </h4>
                     </div>
-                    <!-- removed pad from class -->
-                    <div class="content pad">
+
+                    <div class="content pad table-responsive">
                         <table class table table-condensed margin-reset">
                               <tbody>
 
@@ -135,7 +135,7 @@
                     <div class="header">
                         <h4>Reccommended Users</h4>
                     </div>
-                    <div class="content">
+                    <div class="content  table-responsive">
 
                         <table class="table table-condensed margin-reset">
                             <tbody>
