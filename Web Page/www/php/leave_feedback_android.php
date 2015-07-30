@@ -2,7 +2,7 @@
 require_once 'review_class.php';
 
 $review = new review();
-$error = $review->initialize($_POST);
+$error = $review->getFromPOST($_POST);
 
 if($error == null)
 {
