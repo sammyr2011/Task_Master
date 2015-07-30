@@ -9,7 +9,7 @@ if(isset($_POST['userid']))
   $userout = array();
   
   $userout['Username']=$user->username;
-  $userout['AvatarURL']=$uesr->avatarurl;
+  $userout['AvatarURL']=$user->avatarurl;
 }
 
 
