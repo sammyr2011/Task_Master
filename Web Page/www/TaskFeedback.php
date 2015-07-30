@@ -243,7 +243,8 @@ if (isset($_POST['submit']))
                 
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="post" enctype="multipart/form-data">
 					<?php if (isset($error['rating'])) echo "Invalid rating"; ?>
-					<div id="rating"></div>
+					<!-- <div id="rating"></div> -->
+					<input type="text" name="rating" id="rating" placeholder="Rating" class="form-control">
 					<!-- Textarea -->
 					<div class="control-group">
 						<label class="control-label" for="comment">Comments:</label>
