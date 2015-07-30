@@ -41,7 +41,7 @@ class review
 		else
 			$query = "SELECT * from DoRatings WHERE RatingID = '{$inratingid}' LIMIT 1";
 			
-		$result = $dbhandle->query();
+		$result = $dbhandle->query($query);
 		if ($result->num_rows == 0)
 		{
 			$dbhandle->close();
