@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4507b41-6d25-4c40-99cb-fc0c09ef5494" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/TaskFeedback.php" afterPath="$PROJECT_DIR$/www/TaskFeedback.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/php/task_class.php" afterPath="$PROJECT_DIR$/www/php/task_class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/php/view_task_android.php" afterPath="$PROJECT_DIR$/www/php/view_task_android.php" />
     </list>
     <ignored path="Web Page.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +68,8 @@
       <file leaf-file-name="TaskFeedback.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/TaskFeedback.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5394897">
-              <caret line="269" column="12" selection-start-line="269" selection-start-column="12" selection-end-line="269" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.4252734">
+              <caret line="259" column="32" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -567,8 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/TaskFeedback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5394897">
-          <caret line="269" column="12" selection-start-line="269" selection-start-column="12" selection-end-line="269" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.4252734">
+          <caret line="259" column="32" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

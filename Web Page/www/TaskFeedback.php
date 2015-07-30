@@ -18,7 +18,6 @@ $error = array();
 
 $task = new task();
 $error = $task->getFromDB($intaskid);
-
 if ($error == NULL)
 {
 	$listerOrDoer;
@@ -258,7 +257,7 @@ if (isset($_POST['submit']))
                         </div>
 					</div>
                     <!-- Use value of input in form -->
-                    <input id="Rating" type="hidden" value="" name="Rating">
+                    <input id="rating" type="hidden" value="" name="Rating">
 				</form>
             </div>
             
@@ -267,7 +266,7 @@ if (isset($_POST['submit']))
 
         <!-- Rating System Scripts -->
         <script>
-            
+
                $('#rating').raty( {
                    click: function() {
                        $("#Rating").val($(this).attr('data-score'));
