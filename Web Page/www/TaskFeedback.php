@@ -10,6 +10,8 @@ if (session_status() == PHP_SESSION_NONE)
 $intaskid;
 
 if (isset($_GET['id'])) $intaskid = $_GET['id'];
+else
+	die;
 
 $error = array();
 

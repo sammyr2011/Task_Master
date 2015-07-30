@@ -10,6 +10,8 @@ class review
 	var $taskid;
 	var $comment;
 	var $rating;
+	var $ratingid;
+	var $timestamp;
 	
 	var $listerOrDoer;
 	
@@ -28,6 +30,39 @@ class review
 			return $error;
 	}
 	
+	public function getFromDB($inratingid, $inListerOrDoer)
+	{
+		$error = array();
+		
+		$dbhandle = db_connect();
+		
+		if ($inListerOrDoer == 0)
+			$query = "SELECT * from Ratings WHERE RatingID = '{$inratingid}' LIMIT 1";
+		else
+			$query = "SELECT * from DoRatings WHERE RatingID = '{$inratingid}' LIMIT 1";
+			
+		$result = $dbhandle->query();
+		if $result->num_rows == 0)
+		{
+			$dbhandle->close();
+			$error['ratingid'] = true;
+			return $error;
+		}
+		
+		$row = $result->fetchArray();
+		
+		$this->ratingid = $row['RatingID'];
+		$this->taskid = $row['TaskID'];
+		$this->rating = $row['Rating'];
+		$this->comment = $row['Comment'];
+		$this->timestamp = $row['TimeStamp'];
+		
+		if ($inListerOrDoer == 0)
+			$this->reviewee_uid = $row['ListerID'];
+		else
+			$this->reviewee_uid = $row['ResponderID'];
+	}
+	
 	//Adds this review to the database
 	public function register()
 	{
@@ -35,11 +70,11 @@ class review
 		$dbhandle = db_connect();
 		
 		if ($this->listerOrDoer == 0)
-			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment) 
-					VALUES ({$this->TaskID}, {$this->reviewee_uid}, {$this->rating}, {$this->comment})";
+			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) 
+					VALUES ({$this->TaskID}, {$this->reviewee_uid}, {$this->rating}, {$this->comment}, {$this->timestamp})";
 		else
-			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment) 
-					VALUES ({$this->TaskID}, {$this->reviewee_uid}, {$this->rating}, {$this->comment})";
+			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) 
+					VALUES ({$this->TaskID}, {$this->reviewee_uid}, {$this->rating}, {$this->comment}, {$this->timestamp})";
 		
 		$result = $dbhandle->query($query);
 		if (!$result)
@@ -89,6 +124,8 @@ class review
 			$this->listerOrDoer = $info['listerOrDoer'];
 		else
 			$error['listerOrDoer'] =  true;
+			
+		$this->timestamp = time();
 			
 		return $error;
 	}
