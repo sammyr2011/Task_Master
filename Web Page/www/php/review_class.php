@@ -30,16 +30,13 @@ class review
 			return $error;
 	}
 	
-	public function getFromDB($inratingid, $inListerOrDoer)
+	public function getFromDBLister($inratingid)
 	{
 		$error = array();
 		
 		$dbhandle = db_connect();
 		
-		if ($inListerOrDoer == false)
-			$query = "SELECT * from Ratings WHERE RatingID = '{$inratingid}' LIMIT 1";
-		else
-			$query = "SELECT * from DoRatings WHERE RatingID = '{$inratingid}' LIMIT 1";
+		$query = "SELECT * from Ratings WHERE RatingID = '{$inratingid}' LIMIT 1";
 			
 		$result = $dbhandle->query($query);
 		if ($result->num_rows == 0)
@@ -57,10 +54,34 @@ class review
 		$this->comment = $row['Comment'];
 		$this->timestamp = $row['TimeStamp'];
 		
-		if ($inListerOrDoer == false)
-			$this->reviewee_uid = $row['ListerID'];
-		else
-			$this->reviewee_uid = $row['ResponderID'];
+		$this->reviewee_uid = $row['ListerID'];
+	}
+	
+	public function getFromDBDoer($inratingid)
+	{
+		$error = array();
+		
+		$dbhandle = db_connect();
+		
+		$query = "SELECT * from DoRatings WHERE RatingID = '{$inratingid}' LIMIT 1";
+			
+		$result = $dbhandle->query($query);
+		if ($result->num_rows == 0)
+		{
+			$dbhandle->close();
+			$error['ratingid'] = true;
+			return $error;
+		}
+		
+		$row = $result->fetch_array();
+		
+		$this->ratingid = $row['RatingID'];
+		$this->taskid = $row['TaskID'];
+		$this->rating = $row['Rating'];
+		$this->comment = $row['Comment'];
+		$this->timestamp = $row['TimeStamp'];
+		
+		$this->reviewee_uid = $row['ResponderID'];
 	}
 	
 	//Adds this review to the database
@@ -120,15 +141,26 @@ class review
 			$error['rating'] = true;
 		
 		//1 if a Doer rating, 0 if a Lister rating
-		if (isset($info['listerOrDoer']) && is_bool($info['listerOrDoer']))
-			$this->listerOrDoer = $info['listerOrDoer'];
+		//determine if Lister or Doer
+		$task->getFromDB($this->taskid);
+		$bidwinner = $task->getWinnerID();
+		
+		//If you're the winner, you are leaving a review for the Lister
+		if ($_SESSION['userid'] == $bidwinner)
+			$this->listerOrDoer = false;
+		//If you're the lister, you are leaving a review for the Doer
+		else if ($_SESSION['userid'] == $task->userid)
+			$this->listerOrDoer = true;
+		//Otherwise, you're not involved with the task at all 
+		//and have no business leaving a review
 		else
-			$error['listerOrDoer'] =  true;
+			$error['notinvolved'] =  true;
 			
 		$this->timestamp = time();
 			
 		return $error;
 	}
+	
 }
 
 ?>
