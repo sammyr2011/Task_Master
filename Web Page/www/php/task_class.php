@@ -306,7 +306,7 @@ class task
 		
 		$dbhandle->close();
 		
-		if(isset($row['BidderID'])
+		if(isset($row['BidderID']))
 			return $row['BidderID'];
 		else
 			return NULL;
