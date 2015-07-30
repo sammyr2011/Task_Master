@@ -233,6 +233,14 @@ class task
 			return $error;
 		}
 		
+		//bid can't be negative
+		
+		if ($bidamount < 0)
+		{
+			$error['bidnegative'] = true;
+			return $error;
+		}
+		
 		$dbhandle = db_connect();
 		
 		$query = "INSERT INTO BidHistory

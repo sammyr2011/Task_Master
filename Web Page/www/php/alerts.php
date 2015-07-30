@@ -79,6 +79,16 @@ if (isset($_SESSION['msg_bidless']))
 	<?php
 }
 
+if (isset($_SESSION['msg_bidnegative']))
+{ 
+	unset($_SESSION['msg_bidnegative']); ?>
+	<div class="alert alert-danger">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bid Rejected!</strong> You cannot bid a negative amount!
+	</div> 
+	<?php
+}
+
 if (isset($_SESSION['msg_bidover']))
 { 
 	unset($_SESSION['msg_bidover']); ?>
