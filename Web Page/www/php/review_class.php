@@ -15,7 +15,7 @@ class review
 	
 	var $listerOrDoer;
 	
-	public function __construct($info)
+	public function getFromPOST($info)
 	{
 		$error = array();
 		
