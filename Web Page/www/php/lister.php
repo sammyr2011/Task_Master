@@ -85,7 +85,7 @@ function listReviewsByTime($inuser)
 	
 	$query = "SELECT RatingID FROM Ratings WHERE ListerID={$inuser} ORDER BY TimeStamp";
 	
-	$result = ($dbhandle->query($query);
+	$result = $dbhandle->query($query);
 	
 	while ($row = $result->fetch_array())
 	{
@@ -107,7 +107,7 @@ function listDoReviewsByTime($inuser)
 	
 	$query = "SELECT RatingID FROM DoRatings WHERE ResponderID={$inuser} ORDER BY TimeStamp";
 	
-	$result = ($dbhandle->query($query);
+	$result = $dbhandle->query($query);
 	
 	while ($row = $result->fetch_array())
 	{
