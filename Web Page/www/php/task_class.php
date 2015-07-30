@@ -306,7 +306,10 @@ class task
 		
 		$dbhandle->close();
 		
-		return $row['BidderID'];
+		if(isset($row['BidderID'])
+			return $row['BidderID'];
+		else
+			return NULL;
 	}
 	
 	//Unsets Active flag in db
