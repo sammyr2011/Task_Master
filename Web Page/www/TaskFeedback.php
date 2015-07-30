@@ -33,10 +33,11 @@ if (isset($_POST['submit']))
 	if (count($error) == 0)
 	{
 		$_SESSION['msg_reviewed'] = "Review placed";
-		header("Location: /viewTask.php?id=".$intaskid);
+		header("Location: /ViewTask.php?id=".$intaskid);
 	}
 	else
 	{
+		echo array_values($error);
 	}
 	
 }
