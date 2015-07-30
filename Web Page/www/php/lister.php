@@ -61,7 +61,7 @@ function listTasksByUser($inuserid)
 
 	$dbhandle = db_connect();
 
-	$query = "SELECT TaskID FROM Tasks WHERE UserID={$inuserid}";
+	$query = "SELECT TaskID FROM Tasks WHERE Lister={$inuserid}";
 	
 	$result = $dbhandle->query($query);
 

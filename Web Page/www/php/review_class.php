@@ -49,7 +49,7 @@ class review
 			return $error;
 		}
 		
-		$row = $result->fetchArray();
+		$row = $result->fetch_array();
 		
 		$this->ratingid = $row['RatingID'];
 		$this->taskid = $row['TaskID'];
