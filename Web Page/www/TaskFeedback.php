@@ -257,6 +257,8 @@ if (isset($_POST['submit']))
 							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
                         </div>
 					</div>
+                    <!-- Use value of input in form -->
+                    <input id="Rating" type="hidden" value="" name="Rating">
 				</form>
             </div>
             
@@ -265,10 +267,15 @@ if (isset($_POST['submit']))
 
         <!-- Rating System Scripts -->
         <script>
-               $('#rating').raty();
+               $('#rating').raty( {
+                   click: function() {
+                       $("#Rating").val($(this).attr('data-score'));
+                   }
+               });
 			   score: function () {
 					return $(this).attr('data-score');
 				}
+
         </script>
          
         <br>
