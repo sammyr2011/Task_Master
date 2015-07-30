@@ -82,6 +82,14 @@
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
+    <!-- Jquery code to make rows clickable -->
+    <script>
+        $('tr[data-href]').onclick("click", function() {
+            document.location =$(this).data('href"');
+        });
+    </script>
+
+
 </head>
 
 <body>
@@ -108,8 +116,8 @@
                     <div class="content pad">
                         <table class table table-condensed margin-reset">
                               <tbody>
-                                 <a href="Messaging.php?UserID1=&&UserID2=">
-                                      <tr>
+
+                                      <tr data-href="Messaging.php?UserID1=&&UserID2=">
                                           <td>
                                               <img src="images/UserStock.png" style="height:75px;width:auto">
                                           </td>
@@ -118,10 +126,12 @@
                                               <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
                                           </td>
                                       </tr>
-                                  </a>
+
                               </tbody>
                         </table>
                     </div>
+
+
                 </div>
             </div>
 
@@ -136,49 +146,43 @@
                             <tbody>
 
                             <!-- link stores user id of both users that will be messaging -->
-                            <a href="Messaging.php?UserID1=&&UserID2=">
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Bob</span>
-                                        <br>
-                                            <span class="status">
-                                                Associated Task
-                                            </span>
-                                    </td>
-                                </tr>
-                            </a>
-                            <a href="Messaging.php?UserID1=&&UserID2=">
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Sally</span>
-                                        <br>
-                                            <span class="status">
-                                                Associated Task
-                                            </span>
-                                    </td>
-                                </tr>
-                            </a>
+                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Bob</span>
+                                    <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                </td>
+                            </tr>
+                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Sally</span>
+                                    <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                </td>
+                            </tr>
 
-                            <a href="Messaging.php?UserID1=&&UserID2=">
-                                <tr>
-                                    <td>
-                                        <img src="images/UserStock.png" style="height:75px;width:auto">
-                                    </td>
-                                    <td>
-                                        <span class="userNames">Jill</span>
-                                        <br>
-                                            <span class="status">
-                                                Associated Task
-                                            </span>
-                                    </td>
-                                </tr>
-                            </a>
+                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Jill</span>
+                                    <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
 
