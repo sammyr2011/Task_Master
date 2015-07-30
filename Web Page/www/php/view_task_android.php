@@ -31,6 +31,7 @@ if($error == NULL)
   $taskout['Tags'] = $task->tags;
   $taskout['NumImages']=$task->numimg;
   $taskout['CurrentBid']=$task->getCurrentBid();
+  $taskout['EndDateTime']=$task->enddatetime;
   
   //Get user info
   $lister = new user();
