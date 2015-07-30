@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE)
                     <li><a href="CreateTask.php">Create Task</a></li>
                     <li><a href="ViewTasks.php">View Tasks</a></li>
                     <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
-                    <li><a href="MessageCenter.php">Message Center</a></li>
+                    <li><a href="MessageCenter.php">Message Center<span id="NewMessages"> (2)</span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 					<?php if (!isset($_SESSION['username']))
