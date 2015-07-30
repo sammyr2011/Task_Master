@@ -259,7 +259,7 @@ class task
 		
 		$dbhandle = db_connect();
 		
-		$query = "SELECT BidAmount FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
+		$query = "SELECT * FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
 		
 		$result = $dbhandle->query($query);
 		
@@ -280,6 +280,25 @@ class task
 		$dbhandle->close();
 		
 		return $currentbid;
+	}
+	
+	//Return userid of bid winner
+	public function getWinnerID()
+	{
+		if ($this->active == 1)
+			return NULL;
+			
+		$dbhandle = db_connect();
+			
+		$query = "SELECT BidderID FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
+		
+		$result = $dbhandle->query($query);
+		
+		$row = $result->fetch_array();
+		
+		$dbhandle->close();
+		
+		return $row['BidderID'];
 	}
 	
 	//Unsets Active flag in db
