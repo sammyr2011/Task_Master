@@ -36,7 +36,7 @@ if($error == NULL)
   if($taskout['HighestBidderID']!=null)
   {
     $winner = new user();
-    $winner->getFromDB($taskkout['HighestBidderID']);
+    $winner->getFromDB($taskout['HighestBidderID']);
     $taskout['HighestBidderUsername']=$winner->username;
   }
   
