@@ -1,8 +1,14 @@
 <?php
 
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
 include_once 'db_connect.php';
 include_once 'user_class.php';
 include_once 'task_class.php';
+
 
 class review
 {
