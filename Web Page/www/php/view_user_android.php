@@ -10,6 +10,8 @@ if(isset($_POST['userid']))
   
   $userout['Username']=$user->username;
   $userout['AvatarURL']=$user->avatarurl;
+  
+  echo json_encode($userout);
 }
 
 
