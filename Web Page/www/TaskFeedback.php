@@ -22,7 +22,7 @@ $error = $task->getFromDB($intaskid);
 if ($error == NULL)
 {
 	$listerOrDoer;
-	$bidwinner = $task->getWinner();
+	$bidwinner = $task->getWinnerID();
 	if ($_SESSION['userid'] == $bidwinner)
 		$_POST['listerOrDoer'] = 0;
 	else if ($_SESSION['userid'] == $task->userid)
