@@ -306,7 +306,10 @@ class task
 		
 		$dbhandle->close();
 		
-		return $row['BidderID'];
+		if(isset($row['BidderID']))
+			return $row['BidderID'];
+		else
+			return NULL;
 	}
 	
 	//Unsets Active flag in db
@@ -344,7 +347,7 @@ class task
 		
 		$dbhandle = db_connect();
 		
-		$query = "SELECT TaskID FROM Taskss WHERE TaskID='{$intaskid}'";
+		$query = "SELECT TaskID FROM Tasks WHERE TaskID='{$intaskid}'";
 		
 		$result = $dbhandle->query($query);
 		

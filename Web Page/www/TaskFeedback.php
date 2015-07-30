@@ -267,6 +267,7 @@ if (isset($_POST['submit']))
 
         <!-- Rating System Scripts -->
         <script>
+            
                $('#rating').raty( {
                    click: function() {
                        $("#Rating").val($(this).attr('data-score'));
