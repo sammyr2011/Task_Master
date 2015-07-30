@@ -146,7 +146,7 @@
                                     <span class="userNames">Jill</span>
                                     <br>
                                         <span class="status">
-                                            Associated Task
+                                           First few characters of message...
                                         </span>
                                 </td>
                             </tr>
