@@ -344,7 +344,7 @@ class task
 		
 		$dbhandle = db_connect();
 		
-		$query = "SELECT TaskID FROM Taskss WHERE TaskID='{$intaskid}'";
+		$query = "SELECT TaskID FROM Tasks WHERE TaskID='{$intaskid}'";
 		
 		$result = $dbhandle->query($query);
 		

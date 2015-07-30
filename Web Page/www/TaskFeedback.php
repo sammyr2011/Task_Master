@@ -265,10 +265,11 @@ if (isset($_POST['submit']))
 
         <!-- Rating System Scripts -->
         <script>
-               $('#rating').raty();
+               $('#rating').raty({
 			   score: function () {
 					return $(this).attr('data-score');
 				}
+				} );
         </script>
          
         <br>
