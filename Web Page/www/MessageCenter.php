@@ -107,22 +107,52 @@
                         </h4>
                     </div>
 
-                    <div class="content pad table-responsive">
-                        <table class table table-condensed margin-reset">
-                              <tbody>
+                    <div class="content">
 
-                                      <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
-                                          <td>
-                                              <img src="images/UserStock.png" style="height:75px;width:auto">
-                                          </td>
-                                          <td>
-                                             <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
-                                              <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
-                                          </td>
-                                      </tr>
+                        <table class="table table-condensed margin-reset">
+                            <tbody>
 
-                              </tbody>
+                            <!-- link stores user id of both users that will be messaging -->
+                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Bob</span>
+                                    <br>
+                                        <span class="status">
+                                           First few characters of message...
+                                        </span>
+                                </td>
+                            </tr>
+                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Sally</span>
+                                    <br>
+                                        <span class="status">
+                                            First few characters of message...
+                                        </span>
+                                </td>
+                            </tr>
+
+                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Jill</span>
+                                    <br>
+                                        <span class="status">
+                                            Associated Task
+                                        </span>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
+
                     </div>
              
                 </script>
@@ -135,13 +165,13 @@
                     <div class="header">
                         <h4>Reccommended Users</h4>
                     </div>
-                    <div class="content  table-responsive">
+                    <div class="content">
 
                         <table class="table table-condensed margin-reset">
                             <tbody>
 
                             <!-- link stores user id of both users that will be messaging -->
-                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
                                 <td>
                                     <img src="images/UserStock.png" style="height:75px;width:auto">
                                 </td>
@@ -153,7 +183,7 @@
                                         </span>
                                 </td>
                             </tr>
-                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                            <tr>
                                 <td>
                                     <img src="images/UserStock.png" style="height:75px;width:auto">
                                 </td>
@@ -166,7 +196,7 @@
                                 </td>
                             </tr>
 
-                            <tr data-href="Messaging.php?UserID1=&&UserID2=">
+                            <tr>
                                 <td>
                                     <img src="images/UserStock.png" style="height:75px;width:auto">
                                 </td>
