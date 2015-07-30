@@ -90,7 +90,7 @@ function listReviewsByTime($inuser)
 	while ($row = $result->fetch_array())
 	{
 		$newreview = new review();
-		$newreview->getFromDB($row['RatingID'], 0);
+		$newreview->getFromDB($row['RatingID'], false);
 		array_push($reviews, $newreview);
 	}
 	
@@ -112,7 +112,7 @@ function listDoReviewsByTime($inuser)
 	while ($row = $result->fetch_array())
 	{
 		$newreview = new review();
-		$newreview->getFromDB($row['RatingID'], 1);
+		$newreview->getFromDB($row['RatingID'], true);
 		array_push($reviews, $newreview);
 	}
 	

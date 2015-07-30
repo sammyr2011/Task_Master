@@ -36,7 +36,7 @@ class review
 		
 		$dbhandle = db_connect();
 		
-		if ($inListerOrDoer == 0)
+		if ($inListerOrDoer == false)
 			$query = "SELECT * from Ratings WHERE RatingID = '{$inratingid}' LIMIT 1";
 		else
 			$query = "SELECT * from DoRatings WHERE RatingID = '{$inratingid}' LIMIT 1";
@@ -57,7 +57,7 @@ class review
 		$this->comment = $row['Comment'];
 		$this->timestamp = $row['TimeStamp'];
 		
-		if ($inListerOrDoer == 0)
+		if ($inListerOrDoer == false)
 			$this->reviewee_uid = $row['ListerID'];
 		else
 			$this->reviewee_uid = $row['ResponderID'];
@@ -69,7 +69,7 @@ class review
 		$error = array();
 		$dbhandle = db_connect();
 		
-		if ($this->listerOrDoer == 0)
+		if ($this->listerOrDoer == false)
 			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) 
 					VALUES ({$this->TaskID}, {$this->reviewee_uid}, {$this->rating}, {$this->comment}, {$this->timestamp})";
 		else
