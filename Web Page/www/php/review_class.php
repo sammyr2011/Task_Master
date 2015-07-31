@@ -97,9 +97,9 @@ class review
 		$dbhandle = db_connect();
 		
 		if ($this->listerOrDoer == false)
-			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, {$this->comment}, {$this->timestamp})";
+			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '\'{$this->comment}\'', {$this->timestamp})";
 		else
-			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, {$this->comment}, {$this->timestamp})";
+			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '\'{$this->comment}\'', {$this->timestamp})";
 		
 		$result = $dbhandle->query($query);
 		if (!$result)
