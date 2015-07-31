@@ -240,6 +240,16 @@ if (isset($_POST['submit']))
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="post" enctype="multipart/form-data">
 					<?php if (isset($error['rating'])) echo "Invalid rating"; ?>
 					<div id="rating"></div>
+
+                    <!-- Rating System Scripts -->
+                    <script>
+                        $('#rating').raty( {
+                            score: function () {
+                                return $(this).attr('data-score');
+                            }
+                        });
+                    </script>
+
 					<input type="text" name="rating" id="rating" placeholder="Rating" class="form-control">
 					<!-- Textarea -->
 					<div class="control-group">
@@ -261,15 +271,7 @@ if (isset($_POST['submit']))
             
         </div>
 
-        <!-- Rating System Scripts -->
-        <script>
 
-               $('#rating').raty();
-			   score: function () {
-					return $(this).attr('data-score');
-				}
-
-        </script>
          
         <br>
        
