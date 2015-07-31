@@ -96,10 +96,12 @@ class review
 		$error = array();
 		$dbhandle = db_connect();
 		
+		$slashcomment = addslashes($this->comment);
+		
 		if ($this->listerOrDoer == false)
-			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, mysqli_real_escape_string($dbhandle,{$this->comment}), {$this->timestamp})";
+			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '{$slashcomment}', {$this->timestamp})";
 		else
-			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, mysqli_real_escape_string($dbhandle,{$this->comment}), {$this->timestamp})";
+			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '{$slashcomment}', {$this->timestamp})";
 		
 		$result = $dbhandle->query($query);
 		if (!$result)
