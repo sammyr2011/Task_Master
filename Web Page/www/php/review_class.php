@@ -106,6 +106,10 @@ class review
 		$result = $dbhandle->query($query);
 		if (!$result)
 			$error['query'] = true;
+			
+		//DEBUG
+		$error['querycontent']=$query;
+		//DEBUG
 		
 		$dbhandle->close();
 		
