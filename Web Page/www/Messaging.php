@@ -106,20 +106,54 @@
                             Inbox(2)
                         </h4>
                     </div>
-                    <div class="content" style="overflow-y: scroll;height:100%;padding: 5px 0 5px 10px;">
-                        <table class table table-condensed margin-reset">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <img src="images/UserStock.png" style="height:75px;width:auto">
-                            </td>
-                            <td>
-                                <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;">Task</h1>
-                                <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">First few characters...</p>
-                            </td>
-                        </tr>
-                        </tbody>
+
+                    <div class="content">
+
+                        <table class="table table-condensed margin-reset" style="overflow-y: scroll">
+                            <tbody>
+
+                            <!-- On click should run an ajax request to update message page to reflect
+                                who the user would like to communicate with-->
+                            <tr onclick="#">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Bob</span>
+                                    <br>
+                                        <span class="status">
+                                           First few characters of message...
+                                        </span>
+                                </td>
+                            </tr>
+                            <tr onclick="#">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Sally</span>
+                                    <br>
+                                        <span class="status">
+                                            First few characters of message...
+                                        </span>
+                                </td>
+                            </tr>
+
+                            <tr onclick="#">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <span class="userNames">Jill</span>
+                                    <br>
+                                        <span class="status">
+                                           First few characters of message...
+                                        </span>
+                                </td>
+                            </tr>
+                            </tbody>
                         </table>
+
                     </div>
                 </div>
 

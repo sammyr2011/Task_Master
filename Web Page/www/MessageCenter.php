@@ -159,8 +159,6 @@
                         </table>
 
                     </div>
-             
-                </script>
 
                 </div>
             </div>
