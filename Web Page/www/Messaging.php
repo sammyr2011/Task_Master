@@ -202,10 +202,12 @@
                             <span id="sample"></span>
                             <div class"message-entry">
                                 <input type="text" id="text-input-field" class="input-sm" name="message-entry">
-                                <div class="send-group">
+                                <!--<div class="send-group">
                                     <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
-                                </div>
+                                </div>-->
+                                <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
                             </div>
+                        </div>
 
 
 
