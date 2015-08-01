@@ -160,14 +160,14 @@
 
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-8" >
-                    <div class="box">
+                    <div class="box" style="height: 750px">
                         <div class="header">
                             <!-- Who the current user is talking to -->
                             <h4>John Doe</h4>
                         </div>
 
                         <div class="content">
-                            <ul class="messages-layout" style="overflow-y: hidden;">
+                            <ul class="messages-layout" style="overflow-y: hidden;height:677px;">
                                 <li class="client">
                                     <!-- links to UserProfile.php?id={userid} -->
                                     <a href="#" title>
