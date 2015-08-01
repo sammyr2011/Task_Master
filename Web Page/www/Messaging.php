@@ -174,49 +174,7 @@
         var chat =  new Chat();
         $(function() {
 
-            chat.getState();
-
-            // watch textarea for key presses
-            $("#sendie").keydown(function(event) {
-
-                var key = event.which;
-
-                //all keys including return.
-                if (key >= 33) {
-
-                    var maxLength = $(this).attr("maxlength");
-                    var length = this.value.length;
-
-                    // don't allow new content if length is maxed out
-                    if (length >= maxLength) {
-                        event.preventDefault();
-                    }
-                }
-            });
-            // watch textarea for release of key press,  checks for click of enter
-            $('#sendie').keyup(function(e) {
-
-                if (e.keyCode == 13) {
-
-                    var text = $(this).val();
-                    var maxLength = $(this).attr("maxlength");
-                    var length = text.length;
-
-                    // send
-                    if (length <= maxLength + 1) {
-
-                        InsertMessage(<?php echo $_SESSION['userid'] ?>, text);
-                        $(this).val("");
-
-                    } else {
-
-                        $(this).val(text.substring(0, maxLength));
-
-                    }
-
-
-                }
-            });
+            $('#chat-area').append("<p> test of append </p>");
 
         });
     </script>
