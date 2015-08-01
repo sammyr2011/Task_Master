@@ -67,11 +67,6 @@ if (isset($_POST['submit']))
 ?>
 
 <!DOCTYPE html>
-<?php
-//must be logged in to create a task, redirect them
-if (!isset($_SESSION['userid']))
-	header("Location: /Login.php");
-?>
 <html lang="en">
 <head>
     <!-- Latest compiled and minified CSS -->
@@ -171,6 +166,11 @@ if (!isset($_SESSION['userid']))
 
 <body>
 
+<?php
+//must be logged in to create a task, redirect them
+if (!isset($_SESSION['userid']))
+	header("Location: /Login.php");
+?>
 
 <!-- Part 1: Wrap all page content here -->
 <div id="wrap">
