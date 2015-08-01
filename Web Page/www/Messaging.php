@@ -159,7 +159,7 @@
 
             </div>
             <div class="col-md-8 col-sm-8 col-xs-8" >
-                <div class="box" style="border-style:solid;border-color:lightgrey;height:750px">
+                <div class="box" style="border-style:solid;border-color:lightgrey;height:750px;overflow-y: scroll;">
                     <h1 class="text-center" style="color:red;border-bottom: solid lightgrey;margin-bottom: 20px;height: 30px;">Username(other user)</h1>
 
                     <!-- Storing messages in striped rows for contrast
