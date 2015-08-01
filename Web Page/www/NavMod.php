@@ -55,7 +55,7 @@ if (session_status() == PHP_SESSION_NONE)
 					}
 					else
 					{ ?>
-					<li><a href="AccountSettings.php"><img src="<?php echo $_SESSION['avatarurl']; ?>" height="24px"> <?php echo $_SESSION['username']; ?></a></li>
+					<li><a href="AccountSettings.php"><img src="<?php echo $_SESSION['avatarurl']; ?>" height="32px"> <?php echo $_SESSION['username']; ?></a></li>
 					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn"> Log Out</button></li>
 					<?php
 					}
