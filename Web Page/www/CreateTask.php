@@ -1,5 +1,14 @@
 <?php
 
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
+//must be logged in to create a task, redirect them
+if (!isset($_SESSION['userid']))
+	header("Location: /Login.php");
+
 //remember submitted values in case of error
 $_title = '';
 $_description = '';
@@ -7,11 +16,6 @@ $_content = '';
 $_location = '';
 $_category = '';
 $_tags = '';
-
-if (session_status() == PHP_SESSION_NONE) 
-{
-	session_start();
-}
 
 //Task form was submitted
 if (isset($_POST['submit']))
