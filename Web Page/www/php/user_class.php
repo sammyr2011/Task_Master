@@ -114,8 +114,7 @@ class user
 		
 		$stmt = $dbhandle->stmt_init();
 		$stmt->prepare("INSERT INTO Users(Username, HashPassword) VALUES (?, ?)");
-		$stmt->bind_param("s", $this->username);
-		$stmt->bind_param("s", $hashpass);
+		$stmt->bind_param("ss", $this->username, $hashpass);
 		$stmt->execute();
 		$stmt->store_result();
 		$stmt->fetch();
@@ -138,15 +137,16 @@ class user
 			
 			VALUES (?,?,?,?,?,?,?,?,?)");
 			
-		$stmt->bind_param("i", $this->userid);
-		$stmt->bind_param("s", $this->firstname);
-		$stmt->bind_param("s", $this->lastname);
-		$stmt->bind_param("s", $this->email);
-		$stmt->bind_param("s", $this->address);
-		$stmt->bind_param("s", $this->city);
-		$stmt->bind_param("s", $this->state);
-		$stmt->bind_param("i", $this->zipcode);
-		$stmt->bind_param("s", $this->country);
+		$stmt->bind_param("issssssis",
+			$this->userid,
+			$this->firstname,
+			$this->lastname,
+			$this->email,
+			$this->address,
+			$this->city,
+			$this->state,
+			$this->zipcode,
+			$this->country);
 		$stmt->execute();
 		$stmt->close();
 		
