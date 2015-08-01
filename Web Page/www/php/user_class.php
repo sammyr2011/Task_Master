@@ -255,6 +255,7 @@ class user
 		session_start();
 		$_SESSION["userid"] = $rowuserid;
 		$_SESSION["username"] = $inuser;
+		$_SESSION["avatarurl"] = $this->getAvatarURL();
 		
 		// Adding user to ActiveUser table in DB.
 		$stmt = $dbhandle->stmt_init();
