@@ -18,6 +18,7 @@ db_close($dbhandle);
 // Closing the session.
 session_unset();
 session_destroy();
+session_start();
 
 $_SESSION['msg_loggedout'] = "Logged Out";
 header("Location: index.php");
