@@ -8,7 +8,7 @@ if (isset($_POST['submit']) && isset($_SESSION['userid']))
 	$user = new user();
 	$user->getFromDB($_SESSION['userid']);
 	
-	$user->uploadAvatar($_POST['imageinput']);
+	$user->uploadAvatar($_FILES['imageinputav']);
 }
 ?>
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ if (isset($_POST['submit']) && isset($_SESSION['userid']))
 
     <!-- Begin page content -->
     <div class="container">
-        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <fieldset>
                 <div class="row">
                     <div class="col-md-8 col-sm-8" style="border: 1px solid #ddd; border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;box-shadow: 4px 4px 1px #c4c4c4;">
@@ -109,10 +109,10 @@ if (isset($_POST['submit']) && isset($_SESSION['userid']))
 
                         <!-- File Button -->
                         <div class="control-group">
-                            <label class="control-label" for="imageinput">Select Image</label>
+                            <label class="control-label" for="imageinputav">Select Image</label>
                             <?php if (isset ($imgerror['imgupload'])) echo '<font color = "red">Images did not upload</font>'; ?>
                             <div class="controls">
-                                <input id="imageinput" name="imageinput" class="input-file" type="file" accept="image/gif, image/jpeg, image/png">
+                                <input id="imageinputav" name="imageinputav" class="input-file" type="file" accept="image/jpeg">
                             </div>
                         </div>
 
