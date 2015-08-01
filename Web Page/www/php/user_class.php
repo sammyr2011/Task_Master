@@ -1,6 +1,11 @@
 <?php
 require_once 'db_connect.php';
 
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
 class user
 {
 	var $userid;
@@ -250,12 +255,6 @@ class user
 			$errors['password'] = true;
 			return $errors;
 		}
-
-		//create login session
-		session_start();
-		$_SESSION["userid"] = $rowuserid;
-		$_SESSION["username"] = $inuser;
-		$_SESSION["avatarurl"] = $this->getAvatarURL();
 		
 		// Adding user to ActiveUser table in DB.
 		$stmt = $dbhandle->stmt_init();
@@ -268,6 +267,11 @@ class user
 
 		//fill out user object instance with info
 		$this->getFromDB($rowuserid);
+		
+		//create login session
+		$_SESSION["userid"] = $rowuserid;
+		$_SESSION["username"] = $inuser;
+		$_SESSION["avatarurl"] = $this->getAvatarURL();
 		
 		//return 0 indicates success
 		return NULL;
