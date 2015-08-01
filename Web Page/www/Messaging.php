@@ -157,13 +157,15 @@
                 </div>
                 </li>';
 
+            $('#chat-area').append(CurrentUserMessage);
+
                 //check whether user sending message is the current user
-                if(user == <?php echo $_SESSION['userid'] ?>) {
-                    $('#chat-area').append(CurrentUserMessage);
-                }
-                else {
-                    $('#chat-area').append(OtherUserMessage);
-                }
+               // if(user == <?php echo $_SESSION['userid'] ?>) {
+                   // $('#chat-area').append(CurrentUserMessage);
+             //   }
+              //  else {
+               //     $('#chat-area').append(OtherUserMessage);
+              //  }
 
         }
 
