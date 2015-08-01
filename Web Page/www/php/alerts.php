@@ -27,6 +27,16 @@ if (isset($_SESSION['msg_loggedin']))
 	<?php
 } 
 
+if (isset($_SESSION['msg_loggedout']))
+{ 
+	unset($_SESSION['msg_loggedout']); ?>
+	<div class="alert alert-warning">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Logout Success!</strong> You are now logged out.
+	</div> 
+	<?php
+} 
+
 if (isset($_SESSION['msg_taskmade']))
 { 
 	unset($_SESSION['msg_taskmade']); ?>

@@ -24,7 +24,9 @@ if (isset($_POST['loginsubmit']))
 		}
         
 		$_SESSION['msg_loggedin'] = "Logged In";
+		//TODO: redirect to the same page as before logging in
 		header("Location: index.php");
+		die;
 	}
 }
 

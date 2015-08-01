@@ -15,10 +15,11 @@ $result = $dbhandle->query($sqlquery);
 
 db_close($dbhandle);
 
-
 // Closing the session.
 session_unset();
 session_destroy();
 
+$_SESSION['msg_loggedout'] = "Logged Out";
 header("Location: index.php");
+die;
 ?>

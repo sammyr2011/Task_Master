@@ -24,6 +24,7 @@ if (isset($_POST['submit']))
 		session_start();
 		$_SESSION['msg_registered'] = "Registered";
 		header("Location: index.php");
+		die;
 	}
 	else //did not, restore submitted values
 	{

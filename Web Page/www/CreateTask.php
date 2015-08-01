@@ -44,6 +44,7 @@ if (isset($_POST['submit']))
 	{
 		$_SESSION['msg_taskmade'] = "Task Created";
 		header("Location: ViewTask.php?id={$newtask->taskid}");
+		die;
 	}
 	else //did not, restore submitted values
 	{
