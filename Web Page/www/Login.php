@@ -11,6 +11,7 @@ if (!isset($_SESSION['login_redirect']))
 
 //remember submitted values in case of error
 $_username = '';
+$_password = '';
 
 //Registration form was submitted
 if (isset($_POST['loginsubmit']))
