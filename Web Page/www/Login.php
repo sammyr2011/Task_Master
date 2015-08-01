@@ -1,6 +1,12 @@
 <?php
 
-if (isset($_SERVER['HTTP_REFERER'])) $redirect_url = $_SERVER['HTTP_REFERER'];
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
+if (!isset($_SESSION['login_redirect']))
+	$_SESSION['login_redirect'] = $_SERVER['HTTP_REFERER'];
 
 //remember submitted values in case of error
 $_username = '';
@@ -20,14 +26,9 @@ if (isset($_POST['loginsubmit']))
 	//did login succeed?
 	if ($error == NULL) //success, redirect to index and show message
 	{
-		if (session_status() == PHP_SESSION_NONE) 
-		{
-			session_start();
-		}
-        
 		$_SESSION['msg_loggedin'] = "Logged In";
-		if (isset($_SERVER['HTTP_REFERER'])) header("Location: ".$_SERVER['HTTP_REFERER']);
-		else header("Location: index.php");
+		header("Location: ".$_SESSION['login_redirect']);
+		unset($_SESSION['login_redirect']);
 		die;
 	}
 }
