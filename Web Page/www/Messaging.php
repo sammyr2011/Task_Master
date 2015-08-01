@@ -65,6 +65,11 @@
 
         @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
+        tr:hover {
+            cursor: pointer;
+            background-color: lightyellow;
+        }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
