@@ -5,6 +5,13 @@ if (session_status() == PHP_SESSION_NONE)
 	session_start();
 }
 
+//must be logged in to create a task, redirect them
+if (!isset($_SESSION['userid']))
+{
+	$_SESSION['login_redirect'] = $_SERVER['PHP_SELF'];
+	header("Location: /Login.php");
+}
+
 //remember submitted values in case of error
 $_title = '';
 $_description = '';
@@ -165,12 +172,6 @@ if (isset($_POST['submit']))
 </head>
 
 <body>
-
-<?php
-//must be logged in to create a task, redirect them
-if (!isset($_SESSION['userid']))
-	header("Location: /Login.php");
-?>
 
 <!-- Part 1: Wrap all page content here -->
 <div id="wrap">
