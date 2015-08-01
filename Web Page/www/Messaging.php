@@ -168,7 +168,40 @@
 
                         <div class="content">
                             <ul class="messages-layout" style="overflow-y: hidden;height:677px;">
+
+                                <!-- Each new message is a new li -->
+
+                                <!-- Message by other user -->
                                 <li class="client">
+                                    <!-- links to UserProfile.php?id={userid} -->
+                                    <a href="#" title>
+                                        <!-- Use php to change alt="" to show actual username -->
+                                        <img src="images/UserStock.png" alt="username" height="35px" width="auto">
+                                    </a>
+                                    <div class="message-area">
+                                        <span class="pointer"></span>
+                                        <div class="info-row">
+                                            <span class="user-name">
+                                                <!-- Should also link to UserProfile.php?id= -->
+                                                <a href="#">
+                                                    <!-- Username or first name of user -->
+                                                    <strong>Anna</strong>
+                                                </a>
+                                                says:
+                                            </span>
+                                            <!-- Time message was sent -->
+                                            <span class="time">
+                                                August 1, 2015 9:15 AM
+                                            </span>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!-- User message -->
+                                        <p>Message goes here</p>
+                                    </div>
+                                </li>
+
+                                <!-- Message from current user -->
+                                <li class="server">
                                     <!-- links to UserProfile.php?id={userid} -->
                                     <a href="#" title>
                                         <!-- Use php to change alt="" to show actual username -->
