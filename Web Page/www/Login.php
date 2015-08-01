@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE)
 	session_start();
 }
 
-if (!isset($_SESSION['login_redirect'])
+if (!isset($_SESSION['login_redirect']))
 	$_SESSION['login_redirect'] = $_SERVER['HTTP_REFERER'];
 
 //remember submitted values in case of error
