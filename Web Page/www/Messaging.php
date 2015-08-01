@@ -214,7 +214,7 @@
                                                 <!-- Should also link to UserProfile.php?id= -->
                                                 <a href="#">
                                                     <!-- Username or first name of user -->
-                                                    <strong>Anna</strong>
+                                                    <strong>John</strong>
                                                 </a>
                                                 says:
                                             </span>
