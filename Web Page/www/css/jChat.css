@@ -1,0 +1,217 @@
+
+/**** Message Layout ****/
+
+.messages-layout
+{
+    height: 465px;
+    cursor: default!important;
+    overflow-y: scroll;
+    background: url(../images/chat-bg/greyzz.png) repeat;	/* chat background */
+    border-bottom: 1px solid #dfdfdf!important;
+}
+
+.messages-layout li
+{
+    margin: 0 16px 18px 16px;
+    position: relative;
+    min-height: 36px;
+}
+
+.messages-layout li:first-child
+{
+    margin-top: 20px;
+}
+
+/**** Client/Server Messages Position ****/
+
+.messages-layout .client > a,
+.messages-layout .server > a
+{
+    display: block;
+    position: absolute;
+    top: 0;
+}
+
+.messages-layout .client > a
+{
+    left: 0;
+}
+
+.messages-layout .server > a
+{
+    right: 0;
+}
+
+/**** Client/Server Messages Look&Feel ****/
+
+.messages-layout .client .pointer,
+.messages-layout .server .pointer
+{
+    width: 8px;
+    height: 9px;
+    position: absolute;
+    top: 10px;
+}
+
+.messages-layout .client .pointer
+{
+    background: url(../images/ui/client.png) no-repeat;
+    left: -6px;
+}
+
+.messages-layout .server .pointer
+{
+    background: url(../images/ui/server.png) no-repeat;
+    right: -6px;
+}
+
+.messages-layout .client .message-area,
+.messages-layout .server .message-area
+{
+    position: relative;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid;
+}
+
+.messages-layout .client .message-area
+{
+    background: #fafeff;
+    margin-left: 52px;
+    border-color: #b5cdd7;
+}
+
+.messages-layout .server .message-area
+{
+    background: #fefefe;
+    margin-right: 52px;
+    border-color: #dcdcdc;
+}
+
+.message-area span.time
+{
+    cursor: pointer;
+}
+
+.message-area p
+{
+    font-size: 12px;
+    color: #606365;
+}
+
+.client .user-name > a strong
+{
+    color: #2c596d;
+}
+
+.server .user-name > a strong
+{
+    color: #2c2c2c;
+}
+
+.info-row
+{
+    font-size: 11px;
+    color: #949494;
+    margin-bottom: 20px;
+}
+
+.info-row > .time
+{
+    float: right;
+}
+
+.info-row > .user-name
+{
+    float: left;
+}
+
+/**** Message Entry Look&Feel ****/
+.message-entry
+{
+    position: relative;
+}
+
+.message-entry input[type="text"]
+{
+    width: 96%;
+    height: 34px;
+    background: #fff;
+    color: #404040;
+    margin: 0 0 20px 18px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    box-shadow: 0 1px 1px #fafafa;
+    -webkit-box-shadow: 0 1px 1px #fafafa;
+    -moz-box-shadow: 0 1px 1px #fafafa;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.send-group
+{
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 32px;
+}
+
+.send-group .attachPhoto,
+.send-group .attachEmotions
+{
+    display: block;
+    float: left;
+    margin: 9px 0 9px 12px;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+.send-group .attachPhoto:hover,
+.send-group .attachEmotions:hover
+{
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.send-group .attachEmotions
+{
+    width: 12px;
+    height: 12px;
+    background: url(../images/ui/emotions.png) no-repeat;
+}
+
+.send-group .attachPhoto
+{
+    width: 14px;
+    height: 11px;
+    background: url(../images/ui/camera.png) no-repeat;
+}
+
+.send-group input[type="submit"]
+{
+    float: left;
+    display: block;
+    margin-left: 12px;
+    line-height: 15px;
+    height: 28px;
+}
+
+/**** Emoticons ****/
+
+.emoticons
+{
+    cursor: pointer;
+}

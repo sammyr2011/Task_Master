@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/user_css.css">
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/jChat.css">
 
     <meta charset="utf-8">
     <title>Task Master</title>
@@ -157,53 +158,59 @@
                     </div>
                 </div>
 
-            </div>
-            <div class="col-md-8 col-sm-8 col-xs-8" >
-                <div class="box" style="border-style:solid;border-color:lightgrey;height:750px;overflow-y: scroll;">
-                    <p class="text-center" style="color:red;border-bottom: solid lightgrey;margin-bottom: 20px;font-size: 30px;">Username(other user)</p>
-
-                    <!-- Storing messages in striped rows for contrast
-
-                    php instructions:
-                        When a new message from the other user is received the message should float to the left
-                        whereas when the input is from the current user it will float to the right.
-
-                    -->
-                    <div>
-                        <!-- Floats left e.g. message from other user -->
-                        <div class="col-md-12 col-sm-12 col-xs-12 text-center" style="margin-bottom:30px;">
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <!-- Stores the image of the user that posted message -->
-                                <img src="images/UserStock.png" style="height:75px;width:auto">
-                            </div>
-                            <!-- Stores message -->
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="background-color:blue;min-height: 75px;">
-                                <p style="color:white;">Styled message from user</p>
-                            </div>
-                            <!-- Time stamp -->
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <p>July 31, 2015 3:30 PM</p>
-                            </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8" >
+                    <div class="box">
+                        <div class="header">
+                            <!-- Who the current user is talking to -->
+                            <h4>John Doe</h4>
                         </div>
 
-                        <!-- Floats right -->
-                        <div class="col-md-12 col-sm-12 col-xs-12 text-center" style="margin-bottom:30px;">
-                            <!-- Time stamp -->
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <p>July 31, 2015 3:30 PM</p>
-                            </div>
-                            <!-- Stores message -->
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="border:solid blue 3px;">
-                                <p>Styled message from user</p>
-                            </div>
-                            <!-- Stores the image of the user that posted message -->
-                            <div class="col-md-3 col-sm-3 col-xs-3">
-                                <img src="images/UserStock.png" style="height:75px;width:auto">
-                            </div>
-                        </div>
+                        <div class="content">
+                            <ul class="messages-layout" style="overflow-y: hidden;">
+                                <li class="client">
+                                    <!-- links to UserProfile.php?id={userid} -->
+                                    <a href="#" title>
+                                        <!-- Use php to change alt="" to show actual username -->
+                                        <img src="images/UserStock.png" alt="username"
+                                    </a>
+                                    <div class="message-area">
+                                        <span class="pointer"></span>
+                                        <div class="info-row">
+                                            <span class="user-name">
+                                                <!-- Should also link to UserProfile.php?id= -->
+                                                <a href="#">
+                                                    <!-- Username or first name of user -->
+                                                    <strong>Anna</strong>
+                                                </a>
+                                                " says:"
+                                            </span>
+                                            <!-- Time message was sent -->
+                                            <span class="time">
+                                                August 1, 2015 9:15 AM
+                                            </span>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!-- User message -->
+                                        <p>Message goes here</p>
+                                    </div>
+                                </li>
+                            </ul>
 
+                            <!-- Enter Message field -->
+                            <span class="session_time">Online</span>
+                            <span id="sample"></span>
+                            <div class"message-entry">
+                                <input type="text" id="text-input-field" class="input-sm" name="message-entry">
+                                <div class="send-group">
+                                    <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
-
                 </div>
             </div>
 
