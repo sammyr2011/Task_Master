@@ -172,7 +172,7 @@
                                     <!-- links to UserProfile.php?id={userid} -->
                                     <a href="#" title>
                                         <!-- Use php to change alt="" to show actual username -->
-                                        <img src="images/UserStock.png" alt="username"
+                                        <img src="images/UserStock.png" alt="username" height="35px" width="auto">
                                     </a>
                                     <div class="message-area">
                                         <span class="pointer"></span>
@@ -183,7 +183,7 @@
                                                     <!-- Username or first name of user -->
                                                     <strong>Anna</strong>
                                                 </a>
-                                                " says:"
+                                                says:
                                             </span>
                                             <!-- Time message was sent -->
                                             <span class="time">
