@@ -95,7 +95,7 @@
          * @param message - The message being posted
          * @constructor
          */
-        function InsertMessage(user, message) {
+        function InsertMessage() {
 
             var CurrentUserMessage = '' +
                 '<!-- Message by other user -->
@@ -123,7 +123,7 @@
                     <div class="clear"></div>
                     </div>
                     <!-- User message -->
-                    <p>' + message + '</p>
+                    <p>test message</p>
                     </div>
                 </li>';
 
@@ -153,7 +153,7 @@
                 <div class="clear"></div>
                 </div>
                 <!-- User message -->
-                <p>' + message + '</p>
+                <p>test message</p>
                 </div>
                 </li>';
 
@@ -169,21 +169,13 @@
 
         }
 
-
-        // kick off chat
-        var chat =  new Chat();
-        $(function() {
-
-            $('#chat-area').append("<p> test of append </p>");
-
-        });
     </script>
 
 
 
 </head>
 
-<body onload="setInterval('InsertMessage("SamIam", "This is a test message")', 1000)">
+<body onload="setInterval('InsertMessage()', 1000)">
 
 
 <!-- Part 1: Wrap all page content here -->
@@ -342,7 +334,7 @@
                                         <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary" onclick="InsertMessage("SamIam", "This is a test message")">Send</button>
+                                <button type="submit" class="btn btn-primary" onclick="InsertMessage()">Send</button>
                             </form>
 
                         </div>
