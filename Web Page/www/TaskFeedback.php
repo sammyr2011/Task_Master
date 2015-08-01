@@ -247,7 +247,8 @@ if (isset($_POST['submit']))
                         $('#rating').raty( {
                             score: function () {
                                 return $(this).attr('data-score');
-                            }
+                            },
+                            scoreName: 'rating'
                         });
                     </script>
                     <!-- Testing hidden input solution -->
