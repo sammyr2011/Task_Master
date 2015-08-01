@@ -35,38 +35,30 @@ class user
 		$stmt->bind_param("i", $inuserid);
 		$stmt->execute();
 		
-		$result = $stmt->get_result();
-		$row = $result->fetch_array();
+		$stmt->bind_result($rowusername);
+		$stmt->store_result();
+		$stmt->fetch();
 		
 		//return an error if this user was not found
-		if($result->num_rows == 0)
+		if($stmt->num_rows == 0)
 		{
 			$errors['userid'] = true;
-			db_close($dbhandle);
+			$dbhandle->close();
 			return $errors;
 		}
 		
 		$this->userid = $inuserid;
-		$this->username = $row['Username'];
+		$this->username = $rowusername;
 		
 		//now we need to get info from the other user info db
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("SELECT * FROM UserAccounts WHERE UserID=?");
+		$stmt->prepare("SELECT FirstName, LastName, Email, Address, City, State, ZipCode, Country FROM UserAccounts WHERE UserID=?");
 		$stmt->bind_param("i", $inuserid);
 		$stmt->execute();
 		
-		$result = $stmt->get_result();
-		$row = $result->fetch_array();
-		
-		$this->firstname = $row['FirstName'];
-		$this->lastname = $row['LastName'];
-		$this->email = $row['Email'];
-		
-		$this->address = $row['Address'];
-		$this->city = $row['City'];
-		$this->state = $row['State'];
-		$this->zipcode = $row['ZipCode'];
-		$this->country = $row['Country'];
+		$stmt->bind_result($this->firstname, $this->lastname, $this->email, $this->address, $this->city, $this->state, $this->zipcode, $this->country);
+		$stmt->store_result();
+		$stmt->fetch();
 		
 		$this->avatarurl = $this->getAvatarURL();
 		
@@ -123,11 +115,10 @@ class user
 		$stmt->bind_param("s", $this->username);
 		$stmt->bind_param("s", $hashpass);
 		$stmt->execute();
+		$stmt->store_result();
+		$stmt->fetch();
 		
-		$result = $stmt->get_result();
-		$row = $result->fetch_array();
-		
-		$this->userid = $dbhandle->insert_id;
+		$this->userid = $stmt->insert_id;
 		
 		//insert user account info
 		$stmt = $dbhandle->stmt_init();
@@ -154,8 +145,6 @@ class user
 		$stmt->bind_param("i", $this->zipcode);
 		$stmt->bind_param("s", $this->country);
 		$stmt->execute();
-		
-		$result = $stmt->get_result();
 		
 		//close connection and return 0
 		$dbhandle->close();
@@ -193,8 +182,8 @@ class user
 		$stmt->bind_param("s", $this->username);
 		$stmt->execute();
 		
-		$result = $stmt->get_result();
-		if($result->num_rows != 0) $errors['usertaken'] = true;
+		$stmt->store_result();
+		if($stmt->num_rows != 0) $errors['usertaken'] = true;
 		
 		//If we made it here, all is valid
 		$dbhandle->close();
@@ -217,10 +206,12 @@ class user
 		$stmt->prepare("SELECT UserID, HashPassword FROM Users WHERE UserName=?");
 		$stmt->bind_param("s", $inuser);
 		$stmt->execute();
-		$result = $stmt->get_result();
+		$stmt->bind_result($rowuserid, $hashpass);
+		$stmt->store_result();
+		$stmt->fetch();
 		
 		//fail if user does not exist
-		if($result->num_rows == 0)
+		if($stmt->num_rows == 0)
 		{
 			$dbhandle->close();
 			$errors['username'] = true;
@@ -228,8 +219,7 @@ class user
 		}
 		
 		//query password
-		$row = $result->fetch_array();
-		$hashpass = $row['HashPassword'];
+		
 		
 		//check if using old unhashed pass
 		if (password_needs_rehash($inpass, PASSWORD_BCRYPT))
@@ -243,7 +233,6 @@ class user
 				$stmt->bind_param("s", $hashpass);
 				$stmt->bind_param("s", $inuser);
 				$stmt->execute();
-				$result = $stmt->get_result();
 			}
 		}
 		
@@ -255,9 +244,6 @@ class user
 			return $errors;
 		}
 
-		//Grab the UserID for the redirect link
-		$rowuserid = $row['UserID'];
-
 		//create login session
 		session_start();
 		$_SESSION["userid"] = $userid;
@@ -268,9 +254,8 @@ class user
 		$stmt->prepare("INSERT INTO ActiveUsers (UserID) VALUES (?)");
 		$stmt->bind_param("i", $rowuserid);
 		$stmt->execute();
-		$result = $stmt->get_result();
 		
-		$dbhandle->close;
+		$dbhandle->close();
 
 		//fill out user object instance with info
 		$this->getFromDB($userid);
@@ -341,14 +326,15 @@ class user
 		$stmt->prepare("SELECT Rating FROM Ratings WHERE ListerID=?");
 		$stmt->bind_param("i", $this->userid);
 		$stmt->execute();
-		$result = $stmt->get_result();
+		$stmt->bind_result($rowrating);
+		$stmt->store_result();
 		
-		$rating['weight'] = $result->num_rows;
+		$rating['weight'] = $stmt->num_rows;
 		$rating['rating'] = 0;
 		
 		//get the sum
-		while ($row = $result->fetch_array())
-			$rating['rating'] += $row['Rating'];
+		while ($stmt->fetch())
+			$rating['rating'] += $rowrating;
 		
 		//calculate the average
 		if ($rating['weight'] != 0)
@@ -373,14 +359,15 @@ class user
 		$stmt->prepare("SELECT Rating FROM DoRatings WHERE ResponderID=?");
 		$stmt->bind_param("i", $this->userid);
 		$stmt->execute();
-		$result = $stmt->get_result();
+		$stmt->bind_result($rowrating);
+		$stmt->store_result();
 		
-		$rating['weight'] = $result->num_rows;
+		$rating['weight'] = $stmt->num_rows;
 		$rating['rating'] = 0;
 		
 		//get the sum
-		while ($row = $result->fetch_array())
-			$rating['rating'] += $row['Rating'];
+		while ($stmt->fetch())
+			$rating['rating'] += $rowrating;
 		
 		//calculate the average
 		if ($rating['weight'] != 0)
@@ -405,9 +392,9 @@ class user
 		$stmt->prepare("SELECT UserID FROM Users WHERE UserID=?");
 		$stmt->bind_param("i", $inuserid);
 		$stmt->execute();
-		$result = $stmt->get_result();
+		$stmt->store_result();
 		
-		if ($result->num_rows == 0) //user not found
+		if ($stmt->num_rows == 0) //user not found
 			$retval = false;
 		else //user found
 			$retval = true;
