@@ -5,12 +5,12 @@ if (session_status() == PHP_SESSION_NONE)
 	session_start();
 }
 
+//store url for redirect after login
 if (!isset($_SESSION['login_redirect']))
 	$_SESSION['login_redirect'] = $_SERVER['HTTP_REFERER'];
 
 //remember submitted values in case of error
 $_username = '';
-$_password = '';
 
 //Registration form was submitted
 if (isset($_POST['loginsubmit']))
@@ -24,11 +24,12 @@ if (isset($_POST['loginsubmit']))
 	$error = $user->login($_username, $_password);
 	
 	//did login succeed?
-	if ($error == NULL) //success, redirect to index and show message
+	if ($error == NULL) //success, redirect to previous page and show message
 	{
 		$_SESSION['msg_loggedin'] = "Logged In";
-		header("Location: ".$_SESSION['login_redirect']);
+		$redirecturl = $_SESSION['login_redirect'];
 		unset($_SESSION['login_redirect']);
+		header("Location: ".$redirecturl);
 		die;
 	}
 }
