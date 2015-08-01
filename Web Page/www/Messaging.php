@@ -207,10 +207,10 @@
                                 </div>
                                 <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
                             </div>-->
-                            <form class="form-inline">
-                                <div class="form-group">
+                            <form class="form-inline pull-right">
+                                <div class="form-group pull-right">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Message">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send</button>
