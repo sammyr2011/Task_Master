@@ -342,7 +342,7 @@
                                         <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary" onclick="chat.update()">Send</button>
+                                <button type="submit" class="btn btn-primary" onclick="InsertMessage("SamIam", "This is a test message")">Send</button>
                             </form>
 
                         </div>
