@@ -8,6 +8,7 @@ if (session_status() == PHP_SESSION_NONE)
 	session_start();
 }
 
+//get the id of the task to be reviewed, blank page if none
 $intaskid;
 
 if (isset($_GET['id'])) $intaskid = $_GET['id'];
@@ -16,31 +17,33 @@ else
 
 $error = array();
 
+//get the task info
 $task = new task();
 $error = $task->getFromDB($intaskid);
-if ($error == NULL)
-{
-}
-else
+if ($error != NULL)
 	die;
-	
+
+//review form was submitted
 if (isset($_POST['submit']))
 {
-
+	//prepare review info to be sent to POST
 	$_POST['taskid'] = $intaskid;
+	
 	$review = new review();
 	$error = $review->getFromPOST($_POST);
 	
-	if (count($error) == 0)
+	if (count($error) == 0) //success
 	{
 		$_SESSION['msg_reviewed'] = "Review placed";
 		header("Location: /ViewTask.php?id=".$intaskid);
+		die;
 	}
-	else
+	else //error
 	{
-		echo array_values($error);
+		//TODO - user friendly errors instead of dump and die
+		echo var_dump($error);
+		die;
 	}
-	
 }
 
 ?>

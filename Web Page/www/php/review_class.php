@@ -118,20 +118,13 @@ class review
 	{
 		$error = array();
 		
-		//check if user exists
-		$reviewee = new user();
-		if (isset($info['reviewee_uid']) && $reviewee->checkExistence($info['reviewee_uid']))
-			$this->reviewee_uid = $info['reviewee_uid'];
-		else
-			$error['reviewee_uid'] = true;
-		
 		//check if task exists
 		$task = new task();
 		if (isset($info['taskid']) && $task->checkExistence($info['taskid']))
 			$this->taskid = $info['taskid'];
 		else
 			$error['taskid'] = true;
-			
+		
 		//check if task is already rated
 		
 		//strip tags from comment before adding
@@ -151,17 +144,29 @@ class review
 		$task->getFromDB($this->taskid);
 		$bidwinner = $task->getWinnerID();
 		
-		//If you're the winner, you are leaving a review for the Lister
-		if ($_SESSION['userid'] == $bidwinner)
-			$this->listerOrDoer = false;
-		//If you're the lister, you are leaving a review for the Doer
-		else if ($_SESSION['userid'] == $task->userid)
-			$this->listerOrDoer = true;
-		//Otherwise, you're not involved with the task at all 
-		//and have no business leaving a review
+		//Must be logged in
+		if (!isset($_SESSION['userid']))
+			$error['login'] = true;
 		else
-			$error['notinvolved'] =  true;
-			
+		{
+			//If you're the winner, you are leaving a review for the Lister
+			if ($_SESSION['userid'] == $bidwinner)
+			{
+				$this->reviewee_uid = $task->userid;
+				$this->listerOrDoer = false;
+			}
+			//If you're the lister, you are leaving a review for the Doer
+			else if ($_SESSION['userid'] == $task->userid)
+			{
+				$this->reviewee_uid = $bidwinner;
+				$this->listerOrDoer = true;
+			}
+			//Otherwise, you're not involved with the task at all 
+			//and have no business leaving a review
+			else
+				$error['notinvolved'] =  true;
+		}
+		
 		$this->timestamp = time();
 			
 		return $error;
