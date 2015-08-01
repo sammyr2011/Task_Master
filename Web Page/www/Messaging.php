@@ -171,7 +171,7 @@
                     -->
                     <div>
                         <!-- Floats left e.g. message from other user -->
-                        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:30px;">
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <!-- Stores the image of the user that posted message -->
                                 <img src="images/UserStock.png" style="height:75px;width:auto">
@@ -187,7 +187,7 @@
                         </div>
 
                         <!-- Floats right -->
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom:30px;">
                             <!-- Time stamp -->
                             <div class="col-md-3 col-sm-3 col-xs-3">
                                 <p>July 31, 2015 3:30 PM</p>
