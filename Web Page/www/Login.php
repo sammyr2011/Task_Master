@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_SERVER['HTTP_REFERER'])) $redirect_url = "$_SERVER['HTTP_REFERER']";
+if (isset($_SERVER['HTTP_REFERER'])) $redirect_url = $_SERVER['HTTP_REFERER'];
 
 //remember submitted values in case of error
 $_username = '';
