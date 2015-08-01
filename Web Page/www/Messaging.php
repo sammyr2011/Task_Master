@@ -85,9 +85,145 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+    <!-- Messaging functions -->
+    <script src="js/Chat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /**
+         *  Will insert a new message, placement depending on poster of message
+         * @param user - The user posting the message
+         * @param message - The message being posted
+         * @constructor
+         */
+        function InsertMessage(user, message) {
+
+            var CurrentUserMessage = '' +
+                '<!-- Message by other user -->
+                <li class="client">
+                    <!-- links to UserProfile.php?id={userid} -->
+                    <a href="#" title>
+                    <!-- Use php to change alt="" to show actual username -->
+                    <img src="images/UserStock.png" alt="username" height="35px" width="auto">
+                    </a>
+                    <div class="message-area">
+                    <span class="pointer"></span>
+                    <div class="info-row">
+                    <span class="user-name">
+                    <!-- Should also link to UserProfile.php?id= -->
+                    <a href="#">
+                    <!-- Username or first name of user -->
+                    <strong>Anna</strong>
+                    </a>
+                    says:
+                    </span>
+                    <!-- Time message was sent -->
+                    <span class="time">
+                    August 1, 2015 9:15 AM
+                    </span>
+                    <div class="clear"></div>
+                    </div>
+                    <!-- User message -->
+                    <p>' + message + '</p>
+                    </div>
+                </li>';
+
+            var OtherUserMessage = '' +
+                '<!-- Message by other user -->
+                <li class="client">
+                <!-- links to UserProfile.php?id={userid} -->
+                <a href="#" title>
+                <!-- Use php to change alt="" to show actual username -->
+                <img src="images/UserStock.png" alt="username" height="35px" width="auto">
+                </a>
+                <div class="message-area">
+                <span class="pointer"></span>
+                <div class="info-row">
+                <span class="user-name">
+                <!-- Should also link to UserProfile.php?id= -->
+                <a href="#">
+                <!-- Username or first name of user -->
+                <strong>Anna</strong>
+                </a>
+                says:
+                </span>
+                <!-- Time message was sent -->
+                <span class="time">
+                    August 1, 2015 9:15 AM
+                </span>
+                <div class="clear"></div>
+                </div>
+                <!-- User message -->
+                <p>' + message + '</p>
+                </div>
+                </li>';
+
+                //check whether user sending message is the current user
+                if(user == <?php echo $_SESSION['userid'] ?>) {
+                    $('#chat-area').append(CurrentUserMessage);
+                }
+                else {
+                    $('#chat-area').append(OtherUserMessage);
+                }
+
+        }
+
+
+        // kick off chat
+        var chat =  new Chat();
+        $(function() {
+
+            chat.getState();
+
+            // watch textarea for key presses
+            $("#sendie").keydown(function(event) {
+
+                var key = event.which;
+
+                //all keys including return.
+                if (key >= 33) {
+
+                    var maxLength = $(this).attr("maxlength");
+                    var length = this.value.length;
+
+                    // don't allow new content if length is maxed out
+                    if (length >= maxLength) {
+                        event.preventDefault();
+                    }
+                }
+            });
+            // watch textarea for release of key press,  checks for click of enter
+            $('#sendie').keyup(function(e) {
+
+                if (e.keyCode == 13) {
+
+                    var text = $(this).val();
+                    var maxLength = $(this).attr("maxlength");
+                    var length = text.length;
+
+                    // send
+                    if (length <= maxLength + 1) {
+
+                        chat.send(text, name);
+                        $(this).val("");
+
+                    } else {
+
+                        $(this).val(text.substring(0, maxLength));
+
+                    }
+
+
+                }
+            });
+
+        });
+    </script>
+
+
+
 </head>
 
-<body>
+<body onload="setInterval('chat.update()', 1000)">
 
 
 <!-- Part 1: Wrap all page content here -->
@@ -167,7 +303,7 @@
                         </div>
 
                         <div class="content">
-                            <ul class="messages-layout" style="overflow-y: hidden;height:677px;">
+                            <ul class="messages-layout" style="overflow-y: hidden;height:677px;" id="chat-area">
 
                                 <!-- Each new message is a new li -->
 
@@ -243,7 +379,7 @@
                             <form class="form-inline pull-right">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Message" style="width:750px">
+                                        <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send</button>
