@@ -160,7 +160,7 @@
             $('#chat-area').append(CurrentUserMessage);
 
                 //check whether user sending message is the current user
-               // if(user == <?php echo $_SESSION['userid'] ?>) {
+               // if(user == ) {
                    // $('#chat-area').append(CurrentUserMessage);
              //   }
               //  else {
