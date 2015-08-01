@@ -26,6 +26,7 @@ else
 	
 if (isset($_POST['submit']))
 {
+
 	$_POST['taskid'] = $intaskid;
 	$review = new review();
 	$error = $review->getFromPOST($_POST);
@@ -249,8 +250,8 @@ if (isset($_POST['submit']))
                             }
                         });
                     </script>
-
-					<input type="text" name="rating" id="rating" placeholder="Rating" class="form-control">
+                    <!-- Testing hidden input solution -->
+					<!--<input type="text" name="rating" id="rating" placeholder="Rating" class="form-control">-->
 					<!-- Textarea -->
 					<div class="control-group">
 						<label class="control-label" for="comment">Comments:</label>
@@ -263,8 +264,7 @@ if (isset($_POST['submit']))
 							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Submit">
                         </div>
 					</div>
-                    <!-- Use value of input in form -->
-                    <input id="rating" type="hidden" value="" name="Rating">
+
 				</form>
             </div>
             
