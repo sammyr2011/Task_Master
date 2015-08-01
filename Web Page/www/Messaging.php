@@ -159,7 +159,57 @@
 
             </div>
             <div class="col-md-8 col-sm-8 col-xs-8" >
-                <div class="box" style="border-style:solid;border-color:red;height:750px">
+                <div class="box" style="border-style:solid;border-color:lightgrey;height:750px">
+                    <legend>Username(other user)</legend>
+
+                    <!-- Storing messages in striped rows for contrast
+
+                    php instructions:
+                        When a new message from the other user is received the message should float to the left
+                        whereas when the input is from the current user it will float to the right.
+
+                    -->
+                    <div class="content">
+
+                        <table class="table table-striped margin-reset" style="overflow-y: scroll">
+                            <tbody>
+
+                            <!-- Floats left e.g. message from other user -->
+                            <tr onclick="#">
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                                <td>
+                                    <div style="border-style:solid;border-color:blue;height:150px;">
+                                        <br>
+                                            <span class="status">
+                                               First few characters of message...
+                                            </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Floats right -->
+                            <tr onclick="#">
+                                <td>
+                                    <div style="border-style:solid;border-color:blue;height:150px;">
+                                        <br>
+                                            <span class="status">
+                                               First few characters of message...
+                                            </span>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <img src="images/UserStock.png" style="height:75px;width:auto">
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
 
                 </div>
             </div>
