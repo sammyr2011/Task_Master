@@ -76,6 +76,7 @@
 
         tr:hover {
             cursor: pointer;
+            background-color: lightyellow;
         }
 
     </style>
