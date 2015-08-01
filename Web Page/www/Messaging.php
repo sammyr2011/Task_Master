@@ -203,7 +203,7 @@
                     // send
                     if (length <= maxLength + 1) {
 
-                        chat.send(text, name);
+                        InsertMessage(<?php echo $_SESSION['userid'] ?>, text);
                         $(this).val("");
 
                     } else {
