@@ -46,6 +46,7 @@ class user
 			$dbhandle->close();
 			return $errors;
 		}
+		$stmt->close();
 		
 		$this->userid = $inuserid;
 		$this->username = $rowusername;
@@ -59,6 +60,7 @@ class user
 		$stmt->bind_result($this->firstname, $this->lastname, $this->email, $this->address, $this->city, $this->state, $this->zipcode, $this->country);
 		$stmt->store_result();
 		$stmt->fetch();
+		$stmt->close();
 		
 		$this->avatarurl = $this->getAvatarURL();
 		
@@ -111,14 +113,15 @@ class user
 		$hashpass = password_hash($this->password, PASSWORD_BCRYPT);
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("INSERT INTO Users(UserName, HashPassword) VALUES (?, ?)");
+		$stmt->prepare("INSERT INTO Users(Username, HashPassword) VALUES (?, ?)");
 		$stmt->bind_param("s", $this->username);
 		$stmt->bind_param("s", $hashpass);
 		$stmt->execute();
 		$stmt->store_result();
 		$stmt->fetch();
+		$stmt->close();
 		
-		$this->userid = $stmt->insert_id;
+		$this->userid = $dbhandle->insert_id;
 		
 		//insert user account info
 		$stmt = $dbhandle->stmt_init();
@@ -145,6 +148,7 @@ class user
 		$stmt->bind_param("i", $this->zipcode);
 		$stmt->bind_param("s", $this->country);
 		$stmt->execute();
+		$stmt->close();
 		
 		//close connection and return 0
 		$dbhandle->close();
@@ -184,6 +188,7 @@ class user
 		
 		$stmt->store_result();
 		if($stmt->num_rows != 0) $errors['usertaken'] = true;
+		$stmt->close();
 		
 		//If we made it here, all is valid
 		$dbhandle->close();
@@ -213,13 +218,14 @@ class user
 		//fail if user does not exist
 		if($stmt->num_rows == 0)
 		{
+			$stmt->close();
 			$dbhandle->close();
 			$errors['username'] = true;
 			return $errors;
 		}
+		$stmt->close();
 		
-		//query password
-		
+		//query password		
 		
 		//check if using old unhashed pass
 		if (password_needs_rehash($inpass, PASSWORD_BCRYPT))
@@ -233,6 +239,7 @@ class user
 				$stmt->bind_param("s", $hashpass);
 				$stmt->bind_param("s", $inuser);
 				$stmt->execute();
+				$stmt->close();
 			}
 		}
 		
@@ -246,7 +253,7 @@ class user
 
 		//create login session
 		session_start();
-		$_SESSION["userid"] = $userid;
+		$_SESSION["userid"] = $rowuserid;
 		$_SESSION["username"] = $inuser;
 		
 		// Adding user to ActiveUser table in DB.
@@ -255,10 +262,11 @@ class user
 		$stmt->bind_param("i", $rowuserid);
 		$stmt->execute();
 		
+		$stmt->close();
 		$dbhandle->close();
 
 		//fill out user object instance with info
-		$this->getFromDB($userid);
+		$this->getFromDB($rowuserid);
 		
 		//return 0 indicates success
 		return NULL;
@@ -340,6 +348,7 @@ class user
 		if ($rating['weight'] != 0)
 			$rating['rating'] /= $rating['weight'];
 		
+		$stmt->close();
 		$dbhandle->close();
 		
 		return $rating;
@@ -373,6 +382,7 @@ class user
 		if ($rating['weight'] != 0)
 			$rating['rating'] /= $rating['weight'];
 		
+		$stmt->close();
 		$dbhandle->close();
 		
 		return $rating;
@@ -398,7 +408,8 @@ class user
 			$retval = false;
 		else //user found
 			$retval = true;
-			
+		
+		$stmt->close();
 		$dbhandle->close();
 		
 		return $retval;
