@@ -210,7 +210,7 @@
                             <form class="form-inline pull-right">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Message" sytle="750px">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Message" sytle="width:750px">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send</button>
