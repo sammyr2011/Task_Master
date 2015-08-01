@@ -284,7 +284,7 @@ class user
 	{
 		$errors = array();
 		
-		$allowedext = array("jpg");
+		$allowedext = array("jpg", "jpeg");
 		
 		$file_temp = $file['tmp_name'];
 		$file_ext = pathinfo($file['name'], PATHINFO_EXTENSION);
@@ -297,7 +297,7 @@ class user
 			if (!is_dir($folderpath)) 
 				mkdir($folderpath,0777,true);
 			
-			if (!move_uploaded_file($file_temp,$folderpath.$this->userid.$file_ext))
+			if (!move_uploaded_file($file_temp,$folderpath.$this->userid.".".$file_ext))
 				$errors['imgupload'] = true;
 		}
 		
