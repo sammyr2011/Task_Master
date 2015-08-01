@@ -200,13 +200,22 @@
                             <!-- Enter Message field -->
                             <span class="session_time">Online</span>
                             <span id="sample"></span>
-                            <div class"message-entry">
+                            <!--<div class"message-entry">
                                 <input type="text" id="text-input-field" class="input-sm" name="message-entry">
                                 <!--<div class="send-group">
                                     <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
-                                </div>-->
+                                </div>
                                 <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
-                            </div>
+                            </div>-->
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </form>
+
                         </div>
 
 
