@@ -72,7 +72,11 @@
         @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
         .date-form { margin: 10px; }
-        label.control-label span { cursor: pointer; }
+        label.cont        rol-label span { cursor: pointer; }
+
+        tr:hover {
+            cursor: pointer;
+        }
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
