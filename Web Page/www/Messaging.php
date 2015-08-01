@@ -157,7 +157,7 @@
                 </div>
                 </li>';
 
-            $('#chat-area').append('<p> test of append </p>');
+            $('#chat-area').append(CurrentUserMessage);
 
                 //check whether user sending message is the current user
                // if(user == ) {
@@ -183,7 +183,7 @@
 
 </head>
 
-<body onload="setInterval('chat.update()', 1000)">
+<body onload="setInterval('InsertMessage("SamIam", "This is a test message")', 1000)">
 
 
 <!-- Part 1: Wrap all page content here -->
