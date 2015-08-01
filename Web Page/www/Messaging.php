@@ -160,7 +160,7 @@
             </div>
             <div class="col-md-8 col-sm-8 col-xs-8" >
                 <div class="box" style="border-style:solid;border-color:lightgrey;height:750px">
-                    <legend>Username(other user)</legend>
+                    <h1 style="color:blue;border-bottom: solid lightgrey;margin-bottom: 20px">Username(other user)</h1>
 
                     <!-- Storing messages in striped rows for contrast
 
@@ -170,44 +170,37 @@
 
                     -->
                     <div class="content">
+                        <!-- Floats left e.g. message from other user -->
+                        <div class="col-md-12">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <!-- Stores the image of the user that posted message -->
+                                <img src="images/UserStock.png" style="height:75px;width:auto">
+                            </div>
+                            <!-- Stores message -->
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="border:solid blue 3px;">
+                                <p>Styled message from user</p>
+                            </div>
+                            <!-- Time stamp -->
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <p>July 31, 2015 3:30 PM</p>
+                            </div>
+                        </div>
 
-                        <table class="table table-striped margin-reset" style="overflow-y: scroll">
-                            <tbody>
-
-                            <!-- Floats left e.g. message from other user -->
-                            <tr onclick="#">
-                                <td>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-                                </td>
-                                <td>
-                                    <div style="border-style:solid;border-color:blue;height:150px;">
-                                        <br>
-                                            <span class="status">
-                                               First few characters of message...
-                                            </span>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Floats right -->
-                            <tr onclick="#">
-                                <td>
-                                    <div style="border-style:solid;border-color:blue;height:150px;">
-                                        <br>
-                                            <span class="status">
-                                               First few characters of message...
-                                            </span>
-                                    </div>
-
-                                </td>
-                                <td>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-                                </td>
-                            </tr>
-
-
-                            </tbody>
-                        </table>
+                        <!-- Floats right -->
+                        <div class="col-md-12">
+                            <!-- Time stamp -->
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <p>July 31, 2015 3:30 PM</p>
+                            </div>
+                            <!-- Stores message -->
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="border:solid blue 3px;">
+                                <p>Styled message from user</p>
+                            </div>
+                            <!-- Stores the image of the user that posted message -->
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <img src="images/UserStock.png" style="height:75px;width:auto">
+                            </div>
+                        </div>
 
                     </div>
 
