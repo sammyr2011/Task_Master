@@ -177,8 +177,8 @@
                                 <img src="images/UserStock.png" style="height:75px;width:auto">
                             </div>
                             <!-- Stores message -->
-                            <div class="col-md-6 col-sm-6 col-xs-6" style="border:solid blue 3px;">
-                                <p>Styled message from user</p>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="background-color:blue;min-height: 75px;">
+                                <p style="color:white;">Styled message from user</p>
                             </div>
                             <!-- Time stamp -->
                             <div class="col-md-3 col-sm-3 col-xs-3">
