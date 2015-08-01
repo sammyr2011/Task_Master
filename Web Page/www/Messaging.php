@@ -157,7 +157,7 @@
                 </div>
                 </li>';
 
-            $('#chat-area').append(CurrentUserMessage);
+            $('#chat-area').append('<p> test of append </p>');
 
                 //check whether user sending message is the current user
                // if(user == ) {
