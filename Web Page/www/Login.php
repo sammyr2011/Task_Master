@@ -1,5 +1,7 @@
 <?php
 
+if (isset($_SERVER['HTTP_REFERER'])) $redirect_url = "$_SERVER['HTTP_REFERER']";
+
 //remember submitted values in case of error
 $_username = '';
 $_password = '';
@@ -24,8 +26,8 @@ if (isset($_POST['loginsubmit']))
 		}
         
 		$_SESSION['msg_loggedin'] = "Logged In";
-		//TODO: redirect to the same page as before logging in
-		header("Location: index.php");
+		if (isset($_SERVER['HTTP_REFERER'])) header("Location: ".$_SERVER['HTTP_REFERER']);
+		else header("Location: index.php");
 		die;
 	}
 }
