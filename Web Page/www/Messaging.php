@@ -12,10 +12,10 @@ if (!isset($_SESSION['userid']))
 
 //requires POST['receiverID'] and POST['content']
 //This is called from AJAX so we don't need to bother with the rest of the page
-if (isset($_POST['submit']))
+if (isset($_GET['submit']))
 {
 	$outmessage = new message();
-	$outmessage->send($_POST);
+	$outmessage->send($_GET);
 	$outmessages = array();
 	array_push($outmessages, $outmessage);
 	printMessages($outmessages);
@@ -182,39 +182,19 @@ function printMessages($messages)
 <body onload="initMessages();">
 
 <script>
-function initMessages()
-{
-	$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) 
-		{
-			$('#chat-area').append(data);
-		});
-		
-	//start checking for new messages
-	setInterval(getMessages, 1000);
-}
+function initMessages(){
+$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) {
+        $('#chat-area').append(data);
+    });
 
-function getMessages()
-{
-    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data)
-	{
+setInterval(getMessages, 1000);
+
+}
+function getMessages() {
+    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) {
         $('#chat-area').append(data);
     });
 }
-
-//ajax send message function
-$('#replyform').submit(function() 
-{
-    $.ajax({
-        data: $(this).serialize(),
-        type: $(this).attr('method'), 
-        url: $(this).attr('action'), 
-        success: function(response) 
-		{ 
-            $('#chat-area').append(data);
-        }
-    });
-    return false; 
-});
 </script>
 
 <!-- Part 1: Wrap all page content here -->
@@ -231,7 +211,7 @@ $('#replyform').submit(function()
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(2)
+                            Inbox(<?php echo count($convoUsers) ?>)
                         </h4>
                     </div>
 
@@ -281,15 +261,33 @@ $('#replyform').submit(function()
                             <!-- Enter Message field -->
                             <span class="session_time">Online</span>
                             <span id="sample"></span>
-                            <form class="form-inline pull-right" id="replyform" action="Messaging.php" method="POST">
+                            <form action="Messaging.php" method="POST" class="form-inline pull-right" name="sendie" id="sendie">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="content" name="content" placeholder="Message" style="width:750px">
-										<input type="hidden" name="receiverID" value="<?php echo $_GET['UserID']; ?>">
+                                        <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px" name="content">
+                                        <input type="hidden" id="sendie" name="receiverID" value="<?php echo $_GET['UserID']; ?>">
+										<input type="hidden" id="sendie" name="submit" value="1">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Send</button>
+                                <input type="submit" class="btn btn-primary" id="sendie" name="submit" value="Send">
                             </form>
+							<script type="text/javascript">
+								$(function() {
+                                    $('#sendie').submit(function(e) {
+										e.preventDefault(); //STOP default action
+										$.ajax({
+											url: $(this).attr("action"),
+											type: "GET",
+											data: $(this).serialize(),
+											success: function(data) {
+												$('#chat-area').append(data);
+											}
+										});
+										$('#sendie').find('input:text').val(''); 
+										return false;
+									});
+								});
+                            </script>
 
                         </div>
 
@@ -314,6 +312,7 @@ $('#replyform').submit(function()
         <p class="muted credit" style="color: white">COP 4331 Project 2</p>
     </div>
 </div>
+
 
 
 </body>
