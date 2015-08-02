@@ -208,7 +208,7 @@ function getMessages() {
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(2)
+                            Inbox(<?php echo count($convoUsers) ?>)
                         </h4>
                     </div>
 
@@ -261,10 +261,37 @@ function getMessages() {
                             <form class="form-inline pull-right">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
+                                        <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px" name="MessageContent">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send</button>
+
+                                <script type="text/javascript">
+                                    function AddMessage() {
+                                        $(function() {
+                                           //check for enter to be pressed
+                                            $('#sendie').keyup(function(e) {
+                                               if(e.keyCode == 13)
+                                               {
+                                                    <?php
+                                                        $send = new message();
+                                                        $send->receiverID = $_GET['UserID'];
+                                                        $send->content = $info['MessageContent'];
+                                                        $send->send($send);
+                                                    ?>
+
+                                                   //add message to page
+
+
+
+                                                   //empty text field
+                                                   $(this).val("");
+                                               }
+                                           });
+                                        });
+                                    }
+                                </script>
+
                             </form>
 
                         </div>
@@ -290,6 +317,7 @@ function getMessages() {
         <p class="muted credit" style="color: white">COP 4331 Project 2</p>
     </div>
 </div>
+
 
 
 </body>
