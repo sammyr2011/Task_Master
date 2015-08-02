@@ -162,7 +162,7 @@ $newMessages = getUnreadMessages($_GET['UserID']);
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(2)
+                            Inbox(<?php echo count($convoUsers) ?>)
                         </h4>
                     </div>
 
