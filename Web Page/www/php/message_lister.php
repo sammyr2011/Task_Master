@@ -19,7 +19,7 @@ function getConversationList()
 		
 		$userid;
 		
-		$dbhandle = $db_connect();
+		$dbhandle = db_connect();
 		$stmt = $dbhandle->stmt_init();
 		
 		//We must search both people who messaged you AND people you messaged
@@ -61,7 +61,7 @@ function getReadMessages($inUserID)
 		
 		$messageid;
 		
-		$dbhandle = $db_connect();
+		$dbhandle = db_connect();
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are read
@@ -97,7 +97,7 @@ function getUnreadMessages($inUserID)
 		
 		$messageid;
 		
-		$dbhandle = $db_connect();
+		$dbhandle = db_connect();
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are unread
