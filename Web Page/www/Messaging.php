@@ -34,6 +34,7 @@ $userYou->getFromDB($_SESSION['userid']);
 $convoUsers = array();
 $convoUsers = getConversationList();
 
+//AJAX call to get old conversation content
 if (isset($_GET['initMessages']))
 {
 	$oldMessages = array();
@@ -42,6 +43,7 @@ if (isset($_GET['initMessages']))
 	die;
 }
 
+//AJAX call to get new message content
 if (isset($_GET['getMessages']))
 {
 	$newMessages = array();
@@ -50,9 +52,9 @@ if (isset($_GET['getMessages']))
 	die;
 }
 
+//Adds new messages to the message window.
 function printMessages($messages)
 {
-
 	foreach($messages as $message)
 	{
 		$msguser = new user();
@@ -93,7 +95,6 @@ function printMessages($messages)
 
 	<?php
 	}
-
 }
 
 ?>
@@ -222,7 +223,7 @@ function getMessages() {
 							foreach ($convoUsers as $user)
 							{
 							?>
-                            <tr onclick="#">
+                            <tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
                                 <td>
                                     <img src="<?php echo $user->getAvatarURL(); ?>" style="height:75px;width:auto">
                                 </td>
