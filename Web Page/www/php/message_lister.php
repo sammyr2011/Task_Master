@@ -11,7 +11,7 @@ include_once 'message_class.php';
 
 //Returns an array of users that the current user has a conversation with.
 //Sorted by most recent message.
-public function getConversationList()
+function getConversationList()
 {
 	if (isset($_SESSION['userid']))
 	{
@@ -53,7 +53,7 @@ public function getConversationList()
 
 //Returns an array of messages that are sent to/from this userid.
 //Called when opening a conversation
-public function getReadMessages($inUserID)
+function getReadMessages($inUserID)
 {
 	if (isset($_SESSION['userid']))
 	{
@@ -89,7 +89,7 @@ public function getReadMessages($inUserID)
 
 //Returns array of new messages sent from this userid.
 //This is called by ajax for live updates instead of retrieving the entire convo.
-public function getUnreadMessages($inUserID)
+function getUnreadMessages($inUserID)
 {
 	if (isset($_SESSION['userid']))
 	{
