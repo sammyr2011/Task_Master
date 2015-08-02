@@ -126,4 +126,26 @@ function getUnreadMessages($inUserID)
 	}
 }
 
+//Returns number of unread messages in user's inbox.
+function countUnreadMessages()
+{
+	$numUnread;
+	
+	$dbhandle = db_connect();
+	$stmt = $dbhandle->stmt_init();
+	
+	$stmt->prepare("SELECT COUNT(MessageID) WHERE ReceiverID=? AND ReadFlag=0");
+	$stmt->bind_param("i", $_SESSION['userid']);
+	$stmt->execute();
+	
+	$stmt->store_result();
+	$stmt->bind_result($numUnread);
+	$stmt->fetch();
+	
+	$stmt->close();
+	$dbhandle->close();
+	
+	return $numUnread;
+}
+
 ?>
