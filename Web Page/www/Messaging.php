@@ -183,11 +183,13 @@ function printMessages($messages)
 		.avatarBig{
 			height:75px;
 			width:75px;
+			margin: auto;
 		}
 		
 		.avatarLittle{
 			height:35px;
 			width:35px;
+			margin: auto;
 		}
 
     </style>
