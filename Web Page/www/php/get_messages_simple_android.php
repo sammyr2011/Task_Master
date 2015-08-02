@@ -10,7 +10,7 @@ if(isset($_SESSION['userid']))
 	$messages = array();
 	
 	$dbhandle = db_connect();
-	$stmt = $dbhandle->stmt_isnit();
+	$stmt = $dbhandle->stmt_init();
 
 	$stmt->prepare("SELECT MessageID, Time, SenderID, ReadFlag FROM Messages WHERE (ReceiverID=?)");
 	$stmt->bind_param("ii",$inUserID,$_SESSION['userid']);
