@@ -270,6 +270,7 @@ function getMessages() {
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-primary" id="sendie" name="submit" value="Send">
+
                             </form>
 							<script type="text/javascript">
 								$(function() {
