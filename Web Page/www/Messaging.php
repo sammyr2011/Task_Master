@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+require_once 'php/message_class.php';
 
 if (session_status() == PHP_SESSION_NONE) 
 {
@@ -22,15 +24,77 @@ require_once 'php/message_lister.php';
 
 if (!isset($_GET['UserID']))
 	die;
+
+$userTalkingTo = new user();
+$userTalkingTo->getFromDB($_GET['UserID']);
+
+$userYou = new user();
+$userYou->getFromDB($_SESSION['userid']);
 	
 $convoUsers = array();
 $convoUsers = getConversationList();
 
-$oldMessages = array();
-$oldMessages = getReadMessages($_GET['UserID']);
+if (isset($_GET['initMessages']))
+{
+	$oldMessages = array();
+	$oldMessages = getReadMessages($_GET['UserID']);
+	printMessages($oldMessages);
+	die;
+}
 
-$newMessages = array();
-$newMessages = getUnreadMessages($_GET['UserID']);
+if (isset($_GET['getMessages']))
+{
+	$newMessages = array();
+	$newMessages = getUnreadMessages($_GET['UserID']);
+	printMessages($newMessages);
+	die;
+}
+
+function printMessages($messages)
+{
+
+	foreach($messages as $message)
+	{
+		$msguser = new user();
+		$msguser->getFromDB($message->senderID);
+
+		if ($message->senderID == $_SESSION['userid'])
+			echo '<li class="server">';
+		else
+			echo '<li class="client">';
+	?>
+			<!-- links to UserProfile.php?id={userid} -->
+			<a href="#" title>
+				<!-- Use php to change alt="" to show actual username -->
+				<img src="<?php echo $msguser->getAvatarURL(); ?>" alt="username" height="35px" width="auto">
+			</a>
+			<div class="message-area">
+				<span class="pointer"></span>
+				<div class="info-row">
+					<span class="user-name">
+						<!-- Should also link to UserProfile.php?id= -->
+						<a href="#">
+							<!-- Username or first name of user -->
+							<strong><?php echo $msguser->username; ?></strong>
+						</a>
+						says:
+					</span>
+					<!-- Time message was sent -->
+					<span class="time">
+						<?php echo $message->timestamp; ?>
+					</span>
+					<div class="clear"></div>
+				</div>
+				<!-- User message -->
+				<p><?php echo $message->content; ?></p>
+			</div>
+		</li>
+
+
+	<?php
+	}
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -108,45 +172,26 @@ $newMessages = getUnreadMessages($_GET['UserID']);
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-
-
-    <script type="text/javascript">
-
-        function loadInbox() {
-
-            var inbox = <?php echo $convoUsers ?>;
-            var i;
-
-            for(i = 0; inbox.length ; i++ )
-            {
-                //html to append
-                var inboxWrapper = '' +
-                    '<!-- link stores user id of both users that will be messaging -->' +
-                    '<tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">' +
-                    '<td>' +
-                    '<img src="images/UserStock.png" style="height:75px;width:auto">' +
-                    '</td>' +
-                    '<td>' +
-                    '<span class="userNames">' + inbox[i] + '</span>' +
-                    '<br>' +
-                    '<span class="status">' +
-                    'First few characters of message...' +
-                    '</span>' +
-                    '</td>' +
-                    '</tr>';
-
-                $("#appendTarget").append(inboxWrapper);
-
-            }
-        }
-
-    </script>
-
-
 </head>
 
-<body>
 
+<body onload="initMessages();">
+
+<script>
+function initMessages(){
+$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) {
+        $('#chat-area').append(data);
+    });
+
+setInterval(getMessages, 1000);
+
+}
+function getMessages() {
+    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) {
+        $('#chat-area').append(data);
+    });
+}
+</script>
 
 <!-- Part 1: Wrap all page content here -->
 <div id="wrap">
@@ -162,7 +207,7 @@ $newMessages = getUnreadMessages($_GET['UserID']);
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(<?php echo count($convoUsers) ?>)
+                            Inbox(2)
                         </h4>
                     </div>
 
@@ -201,71 +246,12 @@ $newMessages = getUnreadMessages($_GET['UserID']);
                     <div class="box" style="height: 750px">
                         <div class="header">
                             <!-- Who the current user is talking to -->
-                            <h4>John Doe</h4>
+                            <h4><?php echo $userTalkingTo->username; ?></h4>
                         </div>
 
                         <div class="content">
                             <ul class="messages-layout" style="overflow-y: hidden;height:677px;" id="chat-area">
 
-                                <!-- Each new message is a new li -->
-
-                                <!-- Message by other user -->
-                                <li class="client">
-                                    <!-- links to UserProfile.php?id={userid} -->
-                                    <a href="#" title>
-                                        <!-- Use php to change alt="" to show actual username -->
-                                        <img src="images/UserStock.png" alt="username" height="35px" width="auto">
-                                    </a>
-                                    <div class="message-area">
-                                        <span class="pointer"></span>
-                                        <div class="info-row">
-                                            <span class="user-name">
-                                                <!-- Should also link to UserProfile.php?id= -->
-                                                <a href="#">
-                                                    <!-- Username or first name of user -->
-                                                    <strong>Anna</strong>
-                                                </a>
-                                                says:
-                                            </span>
-                                            <!-- Time message was sent -->
-                                            <span class="time">
-                                                August 1, 2015 9:15 AM
-                                            </span>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <!-- User message -->
-                                        <p>Message goes here</p>
-                                    </div>
-                                </li>
-
-                                <!-- Message from current user -->
-                                <li class="server">
-                                    <!-- links to UserProfile.php?id={userid} -->
-                                    <a href="#" title>
-                                        <!-- Use php to change alt="" to show actual username -->
-                                        <img src="images/UserStock.png" alt="username" height="35px" width="auto">
-                                    </a>
-                                    <div class="message-area">
-                                        <span class="pointer"></span>
-                                        <div class="info-row">
-                                            <span class="user-name">
-                                                <!-- Should also link to UserProfile.php?id= -->
-                                                <a href="#">
-                                                    <!-- Username or first name of user -->
-                                                    <strong>John</strong>
-                                                </a>
-                                                says:
-                                            </span>
-                                            <!-- Time message was sent -->
-                                            <span class="time">
-                                                August 1, 2015 9:15 AM
-                                            </span>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <!-- User message -->
-                                        <p>Message goes here</p>
-                                    </div>
-                                </li>
                             </ul>
 
                             <!-- Enter Message field -->
