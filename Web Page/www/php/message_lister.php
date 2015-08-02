@@ -60,16 +60,17 @@ function getReadMessages($inUserID)
 		$messages = array();
 		
 		$messageid;
+		$temptime;
 		
 		$dbhandle = db_connect();
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are read
-		$stmt->prepare("SELECT MessageID FROM Messages WHERE (SenderID=? AND ReceiverID=? AND ReadFlag=1) OR (ReceiverID=? AND SenderID=?)");
+		$stmt->prepare("SELECT MessageID, Time FROM Messages WHERE (SenderID=? AND ReceiverID=? AND ReadFlag=1) OR (ReceiverID=? AND SenderID=?) ORDER BY Time");
 		$stmt->bind_param("iiii", $inUserID, $_SESSION['userid'], $inUserID, $_SESSION['userid']);
 		$stmt->execute();
 		$stmt->store_result();
-		$stmt->bind_result($messageid);
+		$stmt->bind_result($messageid, $temptime);
 		
 		//Add each resulting message to the array to return
 		while($stmt->fetch())
@@ -101,11 +102,11 @@ function getUnreadMessages($inUserID)
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are unread
-		$stmt->prepare("SELECT MessageID FROM Messages WHERE SenderID=? AND ReceiverID=? AND ReadFlag=0");
+		$stmt->prepare("SELECT MessageID, Time FROM Messages WHERE SenderID=? AND ReceiverID=? AND ReadFlag=0 ORDER BY Time");
 		$stmt->bind_param("ii", $inUserID, $_SESSION['userid']);
 		$stmt->execute();
 		$stmt->store_result();
-		$stmt->bind_result($messageid);
+		$stmt->bind_result($messageid, $temptime);
 		
 		//Add each resulting message to the array to return
 		//Mark the message as read
