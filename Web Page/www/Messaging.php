@@ -214,7 +214,7 @@ function getMessages() {
                     <div class="content">
 
                         <table class="table table-condensed margin-reset" style="overflow-y: scroll">
-                            <tbody>
+                            <tbody style="overflow-y: scroll">
 
                             <!-- On click should run an ajax request to update message page to reflect
                                 who the user would like to communicate with-->
