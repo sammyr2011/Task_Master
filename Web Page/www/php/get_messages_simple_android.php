@@ -16,7 +16,7 @@ if(isset($_SESSION['userid']))
 	$stmt->bind_param("i",$_SESSION['userid']);
 	$stmt->execute();
 	$stmt->store_result();
-	$stmt->bind_result($messagedid, $temptime, $senderid, $readflag);	
+	$stmt->bind_result($messageid, $temptime, $senderid, $readflag);	
 
 	while($stmt->fetch())
 	{
