@@ -1,6 +1,4 @@
-<?php 
-
-require_once 'php/message_class.php';
+<?php
 
 if (session_status() == PHP_SESSION_NONE) 
 {
@@ -109,6 +107,11 @@ $newMessages = getUnreadMessages($_GET['UserID']);
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+
+
+
 
 </head>
 
