@@ -33,7 +33,7 @@ class message
 		$error = array();
 		
 		//validate given data
-		$error = initialize($info);
+		$error = $this->initialize($info);
 		
 		if (count($error) != 0)
 			return $error;
