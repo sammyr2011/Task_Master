@@ -23,7 +23,7 @@ if(isset($_SESSION['userid']))
 		$message = new message();
 		$message->getFromDB($messageid);
 		$sender = new user();
-		$sender->getFromDB($message['SenderID']);
+		$sender->getFromDB($senderid);
 		$message['SenderUsername']=$sender->username;
 
 		array_push($out,$message);
