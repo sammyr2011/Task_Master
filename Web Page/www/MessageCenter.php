@@ -129,7 +129,7 @@ $convoUsers = getConversationList();
                         </h4>
                     </div>
 
-                    <div class="content">
+                    <div class="content" style="height: 750px">
 
                         <table class="table table-condensed margin-reset" style="overflow-y: scroll">
                             <tbody id="appendTarget">
@@ -167,7 +167,7 @@ $convoUsers = getConversationList();
                     <div class="header">
                         <h4>Reccommended Users</h4>
                     </div>
-                    <div class="content">
+                    <div class="content" style="height: 750px">
 
                         <table class="table table-condensed margin-reset">
                             <tbody>
