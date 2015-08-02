@@ -24,7 +24,7 @@ if(isset($_SESSION['userid']))
 		
 		$message = array();
 		$message['MessageID']=$messageid;
-		$message['Time']=$time;
+		$message['Time']=$temptime;
 		$message['SenderID']=$senderid;
 		$message['SenderUsername']=$sender->username;
 		$message['Read']=$readflag;
