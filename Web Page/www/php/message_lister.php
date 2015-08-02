@@ -101,7 +101,7 @@ function getUnreadMessages($inUserID)
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are unread
-		$stmt->prepare("SELECT MessageID FROM Messages WHERE SenderID=? AND ReceiverID=? WHERE ReadFlag = 1");
+		$stmt->prepare("SELECT MessageID FROM Messages WHERE SenderID=? AND ReceiverID=? AND ReadFlag=1");
 		$stmt->bind_param("ii", $inUserID, $_SESSION['userid']);
 		$stmt->execute();
 		$stmt->store_result();
