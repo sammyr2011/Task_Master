@@ -26,7 +26,7 @@ class message
 	//Sends a message. Use this after making a new instance of message.
 	//
 	//Inputs:
-	//info['recieverID'] - userID of person to send message to
+	//info['receiverID'] - userID of person to send message to
 	//info['content'] - The text of the message to send
 	public function send($info)
 	{
@@ -45,7 +45,7 @@ class message
 		
 		$stmt = $dbhandle->init_stmt();
 		$stmt->prepare("INSERT INTO Messages (SenderID, ReceiverID, Content, ReadFlag, Time) VALUES (?, ?, ?, ?, ?)");
-		$stmt->bind_param("iisii", $this->senderID, $this->recieverID, $this->content, $this->read, $this->timestamp);
+		$stmt->bind_param("iisii", $this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp);
 		$stmt->execute();
 		$stmt->store_result();
 		
@@ -71,7 +71,7 @@ class message
 		//check that recipient exists
 		$recipient = new user();
 		if(isset($info['receiverID']) && $recipient->checkExistence($info['receiverID']))
-			$this->recieverID = $info['recieverID'];
+			$this->receiverID = $info['receiverID'];
 		else
 			$error['receiverID'] = true;
 		
