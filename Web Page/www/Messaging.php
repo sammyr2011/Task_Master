@@ -74,105 +74,6 @@
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-
-    <!-- Messaging functions -->
-    <script src="js/Chat.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        /**
-         *  Will insert a new message, placement depending on poster of message
-         * @param user - The user posting the message
-         * @param message - The message being posted
-         * @constructor
-         */
-        function InsertMessage() {
-
-            var CurrentUserMessage = '' +
-                '<!-- Message by other user -->
-                <li class="client">
-                    <!-- links to UserProfile.php?id={userid} -->
-                    <a href="#" title>
-                    <!-- Use php to change alt="" to show actual username -->
-                    <img src="images/UserStock.png" alt="username" height="35px" width="auto">
-                    </a>
-                    <div class="message-area">
-                    <span class="pointer"></span>
-                    <div class="info-row">
-                    <span class="user-name">
-                    <!-- Should also link to UserProfile.php?id= -->
-                    <a href="#">
-                    <!-- Username or first name of user -->
-                    <strong>Anna</strong>
-                    </a>
-                    says:
-                    </span>
-                    <!-- Time message was sent -->
-                    <span class="time">
-                    August 1, 2015 9:15 AM
-                    </span>
-                    <div class="clear"></div>
-                    </div>
-                    <!-- User message -->
-                    <p>test message</p>
-                    </div>
-                </li>';
-
-            var OtherUserMessage = '' +
-                '<!-- Message by other user -->
-                <li class="client">
-                <!-- links to UserProfile.php?id={userid} -->
-                <a href="#" title>
-                <!-- Use php to change alt="" to show actual username -->
-                <img src="images/UserStock.png" alt="username" height="35px" width="auto">
-                </a>
-                <div class="message-area">
-                <span class="pointer"></span>
-                <div class="info-row">
-                <span class="user-name">
-                <!-- Should also link to UserProfile.php?id= -->
-                <a href="#">
-                <!-- Username or first name of user -->
-                <strong>Anna</strong>
-                </a>
-                says:
-                </span>
-                <!-- Time message was sent -->
-                <span class="time">
-                    August 1, 2015 9:15 AM
-                </span>
-                <div class="clear"></div>
-                </div>
-                <!-- User message -->
-                <p>test message</p>
-                </div>
-                </li>';
-
-            $('#chat-area').append(CurrentUserMessage);
-
-                //check whether user sending message is the current user
-               // if(user == ) {
-                   // $('#chat-area').append(CurrentUserMessage);
-             //   }
-              //  else {
-               //     $('#chat-area').append(OtherUserMessage);
-              //  }
-
-        }
-
-    </script>
-
-
-
 </head>
 
 <body onload="setInterval('InsertMessage()', 1000)">
@@ -321,20 +222,13 @@
                             <!-- Enter Message field -->
                             <span class="session_time">Online</span>
                             <span id="sample"></span>
-                            <!--<div class"message-entry">
-                                <input type="text" id="text-input-field" class="input-sm" name="message-entry">
-                                <!--<div class="send-group">
-                                    <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
-                                </div>
-                                <input type="submit" name="send-message" id="sendMessage" class="btn btn-primary" value="Send">
-                            </div>-->
                             <form class="form-inline pull-right">
                                 <div class="form-group">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary" onclick="InsertMessage()">Send</button>
+                                <button type="submit" class="btn btn-primary">Send</button>
                             </form>
 
                         </div>
