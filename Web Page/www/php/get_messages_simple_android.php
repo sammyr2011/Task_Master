@@ -30,7 +30,7 @@ if(isset($_SESSION['userid']))
 		$message['Read']=$readflag;
 		$message['Content']=$content;
 		
-		$out[{$i}]=$message;
+		$out[$i]=$message;
 		$i++;
 	}
 
