@@ -1,40 +1,3 @@
-<?php
-
-if (session_status() == PHP_SESSION_NONE)
-{
-    session_start();
-}
-
-if (!isset($_SESSION['userid']))
-    die;
-
-//requires POST['receiverID'] and POST['content']
-//This is called from AJAX so we don't need to bother with the rest of the page
-if (isset($_POST['submit']))
-{
-    $outmessage = new message();
-    $outmessage->send($_POST);
-    die;
-}
-
-require_once 'php/user_class.php';
-require_once 'php/message_lister.php';
-
-if (!isset($_GET['UserID']))
-    die;
-
-$convoUsers = array();
-$convoUsers = getConversationList();
-
-$oldMessages = array();
-$oldMessages = getReadMessages($_GET['UserID']);
-
-$newMessages = array();
-$newMessages = getUnreadMessages($_GET['UserID']);
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,42 +83,11 @@ $newMessages = getUnreadMessages($_GET['UserID']);
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
 
-    <script type="text/javascript">
-
-       function loadInbox() {
-
-            var inbox = <?php echo $convoUsers ?>;
-            var i;
-
-            for(i = 0; inbox.length ; i++ )
-            {
-                //html to append
-                var inboxWrapper = '' +
-                    '<!-- link stores user id of both users that will be messaging -->' +
-                    '<tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">' +
-                    '<td>' +
-                    '<img src="images/UserStock.png" style="height:75px;width:auto">' +
-                    '</td>' +
-                    '<td>' +
-                    '<span class="userNames">' + inbox[i] + '</span>' +
-                    '<br>' +
-                    '<span class="status">' +
-                    'First few characters of message...' +
-                    '</span>' +
-                    '</td>' +
-                    '</tr>';
-
-                $("#appendTarget").append(inboxWrapper);
-
-            }
-       }
-
-    </script>
 
 
 </head>
 
-<body onload="loadInbox()">
+<body>
 
 
 <!-- Part 1: Wrap all page content here -->

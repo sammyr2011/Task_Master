@@ -110,7 +110,37 @@ $newMessages = getUnreadMessages($_GET['UserID']);
 
 
 
+    <script type="text/javascript">
 
+        function loadInbox() {
+
+            var inbox = <?php echo $convoUsers ?>;
+            var i;
+
+            for(i = 0; inbox.length ; i++ )
+            {
+                //html to append
+                var inboxWrapper = '' +
+                    '<!-- link stores user id of both users that will be messaging -->' +
+                    '<tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">' +
+                    '<td>' +
+                    '<img src="images/UserStock.png" style="height:75px;width:auto">' +
+                    '</td>' +
+                    '<td>' +
+                    '<span class="userNames">' + inbox[i] + '</span>' +
+                    '<br>' +
+                    '<span class="status">' +
+                    'First few characters of message...' +
+                    '</span>' +
+                    '</td>' +
+                    '</tr>';
+
+                $("#appendTarget").append(inboxWrapper);
+
+            }
+        }
+
+    </script>
 
 
 </head>
