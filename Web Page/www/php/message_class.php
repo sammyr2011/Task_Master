@@ -122,7 +122,7 @@ class message
 		$dbhandle = db_connect();
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("SELECT FROM Messages SenderID, ReceiverID, Content, ReadFlag, Time, MessageID WHERE MessageID=? LIMIT 1");
+		$stmt->prepare("SELECT SenderID, ReceiverID, Content, ReadFlag, Time, MessageID FROM Messages WHERE MessageID=? LIMIT 1");
 		$stmt->bind_param("i", $inMsgID);
 		$stmt->execute();
 		$stmt->store_result();

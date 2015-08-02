@@ -149,7 +149,7 @@ $newMessages = getUnreadMessages($_GET['UserID']);
                                     <img src="<?php echo $user->getAvatarURL(); ?>" style="height:75px;width:auto">
                                 </td>
                                 <td>
-                                    <span class="userNames"><?php echo $user->userName; ?></span>
+                                    <span class="userNames"><?php echo $user->username; ?></span>
                                     <br>
                                         <span class="status">
                                            First few characters of message...
