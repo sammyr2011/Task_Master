@@ -17,12 +17,6 @@ require_once 'php/message_lister.php';
 $convoUsers = array();
 $convoUsers = getConversationList();
 
-$oldMessages = array();
-$oldMessages = getReadMessages($_GET['UserID']);
-
-$newMessages = array();
-$newMessages = getUnreadMessages($_GET['UserID']);
-
 ?>
 
 <!DOCTYPE html>
