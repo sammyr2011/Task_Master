@@ -37,8 +37,6 @@ class message
 		
 		if (count($error) != 0)
 			return $error;
-		else
-			return NULL;
 		
 		//add it to the database
 		$dbhandle = db_connect();
