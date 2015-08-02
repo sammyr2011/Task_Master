@@ -16,6 +16,9 @@ if (isset($_POST['submit']))
 {
 	$outmessage = new message();
 	$outmessage->send($_POST);
+	$outmessages = array();
+	array_push($outmessages, $outmessage);
+	printMessages($outmessages);
 	die;
 }
 
@@ -179,19 +182,39 @@ function printMessages($messages)
 <body onload="initMessages();">
 
 <script>
-function initMessages(){
-$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) {
+function initMessages()
+{
+	$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) 
+		{
+			$('#chat-area').append(data);
+		});
+		
+	//start checking for new messages
+	setInterval(getMessages, 1000);
+}
+
+function getMessages()
+{
+    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data)
+	{
         $('#chat-area').append(data);
     });
-
-setInterval(getMessages, 1000);
-
 }
-function getMessages() {
-    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) {
-        $('#chat-area').append(data);
+
+//ajax send message function
+$('#replyform').submit(function() 
+{
+    $.ajax({
+        data: $(this).serialize(),
+        type: $(this).attr('method'), 
+        url: $(this).attr('action'), 
+        success: function(response) 
+		{ 
+            $('#chat-area').append(data);
+        }
     });
-}
+    return false; 
+});
 </script>
 
 <!-- Part 1: Wrap all page content here -->
@@ -258,10 +281,11 @@ function getMessages() {
                             <!-- Enter Message field -->
                             <span class="session_time">Online</span>
                             <span id="sample"></span>
-                            <form class="form-inline pull-right">
+                            <form class="form-inline pull-right" id="replyform" action="Messaging.php" method="POST">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="sendie" placeholder="Message" style="width:750px">
+                                        <input type="text" class="form-control" id="content" name="content" placeholder="Message" style="width:750px">
+										<input type="hidden" name="receiverID" value="<?php echo $_GET['UserID']; ?>">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send</button>
