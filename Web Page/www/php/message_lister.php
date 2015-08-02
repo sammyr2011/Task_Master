@@ -65,7 +65,7 @@ function getReadMessages($inUserID)
 		$stmt = $dbhandle->stmt_init();
 		
 		//Get all messages from/to this user that are read
-		$stmt->prepare("SELECT MessageID FROM Messages WHERE (SenderID=? AND ReceiverID=? AND ReadFlag=0) OR (ReceiverID=? AND SenderID=?)");
+		$stmt->prepare("SELECT MessageID FROM Messages WHERE (SenderID=? AND ReceiverID=? AND ReadFlag=1) OR (ReceiverID=? AND SenderID=?)");
 		$stmt->bind_param("iiii", $inUserID, $_SESSION['userid'], $inUserID, $_SESSION['userid']);
 		$stmt->execute();
 		$stmt->store_result();
