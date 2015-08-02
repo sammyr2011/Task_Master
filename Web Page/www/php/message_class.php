@@ -93,6 +93,23 @@ class message
 			return NULL;
 	}
 	
+	public function markRead()
+	{
+		$this->read = 1;
+		
+		$dbhandle = db_connect();
+		
+		$stmt = $dbhandle->init_stmt();
+		$stmt->prepare("MODIFY Messages SET Read=1 WHERE MessageID=?");
+		$stmt->bind_param("i", $this->messageID);
+		$stmt->execute();
+		
+		$stmt->close();
+		$dbhandle->close();
+		
+		return NULL;
+	}
+	
 	
 	//
 	//GETTERS
@@ -109,12 +126,7 @@ class message
 		$stmt->bind_param("i", $inMsgID);
 		$stmt->execute();
 		$stmt->store_result();
-		$stmt->bind_result($this->senderID);
-		$stmt->bind_result($this->receiverID);
-		$stmt->bind_result($this->content);
-		$stmt->bind_result($this->read);
-		$stmt->bind_result($this->timestamp);
-		$stmt->bind_result($this->messageID);
+		$stmt->bind_result($this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp, $this->messageID);
 		$stmt->fetch();
 		
 		$stmt->close();
