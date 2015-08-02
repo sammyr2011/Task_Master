@@ -1,3 +1,30 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE)
+{
+    session_start();
+}
+
+if (!isset($_SESSION['userid']))
+    die;
+
+
+require_once 'php/user_class.php';
+require_once 'php/message_lister.php';
+
+
+
+$convoUsers = array();
+$convoUsers = getConversationList();
+
+$oldMessages = array();
+$oldMessages = getReadMessages($_GET['UserID']);
+
+$newMessages = array();
+$newMessages = getUnreadMessages($_GET['UserID']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,44 +140,26 @@
                         <table class="table table-condensed margin-reset" style="overflow-y: scroll">
                             <tbody id="appendTarget">
 
-                            <!-- link stores user id of both users that will be messaging -->
-                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
-                                <td>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-                                </td>
-                                <td>
-                                    <span class="userNames">Bob</span>
-                                    <br>
-                                        <span class="status">
-                                           First few characters of message...
-                                        </span>
-                                </td>
-                            </tr>
-                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
-                                <td>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-                                </td>
-                                <td>
-                                    <span class="userNames">Sally</span>
-                                    <br>
-                                        <span class="status">
-                                            First few characters of message...
-                                        </span>
-                                </td>
-                            </tr>
+                                <!-- On click should run an ajax request to update message page to reflect
+                                   who the user would like to communicate with-->
+                                <?php
+                                foreach ($convoUsers as $user)
+                                {
+                                    ?>
+                                    <tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
+                                        <td>
+                                            <img src="<?php echo $user->getAvatarURL(); ?>" style="height:75px;width:auto">
+                                        </td>
+                                        <td>
+                                            <span class="userNames"><?php echo $user->username; ?></span>
+                                            <br>
+                                            <span class="status">
+                                               First few characters of message...
+                                            </span>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
 
-                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
-                                <td>
-                                    <img src="images/UserStock.png" style="height:75px;width:auto">
-                                </td>
-                                <td>
-                                    <span class="userNames">Jill</span>
-                                    <br>
-                                        <span class="status">
-                                           First few characters of message...
-                                        </span>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
 
