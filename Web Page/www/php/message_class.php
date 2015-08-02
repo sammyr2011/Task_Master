@@ -100,7 +100,7 @@ class message
 		$dbhandle = db_connect();
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("MODIFY Messages SET Read=1 WHERE MessageID=?");
+		$stmt->prepare("UPDATE Messages SET Read=1 WHERE MessageID=?");
 		$stmt->bind_param("i", $this->messageID);
 		$stmt->execute();
 		
