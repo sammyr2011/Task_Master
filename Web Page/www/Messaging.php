@@ -71,7 +71,9 @@ function printMessages($messages)
 			<!-- links to UserProfile.php?id={userid} -->
 			<a href="#" title>
 				<!-- Use php to change alt="" to show actual username -->
-				<img src="<?php echo $msguser->getAvatarURL(); ?>" alt="username" height="35px" width="auto">
+				<div class="avatarLittle">
+				<img src="<?php echo $msguser->getAvatarURL(); ?>">
+				</div>
 			</a>
 			<div class="message-area">
 				<span class="pointer"></span>
@@ -86,7 +88,7 @@ function printMessages($messages)
 					</span>
 					<!-- Time message was sent -->
 					<span class="time">
-						<?php echo $message->timestamp; ?>
+						<?php echo date("M j, Y  g:i:s A", $message->timestamp); ?>
 					</span>
 					<div class="clear"></div>
 				</div>
@@ -172,6 +174,21 @@ function printMessages($messages)
             cursor: pointer;
             background-color: lightyellow;
         }
+		
+		img {
+			max-height: 100%;
+			max-width: 100%;  
+		}
+		
+		.avatarBig{
+			height:75px;
+			width:75px;
+		}
+		
+		.avatarLittle{
+			height:35px;
+			width:35px;
+		}
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -185,6 +202,7 @@ function printMessages($messages)
 function initMessages(){
 $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) {
         $('#chat-area').append(data);
+		$('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
     });
 
 setInterval(getMessages, 1000);
@@ -192,7 +210,12 @@ setInterval(getMessages, 1000);
 }
 function getMessages() {
     $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) {
-        $('#chat-area').append(data);
+        
+		if (data != "") //only scroll if there is a new message
+		{
+			$('#chat-area').append(data);
+			$('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
+		}
     });
 }
 </script>
@@ -228,7 +251,9 @@ function getMessages() {
 							?>
                             <tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
                                 <td>
-                                    <img src="<?php echo $user->getAvatarURL(); ?>" style="height:75px;width:auto">
+									<div class="avatarBig">
+                                    <img src="<?php echo $user->getAvatarURL(); ?>">
+									</div>
                                 </td>
                                 <td>
                                     <span class="userNames"><?php echo $user->username; ?></span>
@@ -254,7 +279,7 @@ function getMessages() {
                         </div>
 
                         <div class="content">
-                            <ul class="messages-layout" style="overflow-y: hidden;height:677px;" id="chat-area">
+                            <ul class="messages-layout" style="overflow-y: scroll;height:677px; " id="chat-area">
 
                             </ul>
 
@@ -282,6 +307,7 @@ function getMessages() {
 											data: $(this).serialize(),
 											success: function(data) {
 												$('#chat-area').append(data);
+												$('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
 											}
 										});
 										$('#sendie').find('input:text').val(''); 
