@@ -145,7 +145,7 @@ $newMessages = getUnreadMessages($_GET['UserID']);
 
 </head>
 
-<body onload="setInterval('InsertMessage()', 1000)">
+<body>
 
 
 <!-- Part 1: Wrap all page content here -->
