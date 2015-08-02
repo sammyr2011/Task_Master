@@ -43,7 +43,7 @@ class message
 		//add it to the database
 		$dbhandle = db_connect();
 		
-		$stmt = $dbhandle->init_stmt();
+		$stmt = $dbhandle->stmt_init();
 		$stmt->prepare("INSERT INTO Messages (SenderID, ReceiverID, Content, ReadFlag, Time) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bind_param("iisii", $this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp);
 		$stmt->execute();
@@ -99,7 +99,7 @@ class message
 		
 		$dbhandle = db_connect();
 		
-		$stmt = $dbhandle->init_stmt();
+		$stmt = $dbhandle->stmt_init();
 		$stmt->prepare("MODIFY Messages SET Read=1 WHERE MessageID=?");
 		$stmt->bind_param("i", $this->messageID);
 		$stmt->execute();
@@ -121,7 +121,7 @@ class message
 	{
 		$dbhandle = db_connect();
 		
-		$stmt = $dbhandle->init_stmt();
+		$stmt = $dbhandle->stmt_init();
 		$stmt->prepare("SELECT FROM Messages SenderID, ReceiverID, Content, ReadFlag, Time, MessageID WHERE MessageID=? LIMIT 1");
 		$stmt->bind_param("i", $inMsgID);
 		$stmt->execute();
