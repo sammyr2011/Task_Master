@@ -74,7 +74,7 @@ $newMessages = getUnreadMessages($_GET['UserID']);
             height: auto !important;
             height: 100% !important;
             /* Negative indent footer by it's height */
-            margin: -90px auto 90px !important;
+            margin: -150px auto 90px !important;
         }
 
         /* Set the fixed height of the footer here */
