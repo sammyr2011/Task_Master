@@ -373,7 +373,7 @@ class task
 		
 		$notifymessage = new message();
 		$messageinfo = array();
-		$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask?id=".$this->taskid."'>".$this->title."</a>!";
+		$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
 		$messageinfo['taskID'] = $this->taskid;
 		$messageinfo['receiverID'] = $this->winnerid;
 		$messageinfo['isSystem'] = true;
@@ -388,7 +388,7 @@ class task
 		
 		$notifymessage = new message();
 		$messageinfo = array();
-		$messageinfo['content'] = "Alert! You have been outbid on the task <a href='/ViewTask?id=".$this->taskid."'>".$this->title."</a>!";
+		$messageinfo['content'] = "Alert! You have been outbid on the task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
 		$messageinfo['taskID'] = $this->taskid;
 		$messageinfo['receiverID'] = $this->getBidLeaderID();
 		$messageinfo['isSystem'] = true;
