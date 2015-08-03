@@ -16,6 +16,7 @@ class message
 	var $timestamp;
 	var $read;
 	var $messageID;
+	var $taskID;
 	
 	
 	//
@@ -28,9 +29,11 @@ class message
 	//Inputs:
 	//info['receiverID'] - userID of person to send message to
 	//info['content'] - The text of the message to send
-	public function send($info)
+	public function send($info, $intaskid='')
 	{
 		$error = array();
+		
+		$this->taskID = $intaskid;
 		
 		//validate given data
 		$error = $this->initialize($info);
@@ -42,8 +45,8 @@ class message
 		$dbhandle = db_connect();
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("INSERT INTO Messages (SenderID, ReceiverID, Content, ReadFlag, Time) VALUES (?, ?, ?, ?, ?)");
-		$stmt->bind_param("iisii", $this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp);
+		$stmt->prepare("INSERT INTO Messages (SenderID, ReceiverID, Content, ReadFlag, Time, TaskID) VALUES (?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param("iisiii", $this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp, $this->taskID);
 		$stmt->execute();
 		$stmt->store_result();
 		
@@ -120,11 +123,11 @@ class message
 		$dbhandle = db_connect();
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("SELECT SenderID, ReceiverID, Content, ReadFlag, Time, MessageID FROM Messages WHERE MessageID=? LIMIT 1");
+		$stmt->prepare("SELECT SenderID, ReceiverID, Content, ReadFlag, Time, MessageID, TaskID FROM Messages WHERE MessageID=? LIMIT 1");
 		$stmt->bind_param("i", $inMsgID);
 		$stmt->execute();
 		$stmt->store_result();
-		$stmt->bind_result($this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp, $this->messageID);
+		$stmt->bind_result($this->senderID, $this->receiverID, $this->content, $this->read, $this->timestamp, $this->messageID, $this->taskID);
 		$stmt->fetch();
 		
 		$stmt->close();
