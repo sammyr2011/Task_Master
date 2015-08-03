@@ -242,10 +242,11 @@ if (isset($_POST['submit']))
                         seconds = parseInt(seconds_left % 60);
 
                         // format countdown string + set tag value
-                        countdown.innerHTML = days + "d, " + hours + "h, "
+                        countdown.innerHTML = days + " days, " + hours + "h, "
                             + minutes + "m, " + seconds + "s";
 
                         //should terminate when countdown is done
+						//refresh the page to show new feedback controls
                         if(seconds<=0 && minutes<=0 && days<=0 && hours<=0)
                         {
                             seconds=0;
@@ -254,6 +255,7 @@ if (isset($_POST['submit']))
                             hours=0;
                             document.getElementById("bidtime").innerHTML="Final Bid: ";
                             clearInterval(timerID);
+							location.reload(true);
                             return;
                         }
 
@@ -261,7 +263,14 @@ if (isset($_POST['submit']))
 
                 </script>
 				
-				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00</b></p>
+				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00
+				<?php 
+				if ($task->getBidLeaderID() == $_SESSION['userid'])
+				{
+					echo ' (You)';
+				} 
+				?>
+				</b></p>
 
                 <!-- style="background-color: #E2E2E2;" -->
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">

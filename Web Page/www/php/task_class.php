@@ -79,6 +79,9 @@ class task
 		$stmt->close();
 		$dbhandle->close();
 		
+		//check if this bidding has ended
+		$this->isPastBidTime();
+		
 		//close connection and return 0
 		return NULL;
 	}
