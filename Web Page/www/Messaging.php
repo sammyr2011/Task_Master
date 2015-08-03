@@ -34,8 +34,7 @@ $userTalkingTo->getFromDB($_GET['UserID']);
 $userYou = new user();
 $userYou->getFromDB($_SESSION['userid']);
 	
-$convoUsers = array();
-$convoUsers = getConversationList();
+
 
 //AJAX call to get old conversation content
 if (isset($_GET['initMessages']))
@@ -52,6 +51,34 @@ if (isset($_GET['getMessages']))
 	$newMessages = array();
 	$newMessages = getUnreadMessages($_GET['UserID']);
 	printMessages($newMessages);
+	die;
+}
+
+//AJAX call to get new message content
+if (isset($_GET['getConvos']))
+{
+	$convoUsers = array();
+	$convoUsers = getConversationList();
+	
+	foreach ($convoUsers as $user)
+	{
+	?>
+	<tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
+		<td>
+			<div class="avatarBig">
+			<img src="<?php echo $user->getAvatarURL(); ?>">
+			</div>
+		</td>
+		<td>
+			<span class="userNames"><?php echo $user->username; ?></span>
+			<br>
+				<span class="status">
+				   First few characters of message...
+				</span>
+		</td>
+	</tr>
+	<?php 
+	}
 	die;
 }
 
@@ -197,26 +224,40 @@ function printMessages($messages)
 
 </head>
 
-
-<body onload="initMessages();">
-
 <script>
-function initMessages(){
-$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) {
+$(function()
+{
+	$.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", initMessages: "1"}, function(data) 
+	{
         $('#chat-area').append(data);
 		$('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
     });
+	getMessages();
+	getConvos();
 
-setInterval(getMessages, 1000);
+	setInterval(getMessages, 1000);
+	setInterval(getConvos, 1000);
 
-}
-function getMessages() {
-    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) {
-        
+});
+function getMessages() 
+{
+    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getMessages: "1"}, function(data) 
+	{
 		if (data != "") //only scroll if there is a new message
 		{
 			$('#chat-area').append(data);
 			$('#chat-area').scrollTop($('#chat-area')[0].scrollHeight);
+		}
+    });
+}
+function getConvos() 
+{
+    $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getConvos: "1"}, function(data) 
+	{
+		if (data != "") //only scroll if there is a new message
+		{
+			$('#convo-area').html(data);
+			$('#convo-area').scrollTop(0);
 		}
     });
 }
@@ -236,36 +277,18 @@ function getMessages() {
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(<?php echo count($convoUsers) ?>)
+                            Inbox
                         </h4>
                     </div>
 
                     <div class="content">
 
                         <table class="table table-condensed margin-reset" style="overflow-y: scroll">
-                            <tbody style="overflow-y: scroll">
+                            <tbody style="overflow-y: scroll" id="convo-area">
 
                             <!-- On click should run an ajax request to update message page to reflect
                                 who the user would like to communicate with-->
-							<?php
-							foreach ($convoUsers as $user)
-							{
-							?>
-                            <tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
-                                <td>
-									<div class="avatarBig">
-                                    <img src="<?php echo $user->getAvatarURL(); ?>">
-									</div>
-                                </td>
-                                <td>
-                                    <span class="userNames"><?php echo $user->username; ?></span>
-                                    <br>
-                                        <span class="status">
-                                           First few characters of message...
-                                        </span>
-                                </td>
-                            </tr>
-							<?php } ?>
+							
                             </tbody>
                         </table>
 
