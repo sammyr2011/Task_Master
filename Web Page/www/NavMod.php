@@ -27,7 +27,7 @@ if (isset($_GET['getMessages']) && isset($_SESSION['username']))
 
 <script>
 $(function(){
-
+getMessageCount();
 setInterval(getMessageCount, 1000);
 
 });

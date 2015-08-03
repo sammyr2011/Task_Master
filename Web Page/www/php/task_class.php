@@ -22,6 +22,7 @@ class task
 	var $currentbid;
 	var $active;
 	var $enddatetime;
+	var $winnerid;
 	
 	//Takes fields from POST and stores them in user object
 	public function createFromPost($info)
@@ -241,6 +242,10 @@ class task
 			return $error;
 		}
 		
+		//notify the previous bid leader that they got outbid
+		if ($bidderid != $this->userid)
+			notifyOutbid();
+		
 		$dbhandle = db_connect();
 		
 		$query = "INSERT INTO BidHistory
@@ -291,11 +296,8 @@ class task
 	}
 	
 	//Return userid of bid winner
-	public function getWinnerID()
+	public function getBidLeaderID()
 	{
-		if ($this->active == 1)
-			return NULL;
-			
 		$dbhandle = db_connect();
 			
 		$query = "SELECT BidderID FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
@@ -359,6 +361,36 @@ class task
 		$dbhandle->close();
 		
 		return $retval;
+	}
+	
+	//Ends a task bidding. Unsets the active-ness, and alerts the winner.
+	public function endTask()
+	{
+		require_once 'message_class.php';
+		
+		$this->unsetActive();
+		$this->winnerid = getBidLeaderID();
+		
+		$notifymessage = new message();
+		$messageinfo = array();
+		$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask?id=".$this->taskid."'>".$this->title."</a>!";
+		$messageinfo['taskID'] = $this->taskid;
+		$messageinfo['receiverID'] = $this->winnerid;
+		$messageinfo['isSystem'] = true;
+		$notifymessage->send($messageinfo);
+	}
+	
+	//Notifies current bid leader that they have been outbid.
+	//Call this BEFORE adding the new bid!!
+	public function notifyOutbid()
+	{
+		$notifymessage = new message();
+		$messageinfo = array();
+		$messageinfo['content'] = "Alert! You have been outbid on the task <a href='/ViewTask?id=".$this->taskid."'>".$this->title."</a>!";
+		$messageinfo['taskID'] = $this->taskid;
+		$messageinfo['receiverID'] = $this->getBidLeaderID();
+		$messageinfo['isSystem'] = true;
+		$notifymessage->send($messageinfo);
 	}
 }
 

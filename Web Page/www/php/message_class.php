@@ -29,11 +29,9 @@ class message
 	//Inputs:
 	//info['receiverID'] - userID of person to send message to
 	//info['content'] - The text of the message to send
-	public function send($info, $intaskid='')
+	public function send($info)
 	{
 		$error = array();
-		
-		$this->taskID = $intaskid;
 		
 		//validate given data
 		$error = $this->initialize($info);
@@ -64,10 +62,16 @@ class message
 		$error = array();
 		
 		//check that you are logged in
-		if(isset($_SESSION['userid']))
-			$this->senderID = $_SESSION['userid'];
+		//or are the system account
+		if(!isset($info['isSystem']))
+		{
+			if isset($_SESSION['userid']))
+				$this->senderID = $_SESSION['userid'];
+			else
+				$error['login'] = true;
+		}
 		else
-			$error['login'] = true;
+			$this->senderID = 0;
 		
 		//check that recipient exists
 		$recipient = new user();
@@ -87,6 +91,12 @@ class message
 		
 		//sets read status to 0
 		$this->read = 0;
+		
+		//sets associated taskID if given
+		if(isset($info['taskID']))
+			$this->taskID = $info['taskID'];
+		else
+			$this->taskID = NULL;
 		
 		if (count($error) != 0)
 			return $error;
