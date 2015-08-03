@@ -14,10 +14,10 @@ if($errors==NULL && isset($_POST['image']))
   
   if(!is_dir($imagefolderpath))
   {
-    mkdir($folderpath,0777,true);
+    mkdir($imagefolderpath,0777,true);
   }
   
-  $imagefile = fopen($imagefilepath,'wb');
+  $imagefile = fopen($imagefolderpath.'0.jpg','wb');
   fwrite($imagefile, base64_decode($_POST['image']));
   fclose($imagefile);
 }
