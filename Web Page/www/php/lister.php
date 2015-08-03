@@ -30,31 +30,6 @@ function listTasksByCategory($incatid)
 	return $tasks;
 }
 
-function listTasksByTags($incatid)
-{
-	$tasks = array();
-
-	$dbhandle = db_connect();
-
-	$query = "SELECT TaskID FROM Tasks";
-	
-	if ($incatid != 0)
-		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid}";
-	
-	$result = $dbhandle->query($query);
-
-	while ($row = $result->fetch_array())
-	{
-		$newtask = new task();
-		$newtask->getFromDB($row['TaskID']);
-		array_push($tasks, $newtask);
-	}
-	
-	$dbhandle->close();
-	
-	return $tasks;
-}
-
 function listTasksByUser($inuserid)
 {
 	$tasks = array();

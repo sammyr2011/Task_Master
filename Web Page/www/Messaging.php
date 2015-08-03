@@ -25,6 +25,34 @@ if (isset($_GET['submit']))
 require_once 'php/user_class.php';
 require_once 'php/message_lister.php';
 
+//AJAX call to get new message content
+if (isset($_GET['getConvos']))
+{
+	$convoUsers = array();
+	$convoUsers = getConversationList();
+	
+	foreach ($convoUsers as $user)
+	{
+	?>
+	<tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
+		<td>
+			<div class="avatarBig">
+			<img class="aimg" src="<?php echo $user->getAvatarURL(); ?>">
+			</div>
+		</td>
+		<td>
+			<span class="userNames"><?php echo $user->username; ?></span>
+			<br>
+				<span class="status">
+				   First few characters of message...
+				</span>
+		</td>
+	</tr>
+	<?php 
+	}
+	die;
+}
+
 if (!isset($_GET['UserID']))
 	die;
 
@@ -34,8 +62,6 @@ $userTalkingTo->getFromDB($_GET['UserID']);
 $userYou = new user();
 $userYou->getFromDB($_SESSION['userid']);
 	
-
-
 //AJAX call to get old conversation content
 if (isset($_GET['initMessages']))
 {
@@ -51,34 +77,6 @@ if (isset($_GET['getMessages']))
 	$newMessages = array();
 	$newMessages = getUnreadMessages($_GET['UserID']);
 	printMessages($newMessages);
-	die;
-}
-
-//AJAX call to get new message content
-if (isset($_GET['getConvos']))
-{
-	$convoUsers = array();
-	$convoUsers = getConversationList();
-	
-	foreach ($convoUsers as $user)
-	{
-	?>
-	<tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
-		<td>
-			<div class="avatarBig">
-			<img src="<?php echo $user->getAvatarURL(); ?>">
-			</div>
-		</td>
-		<td>
-			<span class="userNames"><?php echo $user->username; ?></span>
-			<br>
-				<span class="status">
-				   First few characters of message...
-				</span>
-		</td>
-	</tr>
-	<?php 
-	}
 	die;
 }
 
@@ -99,7 +97,7 @@ function printMessages($messages)
 			<a href="#" title>
 				<!-- Use php to change alt="" to show actual username -->
 				<div class="avatarLittle">
-				<img src="<?php echo $msguser->getAvatarURL(); ?>">
+				<img class = "aimg" src="<?php echo $msguser->getAvatarURL(); ?>">
 				</div>
 			</a>
 			<div class="message-area">
@@ -202,7 +200,7 @@ function printMessages($messages)
             background-color: lightyellow;
         }
 		
-		img {
+		.aimg {
 			max-height: 100%;
 			max-width: 100%;  
 		}

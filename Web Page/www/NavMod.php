@@ -27,8 +27,11 @@ if (isset($_GET['getMessages']) && isset($_SESSION['username']))
 
 <script>
 $(function(){
-getMessageCount();
-setInterval(getMessageCount, 1000);
+if ('<?php echo isset($_SESSION['userid']); ?>' == '1')
+{
+	getMessageCount();
+	setInterval(getMessageCount, 1000);
+}
 
 });
 
@@ -51,7 +54,6 @@ function getMessageCount()
                 <ul class="nav navbar-nav">
                     
                     <li><a href="ViewTasks.php">View Tasks</a></li>
-                    <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
                     <?php if (isset($_SESSION['username']))
 					{ ?>
 						<li><a href="CreateTask.php">Create Task</a></li>
