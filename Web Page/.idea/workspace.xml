@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4507b41-6d25-4c40-99cb-fc0c09ef5494" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/Task Master White.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/NavMod.php" afterPath="$PROJECT_DIR$/www/NavMod.php" />
     </list>
     <ignored path="Web Page.iws" />
@@ -129,11 +130,19 @@
         <entry file="file://$PROJECT_DIR$/www/NavMod.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.56004757">
-              <caret line="47" column="139" selection-start-line="47" selection-start-column="139" selection-end-line="47" selection-end-column="139" />
+              <caret line="47" column="108" selection-start-line="47" selection-start-column="108" selection-end-line="47" selection-end-column="108" />
               <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Task Master White.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/images/Task Master White.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -389,29 +398,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/Messaging.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1438571043573" expanded="true" signature="7365:7401" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:7434" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:7462" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:7485" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:7509" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:9800" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:9819" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7365:9835" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7613:7626" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7627:9750" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="7899:9716" placeholder="..." />
-            <marker date="1438571043573" expanded="true" signature="9101:9684" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/message_class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -902,11 +888,17 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/images/Task Master White.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/NavMod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56004757">
-          <caret line="47" column="139" selection-start-line="47" selection-start-column="139" selection-end-line="47" selection-end-column="139" />
+          <caret line="47" column="108" selection-start-line="47" selection-start-column="108" selection-end-line="47" selection-end-column="108" />
           <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
         </state>
