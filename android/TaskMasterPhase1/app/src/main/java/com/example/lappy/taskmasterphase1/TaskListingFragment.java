@@ -249,7 +249,7 @@ public class TaskListingFragment extends Fragment {
                 Collections.sort(mTasks, new Comparator<Task>() {
                     @Override
                     public int compare(Task lhs, Task rhs) {
-                        return rhs.getEndTime()-lhs.getEndTime();
+                        return lhs.getEndTime()-rhs.getEndTime();
                     }
                 });
                 mAdapter.notifyDataSetChanged();
@@ -293,18 +293,27 @@ public class TaskListingFragment extends Fragment {
                     JSONObject taskJson = jsonTasks.getJSONObject(i);
                     System.err.println(taskJson.toString());
                     Task task = new Task();
-                    task.setTitle(taskJson.getString("title"));
-                    task.setCurBid(taskJson.getInt("currentbid"));
+                    if(taskJson.has("title") && !taskJson.getString("title").equals("null"))
+                    {
+                        task.setTitle(taskJson.getString("title"));
+                    }
+                    if(taskJson.has("currentbid") && !taskJson.getString("currentbid").equals("null"))
+                    {
+                        task.setCurBid(taskJson.getInt("currentbid"));
+                    }
                     //task.setTimeLeft(new Date(System.currentTimeMillis() + 86400000 * (new Random().nextInt(Integer.SIZE - 1) % 14 + 1)));
                     if(taskJson.has("enddatetime"))
                     {
-                        if(taskJson.getString("enddatetime")!="null")
+                        if(!taskJson.getString("enddatetime").equals("null"))
                         {
                             task.setEndTime(taskJson.getInt("enddatetime"));
                         }
 
                     }
-                    task.setTaskId(taskJson.getInt("taskid"));
+                    if(taskJson.has("taskid") && !taskJson.getString("taskid").equals("null"))
+                    {
+                        task.setTaskId(taskJson.getInt("taskid"));
+                    }
                     if(taskJson.has("numimg") && taskJson.getInt("numimg")>0)
                     {
                         InputStream bmpIn = new java.net.URL(getString(R.string.url_task_gallery)+task.getTaskId()+"/0.jpg").openStream();

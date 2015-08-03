@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -94,51 +95,36 @@ public class ViewUserFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_view_user, container, false);
 
-        /*
-        //LISTER FEEDBACK
-        //// Set title
-        TextView listerFeedbackTitle = (TextView)v.findViewById(R.id.textViewListerFeedback);
-        listerFeedbackTitle.setText("Lister Feedback (" + 0 + ")");//TODO: Provide actual weight
-        //// Initialize feedback list
-        ListView listerFeedback = (ListView)v.findViewById(R.id.listViewListerFeedback);
-        mListerFeedback = new ArrayList<Feedback>();
-        listerFeedback.setAdapter(new FeedbackListAdapter(v.getContext(), mListerFeedback));
-        //// Set rating
-        RatingBar listerFeedbackRating = (RatingBar)v.findViewById(R.id.ratingBarListerFeedback);
-        listerFeedbackRating.setRating((float) 3.5);//TODO: Provide actual rating
-
-        //DOER FEEDBACK
-        TextView doerFeedbackTitle = (TextView)v.findViewById(R.id.textViewDoerFeedback);
-        doerFeedbackTitle.setText("Doer Feedback (" + 0 + ")");//TODO: Provide actual weight
-        //// Initialize feedback list
-        ListView doerFeedback = (ListView)v.findViewById(R.id.listViewDoerFeedback);
-        mDoerFeedback = new ArrayList<Feedback>();
-        doerFeedback.setAdapter(new FeedbackListAdapter(v.getContext(), mDoerFeedback));
-        //// Set rating
-        RatingBar doerFeedbackRating = (RatingBar)v.findViewById(R.id.ratingBarDoerFeedback);
-        doerFeedbackRating.setRating((float) 2.5);//TODO: Provide actual rating
-
-        //Make bullshit feedback and refresh views
-        mDoerFeedback.addAll(makeBullshitFeedback(14));
-        mListerFeedback.addAll(makeBullshitFeedback(4));
-        doerFeedback.invalidate();
-        listerFeedback.invalidate();*/
 
         TextView username = (TextView)v.findViewById(R.id.textViewViewUserUsername);
         TextView listerFeedbackTitle = (TextView)v.findViewById(R.id.textViewListerFeedback);
-        ListView listerFeedback = (ListView)v.findViewById(R.id.listViewListerFeedback);
+        final ListView listerFeedback = (ListView)v.findViewById(R.id.listViewListerFeedback);
         RatingBar listerFeedbackRating = (RatingBar)v.findViewById(R.id.ratingBarListerFeedback);
         TextView doerFeedbackTitle = (TextView)v.findViewById(R.id.textViewDoerFeedback);
         ListView doerFeedback = (ListView)v.findViewById(R.id.listViewDoerFeedback);
         RatingBar doerFeedbackRating = (RatingBar)v.findViewById(R.id.ratingBarDoerFeedback);
+
+
 
         mListerFeedback = new ArrayList<Feedback>();
         mListerFeedbackAdapter = new FeedbackListAdapter(v.getContext(),mListerFeedback);
         listerFeedback.setAdapter(mListerFeedbackAdapter);
+        listerFeedback.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mListener.onViewTaskFromViewUser(mListerFeedback.get(position).getTaskid());
+            }
+        });
 
         mDoerFeedback = new ArrayList<Feedback>();
         mDoerFeedbackAdapter = new FeedbackListAdapter(v.getContext(),mDoerFeedback);
         doerFeedback.setAdapter(mDoerFeedbackAdapter);
+        doerFeedback.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mListener.onViewTaskFromViewUser(mDoerFeedback.get(position).getTaskid());
+            }
+        });
 
         HashMap<String,View> viewMap = new HashMap<String,View>();
         viewMap.put("username",username);
@@ -165,22 +151,6 @@ public class ViewUserFragment extends Fragment {
         new GetUserData().execute(viewMap);
 
         return v;
-    }
-
-    private List<Feedback> makeBullshitFeedback(int numFeedback)
-    {
-        List<Feedback> feedbackList = new ArrayList<Feedback>();
-
-        for(int i=0; i<numFeedback; i++)
-        {
-            Feedback tmp = new Feedback();
-            tmp.setContent("Mauris non ornare tortor. Nunc bibendum tincidunt lacus, vitae lacinia tellus sodales sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-            tmp.setRating(5*(new Random()).nextDouble());
-            tmp.setTimestamp(numFeedback-1);
-            feedbackList.add(tmp);
-        }
-
-        return feedbackList;
     }
 
     @Override
@@ -213,6 +183,7 @@ public class ViewUserFragment extends Fragment {
     public interface OnViewUserListener {
         // TODO: Update argument type and name
         public void onSendMessageFromViewUser(int userid, String username);
+        public void onViewTaskFromViewUser(int taskid);
     }
 
     protected class GetUserData extends AsyncTask<Map<String,View>,Void,JSONObject>
@@ -243,11 +214,24 @@ public class ViewUserFragment extends Fragment {
                         for (int i = 0; i < reviews.length(); i++) {
                             System.err.println(reviews.get(i));
                             Feedback tmp = new Feedback();
-                            tmp.setRating(reviews.getJSONObject(i).getDouble("rating"));
-                            tmp.setContent(reviews.getJSONObject(i).getString("comment"));
-                            if(reviews.getJSONObject(i).getString("timestamp")!="null")
+                            if(reviews.getJSONObject(i).has("rating") && !reviews.getJSONObject(i).getString("rating").equals("null"))
+                            {
+                                tmp.setRating(reviews.getJSONObject(i).getDouble("rating"));
+                            }
+
+                            if(reviews.getJSONObject(i).has("comment") && !reviews.getJSONObject(i).getString("comment").equals("null"))
+                            {
+                                tmp.setContent(reviews.getJSONObject(i).getString("comment"));
+                            }
+
+                            if(reviews.getJSONObject(i).has("timestamp")&&!reviews.getJSONObject(i).getString("timestamp").equals("null"))
                             {
                                 tmp.setTimestamp(reviews.getJSONObject(i).getInt("timestamp"));
+                            }
+
+                            if(reviews.getJSONObject(i).has("taskid")&&!reviews.getJSONObject(i).getString("taskid").equals("null"))
+                            {
+                                tmp.setTaskid(reviews.getJSONObject(i).getInt("taskid"));
                             }
                             average += tmp.getRating();
                             mListerFeedback.add(tmp);
@@ -266,11 +250,24 @@ public class ViewUserFragment extends Fragment {
                         for (int i = 0; i < reviews.length(); i++) {
                             System.err.println(reviews.get(i));
                             Feedback tmp = new Feedback();
-                            tmp.setRating(reviews.getJSONObject(i).getDouble("rating"));
-                            tmp.setContent(reviews.getJSONObject(i).getString("comment"));
-                            if(reviews.getJSONObject(i).getString("timestamp")!="null")
+                            if(reviews.getJSONObject(i).has("rating") && !reviews.getJSONObject(i).getString("rating").equals("null"))
+                            {
+                                tmp.setRating(reviews.getJSONObject(i).getDouble("rating"));
+                            }
+
+                            if(reviews.getJSONObject(i).has("comment") && !reviews.getJSONObject(i).getString("comment").equals("null"))
+                            {
+                                tmp.setContent(reviews.getJSONObject(i).getString("comment"));
+                            }
+
+                            if(!reviews.getJSONObject(i).getString("timestamp").equals("null"))
                             {
                                 tmp.setTimestamp(reviews.getJSONObject(i).getInt("timestamp"));
+                            }
+
+                            if(reviews.getJSONObject(i).has("taskid")&&!reviews.getJSONObject(i).getString("taskid").equals("null"))
+                            {
+                                tmp.setTaskid(reviews.getJSONObject(i).getInt("taskid"));
                             }
                             average += tmp.getRating();
                             mDoerFeedback.add(tmp);

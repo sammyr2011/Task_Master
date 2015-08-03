@@ -18,7 +18,9 @@
             android:id="@+id/imageViewViewUserAvatar"
             android:minHeight="150dp"
             android:minWidth="150dp"
-            />
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:adjustViewBounds="true" />
 
         <TextView
             android:layout_width="wrap_content"

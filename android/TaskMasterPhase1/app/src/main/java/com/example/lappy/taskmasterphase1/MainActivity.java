@@ -116,6 +116,14 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
+    public void onViewTaskFromViewUser(int taskid) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragTrans = fragmentManager.beginTransaction().replace(R.id.container, new ViewTaskFragment().newInstance(taskid));
+        fragTrans.addToBackStack("viewtask");
+        fragTrans.commit();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -153,9 +161,11 @@ public class MainActivity extends ActionBarActivity
             switch(position)
             {
                 case 0: //Home
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new HomeFragment()).commit();
                     break;
                 case 1: //Browse by category
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new CategoryListingFragment()).commit();
                     break;
                 case 2: //LOGIN
@@ -176,27 +186,34 @@ public class MainActivity extends ActionBarActivity
             switch(position)
             {
                 case 0: //Home
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new HomeFragment()).commit();
                     break;
                 case 1: //View account
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new ViewAccountFragment()).commit();
                     break;
                 case 2: //Messages
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container,new MessageListFragment()).commit();
                     break;
                 case 3: //My listings
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new TaskListingFragment().newInstance(mUserID)).commit();
                     break;
                /* case 4: //My bids
                     break;*/
                 case 4: //Create task
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new CreateTaskFragment()).commit();
                     System.err.println("create task");
                     break;
                 case 5: // Browse by category
+                    clearBackstack();
                     fragmentManager.beginTransaction().replace(R.id.container, new CategoryListingFragment()).commit();
                     break;
                 case 6: // Log Out
+                    clearBackstack();
                     try {
                         new LogOut().execute("");
                     } catch (Throwable e) {
@@ -288,14 +305,14 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onSelectCategory(int id, String catname) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container, new TaskListingFragment().newInstance(id,catname));
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container, new TaskListingFragment().newInstance(id,catname)).addToBackStack("tasklist");
         fragmentTransaction.commit();
     }
 
     @Override
     public void onSelectTask(int taskid) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container, new ViewTaskFragment().newInstance(taskid));
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container, new ViewTaskFragment().newInstance(taskid)).addToBackStack("viewtask");
         fragmentTransaction.commit();
     }
 
@@ -353,7 +370,7 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onViewTask(int taskid) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container,new ViewTaskFragment().newInstance(taskid));
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().replace(R.id.container,new ViewTaskFragment().newInstance(taskid)).addToBackStack("viewtask");
         fragmentTransaction.commit();
     }
 
@@ -430,6 +447,15 @@ public class MainActivity extends ActionBarActivity
 
     public static boolean ismLoggedIn() {
         return mLoggedIn;
+    }
+
+    private void clearBackstack()
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        for(int i=0;i<fragmentManager.getBackStackEntryCount(); i++)
+        {
+            fragmentManager.popBackStack();
+        }
     }
 
 

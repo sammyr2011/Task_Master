@@ -166,7 +166,16 @@ public class CategoryListingFragment extends Fragment {
                 for(int i=0; i<jsonArray.length();i++)
                 {
                     JSONObject jsonCategory = jsonArray.getJSONObject(i);
-                    categories.add(new Category(jsonCategory.getString("CategoryName"),jsonCategory.getInt("CategoryID")));
+                    Category tmp = new Category();
+                    if(jsonCategory.has("CategoryName") && !jsonCategory.getString("CategoryName").equals("null"))
+                    {
+                        tmp.setTitle(jsonCategory.getString("CategoryName"));
+                    }
+                    if(jsonCategory.has("CategoryID") && !jsonCategory.getString("CategoryID").equals("null"))
+                    {
+                        tmp.setId(jsonCategory.getInt("CategoryID"));
+                    }
+                    categories.add(tmp);
                     //categories.add(new Category("test",5));
                 }
                 return categories;
@@ -188,13 +197,15 @@ public class CategoryListingFragment extends Fragment {
             progressBar.setVisibility(View.INVISIBLE);
             //mAdapter = new ArrayAdapter<Category>(getView().getContext(),android.R.layout.simple_list_item_1,categories);
             //mCategories = categories;
-            mCategories.addAll(categories);
-            Collections.sort(mCategories, new Comparator<Category>() {
-                @Override
-                public int compare(Category lhs, Category rhs) {
-                    return String.CASE_INSENSITIVE_ORDER.compare(lhs.toString(),rhs.toString());
-                }
-            });
+            if(mCategories!=null && categories !=null) {
+                mCategories.addAll(categories);
+                Collections.sort(mCategories, new Comparator<Category>() {
+                    @Override
+                    public int compare(Category lhs, Category rhs) {
+                        return String.CASE_INSENSITIVE_ORDER.compare(lhs.toString(), rhs.toString());
+                    }
+                });
+            }
             mAdapter.notifyDataSetChanged();
         }
     }

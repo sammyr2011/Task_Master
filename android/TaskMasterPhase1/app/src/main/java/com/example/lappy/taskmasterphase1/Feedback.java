@@ -28,6 +28,14 @@ public class Feedback implements Comparable<Feedback>{
         this.timestamp = timestamp;
     }
 
+    public int getTaskid() {
+        return taskid;
+    }
+
+    public void setTaskid(int taskid) {
+        this.taskid = taskid;
+    }
+
     public String getTimeLeftString()
     {
         long timeBetween = System.currentTimeMillis()/1000-this.getTimestamp();
@@ -60,6 +68,10 @@ public class Feedback implements Comparable<Feedback>{
     private String content;
     private double rating;
     private int timestamp;
+
+
+
+    private int taskid;
 
     @Override
     public int compareTo(Feedback another) {

@@ -1,14 +1,41 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lappy.taskmasterphase1.HomeFragment">
+    tools:context="com.example.lappy.taskmasterphase1.HomeFragment"
+    android:background="#ff000000">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewTaskMasterLogo"
         android:layout_gravity="center"
-        android:src="@mipmap/taskmasterlogo" />
-</FrameLayout>
+        android:src="@mipmap/taskmasterlogo"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Unregistered User"
+        android:id="@+id/textViewHomeUsername"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_alignBottom="@+id/imageViewTaskMasterLogo"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tap Menu Button For Options"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/imageViewTaskMasterLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:textColor="#ffffffff" />
+
+</RelativeLayout>

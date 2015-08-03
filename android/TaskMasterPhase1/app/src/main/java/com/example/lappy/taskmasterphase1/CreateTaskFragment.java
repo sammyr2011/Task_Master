@@ -68,6 +68,9 @@ public class CreateTaskFragment extends Fragment {
 
     private JSONArray mCategoryJSONArray;
 
+    private ArrayList<String> mCategoryArrayList;
+    private ArrayAdapter<String> mSpinnerAdapter;
+
     private static Bitmap mImageToUpload;
     private static String mImageFilepath;
     private static int IMAGE_SELECT= 322;
@@ -113,7 +116,7 @@ public class CreateTaskFragment extends Fragment {
         mHttpClient = MainActivity.getmHttpClient();
 
         try {
-            new InitializeCategories().execute().get();
+            new InitializeCategories().execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,7 +124,9 @@ public class CreateTaskFragment extends Fragment {
         Spinner categories = (Spinner)view.findViewById(R.id.spinnerCategory);
 
         //Initialize category array list
-        ArrayList<String> catArrayList = new ArrayList<String>();
+        mCategoryArrayList = new ArrayList<String>();
+        //ArrayList<String> catArrayList = new ArrayList<String>();
+        /*
         for(int i=0;i<mCategoryJSONArray.length();i++)
         {
             try {
@@ -130,8 +135,11 @@ public class CreateTaskFragment extends Fragment {
                 e.printStackTrace();
             }
         }
+        */
         //Set category spinner adapter
-        categories.setAdapter(new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,android.R.id.text1, catArrayList));
+        mSpinnerAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,android.R.id.text1, mCategoryArrayList);
+        categories.setAdapter(mSpinnerAdapter);
+        //categories.setAdapter(new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,android.R.id.text1, mCategoryArrayList));
 
         Button selectImage = (Button)view.findViewById(R.id.buttonCreateTaskUploadImage);
         selectImage.setOnClickListener(new View.OnClickListener() {
@@ -393,6 +401,29 @@ public class CreateTaskFragment extends Fragment {
 
     protected class InitializeCategories extends AsyncTask<Void, Void, Void>
     {
+        JSONArray aResult;
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if(aResult!=null)
+            {
+                mCategoryJSONArray = aResult;
+                for(int i=0;i<mCategoryJSONArray.length();i++)
+                {
+
+                    try {
+                        if(mCategoryJSONArray.getJSONObject(i).has("CategoryName") && !mCategoryJSONArray.getJSONObject(i).getString("CategoryName").equals("null"))
+                        {
+                            mCategoryArrayList.add(mCategoryJSONArray.getJSONObject(i).getString("CategoryName"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
         @Override
         protected Void doInBackground(Void... params) {
             getCats();
@@ -422,7 +453,7 @@ public class CreateTaskFragment extends Fragment {
                 return;
             }
 
-            mCategoryJSONArray = array;
+            aResult = array;
         }
     }
 }

@@ -105,17 +105,8 @@ public class RegisterFragment extends Fragment {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    new RegisterToServer().execute().get();
-                    if(mRegistrationSuccess)
-                    {
-                        mListener.onRegistrationInteraction(mUsername,mPassword);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
+                new RegisterToServer().execute();
+
             }
         });
 
@@ -161,6 +152,15 @@ public class RegisterFragment extends Fragment {
         protected String doInBackground(String... params) {
             reg();
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if(mRegistrationSuccess)
+            {
+                mListener.onRegistrationInteraction(mUsername,mPassword);
+            }
         }
 
         protected void reg()
@@ -209,7 +209,8 @@ public class RegisterFragment extends Fragment {
                 entity = resp.getEntity();
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(getActivity().getBaseContext(),"post error",Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity().getBaseContext(),"post error",Toast.LENGTH_LONG).show();
+                System.err.println("post error");
                 return;
             }
 
@@ -218,8 +219,9 @@ public class RegisterFragment extends Fragment {
             try {
                 objResponse = new JSONObject(EntityUtils.toString(entity));
             } catch (Exception e) {
+                System.err.println("json error");
                 e.printStackTrace();
-                Toast.makeText(getActivity().getBaseContext(),"json error",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity().getBaseContext(),"json error",Toast.LENGTH_LONG).show();
                 return;
             }
 

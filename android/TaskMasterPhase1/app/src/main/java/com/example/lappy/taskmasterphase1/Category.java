@@ -29,6 +29,12 @@ public class Category {
         this.id=id;
     }
 
+    Category()
+    {
+        this.title="";
+        this.id=-1;
+    }
+
     @Override
     public String toString() {
         return getTitle();
