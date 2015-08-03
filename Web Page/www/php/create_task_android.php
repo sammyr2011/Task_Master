@@ -12,6 +12,7 @@ if($errors==NULL && isset($_POST['image']))
 {
   $files=array();
   $files[0]=base64_decode($_POST['image']);
+  echo base64_decode($_POST['image']);
   $errors = $task->uploadImg($files);
 }
 
