@@ -14,7 +14,7 @@ function listTasksByCategory($incatid)
 	$query = "SELECT TaskID FROM Tasks";
 	
 	if ($incatid != 0)
-		$query = "SELECT TaskID FROM Tasks WHERE (Category={$incatid},Active=1)";
+		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid}";
 	
 	$result = $dbhandle->query($query);
 
