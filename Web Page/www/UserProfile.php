@@ -189,24 +189,26 @@ $user->getFromDB($_GET['id']);
 			foreach ($reviews as $key=>$review)
 			{
 			?>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <!--Increment raing number in loop-->
-                <!--
-                     change the id of the div and the value in the JS script at the same time to have
-                     variable number of ratings on a page.
-                 -->
-                <div id="score-callback<?php echo $key; ?>" data-score="<?php echo $review->rating; ?></"></div>
-                <blockquote><?php echo $review->comment; ?></blockquote>
+			<a href="/ViewTask.php?id=<?php echo $review->taskid; ?>">
+				<div class="col-md-4 col-sm-4 col-xs-4">
+					<!--Increment raing number in loop-->
+					<!--
+						 change the id of the div and the value in the JS script at the same time to have
+						 variable number of ratings on a page.
+					 -->
+					<div id="score-callback<?php echo $key; ?>" data-score="<?php echo $review->rating; ?></"></div>
+					<blockquote><?php echo $review->comment; ?></blockquote>
 
-                <script>
-                    $('#score-callback<?php echo $key; ?>').raty({
-                        readOnly: true,
-                        score: function() {
-                            return $(this).attr('data-score');
-                        }
-                    });
-                </script>
-            </div>
+					<script>
+						$('#score-callback<?php echo $key; ?>').raty({
+							readOnly: true,
+							score: function() {
+								return $(this).attr('data-score');
+							}
+						});
+					</script>
+				</div>
+			</a>
 			<?php
 			}
 			
@@ -228,28 +230,30 @@ $user->getFromDB($_GET['id']);
 		foreach ($doreviews as $key=>$doreview)
 		{
 		?>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <!--Increment raing number in loop-->
-                <!--
-                     change the id of the div and the value in the JS script at the same time to have
-                     variable number of ratings on a page.
-                 -->
-                <div id="score-callbackd<?php echo $key; ?>" data-score="<?php echo $doreview->rating; ?>"></div>
-                <blockquote><?php echo $doreview->comment; ?></blockquote>
+		<a href="/ViewTask.php?id=<?php echo $doreview->taskid; ?>">
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<!--Increment raing number in loop-->
+				<!--
+					 change the id of the div and the value in the JS script at the same time to have
+					 variable number of ratings on a page.
+				 -->
+				<div id="score-callbackd<?php echo $key; ?>" data-score="<?php echo $doreview->rating; ?>"></div>
+				<blockquote><?php echo $doreview->comment; ?></blockquote>
 
-                <script>
-                    $('#score-callbackd<?php echo $key; ?>').raty({
-                        readOnly: true,
-                        score: function() {
-                            return $(this).attr('data-score');
-                        }
-                    });
-                </script>
-            </div>
-			<?php
-			}
-			
-			?>
+				<script>
+					$('#score-callbackd<?php echo $key; ?>').raty({
+						readOnly: true,
+						score: function() {
+							return $(this).attr('data-score');
+						}
+					});
+				</script>
+			</div>
+		</a>
+		<?php
+		}
+		
+		?>
 
 
         </div>
