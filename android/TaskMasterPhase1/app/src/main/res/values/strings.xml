@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">TaskMaster</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="array_dummy_listings">
+        <item>Bake me a cake</item>
+        <item>Walk my dog</item>
+        <item>Mow my lawn</item>
+        <item>Help with my math homework</item>
+        <item>Change my oil</item>
+        <item>Need emergency whittling</item>
+    </string-array>
+
+    <string-array name="array_logged_out_menu">
+        <item>Home</item>
+        <item>Browse by category</item>
+        <item>Log in</item>
+    </string-array>
+
+    <string-array name="array_logged_in_menu">
+        <item>Home</item>
+        <item>My Account</item>
+        <item>Messages</item>
+        <item>My Listings</item>
+        <item>Create Task</item>
+        <item>Browse by category</item>
+        <item>Log out</item>
+    </string-array>
+
+    <string-array name="array_states">
+        <item>AK</item>
+        <item>AL</item>
+        <item>AR</item>
+        <item>AS</item>
+        <item>AZ</item>
+        <item>CA</item>
+        <item>CO</item>
+        <item>CT</item>
+        <item>DC</item>
+        <item>DE</item>
+        <item>FL</item>
+        <item>GA</item>
+        <item>GU</item>
+        <item>HI</item>
+        <item>IA</item>
+        <item>ID</item>
+        <item>IL</item>
+        <item>IN</item>
+        <item>IS</item>
+        <item>KS</item>
+        <item>KY</item>
+        <item>LA</item>
+        <item>MA</item>
+        <item>MD</item>
+        <item>ME</item>
+        <item>MI</item>
+        <item>MN</item>
+        <item>MO</item>
+        <item>MP</item>
+        <item>MS</item>
+        <item>MT</item>
+        <item>NC</item>
+        <item>ND</item>
+        <item>NE</item>
+        <item>NH</item>
+        <item>NJ</item>
+        <item>NM</item>
+        <item>NV</item>
+        <item>NY</item>
+        <item>OH</item>
+        <item>OK</item>
+        <item>OR</item>
+        <item>PA</item>
+        <item>PR</item>
+        <item>RI</item>
+        <item>SC</item>
+        <item>SD</item>
+        <item>TN</item>
+        <item>TX</item>
+        <item>UM</item>
+        <item>UT</item>
+        <item>VA</item>
+        <item>VI</item>
+        <item>VT</item>
+        <item>WA</item>
+        <item>WI</item>
+        <item>WV</item>
+        <item>WY</item>
+    </string-array>
+
+
+    <string name="url_login">http://travis-webserver.dyndns.org:81/php/user_login_android.php</string>
+    <string name="url_register">http://travis-webserver.dyndns.org:81/php/user_register_android.php</string>
+    <string name="url_logout">http://travis-webserver.dyndns.org:81/Logout.php</string>
+    <string name="url_category_list">http://travis-webserver.dyndns.org:81/php/category_list_android.php</string>
+    <string name="url_task_list">http://travis-webserver.dyndns.org:81/php/task_list_android.php</string>
+    <string name="url_create_task">http://travis-webserver.dyndns.org:81/php/create_task_android.php</string>
+    <string name="url_view_task">http://travis-webserver.dyndns.org:81/php/view_task_android.php</string>
+    <string name="url_taskmaster_main">http://travis-webserver.dyndns.org:81/</string>
+    <string name="url_task_gallery">http://travis-webserver.dyndns.org:81/taskcontent/</string>
+    <string name="url_place_bid">http://travis-webserver.dyndns.org:81/php/place_bid_android.php</string>
+    <string name="url_upload_avatar">http://travis-webserver.dyndns.org:81/php/upload_avatar_android.php</string>
+    <string name="url_view_user">http://travis-webserver.dyndns.org:81/php/view_user_android.php</string>
+    <string name="url_leave_feedback">http://travis-webserver.dyndns.org:81/php/leave_feedback_android.php</string>
+    <string name="url_send_message">http://travis-webserver.dyndns.org:81/php/send_message_android.php</string>
+    <string name="url_get_messages_simple">http://travis-webserver.dyndns.org:81/php/get_messages_simple_android.php</string>
+    <string name="url_mark_read">http://travis-webserver.dyndns.org:81/php/mark_read_android.php</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="error_msg_bad_username">Invalid Username</string>
+    <string name="error_msg_bad_password">Invalid Password</string>
+    <string name="error_logged_in">Success! Welcome to Task Master</string>
+
+    <string name="error_reg_success">Registration success! Logging in now.</string>
+    <string name="error_reg_fail">There is a problem with your registration. Please fix the fields highlighted in red.</string>
+    <string name="error_reg_usertaken">Someone already has this user name! Please pick a different user name.</string>
+</resources>

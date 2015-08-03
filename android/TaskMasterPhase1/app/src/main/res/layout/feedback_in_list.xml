@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBarFeedback"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="?android:attr/ratingBarStyleSmall"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Sed rutrum condimentum dui vitae egestas. Integer sagittis nunc accumsan velit euismod porttitor. Aenean tristique orci mauris, vel consequat sem iaculis ut. Donec bibendum mi lectus, vitae pellentesque lectus tincidunt ac. Suspendisse accumsan interdum odio, eget viverra augue maximus quis. Nullam luctus elit odio, ac porta eros porttitor eu. Maecenas at faucibus enim, sed congue erat. Phasellus eu pulvinar massa, sed feugiat nulla.  "
+        android:id="@+id/textViewFeedbackContent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/ratingBarFeedback"
+        android:layout_toStartOf="@+id/ratingBarFeedback" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="3 days ago"
+        android:id="@+id/textViewFeedbackTimestamp"
+        android:textStyle="bold"
+        android:layout_below="@+id/ratingBarFeedback"
+        android:layout_toRightOf="@+id/textViewFeedbackContent"
+        android:layout_toEndOf="@+id/textViewFeedbackContent" />
+
+    <!--
+        android:layout_alignBottom="@+id/textView8"-->
+
+</RelativeLayout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:id="@+id/viewTaskLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Task Title"
+            android:id="@+id/textViewTaskTitle" />
+
+        <requestFocus
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layout_user_info">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="User name (42)"
+                    android:id="@+id/textViewTaskUser" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:id="@+id/ratingBarLister"
+                    android:numStars="5"
+                    android:rating="3.4" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/imageViewListerAvatar"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/layout_user_info"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 hours remaining"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:id="@+id/textViewTaskTimeRemaining"/>
+
+        </RelativeLayout>
+
+
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Current Bid:    "
+                android:id="@+id/textView13"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="$12.34"
+                android:id="@+id/textViewCurrentBidAmt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="I&apos;ll do this job for:    $"
+                android:id="@+id/textView15"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/placeBidEditText"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Place Bid"
+                android:id="@+id/button" />
+
+            <requestFocus />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/scrollView"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut molestie sapien. Aliquam lobortis, lectus sit amet vestibulum tempor, risus est vestibulum magna, et aliquet tellus leo et sem. Sed auctor ipsum eros, a placerat nisl mollis nec. Phasellus nec vehicula tortor. Duis eu luctus nibh, vitae scelerisque neque. Suspendisse nec dolor fermentum, molestie velit ac, suscipit nisl. Praesent mauris dolor, euismod eu felis sed, consectetur posuere orci. Sed nisl sem, dignissim quis viverra ut, scelerisque vitae diam. Ut nec diam vitae enim semper volutpat sit amet vel nisl.  Aenean accumsan efficitur ante ut maximus. Nunc faucibus neque at mauris commodo pulvinar. Nunc dolor magna, facilisis a porta ut, semper ut metus. Mauris quis arcu pellentesque, convallis nibh at, feugiat arcu. Donec tempus lorem ac nunc volutpat, in consectetur augue tempor. In accumsan leo ut ipsum gravida sollicitudin. Sed justo elit, sagittis quis tellus quis, molestie placerat mi. Fusce facilisis turpis ac lobortis egestas. Donec nec scelerisque nibh. Phasellus rhoncus leo et euismod tempus."
+                android:id="@+id/textViewTaskContent" />
+
+        </ScrollView>
+
+        <ViewFlipper
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:id="@+id/viewFlipper" >
+
+        </ViewFlipper>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBarTask"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

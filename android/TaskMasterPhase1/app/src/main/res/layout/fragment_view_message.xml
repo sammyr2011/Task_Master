@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lappy.taskmasterphase1.dummy.ViewMessageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutViewMessageMain">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Message from"
+            android:id="@+id/textView11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Username"
+            android:id="@+id/textViewViewMessageUsername"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="December 31st, 2015 12:57 P.M."
+            android:id="@+id/textViewViewMessageTimestamp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse in lacus neque. Nullam venenatis aliquet eleifend. Donec lobortis elit vitae finibus mollis. Nulla fringilla id erat et egestas. Aenean rutrum sapien in leo viverra, at euismod odio dapibus. Vestibulum commodo ex ac dignissim porttitor. Curabitur fringilla luctus urna ac mattis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ligula nibh, blandit sed pretium nec, ultrices vel arcu."
+            android:id="@+id/textViewViewMessageContent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reply"
+            android:id="@+id/buttonViewMessageReply" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
