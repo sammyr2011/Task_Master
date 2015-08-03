@@ -75,7 +75,7 @@ class message
 		
 		//strip any tags from message body
 		if(isset($info['content']))
-			$this->content = strip_tags($info['content']);
+			$this->content = strip_tags($info['content'],"<a><br>");
 		else
 			$error['content'] = true;
 		
