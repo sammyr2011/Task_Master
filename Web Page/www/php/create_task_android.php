@@ -20,6 +20,8 @@ if($errors==NULL && isset($_POST['image']))
   $imagefile = fopen($imagefolderpath.'0.jpg','wb');
   fwrite($imagefile, base64_decode($_POST['image']));
   fclose($imagefile);
+  
+  $task->numimg=1;
 }
 
 //If no errors, return a happy message
