@@ -10,10 +10,10 @@ $task->createFromPost($_POST);
 $errors = $task->register();
 if($errors==NULL && isset($_POST['image']))
 {
-  $files=array();
-  $files[0]=base64_decode($_POST['image']);
-  echo base64_decode($_POST['image']);
-  $errors = $task->uploadImg($files);
+  $imagefilepath = '/var/www/html/taskcontent/'.$task->taskid.'/0.jpg';
+  $imagefile = fopen($imagefilepath,'wb');
+  fwrite($imagefile, base64_decode($_POST['image']));
+  fclose($imagefile);
 }
 
 //If no errors, return a happy message
