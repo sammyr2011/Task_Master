@@ -142,7 +142,7 @@ class review
 		//1 if a Doer rating, 0 if a Lister rating
 		//determine if Lister or Doer
 		$task->getFromDB($this->taskid);
-		$bidwinner = $task->getWinnerID();
+		$bidwinner = $task->getBidLeaderID();
 		
 		//Must be logged in
 		if (!isset($_SESSION['userid']))

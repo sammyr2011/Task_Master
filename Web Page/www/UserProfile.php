@@ -1,4 +1,22 @@
-<?php session_start(); ?>
+<?php 
+
+if (session_status() == PHP_SESSION_NONE) 
+{
+	session_start();
+}
+
+require_once 'php/user_class.php';
+require_once 'php/task_class.php';
+require_once 'php/review_class.php';
+require_once 'php/lister.php';
+
+if (!isset($_GET['id']))
+	die;
+	
+$user = new user();
+$user->getFromDB($_GET['id']);
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +81,21 @@
                  padding-right: 20px;
              }
          }*/
+		 
+		 .avatar_big {
+			width: 150px;
+			height: 150px;
+			line-height: 150px;
+			text-align: center;
+			float: left;
+			margin-right: 15px;
+		}
+		
+		.resize_fit_center {
+			max-width:100%;
+			max-height:100%;
+			vertical-align: middle;
+		}
 
         @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
@@ -100,13 +133,19 @@
         <div class="row" style="margin-bottom: 30px">
             <!-- Avatar -->
             <div class="col-md-4 col-sm-4 col-xs-4" >
-                <img src="images/UserStock.png" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;" class="img-responsive">
+			<div class="avatar_big">
+                <img class = "resize_fit_center" src="<?php echo $user->getAvatarURL(); ?>" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;" class="img-responsive">
             </div>
+			</div>
             <!-- Username and avg ratings -->
             <div class="col-md-4 col-sm-4 col-xs-4">
-                <h2>Username</h2>
-                <h4>Avgerage Lister Rating</h4>
-                <div id="AVGL" data-score="4.5"></div>
+                <h2><?php echo $user->username; ?></h2>
+                <h4>Average Lister Rating</h4>
+				<?php 
+					$listerrating = $user->getListerRating(); 
+					$doerrating = $user->getDoerRating(); 
+				?>
+                <div id="AVGL" data-score="<?php echo $listerrating['rating']; ?>"></div>
                 <script>
                     $('#AVGL').raty({
                         readOnly: true,
@@ -115,8 +154,9 @@
                         }
                     });
                 </script>
+				<?php echo $listerrating['weight']; ?> ratings
                 <h4>Average Doer Rating</h4>
-                <div id="AVGD" data-score="5"></div>
+                <div id="AVGD" data-score="<?php echo $doerrating['rating']; ?>"></div>
                 <script>
                     $('#AVGD').raty({
                         readOnly: true,
@@ -125,10 +165,11 @@
                         }
                     });
                 </script>
+				<?php echo $doerrating['weight']; ?> ratings
             </div>
             <!-- Message me button -->
             <div class="col-md-4 col-sm-4 col-xs-4" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
-                <input type="submit" name="messageuser" class="btn btn-primary btn-lg raised" value="Message Me" style="vertical-align: middle">
+                <button onclick="location.href='/Messaging.php?UserID=<?php echo $user->userid; ?>'" type="submit" name="messageuser" class="btn btn-primary btn-lg raised" style="vertical-align: middle">Message Me</button>
             </div>
         </div>
 
@@ -137,18 +178,25 @@
             <legend>Lister(number of tasks as a lister)</legend>
 
             <!-- A div per task -->
+			<?php
+			
+			$reviews = array();
+			$reviews = listReviewsByTime($user->userid);
+			
+			foreach ($reviews as $key=>$review)
+			{
+			?>
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <!--Increment raing number in loop-->
-                <p>Task Title</p>
                 <!--
                      change the id of the div and the value in the JS script at the same time to have
                      variable number of ratings on a page.
                  -->
-                <div id="score-callback1" data-score="1"></div>
-                <blockquote>Comment left with rating</blockquote>
+                <div id="score-callback<?php echo $key; ?>" data-score="<?php echo $review->rating; ?></"></div>
+                <blockquote><?php echo $review->comment; ?></blockquote>
 
                 <script>
-                    $('#score-callback1').raty({
+                    $('#score-callback<?php echo $key; ?>').raty({
                         readOnly: true,
                         score: function() {
                             return $(this).attr('data-score');
@@ -156,6 +204,10 @@
                     });
                 </script>
             </div>
+			<?php
+			}
+			
+			?>
 
 
         </div>
@@ -164,29 +216,36 @@
         <div class="row">
             <legend>Doer(number of tasks as a lister)</legend>
 
-            <!-- A div per task -->
+            <?php
+			
+			$doreviews = array();
+			$doreviews = listDoReviewsByTime($user->userid);
+			
+			foreach ($doreviews as $key=>$doreview)
+			{
+			?>
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <!--Increment raing number in loop-->
-                <p>Task Title</p>
-
                 <!--
                      change the id of the div and the value in the JS script at the same time to have
                      variable number of ratings on a page.
                  -->
-                <div id="doer-callback1" data-score="1"></div>
-                <blockquote>Comment left with rating</blockquote>
+                <div id="score-callbackd<?php echo $key; ?>" data-score="<?php echo $doreview->rating; ?>"></div>
+                <blockquote><?php echo $doreview->comment; ?></blockquote>
 
                 <script>
-                    $('#doer-callback1').raty({
+                    $('#score-callbackd<?php echo $key; ?>').raty({
                         readOnly: true,
                         score: function() {
                             return $(this).attr('data-score');
                         }
                     });
                 </script>
-
-                <blockquote>Comment left with rating</blockquote>
             </div>
+			<?php
+			}
+			
+			?>
 
 
         </div>

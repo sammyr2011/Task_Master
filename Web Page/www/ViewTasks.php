@@ -222,7 +222,7 @@ function countDownFunc(enddate, divid)
         
             <a href="ViewTask.php?id=<?php echo $task->taskid; ?>">
 			<div class="row" style="border-bottom:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
-                <div class="col-md-8 col-xs-8 col-sm-8">
+                <div class="col-md-12 col-xs-12 col-sm-12">
 					<div class="imgcontainer">
 						<img class="resize_fit_center" src="<?php echo $task->getThumbURL(); ?>">
 					</div>
