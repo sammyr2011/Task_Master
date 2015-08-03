@@ -32,7 +32,7 @@ if($error == NULL)
   $taskout['NumImages']=$task->numimg;
   $taskout['CurrentBid']=$task->getCurrentBid();
   $taskout['EndDateTime']=$task->enddatetime;
-  $taskout['HighestBidderID']=$task->getWinnerID();
+  $taskout['HighestBidderID']=$task->winnerid;
   if($taskout['HighestBidderID']!=null)
   {
     $winner = new user();
