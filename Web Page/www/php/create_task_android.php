@@ -10,7 +10,13 @@ $task->createFromPost($_POST);
 $errors = $task->register();
 if($errors==NULL && isset($_POST['image']))
 {
-  $imagefilepath = '/var/www/html/taskcontent/'.$task->taskid.'/0.jpg';
+  $imagefolderpath = '/var/www/html/taskcontent/'.$task->taskid.'/';
+  
+  if(!is_dir($imagefolderpath))
+  {
+    mkdir($folderpath,0777,true);
+  }
+  
   $imagefile = fopen($imagefilepath,'wb');
   fwrite($imagefile, base64_decode($_POST['image']));
   fclose($imagefile);
