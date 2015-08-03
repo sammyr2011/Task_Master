@@ -15,11 +15,6 @@ else if (isset($_GET['userid']))
 	$userid = $_GET['userid'];
 	$tasks = listTasksByUser($userid);
 }
-else if (isset($_GET['tags']))
-{
-	$tags = $_GET['tags'];
-	$tasks = listTasksByTags($tags);
-}
 else
 {
 	$tasks = listTasksByCategory(0);

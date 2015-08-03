@@ -55,48 +55,29 @@ class task
 	{
 		$errors = array();
 		
-		//Fill out fields from database
+		//Fill out fields from database	
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
-		$sqlquery = "SELECT * FROM Tasks WHERE TaskID = {$intaskid} LIMIT 1";
-		$result = $dbhandle->query($sqlquery);
-		$row = $result->fetch_array();
+		$stmt->prepare("SELECT TaskID, Lister, Title, Description, Information, Location, Category, Tags, NumImages, InitialBid, Active, EndDateTime FROM Tasks WHERE TaskID = ? LIMIT 1");
+		$stmt->bind_param("i", $intaskid);
+		$stmt->execute();
 		
-		db_close($dbhandle);
+		$stmt->bind_result($this->taskid, $this->userid, $this->title, $this->description, $this->content, $this->location, $this->category, $this->tags, $this->numimg, $this->price, $this->active, $this->enddatetime);
+		$stmt->store_result();
+		$stmt->fetch();
 		
 		//return an error if this taskid was not found
-		if($result->num_rows == 0)
+		if($stmt->num_rows == 0)
 		{
 			$errors['taskid'] = true;
+			$stmt->close();
+			$dbhandle->close();
 			return $errors;
 		}
 		
-		//Take info from DB and store it in this task instance
-		if (isset($row['TaskID'])) $this->taskid = $row['TaskID'];
-		
-		if (isset($row['Lister'])) $this->userid = $row['Lister'];
-		
-		if (isset($row['Title'])) $this->title = $row['Title'];
-		
-		if (isset($row['Description'])) $this->description = $row['Description'];
-		
-		if (isset($row['Information'])) $this->content = $row['Information'];
-		
-		if (isset($row['Location'])) $this->location = $row['Location'];
-		
-		if (isset($row['Category'])) $this->category = $row['Category'];
-		
-		if (isset($row['Tags'])) $this->tags = $row['Tags'];
-		
-		if (isset($row['NumImages'])) $this->numimg = $row['NumImages'];
-		
-		if (isset($row['InitialBid'])) $this->price = $row['InitialBid'];
-		
-		if (isset($row['Active'])) $this->active= $row['Active'];
-		
-		$this->currentbid = $this->getCurrentBid();
-		
-		if (isset($row['EndDateTime'])) $this->enddatetime= $row['EndDateTime'];
+		$stmt->close();
+		$dbhandle->close();
 		
 		//close connection and return 0
 		return NULL;
@@ -112,8 +93,9 @@ class task
 		
 		//insert task into database
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
-		$sqlquery = "INSERT INTO Tasks
+		$stmt->prepare("INSERT INTO Tasks
 		(
 			Title,
 			Description, 
@@ -127,28 +109,16 @@ class task
 			InitialBid,
 			Active
 		) 
-		
-		VALUES
-		(
-			'$this->title',
-			'$this->description',
-			'$this->location',
-			'$this->category',
-			'$this->tags',
-			'$this->enddatetime',
-			'$this->userid',
-			'$this->numimg',
-			'$this->content',
-			'$this->price',
-			1
-		)";
-			
-		$result = $dbhandle->query($sqlquery);
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)");
+		$stmt->bind_param("sssisiiisi", $this->title, $this->description, $this->location, $this->category, $this->tags, $this->enddatetime, $this->userid, $this->numimg, $this->content, $this->price);
+		$stmt->execute();
+		$stmt->store_result();
 		
 		$this->taskid = $dbhandle->insert_id;
 		
 		//close connection and return 0
-		db_close($dbhandle);
+		$stmt->close();
+		$dbhandle->close();
 		return NULL;
 	}
 	
@@ -161,16 +131,35 @@ class task
 		if (empty($this->userid)) 
 		{
 			$errors['userid'] = true;
-			//return $errors;
 		}
 		
 		//verify all info is provided
-		if (empty($this->title)) $errors['title'] = true;
-		if (empty($this->description)) $errors['description'] = true;
-		if (empty($this->content)) $errors['content'] = true;
-		if (empty($this->location)) $errors['location'] = true;
-		if (empty($this->category)) $errors['category'] = true;
-		if (empty($this->tags)) $errors['tags'] = true;
+		if (isset($this->title))
+			$this->title = strip_tags($this->title);
+		else
+			$errors['title'] = true;
+			
+		if (isset($this->description))
+			$this->description = strip_tags($this->description);
+		else
+			$errors['description'] = true;
+			
+		if (isset($this->content))
+			$this->content = strip_tags($this->content, "<br><b>");
+		else
+			$errors['content'] = true;
+			
+		if (isset($this->location))
+			$this->location = strip_tags($this->location);
+		else
+			$errors['location'] = true;
+		
+		if (!isset($this->category))
+			$errors['category'] = true;
+			
+		if (!isset($this->enddatetime))
+			$errors['enddatetime'] = true;
+		
 		
 		//If we made it here, all is valid
 		if (count($errors) > 0)
@@ -219,6 +208,7 @@ class task
 		$error = array();
 		
 		$currentbid = $this->getCurrentBid();
+		$leader = $this->getBidLeaderID();
 		
 		//task bidding has ended
 		if ($this->isPastBidTime() == true)
@@ -243,25 +233,24 @@ class task
 		}
 		
 		//notify the previous bid leader that they got outbid
-		if ($bidderid != $this->userid && $bidderid != $this->getBidLeaderID())
-			$this->notifyOutbid();
+		if ($bidderid != $this->userid && $bidderid != $leader)
+			$res = $this->notifyOutbid();
 		
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
-		$query = "INSERT INTO BidHistory
+		$stmt->prepare("INSERT INTO BidHistory
 		(
 			TaskID,
 			BidderID,
 			BidAmount
 		)
 		VALUES
-		(
-			{$this->taskid},
-			{$bidderid},
-			{$bidamount}
-		)";
+		(?, ?, ?)");
 		
-		$result = $dbhandle->query($query);
+		$stmt->bind_param("iii", $this->taskid, $bidderid, $bidamount);
+		
+		$stmt->execute();
 		
 		$dbhandle->close();
 	}
@@ -271,25 +260,27 @@ class task
 		$currentbid = 0;
 		
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
-		$query = "SELECT * FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
+		$stmt->prepare("SELECT BidAmount FROM BidHistory WHERE TaskID = ? ORDER BY BidAmount LIMIT 1");
+		$stmt->bind_param("i", $this->taskid);
+		$stmt->execute();
 		
-		$result = $dbhandle->query($query);
+		$stmt->store_result();
 		
 		//no bids, use initial bid amount
-		if ($result->num_rows == 0)
+		if ($stmt->num_rows == 0)
 		{
-			$query = "SELECT InitialBid FROM Tasks WHERE TaskID = {$this->taskid}";
-			$result = $dbhandle->query($query);
-			$row = $result->fetch_array();
-			$currentbid = $row['InitialBid'];
-		}
-		else
-		{
-			$row = $result->fetch_array();
-			$currentbid = $row['BidAmount'];
+			$stmt->prepare("SELECT InitialBid FROM Tasks WHERE TaskID = ?");
+			$stmt->bind_param("i", $this->taskid);
+			$stmt->execute();
+			$stmt->store_result();
 		}
 		
+		$stmt->bind_result($currentbid);
+		$stmt->fetch();
+		
+		$stmt->close();
 		$dbhandle->close();
 		
 		return $currentbid;
@@ -299,17 +290,21 @@ class task
 	public function getBidLeaderID()
 	{
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 			
-		$query = "SELECT BidderID FROM BidHistory WHERE TaskID = {$this->taskid} ORDER BY BidAmount LIMIT 1";
+		$stmt->prepare("SELECT BidderID FROM BidHistory WHERE TaskID = ? ORDER BY BidAmount LIMIT 1");
+		$stmt->bind_param("i", $this->taskid);
+		$stmt->execute();
 		
-		$result = $dbhandle->query($query);
+		$stmt->store_result();
+		$stmt->bind_result($outBidderID);
+		$stmt->fetch();
 		
-		$row = $result->fetch_array();
-		
+		$stmt->close();
 		$dbhandle->close();
 		
-		if(isset($row['BidderID']))
-			return $row['BidderID'];
+		if(isset($outBidderID))
+			return $outBidderID;
 		else
 			return NULL;
 	}
@@ -321,9 +316,14 @@ class task
 		
 		$dbhandle = db_connect();
 		
-		$query = "UPDATE Tasks SET Active=0 WHERE TaskID = {$this->taskid}";
-		$result = $dbhandle->query($query);
+		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
+		$stmt->prepare("UPDATE Tasks SET Active=0 WHERE TaskID = ?");
+		$stmt->bind_param("i", $this->taskid);
+		$stmt->execute();
+		
+		$stmt->close();
 		$dbhandle->close();
 	}
 	
@@ -331,7 +331,7 @@ class task
 	//If so, unsets Active flag
 	public function isPastBidTime()
 	{
-		if ($this->enddatetime <= time())
+		if ($this->enddatetime <= time() || !$this->active)
 		{
 			$this->unsetActive();
 			return true;
@@ -348,16 +348,20 @@ class task
 		$retval; 
 		
 		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
 		
-		$query = "SELECT TaskID FROM Tasks WHERE TaskID='{$intaskid}'";
+		$stmt->prepare("SELECT TaskID FROM Tasks WHERE TaskID=?");
+		$stmt->bind_param("i", $intaskid);
+		$stmt->execute();
 		
-		$result = $dbhandle->query($query);
+		$stmt->store_result();
 		
-		if ($result->num_rows == 0)
+		if ($stmt->num_rows == 0)
 			$retval = false;
 		else
 			$retval = true;
-			
+		
+		$stmt->close();
 		$dbhandle->close();
 		
 		return $retval;
@@ -393,6 +397,8 @@ class task
 		$messageinfo['receiverID'] = $this->getBidLeaderID();
 		$messageinfo['isSystem'] = true;
 		$notifymessage->send($messageinfo);
+		
+		return 1;
 	}
 }
 

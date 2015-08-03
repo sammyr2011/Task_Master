@@ -99,6 +99,23 @@ $convoUsers = getConversationList();
             cursor: pointer;
             background-color: lightyellow;
         }
+		
+		.aimg {
+			max-height: 100%;
+			max-width: 100%;  
+		}
+		
+		.avatarBig{
+			height:75px;
+			width:75px;
+			margin: auto;
+		}
+		
+		.avatarLittle{
+			height:35px;
+			width:35px;
+			margin: auto;
+		}
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -109,6 +126,28 @@ $convoUsers = getConversationList();
 </head>
 
 <body>
+
+<script>
+$(function()
+{
+	getConvos();
+
+	setInterval(getConvos, 1000);
+
+});
+
+function getConvos() 
+{
+    $.get("Messaging.php", {getConvos: "1"}, function(data) 
+	{
+		if (data != "") //only scroll if there is a new message
+		{
+			$('#appendTarget').html(data);
+			$('#appendTarget').scrollTop(0);
+		}
+    });
+}
+</script>
 
 
 <!-- Part 1: Wrap all page content here -->
@@ -125,7 +164,7 @@ $convoUsers = getConversationList();
                     <div class="header">
                         <h4>
                             <!-- The number in parenthesis is the number of new unread messages -->
-                            Inbox(<?php echo count($convoUsers) ?>)
+                            Inbox
                         </h4>
                     </div>
 
@@ -136,23 +175,7 @@ $convoUsers = getConversationList();
 
                                 <!-- On click should run an ajax request to update message page to reflect
                                    who the user would like to communicate with-->
-                                <?php
-                                foreach ($convoUsers as $user)
-                                {
-                                    ?>
-                                    <tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
-                                        <td>
-                                            <img src="<?php echo $user->getAvatarURL(); ?>" style="height:75px;width:auto">
-                                        </td>
-                                        <td>
-                                            <span class="userNames"><?php echo $user->username; ?></span>
-                                            <br>
-                                            <span class="status">
-                                               First few characters of message...
-                                            </span>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                
 
                             </tbody>
                         </table>
