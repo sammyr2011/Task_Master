@@ -187,7 +187,7 @@ class user
 		$dbhandle = db_connect();
 		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("SELECT UserName FROM Users where UserName=?");
+		$stmt->prepare("SELECT Username FROM Users where Username=?");
 		$stmt->bind_param("s", $this->username);
 		$stmt->execute();
 		
@@ -213,10 +213,10 @@ class user
 		
 		//query user		
 		$stmt = $dbhandle->stmt_init();
-		$stmt->prepare("SELECT UserID, HashPassword FROM Users WHERE UserName=?");
+		$stmt->prepare("SELECT UserID, HashPassword, Username FROM Users WHERE Username=?");
 		$stmt->bind_param("s", $inuser);
 		$stmt->execute();
-		$stmt->bind_result($rowuserid, $hashpass);
+		$stmt->bind_result($rowuserid, $hashpass, $inuser);
 		$stmt->store_result();
 		$stmt->fetch();
 		
@@ -233,16 +233,15 @@ class user
 		//query password		
 		
 		//check if using old unhashed pass
-		if (password_needs_rehash($inpass, PASSWORD_BCRYPT))
+		if (password_needs_rehash($hashpass, PASSWORD_BCRYPT))
 		{
 			if ($inpass == $hashpass) //rehash it if so
 			{
 				$hashpass = password_hash($inpass, PASSWORD_BCRYPT);
 
 				$stmt = $dbhandle->stmt_init();
-				$stmt->prepare("UPDATE Users SET HashPassword=? WHERE UserName=?");
-				$stmt->bind_param("s", $hashpass);
-				$stmt->bind_param("s", $inuser);
+				$stmt->prepare("UPDATE Users SET HashPassword=? WHERE Username=?");
+				$stmt->bind_param("ss", $hashpass, $inuser);
 				$stmt->execute();
 				$stmt->close();
 			}
