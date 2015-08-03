@@ -7,6 +7,10 @@ $task = new task();
 $task->createFromPost($_POST);
 
 //Try to put task into DB
+if(isset$_POST['image'])
+{
+  $task->numimg=1;
+}
 $errors = $task->register();
 if($errors==NULL && isset($_POST['image']))
 {
@@ -20,8 +24,6 @@ if($errors==NULL && isset($_POST['image']))
   $imagefile = fopen($imagefolderpath.'0.jpg','wb');
   fwrite($imagefile, base64_decode($_POST['image']));
   fclose($imagefile);
-  
-  $task->numimg=1;
 }
 
 //If no errors, return a happy message
