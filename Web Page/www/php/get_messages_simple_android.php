@@ -10,11 +10,11 @@ if(isset($_SESSION['userid']))
 	$dbhandle = db_connect();
 	$stmt = $dbhandle->stmt_init();
 
-	$stmt->prepare("SELECT MessageID, Time, SenderID, ReadFlag, Content FROM Messages WHERE (ReceiverID=?)");
+	$stmt->prepare("SELECT MessageID, Time, SenderID, ReadFlag, Content, TaskID FROM Messages WHERE (ReceiverID=?)");
 	$stmt->bind_param("i",$_SESSION['userid']);
 	$stmt->execute();
 	$stmt->store_result();
-	$stmt->bind_result($messageid, $temptime, $senderid, $readflag, $content);	
+	$stmt->bind_result($messageid, $temptime, $senderid, $readflag, $content, $taskid);	
 
 	$i=0;
 	while($stmt->fetch())
@@ -29,6 +29,7 @@ if(isset($_SESSION['userid']))
 		$message['SenderUsername']=$sender->username;
 		$message['Read']=$readflag;
 		$message['Content']=$content;
+		$message['TaskID']=$taskid;
 		
 		$out[$i]=$message;
 		$i++;
