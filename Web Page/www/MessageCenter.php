@@ -191,7 +191,7 @@ function getConvos()
             <div class="span6">
                 <div class="box">
                     <div class="header">
-                        <h4>Reccommended Users</h4>
+                        <h4>Recommended Users</h4>
                     </div>
                     <div class="content" style="height: 750px">
 
