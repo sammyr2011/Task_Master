@@ -175,13 +175,16 @@ $user->getFromDB($_GET['id']);
 
         <!-- User Ratings as Lister -->
         <div class="row" style="border-top: thin lightgray">
-            <legend>Lister(number of tasks as a lister)</legend>
-
+        	
+		<?php
+		
+		$reviews = array();
+		$reviews = listReviewsByTime($user->userid);
+		?>
+            <legend>Lister(<?php echo count($reviews) ?>)</legend>
+	
             <!-- A div per task -->
 			<?php
-			
-			$reviews = array();
-			$reviews = listReviewsByTime($user->userid);
 			
 			foreach ($reviews as $key=>$review)
 			{
@@ -214,16 +217,17 @@ $user->getFromDB($_GET['id']);
 
         <!-- User Ratings as task doer -->
         <div class="row">
-            <legend>Doer(number of tasks as a lister)</legend>
-
-            <?php
+        	<?php
 			
 			$doreviews = array();
 			$doreviews = listDoReviewsByTime($user->userid);
-			
-			foreach ($doreviews as $key=>$doreview)
-			{
-			?>
+		?>
+        	
+            <legend>Doer(<?php echo count($doreviews) ?>)</legend>
+		<?php
+		foreach ($doreviews as $key=>$doreview)
+		{
+		?>
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <!--Increment raing number in loop-->
                 <!--
