@@ -134,7 +134,7 @@ function countUnreadMessages()
 	$dbhandle = db_connect();
 	$stmt = $dbhandle->stmt_init();
 	
-	$stmt->prepare("SELECT COUNT(MessageID) WHERE ReceiverID=? AND ReadFlag=0");
+	$stmt->prepare("SELECT COUNT(MessageID) FROM Messages WHERE ReceiverID=? AND ReadFlag=0");
 	$stmt->bind_param("i", $_SESSION['userid']);
 	$stmt->execute();
 	

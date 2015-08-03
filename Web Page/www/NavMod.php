@@ -5,17 +5,9 @@ if (session_status() == PHP_SESSION_NONE)
     session_start();
 }
 
-if (!isset($_SESSION['userid']))
-    die;
-
 
 require_once 'php/user_class.php';
 require_once 'php/message_lister.php';
-
-
-
-$unread = array();
-$unread = getUnreadMessages($_SESSION['userid']);
 
 ?>
 
@@ -36,7 +28,12 @@ $unread = getUnreadMessages($_SESSION['userid']);
                     <li><a href="CreateTask.php">Create Task</a></li>
                     <li><a href="ViewTasks.php">View Tasks</a></li>
                     <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
-                    <li><a href="MessageCenter.php">Message Center<span id="NewMessages" style="color:red"> (<?php echo count($unread) ?>)</span></a></li>
+                    <?php if (isset($_SESSION['username']))
+					{
+						$unread = array();
+						$unread = countUnreadMessages();
+						echo '<li><a href="MessageCenter.php">Message Center<span id="NewMessages" style="color:red"> ('.$unread.')</span></a></li>'; 
+					}	?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 					<?php if (!isset($_SESSION['username']))
