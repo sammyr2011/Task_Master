@@ -243,7 +243,7 @@ class task
 		}
 		
 		//notify the previous bid leader that they got outbid
-		if ($bidderid != $this->userid)
+		if ($bidderid != $this->userid && $bidderid != $this->getBidLeaderID())
 			notifyOutbid();
 		
 		$dbhandle = db_connect();

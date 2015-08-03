@@ -65,7 +65,7 @@ class message
 		//or are the system account
 		if(!isset($info['isSystem']))
 		{
-			if isset($_SESSION['userid']))
+			if (isset($_SESSION['userid']))
 				$this->senderID = $_SESSION['userid'];
 			else
 				$error['login'] = true;
