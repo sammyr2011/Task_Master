@@ -195,7 +195,7 @@ class task
 				if (!is_dir($folderpath)) 
 					mkdir($folderpath,0777,true);
 				
-				if (!move_uploaded_file($file_temp,$folderpath.$imgindex.".".$file_ext))
+				if (!move_uploaded_file($file_temp,$folderpath.$imgindex.".jpg"))
 					$errors['imgupload'] = true;
 			}
 			
