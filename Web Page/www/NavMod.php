@@ -49,7 +49,6 @@ function getMessageCount()
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
                     
                     <li><a href="ViewTasks.php">View Tasks</a></li>
                     <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
