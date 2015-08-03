@@ -25,14 +25,17 @@ require_once 'php/message_lister.php';
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="CreateTask.php">Create Task</a></li>
+                    
                     <li><a href="ViewTasks.php">View Tasks</a></li>
                     <!-- Maybe add in parenthesis how many unread messages the user has like "Messge Center (5)" -->
                     <?php if (isset($_SESSION['username']))
 					{
-						$unread = array();
+						echo '<li><a href="CreateTask.php">Create Task</a></li>';
 						$unread = countUnreadMessages();
-						echo '<li><a href="MessageCenter.php">Message Center<span id="NewMessages" style="color:red"> ('.$unread.')</span></a></li>'; 
+						echo '<li><a href="MessageCenter.php">Message Center<span id="NewMessages" style="color:red">';
+						if ($unread != 0)
+							echo ' ('.$unread.') ';
+						echo '</span></a></li>'; 
 					}	?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
