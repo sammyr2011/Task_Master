@@ -142,17 +142,6 @@ if (isset($_POST['submit']))
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
-
-    <script>
-        $(function() {
-            $( "#datepicker" ).datepicker();
-        });
-
-        $(function() {
-            $( "#datepicker2" ).datepicker();
-        });
-    </script>
-
 </head>
 
 <body>
