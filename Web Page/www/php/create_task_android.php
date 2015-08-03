@@ -10,7 +10,7 @@ $task->createFromPost($_POST);
 $errors = $task->register();
 if($errors==NULL && isset($_POST['image']))
 {
-  $errors = $task->uploadImg(base64_decode($_POST['image')]);
+  $errors = $task->uploadImg(base64_decode($_POST['image']));
 }
 
 //If no errors, return a happy message
