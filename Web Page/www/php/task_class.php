@@ -244,7 +244,7 @@ class task
 		
 		//notify the previous bid leader that they got outbid
 		if ($bidderid != $this->userid && $bidderid != $this->getBidLeaderID())
-			notifyOutbid();
+			$this->notifyOutbid();
 		
 		$dbhandle = db_connect();
 		
@@ -369,7 +369,7 @@ class task
 		require_once 'message_class.php';
 		
 		$this->unsetActive();
-		$this->winnerid = getBidLeaderID();
+		$this->winnerid = $this->getBidLeaderID();
 		
 		$notifymessage = new message();
 		$messageinfo = array();
