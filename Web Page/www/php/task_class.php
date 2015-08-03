@@ -331,9 +331,14 @@ class task
 	//If so, unsets Active flag
 	public function isPastBidTime()
 	{
-		if ($this->enddatetime <= time() || !$this->active)
+		//light check if task is active
+		if (!$this->active)
+			return true;
+		
+		//heavier time check in case time is passed but the sentinel has not caught the task yet
+		if ($this->enddatetime <= time())
 		{
-			$this->unsetActive();
+			$this->endTask();
 			return true;
 		}
 		

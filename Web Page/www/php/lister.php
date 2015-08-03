@@ -10,21 +10,33 @@ function listTasksByCategory($incatid)
 	$tasks = array();
 
 	$dbhandle = db_connect();
-
-	$query = "SELECT TaskID FROM Tasks";
+	$stmt = $dbhandle->stmt_init();
 	
 	if ($incatid != 0)
-		$query = "SELECT TaskID FROM Tasks WHERE Category={$incatid} AND Active=1";
+	{
+		$stmt->prepare("SELECT TaskID, (? - EndDateTime) AS TimeRemaining FROM Tasks WHERE Category=? AND Active=1 ORDER BY TimeRemaining DESC");
+		$stmt->bind_param("ii", time(), $incatid);
+		
+	}
+	else
+	{
+		$stmt->prepare("SELECT TaskID, (? - EndDateTime) AS TimeRemaining FROM Tasks WHERE Active=1 ORDER BY TimeRemaining DESC");
+		$stmt->bind_param("i", time());
+	}
+		
+	$stmt->execute();
 	
-	$result = $dbhandle->query($query);
+	$stmt->store_result();
+	$stmt->bind_result($resultID, $temptime);
 
-	while ($row = $result->fetch_array())
+	while ($stmt->fetch())
 	{
 		$newtask = new task();
-		$newtask->getFromDB($row['TaskID']);
+		$newtask->getFromDB($resultID);
 		array_push($tasks, $newtask);
 	}
 	
+	$stmt->close();
 	$dbhandle->close();
 	
 	return $tasks;
