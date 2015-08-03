@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4507b41-6d25-4c40-99cb-fc0c09ef5494" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/images/Task Master Logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/NavMod.php" afterPath="$PROJECT_DIR$/www/NavMod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web Page.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -131,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/www/NavMod.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.56004757">
-              <caret line="47" column="131" selection-start-line="47" selection-start-column="131" selection-end-line="47" selection-end-column="131" />
+              <caret line="47" column="154" selection-start-line="47" selection-start-column="154" selection-end-line="47" selection-end-column="154" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
@@ -908,7 +906,7 @@
     <entry file="file://$PROJECT_DIR$/www/NavMod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56004757">
-          <caret line="47" column="131" selection-start-line="47" selection-start-column="131" selection-end-line="47" selection-end-column="131" />
+          <caret line="47" column="154" selection-start-line="47" selection-start-column="154" selection-end-line="47" selection-end-column="154" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
