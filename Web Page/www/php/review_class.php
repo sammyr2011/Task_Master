@@ -99,28 +99,30 @@ class review
 		
 		if ($this->listerOrDoer == false)
 		{
-			if ($this->checkExistingRating() == 0) //check if replacing or adding new review
+			$existingrating = $this->checkExistingRating();
+			if ($existingrating == 0) //check if replacing or adding new review
 			{
 				$stmt->prepare("INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES (?, ?, ?, ?, ?)");
 				$stmt->bind_param("iiisi", $this->taskid, $this->reviewee_uid, $this->rating, $this->comment, time());
 			}
 			else
 			{
-				$stmt->prepare("UPDATE Ratings SET Rating=?, Comment=?, TimeStamp=? WHERE Rating=?");
-				$stmt->bind_param("isi", $this->rating, $this->comment, time());
+				$stmt->prepare("UPDATE Ratings SET Rating=?, Comment=?, TimeStamp=? WHERE RatingID=?");
+				$stmt->bind_param("isii", $this->rating, $this->comment, time(), $existingrating);
 			}
 		}
 		else
 		{
-			if ($this->checkExistingDoRating() == 0) //check if replacing or adding new review
+			$existingdorating = $this->checkExistingDoRating();
+			if ($existingdorating == 0) //check if replacing or adding new review
 			{
 				$stmt->prepare("INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES (?, ?, ?, ?, ?)");
 				$stmt->bind_param("iiisi", $this->taskid, $this->reviewee_uid, $this->rating, $this->comment, time());
 			}
 			else
 			{
-				$stmt->prepare("UPDATE DoRatings SET Rating=?, Comment=?, TimeStamp=? WHERE Rating=?");
-				$stmt->bind_param("isi", $this->rating, $this->comment, time());
+				$stmt->prepare("UPDATE DoRatings SET Rating=?, Comment=?, TimeStamp=? WHERE RatingID=?");
+				$stmt->bind_param("isii", $this->rating, $this->comment, time(), $existingdorating);
 			}
 		}
 		
@@ -198,7 +200,7 @@ class review
 		$stmt = $dbhandle->stmt_init();
 		
 		$stmt->prepare("SELECT RatingID FROM Ratings WHERE ListerID = ? AND TaskID = ? LIMIT 1");
-		$stmt->bind_param("ii", $this->$reviewee_uid, $this->$taskid);
+		$stmt->bind_param("ii", $this->reviewee_uid, $this->taskid);
 		$stmt->execute();
 		
 		$stmt->store_result();
@@ -219,7 +221,7 @@ class review
 		$stmt = $dbhandle->stmt_init();
 		
 		$stmt->prepare("SELECT RatingID FROM DoRatings WHERE ResponderID = ? AND TaskID = ? LIMIT 1");
-		$stmt->bind_param("ii", $this->$reviewee_uid, $this->$taskid);
+		$stmt->bind_param("ii", $this->reviewee_uid, $this->taskid);
 		$stmt->execute();
 		
 		$stmt->store_result();
