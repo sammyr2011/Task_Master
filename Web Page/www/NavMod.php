@@ -45,7 +45,7 @@ function getMessageCount()
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">Task Master</a>
+                <a class="navbar-brand" href="index.php"><img src="images/Task%20Master%20Logo.png" style="background-color: white;"></a>
             </div>
             <div>
                 <ul class="nav navbar-nav">
