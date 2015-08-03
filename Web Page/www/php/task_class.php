@@ -228,15 +228,22 @@ class task
 		}
 		
 		//bid can't be negative
-		
 		if ($bidamount < 0)
 		{
 			$error['bidnegative'] = true;
 			return $error;
 		}
 		
+		//can't bid on your own task
+		if ($bidderid == $this->userid)
+		{
+			$error['bidown'] = true;
+			return $error;
+		}
+		
 		//notify the previous bid leader that they got outbid
-		if ($bidderid != $this->userid && $bidderid != $leader)
+		//unless it's the same person
+		if ($bidderid != $leader)
 			$res = $this->notifyOutbid();
 		
 		$dbhandle = db_connect();
@@ -385,9 +392,18 @@ class task
 		
 		$notifymessage = new message();
 		$messageinfo = array();
-		$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
 		$messageinfo['taskID'] = $this->taskid;
-		$messageinfo['receiverID'] = $this->winnerid;
+		
+		if ($this->winnerid == null)
+		{
+			$messageinfo['content'] = "Sorry! Bidding has ended for your task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>, but nobody bid on it!";
+			$messageinfo['receiverID'] = $this->userid;
+		}
+		else
+		{
+			$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
+			$messageinfo['receiverID'] = $this->winnerid;
+		}
 		$messageinfo['isSystem'] = true;
 		$notifymessage->send($messageinfo);
 	}
