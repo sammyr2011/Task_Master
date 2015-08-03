@@ -1,6 +1,4 @@
 body {
-	margin: 80px 0;	
-	background: url(../images/bg.png) repeat;
 }
 
 .margin-reset {
@@ -100,107 +98,7 @@ span.session_time {
 	}
 	
 /******** Header ********/
-.navbar-inner {
-	background: url(../images/nav_bg.png) repeat-x;
-	border-bottom: 1px solid #dadada;
-}
-	.navbar-fixed-top {
-    	margin-bottom: 0;
-	}
-	
-	.navbar-fixed-top, .navbar-fixed-bottom {
-   		position: absolute;
-	}
-	
-	#header h1 {
-		background: url(../images/logo_in.png) no-repeat;
-		width: 100px;
-		height: 26px;
-		text-indent: -9999px;
-	}
 
-	#logo {
-		float: left;	
-	}
-	
-	#info {
-		float: right;
-		padding-top: 7px;
-	}
-	
-	ul.breadcrumb {
-		margin-bottom: 20px!important;
-		border: 1px solid #dadada;	
-	}
-	
-	ul#userBox  {
-		margin: 0;
-		padding: 0;
-		margin-right: 37px;
-	}
-
-	ul#userBox li {
-		position: relative;
-		float: left;
-		cursor: pointer; 
-		padding: 5px;
-		color: #fff;
-		margin-left: 15px;
-	}
-	
-	ul#userBox li a {
-		display: inline-block;
-		font-size: 12px;
-		text-decoration: none;	
-		color: #aaa;
-	}
-		
-	ul#userBox .dropdown-menu {
-		border: 1px solid #d5d5d5;	 
-	}
-	
-	.dropdown-menu {
-		position: absolute;
-	}
-	
-	ul#userBox li ul.dropdown-menu {
-		width: 160px;
-		position: absolute;
-		right: 0;
-		margin: 0 auto;
-		background: #fff;  
-		overflow: hidden;
-		padding: 0;
-	}
-	
-	ul#userBox li > ul.dropdown-menu {
-		top: auto;
-		left: auto;
-		font-size: 11px;
-		padding: 0;
-		margin: 0;
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
-	
-	ul#userBox li ul.dropdown-menu li {
-		border: none;
-		padding: 0;
-		margin: 0;
-	}
-	
-	ul#userBox li ul.dropdown-menu li a {
-		color: #456180;
-		border: none;
-		width: 160px;
-		display: block;
-		padding: 5px 10px;
-	}
-	
-	ul#userBox li ul.dropdown-menu li a:hover {
-		text-decoration: none;
-		color: #2c2c2c;
-	}
 
 /******** Login ********/
 #login_logo {
@@ -241,7 +139,6 @@ span.session_time {
 	  
 /******** Main ********/
 #main {
-	padding-top: 80px;
 }
 
 #main-content {

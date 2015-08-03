@@ -172,6 +172,7 @@ function countDownFunc(enddate, divid)
 			days=0;
 			hours=0;
 			clearInterval(timerID);
+			countdown.innerHTML = "Bidding ended!"
 			return;
 		}
 

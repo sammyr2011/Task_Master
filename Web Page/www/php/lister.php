@@ -33,6 +33,8 @@ function listTasksByCategory($incatid)
 	{
 		$newtask = new task();
 		$newtask->getFromDB($resultID);
+		if ($newtask->active == 0)
+			continue;
 		array_push($tasks, $newtask);
 	}
 	
@@ -56,6 +58,8 @@ function listTasksByUser($inuserid)
 	{
 		$newtask = new task();
 		$newtask->getFromDB($row['TaskID']);
+		if ($newtask->active == 0)
+			continue;
 		array_push($tasks, $newtask);
 	}
 	

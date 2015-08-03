@@ -82,6 +82,8 @@ class task
 		//check if this bidding has ended
 		$this->isPastBidTime();
 		
+		$this->currentbid = $this->getCurrentBid();
+		
 		//close connection and return 0
 		return NULL;
 	}

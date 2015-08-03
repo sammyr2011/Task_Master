@@ -165,11 +165,11 @@ function printMessages($messages)
 
         /* Wrapper for page content to push down footer */
         #wrap {
-            min-height: 100% !important;
+            min-height: 100%;
             height: auto !important;
-            height: 100% !important;
+            height: 100%;
             /* Negative indent footer by it's height */
-            margin: -90px auto 90px !important;
+            margin: 0 auto -60px;
         }
 
         /* Set the fixed height of the footer here */
@@ -254,7 +254,7 @@ function getConvos()
 {
     $.get("Messaging.php", {UserID: "<?php echo $_GET['UserID']; ?>", getConvos: "1"}, function(data) 
 	{
-		if (data != "") //only scroll if there is a new message
+		if (data != $('#convo-area').html()) //only scroll if there is a new message
 		{
 			$('#convo-area').html(data);
 			$('#convo-area').scrollTop(0);

@@ -299,6 +299,7 @@ if (isset($_POST['submit']))
 							days=0;
 							hours=0;
 							clearInterval(timerID);
+							location.reload(true);
 							return;
 						}
 
