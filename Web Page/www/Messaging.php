@@ -92,7 +92,7 @@ function printMessages($messages)
 			echo '<li class="client">';
 	?>
 			<!-- links to UserProfile.php?id={userid} -->
-			<a hrefhref="UserProfile.php?id?<?php echo $msguser->userid ?>" title>
+			<a href="UserProfile.php?id=<?php echo $msguser->userid ?>" title>
 				<!-- Use php to change alt="" to show actual username -->
 				<div class="avatar_small">
 				<img class = "resize_fit_center" src="<?php echo $msguser->getAvatarURL(); ?>">
@@ -103,7 +103,7 @@ function printMessages($messages)
 				<div class="info-row">
 					<span class="user-name">
 						<!-- Should also link to UserProfile.php?id= -->
-						<a href="UserProfile.php?id?<?php echo $msguser->userid ?>"">
+						<a href="UserProfile.php?id=<?php echo $msguser->userid ?>">
 							<!-- Username or first name of user -->
 							<strong><?php echo $msguser->username; ?></strong>
 						</a>

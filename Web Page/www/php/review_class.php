@@ -91,25 +91,45 @@ class review
 	}
 	
 	//Adds this review to the database
+	//Or update it if you already did
 	public function register()
 	{
-		$error = array();
 		$dbhandle = db_connect();
-		
-		$slashcomment = addslashes($this->comment);
+		$stmt = $dbhandle->stmt_init();
 		
 		if ($this->listerOrDoer == false)
-			$query = "INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '{$slashcomment}', {$this->timestamp})";
+		{
+			$existingrating = $this->checkExistingRating();
+			if ($existingrating == 0) //check if replacing or adding new review
+			{
+				$stmt->prepare("INSERT INTO Ratings (TaskID, ListerID, Rating, Comment, TimeStamp) VALUES (?, ?, ?, ?, ?)");
+				$stmt->bind_param("iiisi", $this->taskid, $this->reviewee_uid, $this->rating, $this->comment, time());
+			}
+			else
+			{
+				$stmt->prepare("UPDATE Ratings SET Rating=?, Comment=?, TimeStamp=? WHERE RatingID=?");
+				$stmt->bind_param("isii", $this->rating, $this->comment, time(), $existingrating);
+			}
+		}
 		else
-			$query = "INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES ({$this->taskid}, {$this->reviewee_uid}, {$this->rating}, '{$slashcomment}', {$this->timestamp})";
+		{
+			$existingdorating = $this->checkExistingDoRating();
+			if ($existingdorating == 0) //check if replacing or adding new review
+			{
+				$stmt->prepare("INSERT INTO DoRatings (TaskID, ResponderID, Rating, Comment, TimeStamp) VALUES (?, ?, ?, ?, ?)");
+				$stmt->bind_param("iiisi", $this->taskid, $this->reviewee_uid, $this->rating, $this->comment, time());
+			}
+			else
+			{
+				$stmt->prepare("UPDATE DoRatings SET Rating=?, Comment=?, TimeStamp=? WHERE RatingID=?");
+				$stmt->bind_param("isii", $this->rating, $this->comment, time(), $existingdorating);
+			}
+		}
 		
-		$result = $dbhandle->query($query);
-		if (!$result)
-			$error['query'] = true;
+		$stmt->execute();
+		$stmt->close();
 		
 		$dbhandle->close();
-		
-		return $error;
 	}
 	
 	//Sets values from input
@@ -142,7 +162,7 @@ class review
 		//1 if a Doer rating, 0 if a Lister rating
 		//determine if Lister or Doer
 		$task->getFromDB($this->taskid);
-		$bidwinner = $task->getWinnerID();
+		$bidwinner = $task->getBidLeaderID();
 		
 		//Must be logged in
 		if (!isset($_SESSION['userid']))
@@ -170,6 +190,48 @@ class review
 		$this->timestamp = time();
 			
 		return $error;
+	}
+	
+	//returns existing rating of this task
+	//if 0, doesn't exist
+	public function checkExistingRating()
+	{
+		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
+		
+		$stmt->prepare("SELECT RatingID FROM Ratings WHERE ListerID = ? AND TaskID = ? LIMIT 1");
+		$stmt->bind_param("ii", $this->reviewee_uid, $this->taskid);
+		$stmt->execute();
+		
+		$stmt->store_result();
+		$stmt->bind_result($outRatingID);
+		$stmt->fetch();
+		
+		$stmt->close();
+		$dbhandle->close();
+		
+		return $outRatingID;
+	}
+	
+	//returns existing rating of this task
+	//if 0, doesn't exist
+	public function checkExistingDoRating()
+	{
+		$dbhandle = db_connect();
+		$stmt = $dbhandle->stmt_init();
+		
+		$stmt->prepare("SELECT RatingID FROM DoRatings WHERE ResponderID = ? AND TaskID = ? LIMIT 1");
+		$stmt->bind_param("ii", $this->reviewee_uid, $this->taskid);
+		$stmt->execute();
+		
+		$stmt->store_result();
+		$stmt->bind_result($outRatingID);
+		$stmt->fetch();
+		
+		$stmt->close();
+		$dbhandle->close();
+		
+		return $outRatingID;
 	}
 	
 }

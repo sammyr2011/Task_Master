@@ -254,11 +254,10 @@ if (isset($_POST['submit']))
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Location: <?php echo $task->location; ?></p>
                 <br>
 				
-				<p><span id="endtime">Bid End Time: </span><?php echo $dateStr; ?> </p>
-
 				<?php if ($task->active == 1)
 				{
 				?>
+				<p><span id="endtime">Bid End Time: </span><?php echo $dateStr; ?> </p>
 				<p>Time Left: <span id="countdown" style="color:red"></span></p>
 				<script>
 				function countDownFunc(enddate, divid)
@@ -315,9 +314,7 @@ if (isset($_POST['submit']))
 				var timer = new countDownFunc(<?php echo $task->enddatetime; ?>, "countdown");
                 </script>
 				
-				<?php
-				}
-				?>
+				
 				
 				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00
 				<?php 
@@ -339,8 +336,29 @@ if (isset($_POST['submit']))
 						</div>
 					</div>
 				</form>
-
-
+				
+				<?php
+				}
+				else
+				{ 
+					echo '<p><span id="endtime">Bid Ended: </span>'.$dateStr.'</p>';
+					echo '<p><span id="bidtime">Final bid: </span>$<b>'.$task->getCurrentBid().'.00';
+					if (isset($_SESSION['userid']) && $task->getBidLeaderID() == $_SESSION['userid'])
+					{
+						echo ' (You)';
+					} 
+					
+					if (isset($_SESSION['userid']) && ($_SESSION['userid'] == $task->userid || $_SESSION['userid'] == $task->winnerid) && $task->winnerid != NULL)
+					{
+					?>
+					
+					<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+							<a href="/TaskFeedback.php?id=<?php echo $task->taskid; ?>"><button type="button" class="btn btn-primary btn-lg raised" onclick="#">Leave Feedback</button></a>
+					</div>
+					<?php
+					}
+				}
+				?>
 
             </div>
             

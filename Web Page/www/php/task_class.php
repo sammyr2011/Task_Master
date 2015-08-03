@@ -83,6 +83,7 @@ class task
 		$this->isPastBidTime();
 		
 		$this->currentbid = $this->getCurrentBid();
+		$this->winnerid = $this->getBidLeaderID();
 		
 		//close connection and return 0
 		return NULL;

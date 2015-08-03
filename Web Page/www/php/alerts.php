@@ -67,6 +67,26 @@ if (isset($_SESSION['msg_reviewed']))
 	<?php
 }
 
+if (isset($_SESSION['msg_taskover_won']))
+{ 
+	unset($_SESSION['msg_taskover_won']); ?>
+	<div class="alert alert-success">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bidding has ended!</strong> You won this bid! Message the owner to begin the task.
+	</div> 
+	<?php
+}
+
+if (isset($_SESSION['msg_taskover']))
+{ 
+	unset($_SESSION['msg_taskover']); ?>
+	<div class="alert alert-info">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bidding is over!</strong> This listing has ended.
+	</div> 
+	<?php
+}
+
 //warnings
 
 if (isset($_SESSION['msg_needlogin']))
