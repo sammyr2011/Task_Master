@@ -362,14 +362,16 @@ if (isset($_POST['submit']))
 
             </div>
             
-            <div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
-                <h3><?php echo $user->username; ?></h3>
-                <img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
-				
-				<?php $rating = $user->getListerRating(); ?>
-                <div id="ratyRating"></div>
-				<?php echo $rating['weight']." ratings"; ?>
-            </div>
+			<a href="/UserProfile.php?id="<?php echo $user->userid; ?>">
+				<div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
+					<h3><?php echo $user->username; ?></h3>
+					<img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
+					
+					<?php $rating = $user->getListerRating(); ?>
+					<div id="ratyRating"></div>
+					<?php echo $rating['weight']." ratings"; ?>
+				</div>
+			</a>
         </div>
 
         <!-- Rating System Scripts -->

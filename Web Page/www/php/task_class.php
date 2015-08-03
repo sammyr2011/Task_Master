@@ -392,23 +392,38 @@ class task
 		
 		$this->unsetActive();
 		$this->winnerid = $this->getBidLeaderID();
-		
-		$notifymessage = new message();
-		$messageinfo = array();
-		$messageinfo['taskID'] = $this->taskid;
-		
-		if ($this->winnerid == null)
+
+		if ($this->winnerid == null) //bid ended but nobody bid
 		{
+			$notifymessage = new message();
+			$messageinfo = array();
+			$messageinfo['taskID'] = $this->taskid;
 			$messageinfo['content'] = "Sorry! Bidding has ended for your task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>, but nobody bid on it!";
 			$messageinfo['receiverID'] = $this->userid;
+			$messageinfo['isSystem'] = true;
+			$notifymessage->send($messageinfo);
 		}
-		else
+		else //notify winner and lister
 		{
+			//notify winner
+			$notifymessage = new message();
+			$messageinfo = array();
+			$messageinfo['taskID'] = $this->taskid;
 			$messageinfo['content'] = "Congratulations! You have won the bidding for the task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
 			$messageinfo['receiverID'] = $this->winnerid;
+			$messageinfo['isSystem'] = true;
+			$notifymessage->send($messageinfo);
+			
+			//notify winner
+			$notifymessage = new message();
+			$messageinfo = array();
+			$messageinfo['taskID'] = $this->taskid;
+			$messageinfo['content'] = "Heads up! Bidding has ended for your task <a href='/ViewTask.php?id=".$this->taskid."'>".$this->title."</a>!";
+			$messageinfo['receiverID'] = $this->userid;
+			$messageinfo['isSystem'] = true;
+			$notifymessage->send($messageinfo);
 		}
-		$messageinfo['isSystem'] = true;
-		$notifymessage->send($messageinfo);
+		
 	}
 	
 	//Notifies current bid leader that they have been outbid.
