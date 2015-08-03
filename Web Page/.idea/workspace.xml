@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4507b41-6d25-4c40-99cb-fc0c09ef5494" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/NavMod.php" afterPath="$PROJECT_DIR$/www/NavMod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Web Page.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,8 +33,8 @@
       <file leaf-file-name="message_lister.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/php/message_lister.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.346153">
-              <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
+            <state vertical-scroll-proportion="-8.269231">
+              <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
               <folding>
                 <marker date="1438559516437" expanded="true" signature="564:792" placeholder="SELECT Disti..SenderID..." />
                 <marker date="1438559516437" expanded="true" signature="600:666" placeholder="SELECT Sende..." />
@@ -127,8 +126,8 @@
       <file leaf-file-name="NavMod.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/NavMod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45778835">
-              <caret line="38" column="139" selection-start-line="38" selection-start-column="139" selection-end-line="38" selection-end-column="139" />
+            <state vertical-scroll-proportion="0.34363854">
+              <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -452,6 +451,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="261" column="38" selection-start-line="261" selection-start-column="38" selection-end-line="261" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -537,6 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -604,6 +605,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="52" selection-start-line="0" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,6 +741,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7906977">
           <caret line="36" column="33" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,8 +829,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/php/message_lister.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.346153">
-          <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
+        <state vertical-scroll-proportion="-8.269231">
+          <caret line="92" column="12" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="12" />
           <folding>
             <marker date="1438559516437" expanded="true" signature="564:792" placeholder="SELECT Disti..SenderID..." />
             <marker date="1438559516437" expanded="true" signature="600:666" placeholder="SELECT Sende..." />
@@ -840,8 +843,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/NavMod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45778835">
-          <caret line="38" column="139" selection-start-line="38" selection-start-column="139" selection-end-line="38" selection-end-column="139" />
+        <state vertical-scroll-proportion="0.34363854">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
           <folding />
         </state>
       </provider>

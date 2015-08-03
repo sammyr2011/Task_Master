@@ -15,7 +15,7 @@ require_once 'php/message_lister.php';
 
 
 $convoUsers = array();
-$convoUsers = getUnreadMessages();
+$convoUsers = getUnreadMessages($_SESSION['userid']);
 
 ?>
 
