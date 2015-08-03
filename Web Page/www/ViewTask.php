@@ -317,7 +317,7 @@ if (isset($_POST['submit']))
 				
 				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00
 				<?php 
-				if ($task->getBidLeaderID() == $_SESSION['userid'])
+				if (isset($_SESSION['userid']) && $task->getBidLeaderID() == $_SESSION['userid'])
 				{
 					echo ' (You)';
 				} 
