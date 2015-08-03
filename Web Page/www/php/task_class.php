@@ -384,6 +384,8 @@ class task
 	//Call this BEFORE adding the new bid!!
 	public function notifyOutbid()
 	{
+		require_once 'message_class.php';
+		
 		$notifymessage = new message();
 		$messageinfo = array();
 		$messageinfo['content'] = "Alert! You have been outbid on the task <a href='/ViewTask?id=".$this->taskid."'>".$this->title."</a>!";
