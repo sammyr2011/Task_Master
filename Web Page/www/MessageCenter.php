@@ -100,21 +100,25 @@ $convoUsers = getConversationList();
             background-color: lightyellow;
         }
 		
-		.aimg {
-			max-height: 100%;
-			max-width: 100%;  
+		.avatar_big {
+			width: 75px;
+			height: 75px;
+			line-height: 75px;
+			text-align: center;
+			float: left;
+			margin-right: 15px;
 		}
 		
-		.avatarBig{
-			height:75px;
-			width:75px;
-			margin: auto;
+		.avatar_small {
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
 		}
-		
-		.avatarLittle{
-			height:35px;
-			width:35px;
-			margin: auto;
+		.resize_fit_center {
+			max-width:100%;
+			max-height:100%;
+			vertical-align: middle;
 		}
 
     </style>

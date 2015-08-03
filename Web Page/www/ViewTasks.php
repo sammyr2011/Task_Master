@@ -87,6 +87,21 @@ else
 
         .date-form { margin: 10px; }
         label.control-label span { cursor: pointer; }
+		
+		.imgcontainer {
+			margin-right: 40px;
+			width: 200px;
+			height: 150px;
+			line-height: 150px;
+			text-align: center;
+			float: left;
+		}
+		.resize_fit_center {
+			max-width:100%;
+			max-height:100%;
+			vertical-align: middle;
+		}
+		
 
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -115,6 +130,60 @@ else
 
 </head>
 
+<script>
+function countDownFunc(enddate, divid)
+{
+	// set the date we're counting down to
+	var target_date = new Date(enddate*1000).getTime();
+
+	// variables for time units
+	var days, hours, minutes, seconds;
+
+	// get tag element
+	var countdown = document.getElementById(divid);
+
+	//countdown function
+	function countfn() {
+
+		// find the amount of "seconds" between now and target
+		var current_date = new Date().getTime();
+		var seconds_left = (target_date - current_date) / 1000;
+
+		// do some time calculations
+		days = parseInt(seconds_left / 86400);
+		seconds_left = seconds_left % 86400;
+
+		hours = parseInt(seconds_left / 3600);
+		seconds_left = seconds_left % 3600;
+
+		minutes = parseInt(seconds_left / 60);
+		seconds = parseInt(seconds_left % 60);
+
+		// format countdown string + set tag value
+		countdown.innerHTML = days + " days, " + hours + "h, "
+			+ minutes + "m, " + seconds + "s";
+
+		//should terminate when countdown is done
+		//refresh the page to show new feedback controls
+		if(seconds<=0 && minutes<=0 && days<=0 && hours<=0)
+		{
+			seconds=0;
+			minutes=0;
+			days=0;
+			hours=0;
+			clearInterval(timerID);
+			return;
+		}
+
+	}
+	
+	countfn();
+	// update the tag with id "countdown" every 1 second
+	var timerID = setInterval(countfn, 1000);
+}
+
+</script>
+
 <body>
 
 
@@ -126,7 +195,7 @@ else
     
     <!-- Begin page content -->
     <div class="container-fluid">
-        <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="col-md-2 col-sm-2 col-xs-2">
             <div class="well bs-sidebar" id="sidebar" style="height:80%;width:150px;">
                 <ul class="nav nav-pills nav-stacked">
 					<li><p style="text-align:center"><b>Categories:</b></p></li>
@@ -145,20 +214,24 @@ else
 		<div class="col-md-8 col-sm-8 col-xs-8">
 		<?php
 
-		foreach ($tasks as $task)
+		foreach ($tasks as $key=>$task)
 		{
 		
 		?>
         
             <a href="ViewTask.php?id=<?php echo $task->taskid; ?>">
 			<div class="row" style="border-bottom:solid lightgrey 2px;border-radius: 3px 3px 3px 3px;padding: 14px 26px 26px;">
-                <div class="col-md-4 col-sm-4 col-xs-4">
-                    <img src="images/oil.jpg" height="100px">
-                </div>
                 <div class="col-md-8 col-xs-8 col-sm-8">
-                    <p><b><?php echo $task->title; ?></b></p>
+					<div class="imgcontainer">
+						<img class="resize_fit_center" src="<?php echo $task->getThumbURL(); ?>">
+					</div>
+                    <h3><b><?php echo $task->title; ?></b></h3>
                     <p><?php echo $task->description; ?></p>
                     <p>Current bid: US $<?php echo $task->getCurrentBid();?>.00</p>
+					<p>Time Left: <span id="countdown<?php echo $key;?>" style="color:red"></span></p>
+					<script>
+						var count<?php echo $key;?> = new countDownFunc(<?php echo $task->enddatetime;?>, 'countdown<?php echo $key;?>');
+					</script>
                 </div>
 			</div>
             </a>

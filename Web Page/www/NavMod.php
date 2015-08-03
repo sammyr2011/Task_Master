@@ -23,6 +23,20 @@ if (isset($_GET['getMessages']) && isset($_SESSION['username']))
 .dropdown-menu {
   min-width:320px;
 }
+
+.avatar_tiny {
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	float: left;
+	margin-right: 5px;
+}
+.resize_fit_center {
+	max-width:100%;
+	max-height:100%;
+	vertical-align: center;
+}
 </style>
 
 <script>
@@ -91,7 +105,14 @@ function getMessageCount()
 					}
 					else
 					{ ?>
-					<li><a href="AccountSettings.php"><img src="<?php echo $_SESSION['avatarurl']; ?>" height="18px"> <?php echo $_SESSION['username']; ?></a></li>
+					<li>
+							<a href="AccountSettings.php">
+								<div class="avatar_tiny">
+									<img src="<?php echo $_SESSION['avatarurl']; ?>" class="resize_fit_center"> 
+								</div>
+								<?php echo $_SESSION['username']; ?>
+							</a>
+					</li>
 					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn"> Log Out</button></li>
 					<?php
 					}

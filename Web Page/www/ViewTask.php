@@ -37,7 +37,7 @@ if (isset($_POST['submit']))
 	if (isset($_SESSION['userid']))
 		$biderror = $task->addBid($_SESSION['userid'], $_POST['Bid']);
 	else
-		$biderror['login'] = "Log in to bid";
+		$_SESSION['msg_needlogin'] = "Log in to bid";
 	
 	if (count($biderror) == 0)
 	{
@@ -55,10 +55,18 @@ if (isset($_POST['submit']))
 	{
 		$_SESSION['msg_bidnegative'] = "Bid Cannot Be Negative";
 	}
+	if (isset($biderror['bidself']))
+	{
+		$_SESSION['msg_bidself'] = "Can't bid on own task";
+	}
 	if (isset($biderror['login']))
 	{
 		$_SESSION['msg_needlogin'] = "Log in to bid";
 	}
+	
+	//redirect to prevent form resubmission on refresh
+	header("Location: /ViewTask.php?id=".$intaskid);
+	die;
 }
 
 ?>
@@ -201,6 +209,39 @@ if (isset($_POST['submit']))
                 </div>
             </div>
 			
+			<?php } 
+			else
+			{?>
+			<!-- Task images -->
+            <div class="col-md-3 col-sm-3 col-xs-3">
+				
+                <div id="myCarousel TasksImages" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="images/img_placeholder.jpg" alt="Image 1" style="width:auto;height:200px auto;margin: 0 auto">
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
+            </div>
 			<?php } ?>
             
             <!-- Task title and description and bid -->
@@ -212,56 +253,67 @@ if (isset($_POST['submit']))
 				
 				<p><span id="endtime">Bid End Time: </span><?php echo $dateStr; ?> </p>
 
-				
+				<?php if ($task->active == 1)
+				{
+				?>
 				<p>Time Left: <span id="countdown" style="color:red"></span></p>
 				<script>
-                    // set the date we're counting down to
-                    var target_date = new Date(<?php echo $task->enddatetime; ?>*1000).getTime();
+				function countDownFunc(enddate, divid)
+				{
+					// set the date we're counting down to
+					var target_date = new Date(enddate*1000).getTime();
 
-                    // variables for time units
-                    var days, hours, minutes, seconds;
+					// variables for time units
+					var days, hours, minutes, seconds;
 
-                    // get tag element
-                    var countdown = document.getElementById("countdown");
+					// get tag element
+					var countdown = document.getElementById(divid);
 
-                    // update the tag with id "countdown" every 1 second
-                    var timerID = setInterval(function () {
+					//countdown function
+					function countfn() {
 
-                        // find the amount of "seconds" between now and target
-                        var current_date = new Date().getTime();
-                        var seconds_left = (target_date - current_date) / 1000;
+						// find the amount of "seconds" between now and target
+						var current_date = new Date().getTime();
+						var seconds_left = (target_date - current_date) / 1000;
 
-                        // do some time calculations
-                        days = parseInt(seconds_left / 86400);
-                        seconds_left = seconds_left % 86400;
+						// do some time calculations
+						days = parseInt(seconds_left / 86400);
+						seconds_left = seconds_left % 86400;
 
-                        hours = parseInt(seconds_left / 3600);
-                        seconds_left = seconds_left % 3600;
+						hours = parseInt(seconds_left / 3600);
+						seconds_left = seconds_left % 3600;
 
-                        minutes = parseInt(seconds_left / 60);
-                        seconds = parseInt(seconds_left % 60);
+						minutes = parseInt(seconds_left / 60);
+						seconds = parseInt(seconds_left % 60);
 
-                        // format countdown string + set tag value
-                        countdown.innerHTML = days + " days, " + hours + "h, "
-                            + minutes + "m, " + seconds + "s";
+						// format countdown string + set tag value
+						countdown.innerHTML = days + " days, " + hours + "h, "
+							+ minutes + "m, " + seconds + "s";
 
-                        //should terminate when countdown is done
+						//should terminate when countdown is done
 						//refresh the page to show new feedback controls
-                        if(seconds<=0 && minutes<=0 && days<=0 && hours<=0)
-                        {
-                            seconds=0;
-                            minutes=0;
-                            days=0;
-                            hours=0;
-                            document.getElementById("bidtime").innerHTML="Final Bid: ";
-                            clearInterval(timerID);
-							location.reload(true);
-                            return;
-                        }
+						if(seconds<=0 && minutes<=0 && days<=0 && hours<=0)
+						{
+							seconds=0;
+							minutes=0;
+							days=0;
+							hours=0;
+							clearInterval(timerID);
+							return;
+						}
 
-                    }, 1000);
-
+					}
+					
+					countfn();
+					// update the tag with id "countdown" every 1 second
+					var timerID = setInterval(countfn, 1000);
+				}
+				var timer = new countDownFunc(<?php echo $task->enddatetime; ?>, "countdown");
                 </script>
+				
+				<?php
+				}
+				?>
 				
 				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00
 				<?php 

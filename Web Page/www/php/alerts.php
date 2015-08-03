@@ -99,6 +99,16 @@ if (isset($_SESSION['msg_bidless']))
 	<?php
 }
 
+if (isset($_SESSION['msg_bidself']))
+{ 
+	unset($_SESSION['msg_bidself']); ?>
+	<div class="alert alert-danger">  
+		<a class="close" data-dismiss="alert">X</a>  
+		<strong>Bid Rejected!</strong> You cannot bid on your own task!
+	</div> 
+	<?php
+}
+
 if (isset($_SESSION['msg_bidnegative']))
 { 
 	unset($_SESSION['msg_bidnegative']); ?>

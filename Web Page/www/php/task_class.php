@@ -237,7 +237,7 @@ class task
 		//can't bid on your own task
 		if ($bidderid == $this->userid)
 		{
-			$error['bidown'] = true;
+			$error['bidself'] = true;
 			return $error;
 		}
 		
@@ -423,6 +423,14 @@ class task
 		$notifymessage->send($messageinfo);
 		
 		return 1;
+	}
+	
+	public function getThumbURL()
+	{
+		if ($this->numimg == 0)
+			return "/images/img_placeholder.jpg";
+		else
+			return "/taskcontent/".$this->taskid."/0.jpg";
 	}
 }
 

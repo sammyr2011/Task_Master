@@ -36,11 +36,9 @@ if (isset($_GET['getConvos']))
 	?>
 	<tr onclick="window.document.location='Messaging.php?UserID=<?php echo $user->userid; ?>';">
 		<td>
-			<div class="avatarBig">
-			<img class="aimg" src="<?php echo $user->getAvatarURL(); ?>">
+			<div class="avatar_big">
+			<img class="resize_fit_center" src="<?php echo $user->getAvatarURL(); ?>">
 			</div>
-		</td>
-		<td>
 			<span class="userNames"><?php echo $user->username; ?></span>
 			<br>
 				<span class="status">
@@ -96,8 +94,8 @@ function printMessages($messages)
 			<!-- links to UserProfile.php?id={userid} -->
 			<a href="#" title>
 				<!-- Use php to change alt="" to show actual username -->
-				<div class="avatarLittle">
-				<img class = "aimg" src="<?php echo $msguser->getAvatarURL(); ?>">
+				<div class="avatar_small">
+				<img class = "resize_fit_center" src="<?php echo $msguser->getAvatarURL(); ?>">
 				</div>
 			</a>
 			<div class="message-area">
@@ -200,21 +198,25 @@ function printMessages($messages)
             background-color: lightyellow;
         }
 		
-		.aimg {
-			max-height: 100%;
-			max-width: 100%;  
+		.avatar_big {
+			width: 75px;
+			height: 75px;
+			line-height: 75px;
+			text-align: center;
+			float: left;
+			margin-right: 15px;
 		}
 		
-		.avatarBig{
-			height:75px;
-			width:75px;
-			margin: auto;
+		.avatar_small {
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
 		}
-		
-		.avatarLittle{
-			height:35px;
-			width:35px;
-			margin: auto;
+		.resize_fit_center {
+			max-width:100%;
+			max-height:100%;
+			vertical-align: middle;
 		}
 
     </style>
