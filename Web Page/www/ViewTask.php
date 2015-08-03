@@ -250,6 +250,9 @@ if (isset($_POST['submit']))
 
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
                 <br>
+                
+                <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Location: <?php echo $task->location; ?></p>
+                <br>
 				
 				<?php if ($task->active == 1)
 				{
