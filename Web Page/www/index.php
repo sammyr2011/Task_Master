@@ -61,8 +61,8 @@
 		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
         .carousel .item {
-            width: 100%; /*slider width*/
-            /*max-height: 600px;*/ /*slider height*/
+            width: auto; /*slider width*/
+            max-height: 600px; /*slider height*/
         }
         .carousel .item img {
             width: 100%; /*img width*/
