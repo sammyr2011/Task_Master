@@ -81,7 +81,7 @@ function getMessageCount()
 					{ ?>
                     <li><a href="UserRegistration.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li>
-                        <div class="dropdown">
+                        <div class="dropdown" style="margin-right: 10px">
 							<button type="button" class="btn btn-default navbar-btn" data-toggle="dropdown">Login</button>
 							
 							<div class="dropdown-menu" style="padding: 10px; background: #ddd">
