@@ -130,17 +130,17 @@
 
         <div class="container marketing">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                     <img class="img-circle" src="images/headshot_grandma.jpg" width="140" height="140">
                     <h2>Heading</h2>
                     <blockquote>thoughts on site</blockquote>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                     <img class="img-circle" src="images/headshot_attractive_female.jpg" width="140" height="140">
                     <h2>Heading</h2>
                     <blockquote>thoughts on site</blockquote>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
                     <img class="img-circle" src="images/headshot_old_chinese_man.jpg" width="140" height="140">
                     <h2>Heading</h2>
                     <blockquote>thoughts on site</blockquote>
