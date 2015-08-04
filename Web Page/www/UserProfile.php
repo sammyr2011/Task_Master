@@ -169,41 +169,38 @@ $user->getFromDB($_GET['id']);
             </div>
             <!-- Message me button -->
             <div class="col-md-4 col-sm-4 col-xs-4" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
+                <?php
+                //check if this is the current users page
+                if($_SESSION['userid'] == $_GET['id'])
+                {
+                    ?>
+
+                    <!-- User Info -->
+                    <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <legend>Actions</legend>
+
+                                <a href="UpdatePassword.php" >Update Password</a>
+                                <br>
+                                <a href="UpdateAddress.php" >Update Address</a>
+                                <br>
+                                <a href="UpdateEmail.php">Update Email</a>
+                                <br>
+                                <a href="AvatarUpload.php" >Change Avatar</a>
+
+                        </div>
+                    </div>
+
+                    <?php
+                }
+                ?>
+
                 <button onclick="location.href='/Messaging.php?UserID=<?php echo $user->userid; ?>'" type="submit" name="messageuser" class="btn btn-primary btn-lg raised" style="vertical-align: middle">Message Me</button>
             </div>
         </div>
 
-        <?php
-             //check if this is the current users page
-            if($_SESSION['userid'] == $_GET['id'])
-            {
-                ?>
 
-                <!-- User Info -->
-                 <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
-                     <div class="col-md-4 col-sm-4 col-xs-4">
-                        <h2>General Info</h2>
-                     </div>
-
-                    <div class="col-md-8 col-sm-8 col-xs-8">
-                         <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="UpdatePassword.php" >Update Password</a>
-                             <br>
-                             <a href="UpdateAddress.php" >Update Address</a>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                             <a href="UpdateEmail.php">Update Email</a>
-                             <br>
-                             <a href="AvatarUpload.php" >Change Avatar</a>
-                        </div>
-
-                    </div>
-                 </div>
-
-        <?php
-            }
-        ?>
 
         <!-- User Ratings as Lister -->
         <div class="row" style="border-top: thin lightgray">
