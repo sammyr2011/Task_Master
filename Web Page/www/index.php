@@ -62,7 +62,7 @@
 
         .carousel .item {
             width: 100%; /*slider width*/
-            max-height: 600px; /*slider height*/
+            /*max-height: 600px;*/ /*slider height*/
         }
         .carousel .item img {
             width: 100%; /*img width*/
@@ -107,7 +107,7 @@
     <?php include "NavMod.php"; ?>
 
     <!-- Begin page content -->
-    <div class="container-fluix">
+    <div>
 
 	<?php include "php/alerts.php"; ?>
         <section class="block">
@@ -123,8 +123,14 @@
                         <img src="images/car%20cleaning.jpg" alt="Slide3" />
                     </div>
                 </div>
-                <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
-                <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
 
             </div>
         </section>
