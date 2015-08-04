@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-                            <a href="AccountSettings.php"><button type="button" class="btn btn-primary btn-lg raised">Cancel</button></a>
+                            <a href="UserProfile.php?id=<?php echo $_SESSION['userid']; ?>"><button type="button" class="btn btn-primary btn-lg raised">Cancel</button></a>
                         </div>
 
                         </div>
