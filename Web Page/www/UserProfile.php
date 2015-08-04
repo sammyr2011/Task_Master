@@ -176,18 +176,18 @@ $user->getFromDB($_GET['id']);
                     ?>
 
                     <!-- User Info -->
-                    <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
+                    <div class="row" style="padding:14px 18px">
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <legend>Actions</legend>
+                            <legend class="text-center">Actions</legend>
 
-                                <a href="UpdatePassword.php" >Update Password</a>
+                                <a href="UpdatePassword.php" class="text-center">Update Password</a>
                                 <br>
-                                <a href="UpdateAddress.php" >Update Address</a>
+                                <a href="UpdateAddress.php" class="text-center">Update Address</a>
                                 <br>
-                                <a href="UpdateEmail.php">Update Email</a>
+                                <a href="UpdateEmail.php" class="text-center">Update Email</a>
                                 <br>
-                                <a href="AvatarUpload.php" >Change Avatar</a>
+                                <a href="AvatarUpload.php" class="text-center">Change Avatar</a>
 
                         </div>
                     </div>
