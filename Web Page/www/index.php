@@ -128,10 +128,35 @@
             </div>
         </section>
 
+        <div class="container marketing">
+            <div class="row">
+                <div class="lg-col-4 md-col-4 sm-col-4 xs-col-4">
+                    <img class="circle" src="images/headshot_grandma.jpg" width="140" height="140">
+                    <h2>Heading</h2>
+                    <blockquote>thoughts on site</blockquote>
+                </div>
+                <div class="lg-col-4 md-col-4 sm-col-4 xs-col-4">
+                    <img class="circle" src="images/headshot_attractive_female.jpg" width="140" height="140">
+                    <h2>Heading</h2>
+                    <blockquote>thoughts on site</blockquote>
+                </div>
+                <div class="lg-col-4 md-col-4 sm-col-4 xs-col-4">
+                    <img class="circle" src="images/headshot_old_chinese_man.jpg" width="140" height="140">
+                    <h2>Heading</h2>
+                    <blockquote>thoughts on site</blockquote>
+                </div>
+            </div>
+        </div>
+
 
 
         <div id="push"></div>
-		<div class="row">
+
+
+		<!--
+            not very attrativ looking
+
+        <div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-6 text-right">
 				<a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 500px">Create Task</button></a>
 			</div>
@@ -139,7 +164,7 @@
 				<a href="ViewTasks.php"><button type="button" class="btn btn-primary btn-lg raised">Find Task</button></a>
 			</div>
 		</div>
-	
+	    -->
     </div>
 	<div id="push"></div>
 </div>
