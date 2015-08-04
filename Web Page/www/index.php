@@ -60,6 +60,27 @@
 		
 		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
+        .carousel .item {
+            width: 100%; /*slider width*/
+            max-height: 600px; /*slider height*/
+        }
+        .carousel .item img {
+            width: 100%; /*img width*/
+        }
+        /*add some makeup*/
+        .carousel .carousel-control {
+            background: none;
+            border: none;
+            top: 50%;
+        }
+        /*full width container*/
+        @media (max-width: 767px) {
+            .block {
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+        }
+
     </style>
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
