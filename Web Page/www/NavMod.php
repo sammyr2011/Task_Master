@@ -123,7 +123,7 @@ function getMessageCount()
         </div>
 
         <!-- Search bar-->
-        <div class="container">
+        <div class="container" style="margin-bottom: 10px;">
             <div class="row">
                 <div id="custom-search-input">
 
