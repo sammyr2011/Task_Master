@@ -188,6 +188,7 @@ function getConvos()
                 </div>
             </div>
 
+			<!--
             <div class="span6">
                 <div class="box">
                     <div class="header">
@@ -198,7 +199,6 @@ function getConvos()
                         <table class="table table-condensed margin-reset">
                             <tbody>
 
-                            <!-- link stores user id of both users that will be messaging -->
                             <tr onclick="window.document.location='Messaging.php?id=';">
                                 <td>
                                     <img src="images/UserStock.png" style="height:75px;width:auto">
@@ -241,7 +241,7 @@ function getConvos()
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

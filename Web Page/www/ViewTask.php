@@ -11,12 +11,13 @@ $intaskid;
 
 if (isset($_GET['id'])) $intaskid = $_GET['id'];
 
+
 $error = array();
 
 $task = new task();
 $error = $task->getFromDB($intaskid);
 
-if ($error == NULL)
+if (count($error) == 0)
 {
 	require_once 'php/user_class.php';
 	$user = new user();
@@ -67,6 +68,30 @@ if (isset($_POST['submit']))
 	//redirect to prevent form resubmission on refresh
 	header("Location: /ViewTask.php?id=".$intaskid);
 	die;
+}
+
+//AJAX for getting the current bid
+if (isset($_GET['getCurrentBid']))
+{
+	echo 'Current bid: $<b>';
+	echo $task->getCurrentBid();
+	echo '.00';
+	if ($task->getBidLeaderID() == $_SESSION['userid'])
+		echo ' (You)';
+	echo '</b>';
+		
+	die;
+}
+
+//show alert if task is not active
+if (count($error) == 0 && $task->active == 0)
+{
+	if (isset($_SESSION['userid']) && $task->winnerid == $_SESSION['userid'])
+	{
+		$_SESSION['msg_taskover_won'] = "Task ended, you won!";
+	}
+	else
+		$_SESSION['msg_taskover'] = "Task ended";
 }
 
 ?>
@@ -151,6 +176,28 @@ if (isset($_POST['submit']))
     <![endif]-->
 
 </head>
+
+<script>
+$(function()
+{
+	if ('<?php echo $task->active; ?>' == '1')
+	{
+		getCurrentBid();
+
+		setInterval(getCurrentBid, 1000);
+	}
+});
+function getCurrentBid() 
+{
+    $.get("ViewTask.php", {id: "<?php echo $_GET['id']; ?>", getCurrentBid: "1"}, function(data) 
+	{
+		if ($('#bid-area').html() != data) //only update if there is a new bid
+		{
+			$('#bid-area').html(data);
+		}
+    });
+}
+</script>
 
 <body>
 
@@ -315,14 +362,14 @@ if (isset($_POST['submit']))
 				
 				
 				
-				<p><span id="bidtime">Current bid: </span>$<b><?php echo $task->getCurrentBid(); ?>.00
+				<p><span id="bid-area">Current bid: $<b><?php echo $task->getCurrentBid(); ?>.00
 				<?php 
 				if (isset($_SESSION['userid']) && $task->getBidLeaderID() == $_SESSION['userid'])
 				{
 					echo ' (You)';
 				} 
 				?>
-				</b></p>
+				</b></span></p>
 
                 <!-- style="background-color: #E2E2E2;" -->
 				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">
@@ -355,7 +402,26 @@ if (isset($_POST['submit']))
 							<a href="/TaskFeedback.php?id=<?php echo $task->taskid; ?>"><button type="button" class="btn btn-primary btn-lg raised" onclick="#">Leave Feedback</button></a>
 					</div>
 					<?php
+						
+						if ($_SESSION['userid'] == $task->userid)
+						{
+						?>
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+								<a href="/Messaging.php?UserID=<?php echo $task->getWinnerID(); ?>"><button type="button" class="btn btn-primary btn-lg raised" onclick="#">Message Bid Winner</button></a>
+						</div>
+						<?php
+						}
+						else if ($_SESSION['userid'] == $task->winnerid)
+						{
+						?>
+						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
+								<a href="/Messaging.php?UserID=<?php echo $task->userid; ?>"><button type="button" class="btn btn-primary btn-lg raised" onclick="#">Message Task Lister</button></a>
+						</div>
+						<?php
+						}
+					
 					}
+					
 				}
 				?>
 
