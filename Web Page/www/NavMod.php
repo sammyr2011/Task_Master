@@ -25,8 +25,8 @@ if (isset($_GET['getMessages']) && isset($_SESSION['username']))
 }
 
 .avatar_tiny {
-	width: 18px;
-	height: 18px;
+	width: auto;
+	height: 30px;
 	line-height: 18px;
 	text-align: center;
 	float: left;
