@@ -52,11 +52,12 @@
 		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
         .carousel .item {
-            width: 75%; /*slider width*/
-            max-height: 600px; /*slider height*/
+            width: 90%; /*slider width*/
+            max-height: 300px; /*slider height*/
         }
         .carousel .item img {
-            width: 75%; /*img width*/
+            width: 100%; /*img width*/
+
         }
         /*add some makeup*/
         .carousel .carousel-control {
@@ -104,7 +105,7 @@
 	<?php include "php/alerts.php"; ?>
         <section class="block">
             <div id="myCarousel" class="carousel slide">
-                <div class="carousel-inner">
+                <div class="carousel-inner text-center">
                     <div class="active item">
                         <img src="images/baking.jpg" alt="Slide1" />
                     </div>
