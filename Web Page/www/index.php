@@ -107,13 +107,13 @@
             <div id="myCarousel" class="carousel slide">
                 <div class="carousel-inner text-center">
                     <div class="active item">
-                        <img src="images/baking.jpg" alt="Slide1" />
+                        <img src="images/baking.jpg" alt="Slide1" style="margin: auto auto auto 80px"/>
                     </div>
                     <div class="item">
-                        <img src="images/lawn2.jpg" alt="Slide2" />
+                        <img src="images/lawn2.jpg" alt="Slide2" style="margin: auto auto auto 80px"/>
                     </div>
                     <div class="item">
-                        <img src="images/car%20cleaning.jpg" alt="Slide3" />
+                        <img src="images/car%20cleaning.jpg" alt="Slide3" style="margin: auto auto auto 80px"/>
                     </div>
                 </div>
                 <a class="carousel-control left" href="#myCarousel" data-slide="prev">
@@ -133,7 +133,7 @@
         <div id="push"></div>
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-6 text-right">
-				<a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised">Create Task</button></a>
+				<a href="CreateTask.php"><button type="button" class="btn btn-primary btn-lg raised" style="margin-bottom: 50px">Create Task</button></a>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 text-left">
 				<a href="ViewTasks.php"><button type="button" class="btn btn-primary btn-lg raised">Find Task</button></a>
