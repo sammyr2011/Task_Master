@@ -117,16 +117,15 @@
         <div class="container marketing">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                    <img class="img-circle" src="images/headshot_grandma.jpg" width="140" height="140">
-                    <h2>Heading</h2>
+                    <img class="img-circle" src="images/headshot_grandma.jpg" height="140">
                     <blockquote>"At my age this website is a lifesaver"</blockquote>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                    <img class="img-circle" src="images/headshot_attractive_female.jpg" width="140" height="140">
+                    <img class="img-circle" src="images/headshot_attractive_female.jpg" height="140">
                     <blockquote>"With less tasks to do thanks to this site I have more time to focus on my career."</blockquote>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
-                    <img class="img-circle" src="images/headshot_old_chinese_man.jpg" width="140" height="140">
+                    <img class="img-circle" src="images/headshot_old_chinese_man.jpg" height="140">
                     <blockquote>"Thanks to Task Master I can sit back and enjoy my retirement"</blockquote>
                 </div>
             </div>
