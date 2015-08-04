@@ -107,13 +107,13 @@
             <div id="myCarousel" class="carousel slide">
                 <div class="carousel-inner text-center">
                     <div class="active item">
-                        <img src="images/baking.jpg" alt="Slide1" style="margin: auto auto auto 80px"/>
+                        <img src="images/baking.jpg" alt="Slide1" style="margin: auto auto auto 190px"/>
                     </div>
                     <div class="item">
-                        <img src="images/lawn2.jpg" alt="Slide2" style="margin: auto auto auto 80px"/>
+                        <img src="images/lawn2.jpg" alt="Slide2" style="margin: auto auto auto 190px"/>
                     </div>
                     <div class="item">
-                        <img src="images/car%20cleaning.jpg" alt="Slide3" style="margin: auto auto auto 80px"/>
+                        <img src="images/car%20cleaning.jpg" alt="Slide3" style="margin: auto auto auto 190px"/>
                     </div>
                 </div>
                 <a class="carousel-control left" href="#myCarousel" data-slide="prev">
