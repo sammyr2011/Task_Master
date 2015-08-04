@@ -41,9 +41,6 @@ if (isset($_GET['getConvos']))
 			</div>
 			<span class="userNames"><?php echo $user->username; ?></span>
 			<br>
-				<span class="status">
-				   First few characters of message...
-				</span>
 		</td>
 	</tr>
 	<?php 

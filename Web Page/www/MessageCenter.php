@@ -199,7 +199,7 @@ function getConvos()
                             <tbody>
 
                             <!-- link stores user id of both users that will be messaging -->
-                            <tr onclick="window.document.location='Messaging.php?UserID1=&&UserID2=';">
+                            <tr onclick="window.document.location='Messaging.php?id=';">
                                 <td>
                                     <img src="images/UserStock.png" style="height:75px;width:auto">
                                 </td>
