@@ -194,9 +194,15 @@ $user->getFromDB($_GET['id']);
 
                     <?php
                 }
+
+                else {
+                ?>
+                    <button onclick="location.href='/Messaging.php?UserID=<?php echo $user->userid; ?>'" type="submit" name="messageuser" class="btn btn-primary btn-lg raised" style="vertical-align: middle">Message Me</button>
+                <?php
+                }
                 ?>
 
-                <button onclick="location.href='/Messaging.php?UserID=<?php echo $user->userid; ?>'" type="submit" name="messageuser" class="btn btn-primary btn-lg raised" style="vertical-align: middle">Message Me</button>
+
             </div>
         </div>
 
