@@ -89,8 +89,8 @@
     <div>
 
 	<?php include "php/alerts.php"; ?>
-        <section class="block" style="background-color:#222;">
-            <div id="myCarousel" class="carousel slide" style="margin-bottom: 50px">
+        <section class="block" style="background-color:#222;" style="margin-top:-10px;">
+            <div id="myCarousel" class="carousel slide" style="margin-bottom: 50px" style="margin-top:30px;">
                 <div class="carousel-inner text-center">
                     <div class="active item">
                         <img src="images/baking.jpg" alt="Slide1" style="margin: auto auto auto 230px"/>
