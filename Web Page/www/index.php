@@ -104,7 +104,7 @@
 
 	<?php include "php/alerts.php"; ?>
         <section class="block">
-            <div id="myCarousel" class="carousel slide">
+            <div id="myCarousel" class="carousel slide" style="margin-bottom: 50px">
                 <div class="carousel-inner text-center">
                     <div class="active item">
                         <img src="images/baking.jpg" alt="Slide1" style="margin: auto auto auto 230px"/>
