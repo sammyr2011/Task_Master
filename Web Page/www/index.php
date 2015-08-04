@@ -52,8 +52,8 @@
 		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
         .carousel .item {
-            width: 90%; /*slider width*/
-            max-height: 760px; /*slider height*/
+            width: 75%; /*slider width*/
+            /*max-height: 760px;*/ /*slider height*/
         }
         .carousel .item img {
             width: 100%; /*img width*/
