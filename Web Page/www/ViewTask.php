@@ -249,7 +249,6 @@ if (isset($_POST['submit']))
                 <h1 style="font-size:18px;font-weight: bold;line-height: normal;margin: 0px;padding:0px;"><?php echo $task->title; ?></h1>
 
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;"><?php echo $task->description; ?></p>
-                <br>
                 
                 <p style="font-size:small;color:#777 !important;margin:0px;padding0px;font-weight:normal;line-height:normal;">Location: <?php echo $task->location; ?></p>
                 <br>
@@ -365,8 +364,9 @@ if (isset($_POST['submit']))
 			<a href="/UserProfile.php?id=<?php echo $user->userid; ?>">
 				<div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
 					<h3><?php echo $user->username; ?></h3>
-					<img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
-					
+					<a href="UserProfile.php?id=<?php echo $user->userid ?>"
+                        <img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
+					</a>
 					<?php $rating = $user->getListerRating(); ?>
 					<div id="ratyRating"></div>
 					<?php echo $rating['weight']." ratings"; ?>
