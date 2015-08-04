@@ -364,7 +364,8 @@ if (isset($_POST['submit']))
 			<a href="/UserProfile.php?id=<?php echo $user->userid; ?>">
 				<div class="col-md-3 col-sm-3 col-xs-3 text-center" style="border:solid lightgrey 3px;">
 					<h3><?php echo $user->username; ?></h3>
-					< href="UserProfile.php?id=<?php echo $user->userid ?>">
+					<a href="UserProfile.php?id=<?php echo $user->userid ?>">
+
                         <img src="<?php echo $user->getAvatarURL(); ?>" height="100px">
 					</a>
 					<?php $rating = $user->getListerRating(); ?>
