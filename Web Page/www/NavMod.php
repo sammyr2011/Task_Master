@@ -106,7 +106,7 @@ function getMessageCount()
 					else
 					{ ?>
 					<li>
-							<a href="UserProfile.php?<?php echo $_SESSION['userid']; ?>">
+							<a href="UserProfile.php?id=<?php echo $_SESSION['userid']; ?>">
 								<div class="avatar_tiny">
 									<img src="<?php echo $_SESSION['avatarurl']; ?>" class="resize_fit_center"> 
 								</div>
