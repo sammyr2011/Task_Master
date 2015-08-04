@@ -48,20 +48,11 @@
             background-color: #222;
         }
 
-        /* Lastly, apply responsive CSS fixes as necessary */
-       /*@media (max-width: 767px) {
-            #footer {
-                margin-left: -20px;
-                margin-right: -20px;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-        }*/
 		
 		@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
 
         .carousel .item {
-            width: auto; /*slider width*/
+            width: 100%; /*slider width*/
             max-height: 600px; /*slider height*/
         }
         .carousel .item img {
@@ -73,12 +64,13 @@
             border: none;
             top: 50%;
         }
-        /*full width container*/
+        /*full width container
         @media (max-width: 767px) {
             .block {
                 margin-left: -20px;
                 margin-right: -20px;
             }
+        */
         }
 
     </style>
