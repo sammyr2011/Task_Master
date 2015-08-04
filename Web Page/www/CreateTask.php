@@ -318,15 +318,14 @@ if (isset($_POST['submit']))
                         an applicable task.</p>
                         <p>The <b>Task Description</b> is a short anecdote of the task that you would like one our Task Masters to complete.</p>
                         <p>The <b>Task Information</b> field is a detailed explanation of the task.</p>
+                        <p>The <b>Location</b> field specifies the area the task will take place</p>
                         <p>For the <b>Select Task Category</b> field choose the category that most closely relates to the task.</p>
                         <p>The <b>Initial Task Pay</b> field is used to set the amount you are willing to pay for someone
                         to do the task at hand.</p>
                         <p>The <b>Related Keywords</b> field asks that you input words that relate to the task. For example,
                         if the task were "Bake a cake", keywords that would apply would be "food, baking, bake, cake, sweets,..."</p>
-                        <p>The <b>End Bidding Date</b> field allows you to select the date to end the bidding.</p>
-                        <p>The <b>Task Completion Date</b> field allows you to select the date you would like to have the task completed by.</p>
+                        <p>The <b>End Bidding Dat and Time</b> field allows you to select the date and time to end the bidding.</p>
                         <p>The <b>Select Images</b> button allows you to input any revalent images if any.</p>
-
                     </div>
 
 
