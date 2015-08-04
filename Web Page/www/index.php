@@ -107,7 +107,7 @@
     <?php include "NavMod.php"; ?>
 
     <!-- Begin page content -->
-    <div class="container">
+    <div class="container-fluix">
 
 	<?php include "php/alerts.php"; ?>
         <section class="block">
