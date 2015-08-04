@@ -53,7 +53,7 @@
 
         .carousel .item {
             width: 90%; /*slider width*/
-            max-height: 300px; /*slider height*/
+            max-height: 760px; /*slider height*/
         }
         .carousel .item img {
             width: 100%; /*img width*/
