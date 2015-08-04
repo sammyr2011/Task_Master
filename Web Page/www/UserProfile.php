@@ -173,6 +173,38 @@ $user->getFromDB($_GET['id']);
             </div>
         </div>
 
+        <?php
+             //check if this is the current users page
+            if($_SESSION['userid'] == $_GET['id'])
+            {
+                ?>
+
+                <!-- User Info -->
+                 <div class="row" style="border:lightgrey solid 3px; padding:14px 18px">
+                     <div class="col-md-4 col-sm-4 col-xs-4">
+                        <h2>General Info</h2>
+                     </div>
+
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                         <div class="col-md-6 col-sm-6 col-xs-6">
+                            <a href="UpdatePassword.php" >Update Password</a>
+                             <br>
+                             <a href="UpdateAddress.php" >Update Address</a>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                             <a href="UpdateEmail.php">Update Email</a>
+                             <br>
+                             <a href="AvatarUpload.php" >Change Avatar</a>
+                        </div>
+
+                    </div>
+                 </div>
+
+        <?php
+            }
+        ?>
+
         <!-- User Ratings as Lister -->
         <div class="row" style="border-top: thin lightgray">
         	
@@ -185,7 +217,6 @@ $user->getFromDB($_GET['id']);
 	
             <!-- A div per task -->
 			<?php
-			
 			foreach ($reviews as $key=>$review)
 			{
 			?>
