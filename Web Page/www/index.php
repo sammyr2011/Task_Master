@@ -103,7 +103,7 @@
     <div>
 
 	<?php include "php/alerts.php"; ?>
-        <section class="block">
+        <section class="block" style="background-color:#222;">
             <div id="myCarousel" class="carousel slide" style="margin-bottom: 50px">
                 <div class="carousel-inner text-center">
                     <div class="active item">
