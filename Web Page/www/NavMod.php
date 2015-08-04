@@ -113,7 +113,7 @@ function getMessageCount()
 								<?php echo $_SESSION['username']; ?>
 							</a>
 					</li>
-					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn"> Log Out</button></li>
+					<li><button onclick="location='Logout.php'" class="btn btn-default navbar-btn" style="margin-right: 10px"> Log Out</button></li>
 					<?php
 					}
 					?>
