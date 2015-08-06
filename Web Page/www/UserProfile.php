@@ -171,7 +171,7 @@ $user->getFromDB($_GET['id']);
             <div class="col-md-4 col-sm-4 col-xs-4" style="height:150px;width:auto;float:none;display:inline-block;vertical-align:middle;">
                 <?php
                 //check if this is the current users page
-                if($_SESSION['userid'] == $_GET['id'])
+                if(isset($_SESSION['userid']) && $_SESSION['userid'] == $_GET['id'])
                 {
                     ?>
 
