@@ -76,7 +76,7 @@ if (isset($_GET['getCurrentBid']))
 	echo 'Current bid: $<b>';
 	echo $task->getCurrentBid();
 	echo '.00';
-	if ($task->getBidLeaderID() == $_SESSION['userid'])
+	if (isset($_SESSION['userid']) && $task->getBidLeaderID() == $_SESSION['userid'])
 		echo ' (You)';
 	echo '</b>';
 		
@@ -210,6 +210,8 @@ function getCurrentBid()
     
     <!-- Begin page content -->
     <div class="container">
+		<div class="alerts">
+		</div>
 	<?php include "php/alerts.php"; ?>
         <div class="row">
             
@@ -372,13 +374,13 @@ function getCurrentBid()
 				</b></span></p>
 
                 <!-- style="background-color: #E2E2E2;" -->
-				<form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">
+				<form id="sendie" class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] . '?'.http_build_query($_GET); ?>" method="post">
 					<div class="col-md-6 col-sm-6 col-xs-6" >
 						<label class="control-label" for="Bid">Set Bid: </label>
 						<div class="controls">
-							<input id="Bid" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
+							<input id="sendie" name="Bid" type="text" placeholder="Bid" class="input-xlarge form-control" style="margin-bottom: 30px">
 
-							<input type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Make Offer" style="margin-bottom: 30px">
+							<input id="sendie" type="submit" name="submit" class="btn btn-primary btn-lg raised" value="Make Offer" style="margin-bottom: 30px">
 						</div>
 					</div>
 				</form>
